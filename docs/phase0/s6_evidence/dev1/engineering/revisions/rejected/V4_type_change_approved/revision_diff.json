@@ -1,0 +1,276 @@
+{
+  "schema": "ai_bms.revision_diff.v1",
+  "project_id": "AHU-DEMO",
+  "from_revision": 3,
+  "to_revision": 4,
+  "summary": {
+    "TYPE_CHANGED": 1,
+    "UNCHANGED": 6
+  },
+  "breaking_changes": [
+    "AHU-DEMO/AHU-01/SupplyTemp"
+  ],
+  "changes": [
+    {
+      "identity": "AHU-DEMO/AHU-01/Command",
+      "equipment": "AHU-01",
+      "tag": "Command",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "WORD",
+        "direction": "WRITE",
+        "area": "HOLDING_REGISTER",
+        "address": 0,
+        "symbol": "Command",
+        "plc_var": "Mb_Command",
+        "scale": 1.0,
+        "bits": {
+          "0": "StartCommand",
+          "1": "StopCommand"
+        },
+        "verification_values": null
+      },
+      "after": {
+        "datatype": "WORD",
+        "direction": "WRITE",
+        "area": "HOLDING_REGISTER",
+        "address": 0,
+        "symbol": "Command",
+        "plc_var": "Mb_Command",
+        "scale": 1.0,
+        "bits": {
+          "0": "StartCommand",
+          "1": "StopCommand"
+        },
+        "verification_values": null
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/FanRunning",
+      "equipment": "AHU-01",
+      "tag": "FanRunning",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "FanRunning",
+        "plc_var": "FanRunning",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "after": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "FanRunning",
+        "plc_var": "FanRunning",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/ReturnTemp",
+      "equipment": "AHU-01",
+      "tag": "ReturnTemp",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "ReturnTemp",
+        "plc_var": "ReturnTemp",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "ReturnTemp",
+        "plc_var": "ReturnTemp",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Setpoint",
+      "equipment": "AHU-01",
+      "tag": "Setpoint",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "REAL32",
+        "direction": "READ_WRITE",
+        "area": "HOLDING_REGISTER",
+        "address": null,
+        "symbol": "Setpoint",
+        "plc_var": "Setpoint",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          21.5,
+          18.25,
+          123.456,
+          22.0
+        ]
+      },
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ_WRITE",
+        "area": "HOLDING_REGISTER",
+        "address": null,
+        "symbol": "Setpoint",
+        "plc_var": "Setpoint",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          21.5,
+          18.25,
+          123.456,
+          22.0
+        ]
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Status",
+      "equipment": "AHU-01",
+      "tag": "Status",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "WORD",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": 0,
+        "symbol": "Status",
+        "plc_var": "Mb_Status",
+        "scale": 1.0,
+        "bits": {
+          "0": "FanCommand",
+          "1": "FanRunning",
+          "2": "FanFault"
+        },
+        "verification_values": null
+      },
+      "after": {
+        "datatype": "WORD",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": 0,
+        "symbol": "Status",
+        "plc_var": "Mb_Status",
+        "scale": 1.0,
+        "bits": {
+          "0": "FanCommand",
+          "1": "FanRunning",
+          "2": "FanFault"
+        },
+        "verification_values": null
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/SupplyTemp",
+      "equipment": "AHU-01",
+      "tag": "SupplyTemp",
+      "type": "TYPE_CHANGED",
+      "breaking": true,
+      "field_changes": [
+        {
+          "field": "datatype",
+          "from": "REAL32",
+          "to": "INT16"
+        }
+      ],
+      "before": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "SupplyTemp",
+        "plc_var": "SupplyTemp",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "after": {
+        "datatype": "INT16",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "SupplyTemp",
+        "plc_var": "SupplyTemp",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "from": "REAL32",
+      "to": "INT16",
+      "approved": true
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/TestReal32Read",
+      "equipment": "AHU-01",
+      "tag": "TestReal32Read",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "TestReal32Read",
+        "plc_var": "TestReal32Read",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "TestReal32Read",
+        "plc_var": "TestReal32Read",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      }
+    }
+  ],
+  "variable_changes": [
+    {
+      "variable": "SupplyTemp",
+      "type": "VARIABLE_CHANGED",
+      "before": {
+        "type": "REAL",
+        "initial": 21.0,
+        "role": "process",
+        "equipment": "AHU-01"
+      },
+      "after": {
+        "type": "INT",
+        "initial": 21,
+        "role": "process",
+        "equipment": "AHU-01"
+      }
+    }
+  ]
+}

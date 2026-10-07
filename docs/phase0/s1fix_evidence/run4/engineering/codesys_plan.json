@@ -1,0 +1,53 @@
+{
+  "project_file": "AI_BMS_AHU_DEMO.project",
+  "boot_app_file": "AI_BMS_AHU_DEMO.app",
+  "plc_device_repo_name": "CODESYS Control Win V3 x64",
+  "devices": [
+    {
+      "parent": "Device",
+      "name": "Ethernet",
+      "repo_name": "Ethernet",
+      "type": 110,
+      "id": "0000 0002"
+    },
+    {
+      "parent": "Ethernet",
+      "name": "Modbus_TCP_Server",
+      "repo_name": "ModbusTCP Server Device",
+      "type": 115,
+      "id": "0000 0002"
+    }
+  ],
+  "server_expect": {
+    "Port": 502
+  },
+  "io_mappings": [
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Holding Registers",
+      "word_index": 0,
+      "variable": "Application.PLC_PRG.Mb_Command",
+      "iec_type": "WORD"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Input Registers",
+      "word_index": 0,
+      "variable": "Application.PLC_PRG.Mb_Status",
+      "iec_type": "WORD"
+    }
+  ],
+  "required_variables": [
+    "StartCommand",
+    "StopCommand",
+    "FanCommand",
+    "FanRunning",
+    "FanFault",
+    "SupplyTemp",
+    "Setpoint",
+    "FanSpeed",
+    "HeatingValve",
+    "Mb_Command",
+    "Mb_Status"
+  ]
+}

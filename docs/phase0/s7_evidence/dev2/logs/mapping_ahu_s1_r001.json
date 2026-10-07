@@ -1,0 +1,93 @@
+{
+  "step": "s2_check_mapping",
+  "checks": {
+    "only_s1_words_pinned_in_model": true,
+    "every_signal_allocated_once": true,
+    "every_signal_in_mapping": true,
+    "inside_capacity": true,
+    "no_overlaps": true,
+    "bit_blocks_do_not_overlay_registers": true,
+    "one_codesys_channel_per_register_or_bit": true
+  },
+  "model_pinned": [
+    "AHU-S1/AHU-01/Command",
+    "AHU-S1/AHU-01/Status"
+  ],
+  "allocation": [
+    {
+      "identity": "AHU-S1/AHU-01/Command",
+      "datatype": "WORD",
+      "direction": "WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 0,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/Setpoint",
+      "datatype": "REAL32",
+      "direction": "READ_WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 1,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/Status",
+      "datatype": "WORD",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/FanSpeed",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 1,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/HeatingValve",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 3,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/SupplyTemp",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/TestReal32Read",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 7,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/FanRunning",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "length": 1,
+      "action": "NEW"
+    }
+  ],
+  "project_file": "AI_BMS_S7_AHU_S1_r001.project",
+  "operation_status": "PASS",
+  "reason": "7 checks passed"
+}

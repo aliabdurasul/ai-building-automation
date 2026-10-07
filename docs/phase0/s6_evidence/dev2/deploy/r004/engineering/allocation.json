@@ -1,0 +1,111 @@
+{
+  "schema": "ai_bms.allocation_lock.v1",
+  "project_id": "AHU-DEMO",
+  "revision": 4,
+  "parent_revision": 3,
+  "model_sha256": "76f3fa5b0f79ffe1ae403d423e79aed2d03e2e3700162b9ec543b04289bfd655",
+  "target_sha256": "aac7532c3971e50866be0b6f67c82d639525bf4803e8f18373691cfc2af5aa77",
+  "active": [
+    {
+      "identity": "AHU-DEMO/AHU-01/Command",
+      "symbol": "Command",
+      "datatype": "WORD",
+      "direction": "WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 0,
+      "length": 1,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Setpoint",
+      "symbol": "Setpoint",
+      "datatype": "REAL32",
+      "direction": "READ_WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 1,
+      "length": 2,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "AHU-DEMO/AHU-02/Setpoint",
+      "symbol": "AHU02_Setpoint",
+      "datatype": "REAL32",
+      "direction": "READ_WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 3,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Status",
+      "symbol": "Status",
+      "datatype": "WORD",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "length": 1,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/SupplyTemp",
+      "symbol": "SupplyTemp",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 3,
+      "length": 2,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/TestReal32Read",
+      "symbol": "TestReal32Read",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "length": 2,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/ReturnTemp",
+      "symbol": "ReturnTemp",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 7,
+      "length": 2,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "AHU-DEMO/AHU-02/Enable",
+      "symbol": "AHU02_Enable",
+      "datatype": "BOOL",
+      "direction": "WRITE",
+      "area": "COIL",
+      "address": 144,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/FanRunning",
+      "symbol": "FanRunning",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "length": 1,
+      "action": "PRESERVED"
+    }
+  ],
+  "retired": [
+    {
+      "identity": "AHU-DEMO/AHU-01/FanSpeed",
+      "datatype": "REAL32",
+      "area": "INPUT_REGISTER",
+      "address": 1,
+      "length": 2,
+      "last_active_revision": 2,
+      "rule": "reserved for this identity; never assigned to another identity"
+    }
+  ]
+}

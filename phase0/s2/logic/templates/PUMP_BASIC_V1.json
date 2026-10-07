@@ -1,0 +1,63 @@
+{
+  "schema": "ai_bms.logic_template.v1",
+  "id": "PUMP_BASIC_V1",
+  "equipment_type": "PUMP",
+  "description": "Deterministic demo pump state machine (engineering/PLC behaviour proof, not field pump control). PumpState: 0 STOPPED, 1 STARTING, 2 RUNNING, 3 STOPPING, 9 FAULT. Stop dominates start; PumpFault forces FAULT; leaving FAULT returns to STOPPED. STARTING/STOPPING each last one PLC cycle (simulated run feedback).",
+  "slots": {
+    "StartCommand": "BOOL",
+    "StopCommand": "BOOL",
+    "PumpRunning": "BOOL",
+    "PumpFault": "BOOL",
+    "PumpState": "INT"
+  },
+  "body": [
+    "(* {{equipment}} : PUMP_BASIC_V1 state machine - 0 STOPPED, 1 STARTING, 2 RUNNING, 3 STOPPING, 9 FAULT *)",
+    "IF {{PumpFault}} = TRUE THEN",
+    "    {{PumpState}} := 9;",
+    "END_IF;",
+    "CASE {{PumpState}} OF",
+    "0: (* STOPPED *)",
+    "    {{PumpRunning}} := FALSE;",
+    "    IF {{StartCommand}} = TRUE AND {{StopCommand}} = FALSE THEN",
+    "        {{PumpState}} := 1;",
+    "    END_IF;",
+    "1: (* STARTING: simulated run feedback *)",
+    "    {{PumpRunning}} := TRUE;",
+    "    IF {{PumpRunning}} = TRUE THEN",
+    "        {{PumpState}} := 2;",
+    "    END_IF;",
+    "2: (* RUNNING *)",
+    "    IF {{StopCommand}} = TRUE THEN",
+    "        {{PumpState}} := 3;",
+    "    END_IF;",
+    "3: (* STOPPING *)",
+    "    {{PumpRunning}} := FALSE;",
+    "    IF {{PumpRunning}} = FALSE THEN",
+    "        {{PumpState}} := 0;",
+    "    END_IF;",
+    "9: (* FAULT *)",
+    "    {{PumpRunning}} := FALSE;",
+    "    IF {{PumpFault}} = FALSE THEN",
+    "        {{PumpState}} := 0;",
+    "    END_IF;",
+    "ELSE",
+    "    {{PumpState}} := 0;",
+    "END_CASE;",
+    ""
+  ],
+  "behavior_test": {
+    "description": "Commands through Modbus (client-writable mapped slots); fault injected PLC-side (online write); every expectation checked both through Modbus and PLC online read-back.",
+    "steps": [
+      {"name": "initial_stopped", "modbus_write": {"StartCommand": false, "StopCommand": false}, "plc_write": {"PumpFault": false},
+       "expect": {"PumpState": 0, "PumpRunning": false, "PumpFault": false}},
+      {"name": "start", "modbus_write": {"StartCommand": true}, "expect": {"PumpState": 2, "PumpRunning": true}},
+      {"name": "start_released_keeps_running", "modbus_write": {"StartCommand": false}, "expect": {"PumpState": 2, "PumpRunning": true}},
+      {"name": "stop", "modbus_write": {"StopCommand": true}, "expect": {"PumpState": 0, "PumpRunning": false}},
+      {"name": "start_while_stop_held_is_ignored", "modbus_write": {"StartCommand": true}, "expect": {"PumpState": 0, "PumpRunning": false}},
+      {"name": "stop_released_starts", "modbus_write": {"StopCommand": false}, "expect": {"PumpState": 2, "PumpRunning": true}},
+      {"name": "fault_while_running_start_held", "plc_write": {"PumpFault": true}, "expect": {"PumpState": 9, "PumpRunning": false, "PumpFault": true}},
+      {"name": "start_released_in_fault", "modbus_write": {"StartCommand": false}, "expect": {"PumpState": 9, "PumpRunning": false}},
+      {"name": "fault_cleared_stopped", "plc_write": {"PumpFault": false}, "expect": {"PumpState": 0, "PumpRunning": false, "PumpFault": false}}
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "ai_bms.logic_template_bundle.v1",
+  "templates": {
+    "AHU_S1FIX_V1": {
+      "sha256": "6547b81211be44a268836df88865dadeee118098e2d92d04d663eec461c0822b",
+      "template": {
+        "behavior_test": null,
+        "body": [
+          "(* FAN START *)",
+          "IF {{StartCommand}} = TRUE AND {{FanFault}} = FALSE THEN",
+          "    {{FanCommand}} := TRUE;",
+          "    {{FanRunning}} := TRUE;",
+          "END_IF;",
+          "",
+          "(* FAN STOP *)",
+          "IF {{StopCommand}} = TRUE THEN",
+          "    {{FanCommand}} := FALSE;",
+          "    {{FanRunning}} := FALSE;",
+          "END_IF;",
+          "",
+          "(* FAN FAULT *)",
+          "IF {{FanFault}} = TRUE THEN",
+          "    {{FanCommand}} := FALSE;",
+          "    {{FanRunning}} := FALSE;",
+          "END_IF;",
+          "",
+          "(* HEATING - simple demo, not PID *)",
+          "IF {{SupplyTemp}} < {{Setpoint}} THEN",
+          "    {{HeatingValve}} := 100.0;",
+          "ELSE",
+          "    {{HeatingValve}} := 0.0;",
+          "END_IF;",
+          ""
+        ],
+        "description": "S1-FIX AHU demo behaviour: fan start/stop/fault, heating valve 100 when SupplyTemp < Setpoint else 0. Not PID, not field control.",
+        "equipment_type": "AHU",
+        "id": "AHU_S1FIX_V1",
+        "schema": "ai_bms.logic_template.v1",
+        "slots": {
+          "FanCommand": "BOOL",
+          "FanFault": "BOOL",
+          "FanRunning": "BOOL",
+          "HeatingValve": "REAL",
+          "Setpoint": "REAL",
+          "StartCommand": "BOOL",
+          "StopCommand": "BOOL",
+          "SupplyTemp": "REAL"
+        }
+      }
+    }
+  }
+}

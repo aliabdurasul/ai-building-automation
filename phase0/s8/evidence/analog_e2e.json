@@ -1,0 +1,58 @@
+{
+  "test": "10_real32_read",
+  "ordering_reference": "CDAB",
+  "signals": [
+    {
+      "tag": "SupplyTemp",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "datatype": "REAL32",
+      "modbus_raw": [
+        0,
+        16808
+      ],
+      "modbus_decoded": 21.0,
+      "masterscada": "NOT VERIFIED \u2014 no REAL32 channel in AHU_S8 MS project"
+    },
+    {
+      "tag": "HeatingValve",
+      "area": "INPUT_REGISTER",
+      "address": 3,
+      "datatype": "REAL32",
+      "modbus_raw": [
+        0,
+        17096
+      ],
+      "modbus_decoded": 100.0,
+      "masterscada": "NOT VERIFIED \u2014 no REAL32 channel in AHU_S8 MS project"
+    },
+    {
+      "tag": "FanSpeed",
+      "area": "INPUT_REGISTER",
+      "address": 1,
+      "datatype": "REAL32",
+      "modbus_raw": [
+        0,
+        16968
+      ],
+      "modbus_decoded": 50.0,
+      "masterscada": "NOT VERIFIED \u2014 no REAL32 channel in AHU_S8 MS project"
+    },
+    {
+      "tag": "Setpoint",
+      "area": "HOLDING_REGISTER",
+      "address": 1,
+      "datatype": "REAL32",
+      "modbus_raw": [
+        0,
+        0
+      ],
+      "modbus_decoded": 0.0,
+      "masterscada": "NOT VERIFIED \u2014 no REAL32 channel in AHU_S8 MS project"
+    }
+  ],
+  "operation_status": "PARTIAL",
+  "reason": "Modbus REAL32 CDAB decode PASS (SupplyTemp=21.0, FanSpeed=50.0, HeatingValve=100.0); MasterSCADA REAL32 tags NOT VERIFIED (not in AHU_S8 project)",
+  "masterscada_status": "NOT VERIFIED",
+  "modbus_plc_status": "PASS"
+}

@@ -1,0 +1,375 @@
+﻿{
+    "run":  "dev3",
+    "stage":  "C:\\AI_BMS_PHASE0\\s3\\dev3",
+    "profiles":  [
+                     "types",
+                     "ahu"
+                 ],
+    "steps":  [
+                  {
+                      "step":  "F00_preflight",
+                      "timestamp":  "2026-10-05T13:18:31.8532557+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "INFO",
+                                        "reason":  "environment facts"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "INFO",
+                      "reason":  "environment facts",
+                      "data":  {
+                                   "elevated":  false,
+                                   "softplc_service":  "Running",
+                                   "tcp_502":  true,
+                                   "tcp_11740":  true,
+                                   "tcp_1217":  true,
+                                   "model_sha256":  "923e0b89f396efc0f928a306d319e8924b64720de98f7823b24164068a6448ec",
+                                   "mcp_used":  false,
+                                   "llm_used":  false,
+                                   "temp_patch_used":  false,
+                                   "gui_automation_used":  false,
+                                   "old_poc_used":  false
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F00b_engine_selftest",
+                      "timestamp":  "2026-10-05T13:18:31.9361661+03:00",
+                      "duration_seconds":  1.7,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\engine\\test_engine.py\" --result \"C:\\AI_BMS_PHASE0\\s3\\dev3\\logs\\engine_selftest.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "26 engine tests passed (validator, allocator, codec)"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "26 engine tests passed (validator, allocator, codec)",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s3\\dev3\\logs\\engine_selftest.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F01_generate",
+                      "timestamp":  "2026-10-05T13:18:33.7092404+03:00",
+                      "duration_seconds":  1.4,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\generator\\generate.py\" --model \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\model\\s3_model.json\" --profile types --stage \"C:\\AI_BMS_PHASE0\\s3\\dev3\\types\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "validated, allocated, ST + mapping + codesys plan generated"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "validated, allocated, ST + mapping + codesys plan generated",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s3\\dev3\\types\\logs\\generate_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F02_codesys_create_build",
+                      "timestamp":  "2026-10-05T13:18:35.0801273+03:00",
+                      "duration_seconds":  61.5,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\create_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s3\\dev3\\types\\logs\\create_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F03_codesys_verify",
+                      "timestamp":  "2026-10-05T13:19:36.5695795+03:00",
+                      "duration_seconds":  40.2,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\verify_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s3\\dev3\\types\\logs\\verify_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F04_deploy_preflight",
+                      "timestamp":  "2026-10-05T13:20:23.6016619+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "BLOCKED",
+                                        "reason":  "CODESYS credentials not available (CODESYS_USER/CODESYS_PASSWORD); tcp/502 held by a runtime application; replacing it requires S1FIX_REPLACE_RUNTIME_APP=1"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "BLOCKED",
+                      "reason":  "CODESYS credentials not available (CODESYS_USER/CODESYS_PASSWORD); tcp/502 held by a runtime application; replacing it requires S1FIX_REPLACE_RUNTIME_APP=1",
+                      "data":  {
+                                   "runtime_service_running":  true,
+                                   "runtime_port_11740_listening":  true,
+                                   "gateway_port_1217_listening":  true,
+                                   "credentials_available":  false,
+                                   "credentials_source":  null,
+                                   "tcp_502_free_before_deploy":  false,
+                                   "tcp_502_owner_pid":  24204,
+                                   "runtime_service_pid":  24204,
+                                   "replace_runtime_app_consent":  false,
+                                   "elevated":  false,
+                                   "tcp_502_owned_by_runtime":  true
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F05_deploy",
+                      "timestamp":  "2026-10-05T13:20:23.6036482+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F04_deploy_preflight BLOCKED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F04_deploy_preflight BLOCKED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F06_s1_regression",
+                      "timestamp":  "2026-10-05T13:20:23.6066509+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F04_deploy_preflight BLOCKED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F04_deploy_preflight BLOCKED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F07_typed_verify",
+                      "timestamp":  "2026-10-05T13:20:23.6092684+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F04_deploy_preflight BLOCKED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F04_deploy_preflight BLOCKED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F01_generate",
+                      "timestamp":  "2026-10-05T13:20:23.6202668+03:00",
+                      "duration_seconds":  1.3,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\generator\\generate.py\" --model \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\model\\s3_model.json\" --profile ahu --stage \"C:\\AI_BMS_PHASE0\\s3\\dev3\\ahu\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "validated, allocated, ST + mapping + codesys plan generated"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "validated, allocated, ST + mapping + codesys plan generated",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s3\\dev3\\ahu\\logs\\generate_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F02_codesys_create_build",
+                      "timestamp":  "2026-10-05T13:20:24.8881982+03:00",
+                      "duration_seconds":  54.7,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\create_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s3\\dev3\\ahu\\logs\\create_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F03_codesys_verify",
+                      "timestamp":  "2026-10-05T13:21:19.5752834+03:00",
+                      "duration_seconds":  42.3,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\verify_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s3\\dev3\\ahu\\logs\\verify_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F04_deploy_preflight",
+                      "timestamp":  "2026-10-05T13:22:07.9230803+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "BLOCKED",
+                                        "reason":  "PRECONDITION: Administrator privileges required to start CODESYS Control Win V3 - x64; runtime not reachable (tcp/11740); CODESYS credentials not available (CODESYS_USER/CODESYS_PASSWORD)"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "BLOCKED",
+                      "reason":  "PRECONDITION: Administrator privileges required to start CODESYS Control Win V3 - x64; runtime not reachable (tcp/11740); CODESYS credentials not available (CODESYS_USER/CODESYS_PASSWORD)",
+                      "data":  {
+                                   "runtime_service_running":  false,
+                                   "runtime_port_11740_listening":  false,
+                                   "gateway_port_1217_listening":  true,
+                                   "credentials_available":  false,
+                                   "credentials_source":  null,
+                                   "tcp_502_free_before_deploy":  true,
+                                   "tcp_502_owner_pid":  null,
+                                   "runtime_service_pid":  null,
+                                   "replace_runtime_app_consent":  false,
+                                   "elevated":  false,
+                                   "tcp_502_owned_by_runtime":  false
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F05_deploy",
+                      "timestamp":  "2026-10-05T13:22:07.9260745+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F04_deploy_preflight BLOCKED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F04_deploy_preflight BLOCKED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F06_s1_regression",
+                      "timestamp":  "2026-10-05T13:22:07.9280765+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F04_deploy_preflight BLOCKED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F04_deploy_preflight BLOCKED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F07_typed_verify",
+                      "timestamp":  "2026-10-05T13:22:07.9344452+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F04_deploy_preflight BLOCKED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F04_deploy_preflight BLOCKED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F08_post_state",
+                      "timestamp":  "2026-10-05T13:22:08.9595166+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "INFO",
+                                        "reason":  "post-run facts"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "INFO",
+                      "reason":  "post-run facts",
+                      "data":  {
+                                   "softplc_service":  "Stopped",
+                                   "tcp_502":  false,
+                                   "codesys_left_running":  [
+
+                                                            ]
+                               },
+                      "manual_intervention":  false
+                  }
+              ]
+}

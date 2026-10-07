@@ -1,0 +1,19 @@
+# PLC_VARIABLES PUMP-DEMO-r003 (revision 3) - generated, deterministic
+# name : TYPE := initial ; role ; equipment ; modbus
+StartCommand : BOOL := FALSE ; command ; PUMP-01 ; C144 StartCommand BOOL WRITE
+StopCommand : BOOL := FALSE ; command ; PUMP-01 ; C145 StopCommand BOOL WRITE
+PumpRunning : BOOL := FALSE ; status ; PUMP-01 ; DI145 PumpRunning BOOL READ
+PumpFault : BOOL := FALSE ; status ; PUMP-01 ; DI144 PumpFault BOOL READ
+PumpState : INT := 0 ; status ; PUMP-01 ; IR4 PumpState INT16 READ
+PumpSpeed : REAL := 0.0 ; process ; PUMP-01 ; IR2..IR3 PumpSpeed REAL32 READ
+FlowRate : REAL := 0.0 ; process ; PUMP-01 ; IR5..IR6 FlowRate REAL32 READ
+# Modbus image variables (bound to Modbus_TCP_Server channels)
+Mb_PumpSpeed_W0 : WORD ; image of PumpSpeed ; IR2..IR3
+Mb_PumpSpeed_W1 : WORD ; image of PumpSpeed ; IR2..IR3
+Mb_PumpState : WORD ; image of PumpState ; IR4
+Mb_FlowRate_W0 : WORD ; image of FlowRate ; IR5..IR6
+Mb_FlowRate_W1 : WORD ; image of FlowRate ; IR5..IR6
+Mb_StartCommand : BOOL ; image of StartCommand ; C144
+Mb_StopCommand : BOOL ; image of StopCommand ; C145
+Mb_PumpFault : BOOL ; image of PumpFault ; DI144
+Mb_PumpRunning : BOOL ; image of PumpRunning ; DI145

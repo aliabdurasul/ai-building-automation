@@ -1,0 +1,102 @@
+{
+  "step": "modbus_probe",
+  "host": "127.0.0.1",
+  "port": 502,
+  "slave": 1,
+  "hr_address": 0,
+  "ir_address": 0,
+  "events": [
+    {
+      "t": "2026-10-05T12:09:11.455+03:00",
+      "kind": "tcp_connect",
+      "ok": true
+    },
+    {
+      "t": "2026-10-05T12:09:11.521+03:00",
+      "kind": "baseline",
+      "hr": 0,
+      "ir": 0
+    },
+    {
+      "t": "2026-10-05T12:09:11.542+03:00",
+      "kind": "write_hr",
+      "value": 1,
+      "ok": true,
+      "response": "WriteSingleRegisterResponse(dev_id=1, transaction_id=3, address=0, count=0, bits=[], registers=[1], status=1, retries=0)"
+    },
+    {
+      "t": "2026-10-05T12:09:11.562+03:00",
+      "kind": "hr_readback",
+      "value": 1
+    },
+    {
+      "t": "2026-10-05T12:09:11.582+03:00",
+      "kind": "ir_poll",
+      "expected": 3,
+      "reached": true,
+      "last": 3,
+      "n": 1
+    },
+    {
+      "t": "2026-10-05T12:09:11.602+03:00",
+      "kind": "write_hr",
+      "value": 2,
+      "ok": true,
+      "response": "WriteSingleRegisterResponse(dev_id=1, transaction_id=6, address=0, count=0, bits=[], registers=[2], status=1, retries=0)"
+    },
+    {
+      "t": "2026-10-05T12:09:11.622+03:00",
+      "kind": "hr_readback",
+      "value": 2
+    },
+    {
+      "t": "2026-10-05T12:09:11.642+03:00",
+      "kind": "ir_poll",
+      "expected": 0,
+      "reached": true,
+      "last": 0,
+      "n": 1
+    },
+    {
+      "t": "2026-10-05T12:09:11.664+03:00",
+      "kind": "write_hr",
+      "value": 0,
+      "ok": true,
+      "response": "WriteSingleRegisterResponse(dev_id=1, transaction_id=9, address=0, count=0, bits=[], registers=[0], status=1, retries=0)"
+    }
+  ],
+  "checks": {
+    "tcp_connect": true,
+    "pymodbus_connect": true,
+    "baseline_hr0_ir0_zero": true,
+    "start_write_accepted": true,
+    "start_hr_readback": true,
+    "start_ir_reached_3": true,
+    "stop_write_accepted": true,
+    "stop_hr_readback": true,
+    "stop_ir_reached_0": true
+  },
+  "baseline": {
+    "hr": 0,
+    "ir": 0
+  },
+  "start_ir_samples": [
+    {
+      "t": "2026-10-05T12:09:11.582+03:00",
+      "ir": 3
+    }
+  ],
+  "stop_ir_samples": [
+    {
+      "t": "2026-10-05T12:09:11.642+03:00",
+      "ir": 0
+    }
+  ],
+  "final": {
+    "hr": 0,
+    "ir": 0
+  },
+  "operation_status": "PASS",
+  "reason": "HR0=1 -> IR0=3 and HR0=2 -> IR0=0 observed",
+  "exit_code_intended": 0
+}

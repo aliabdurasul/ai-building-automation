@@ -1,0 +1,20 @@
+{
+  "schema": "ai_bms.revision_validation.v1",
+  "project_id": "AHU-DEMO",
+  "revision": 4,
+  "parent_revision": 3,
+  "status": "REJECTED",
+  "stages": {
+    "canonical": "PASS",
+    "model_rules": "PASS",
+    "policy": "BLOCKED"
+  },
+  "errors": [
+    {
+      "code": "BREAKING_CHANGE_REQUIRES_APPROVAL",
+      "message": "AHU-DEMO/AHU-01/SupplyTemp: TYPE_CHANGED 'REAL32' -> 'INT16' is a breaking change; add approvals [{\"identity\": \"AHU-DEMO/AHU-01/SupplyTemp\", \"change\": \"TYPE_CHANGED\"}] to apply it (the old mapping is then retired and a new mapping allocated)"
+    }
+  ],
+  "model_sha256": "4c1d5e3913b439206dd3f2b16856161d95d9f375d76d338d6012a829e0dd80d8",
+  "target_sha256": "aac7532c3971e50866be0b6f67c82d639525bf4803e8f18373691cfc2af5aa77"
+}

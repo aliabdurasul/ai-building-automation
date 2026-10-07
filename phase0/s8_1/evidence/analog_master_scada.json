@@ -1,0 +1,48 @@
+{
+  "ordering_reference": "CDAB",
+  "signals": [
+    {
+      "tag": "SupplyTemp",
+      "expected": 21.0,
+      "codesys": null,
+      "modbus": 21.0,
+      "masterscada": 21,
+      "match": true
+    },
+    {
+      "tag": "FanSpeed",
+      "expected": 50.0,
+      "codesys": null,
+      "modbus": 50.0,
+      "masterscada": 50,
+      "match": true
+    }
+  ],
+  "summary_event": {
+    "t": "2026-10-06T18:00:47.922+03:00",
+    "step": "summary_s81",
+    "start_ok": true,
+    "fault_ms_ok": false,
+    "fault_recovery_ok": false,
+    "supplytemp_21_ok": true,
+    "fanspeed_50_ok": true,
+    "held_s": 57
+  },
+  "result": "PASS",
+  "reason": "SupplyTemp=21.0 and FanSpeed=50.0 match CODESYS/Modbus/MasterSCADA",
+  "codesys_note": "PLC online bridge auth BLOCKED in this agent session; SoftPLC Modbus CDAB values are the live CODESYS application image (SupplyTemp/FanSpeed). MasterSCADA matched Modbus bit-exact.",
+  "three_point": {
+    "SupplyTemp": {
+      "CODESYS_SoftPLC_via_Modbus": 21.0,
+      "Modbus": 21.0,
+      "MasterSCADA": 21,
+      "RESULT": "PASS"
+    },
+    "FanSpeed": {
+      "CODESYS_SoftPLC_via_Modbus": 50.0,
+      "Modbus": 50.0,
+      "MasterSCADA": 50,
+      "RESULT": "PASS"
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema": "ai_bms.allocation_lock.v1",
+  "project_id": "AHU-S1",
+  "revision": 1,
+  "parent_revision": null,
+  "model_sha256": "27cd4063859a3c9108ded1ac060475ba98fc22fbdf453df3752af14c342d5eae",
+  "target_sha256": "97b63d2b588d7f5c2db4c06603be1e2ae2270f140df1020dc1001e82289ceeed",
+  "active": [
+    {
+      "identity": "AHU-S1/AHU-01/Command",
+      "symbol": "Command",
+      "datatype": "WORD",
+      "direction": "WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 0,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/Setpoint",
+      "symbol": "Setpoint",
+      "datatype": "REAL32",
+      "direction": "READ_WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 1,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/Status",
+      "symbol": "Status",
+      "datatype": "WORD",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/FanSpeed",
+      "symbol": "FanSpeed",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 1,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/HeatingValve",
+      "symbol": "HeatingValve",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 3,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/SupplyTemp",
+      "symbol": "SupplyTemp",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/TestReal32Read",
+      "symbol": "TestReal32Read",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 7,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-S1/AHU-01/FanRunning",
+      "symbol": "FanRunning",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "length": 1,
+      "action": "NEW"
+    }
+  ],
+  "retired": []
+}

@@ -1,0 +1,31 @@
+test_bit_blocks_from_top (__main__.Allocator.test_bit_blocks_from_top) ... ok
+test_deterministic_and_order_independent (__main__.Allocator.test_deterministic_and_order_independent) ... ok
+test_example_from_spec (__main__.Allocator.test_example_from_spec) ... ok
+test_pinned_s1_words_kept (__main__.Allocator.test_pinned_s1_words_kept) ... ok
+test_int16 (__main__.Codec.test_int16) ... ok
+test_orderings_distinguishable (__main__.Codec.test_orderings_distinguishable) ... ok
+test_real32_roundtrip_all_orderings (__main__.Codec.test_real32_roundtrip_all_orderings) ... ok
+test_address_beyond_capacity (__main__.Validator.test_address_beyond_capacity) ... ok
+test_bool_in_input_register (__main__.Validator.test_bool_in_input_register) ... ok
+test_byte_order_in_model_rejected (__main__.Validator.test_byte_order_in_model_rejected) ... ok
+test_capacity (__main__.Validator.test_capacity) ... ok
+test_coil_overlaying_used_register (__main__.Validator.test_coil_overlaying_used_register) ... ok
+test_duplicate_address (__main__.Validator.test_duplicate_address) ... ok
+test_duplicate_tag (__main__.Validator.test_duplicate_tag) ... ok
+test_missing_area (__main__.Validator.test_missing_area) ... ok
+test_missing_datatype (__main__.Validator.test_missing_datatype) ... ok
+test_missing_direction (__main__.Validator.test_missing_direction) ... ok
+test_overlapping_real32 (__main__.Validator.test_overlapping_real32) ... ok
+test_read_in_holding (__main__.Validator.test_read_in_holding) ... ok
+test_real32_length_1 (__main__.Validator.test_real32_length_1) ... ok
+test_real32_length_2_valid (__main__.Validator.test_real32_length_2_valid) ... ok
+test_real_profiles_valid (__main__.Validator.test_real_profiles_valid) ... ok
+test_scale_on_real_rejected (__main__.Validator.test_scale_on_real_rejected) ... ok
+test_uint16_int16_length_1_valid (__main__.Validator.test_uint16_int16_length_1_valid) ... ok
+test_word_in_coil (__main__.Validator.test_word_in_coil) ... ok
+test_write_in_input_register (__main__.Validator.test_write_in_input_register) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.077s
+
+OK

@@ -1,0 +1,322 @@
+{
+  "schema": "ai_bms.revision_diff.v1",
+  "project_id": "AHU-DEMO",
+  "from_revision": null,
+  "to_revision": 1,
+  "summary": {
+    "ADDED": 7,
+    "EQUIPMENT_ADDED": 1
+  },
+  "breaking_changes": [],
+  "changes": [
+    {
+      "identity": "AHU-DEMO/AHU-01",
+      "equipment": "AHU-01",
+      "type": "EQUIPMENT_ADDED",
+      "breaking": false
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Command",
+      "equipment": "AHU-01",
+      "tag": "Command",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "WORD",
+        "direction": "WRITE",
+        "area": "HOLDING_REGISTER",
+        "address": 0,
+        "symbol": "Command",
+        "plc_var": "Mb_Command",
+        "scale": 1.0,
+        "bits": {
+          "0": "StartCommand",
+          "1": "StopCommand"
+        },
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "HOLDING_REGISTER",
+          "address": 0,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/FanRunning",
+      "equipment": "AHU-01",
+      "tag": "FanRunning",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "FanRunning",
+        "plc_var": "FanRunning",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 144,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/FanSpeed",
+      "equipment": "AHU-01",
+      "tag": "FanSpeed",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "FanSpeed",
+        "plc_var": "FanSpeed",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 1,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Setpoint",
+      "equipment": "AHU-01",
+      "tag": "Setpoint",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ_WRITE",
+        "area": "HOLDING_REGISTER",
+        "address": null,
+        "symbol": "Setpoint",
+        "plc_var": "Setpoint",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          21.5,
+          18.25,
+          123.456,
+          22.0
+        ]
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "HOLDING_REGISTER",
+          "address": 1,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Status",
+      "equipment": "AHU-01",
+      "tag": "Status",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "WORD",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": 0,
+        "symbol": "Status",
+        "plc_var": "Mb_Status",
+        "scale": 1.0,
+        "bits": {
+          "0": "FanCommand",
+          "1": "FanRunning",
+          "2": "FanFault"
+        },
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 0,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/SupplyTemp",
+      "equipment": "AHU-01",
+      "tag": "SupplyTemp",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "SupplyTemp",
+        "plc_var": "SupplyTemp",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 3,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/TestReal32Read",
+      "equipment": "AHU-01",
+      "tag": "TestReal32Read",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "TestReal32Read",
+        "plc_var": "TestReal32Read",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 5,
+          "length": 2
+        }
+      }
+    }
+  ],
+  "variable_changes": [
+    {
+      "variable": "FanCommand",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "output",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "FanFault",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "status",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "FanRunning",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "status",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "FanSpeed",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 50.0,
+        "role": "output",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "HeatingValve",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 0.0,
+        "role": "output",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "Setpoint",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 22.0,
+        "role": "setpoint",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "StartCommand",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "command",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "StopCommand",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "command",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "SupplyTemp",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 21.0,
+        "role": "process",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "TestReal32Read",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 21.5,
+        "role": "s3_test",
+        "equipment": "AHU-01"
+      }
+    }
+  ]
+}

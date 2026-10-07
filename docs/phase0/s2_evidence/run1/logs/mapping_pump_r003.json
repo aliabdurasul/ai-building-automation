@@ -1,0 +1,81 @@
+{
+  "step": "s2_check_mapping",
+  "checks": {
+    "only_s1_words_pinned_in_model": true,
+    "every_signal_allocated_once": true,
+    "every_signal_in_mapping": true,
+    "inside_capacity": true,
+    "no_overlaps": true,
+    "bit_blocks_do_not_overlay_registers": true,
+    "one_codesys_channel_per_register_or_bit": true
+  },
+  "model_pinned": [],
+  "allocation": [
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpSpeed",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 2,
+      "length": 2,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpState",
+      "datatype": "INT16",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 4,
+      "length": 1,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/FlowRate",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "length": 2,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StartCommand",
+      "datatype": "BOOL",
+      "direction": "WRITE",
+      "area": "COIL",
+      "address": 144,
+      "length": 1,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StopCommand",
+      "datatype": "BOOL",
+      "direction": "WRITE",
+      "area": "COIL",
+      "address": 145,
+      "length": 1,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpFault",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "length": 1,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpRunning",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 145,
+      "length": 1,
+      "action": "PRESERVED"
+    }
+  ],
+  "project_file": "AI_BMS_S2_PUMP_DEMO_r003.project",
+  "operation_status": "PASS",
+  "reason": "7 checks passed"
+}

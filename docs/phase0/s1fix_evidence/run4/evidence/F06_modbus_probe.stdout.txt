@@ -1,0 +1,1 @@
+OPERATION_STATUS=PASS HR0=1 -> IR0=3 and HR0=2 -> IR0=0 observed

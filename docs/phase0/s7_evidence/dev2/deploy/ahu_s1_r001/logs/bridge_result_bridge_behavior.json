@@ -1,0 +1,1 @@
+{"started_by_bridge": true, "application_state": "run", "reason": "served 33 requests", "application_state_at_login": "stop", "step": "plc_online_bridge", "operation_status": "PASS", "requests": 33, "quit_received": true, "exit_code_intended": 0, "project": "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\ahu_s1_r001\\generated\\AI_BMS_S7_AHU_S1_r001.project"}

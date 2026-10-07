@@ -1,0 +1,48 @@
+{
+  "step": "revision_check_expect-reject",
+  "checks": {
+    "rejected": true,
+    "expected_error_found": true,
+    "accepted_revisions_unchanged": true
+  },
+  "breaking_changes": [
+    {
+      "identity": "AHU-DEMO/AHU-01/SupplyTemp",
+      "type": "TYPE_CHANGED",
+      "from": "REAL32",
+      "to": "INT16",
+      "breaking": true,
+      "approved": false,
+      "field_changes": [
+        {
+          "field": "datatype",
+          "from": "REAL32",
+          "to": "INT16"
+        }
+      ]
+    }
+  ],
+  "case": {
+    "label": "V4_type_change",
+    "expected_code": "BREAKING_CHANGE_REQUIRES_APPROVAL",
+    "expected_text": "TYPE_CHANGED",
+    "status": "REJECTED",
+    "process_exit_code": 21,
+    "errors": [
+      {
+        "code": "BREAKING_CHANGE_REQUIRES_APPROVAL",
+        "message": "AHU-DEMO/AHU-01/SupplyTemp: TYPE_CHANGED 'REAL32' -> 'INT16' is a breaking change; add approvals [{\"identity\": \"AHU-DEMO/AHU-01/SupplyTemp\", \"change\": \"TYPE_CHANGED\"}] to apply it (the old mapping is then retired and a new mapping allocated)"
+      }
+    ],
+    "rejected": true,
+    "expected_error_found": true,
+    "accepted_revisions_unchanged": true,
+    "diff_summary": {
+      "TYPE_CHANGED": 1,
+      "UNCHANGED": 6
+    },
+    "pass": true
+  },
+  "operation_status": "PASS",
+  "reason": "3 checks passed"
+}

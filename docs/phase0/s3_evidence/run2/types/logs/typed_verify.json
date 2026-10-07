@@ -1,0 +1,1650 @@
+{
+  "step": "typed_verify",
+  "profile": "types",
+  "tolerance": "bit-exact: Modbus-decoded float32 == PLC REAL (float32) and == float32(intended decimal)",
+  "cases": [
+    {
+      "phase": "R0",
+      "tag": "TestInt16Read",
+      "path": "READ",
+      "datatype": "INT16",
+      "intended": -1234,
+      "plc_raw": "INT#-1234",
+      "plc_value": -1234,
+      "modbus_raw": [
+        64302
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": -1234,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R0",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": 21.5,
+      "plc_raw": "REAL#21.5",
+      "plc_value": 21.5,
+      "modbus_raw": [
+        0,
+        16812
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 21.5,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R0",
+      "tag": "TestUInt16Read",
+      "path": "READ",
+      "datatype": "UINT16",
+      "intended": 1234,
+      "plc_raw": "UINT#1234",
+      "plc_value": 1234,
+      "modbus_raw": [
+        1234
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 1234,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R0",
+      "tag": "TestWordRead",
+      "path": "READ",
+      "datatype": "WORD",
+      "intended": 42330,
+      "plc_raw": "WORD#42330",
+      "plc_value": 42330,
+      "modbus_raw": [
+        42330
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 42330,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R0",
+      "tag": "TestDiscreteInput",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": true,
+      "plc_raw": "TRUE",
+      "plc_value": true,
+      "modbus_raw": true,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": true,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R1",
+      "tag": "TestInt16Read",
+      "path": "READ",
+      "datatype": "INT16",
+      "intended": 1234,
+      "plc_raw": "INT#1234",
+      "plc_value": 1234,
+      "modbus_raw": [
+        1234
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 1234,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R1",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": 22.0,
+      "plc_raw": "REAL#22",
+      "plc_value": 22.0,
+      "modbus_raw": [
+        0,
+        16816
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 22.0,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R1",
+      "tag": "TestUInt16Read",
+      "path": "READ",
+      "datatype": "UINT16",
+      "intended": 65535,
+      "plc_raw": "UINT#65535",
+      "plc_value": 65535,
+      "modbus_raw": [
+        65535
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 65535,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R1",
+      "tag": "TestWordRead",
+      "path": "READ",
+      "datatype": "WORD",
+      "intended": 1,
+      "plc_raw": "WORD#1",
+      "plc_value": 1,
+      "modbus_raw": [
+        1
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 1,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R1",
+      "tag": "TestDiscreteInput",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": false,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R2",
+      "tag": "TestInt16Read",
+      "path": "READ",
+      "datatype": "INT16",
+      "intended": -32768,
+      "plc_raw": "INT#-32768",
+      "plc_value": -32768,
+      "modbus_raw": [
+        32768
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": -32768,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R2",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": 18.25,
+      "plc_raw": "REAL#18.25",
+      "plc_value": 18.25,
+      "modbus_raw": [
+        0,
+        16786
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 18.25,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R2",
+      "tag": "TestUInt16Read",
+      "path": "READ",
+      "datatype": "UINT16",
+      "intended": 0,
+      "plc_raw": "UINT#0",
+      "plc_value": 0,
+      "modbus_raw": [
+        0
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 0,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R2",
+      "tag": "TestWordRead",
+      "path": "READ",
+      "datatype": "WORD",
+      "intended": 65535,
+      "plc_raw": "WORD#65535",
+      "plc_value": 65535,
+      "modbus_raw": [
+        65535
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 65535,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R2",
+      "tag": "TestDiscreteInput",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": true,
+      "plc_raw": "TRUE",
+      "plc_value": true,
+      "modbus_raw": true,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": true,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R3",
+      "tag": "TestInt16Read",
+      "path": "READ",
+      "datatype": "INT16",
+      "intended": 32767,
+      "plc_raw": "INT#32767",
+      "plc_value": 32767,
+      "modbus_raw": [
+        32767
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 32767,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R3",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": 123.45600128173828,
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "modbus_raw": [
+        59769,
+        17142
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 123.45600128173828,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R3",
+      "tag": "TestUInt16Read",
+      "path": "READ",
+      "datatype": "UINT16",
+      "intended": 40000,
+      "plc_raw": "UINT#40000",
+      "plc_value": 40000,
+      "modbus_raw": [
+        40000
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 40000,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R3",
+      "tag": "TestWordRead",
+      "path": "READ",
+      "datatype": "WORD",
+      "intended": 32768,
+      "plc_raw": "WORD#32768",
+      "plc_value": 32768,
+      "modbus_raw": [
+        32768
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 32768,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R3",
+      "tag": "TestDiscreteInput",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": false,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W1",
+      "tag": "TestInt16Write",
+      "path": "WRITE",
+      "datatype": "INT16",
+      "intended": -1234,
+      "written_raw": [
+        64302
+      ],
+      "write_accepted": true,
+      "function": "FC6",
+      "modbus_readback": [
+        64302
+      ],
+      "plc_raw": "INT#-1234",
+      "plc_value": -1234,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W1",
+      "tag": "TestReal32Write",
+      "path": "WRITE",
+      "datatype": "REAL32",
+      "intended": 21.5,
+      "written_raw": [
+        0,
+        16812
+      ],
+      "write_accepted": true,
+      "function": "FC16",
+      "modbus_readback": [
+        0,
+        16812
+      ],
+      "plc_raw": "REAL#21.5",
+      "plc_value": 21.5,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W1",
+      "tag": "TestUInt16Write",
+      "path": "WRITE",
+      "datatype": "UINT16",
+      "intended": 1234,
+      "written_raw": [
+        1234
+      ],
+      "write_accepted": true,
+      "function": "FC6",
+      "modbus_readback": [
+        1234
+      ],
+      "plc_raw": "UINT#1234",
+      "plc_value": 1234,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W1",
+      "tag": "TestWordWrite",
+      "path": "WRITE",
+      "datatype": "WORD",
+      "intended": 48879,
+      "written_raw": [
+        48879
+      ],
+      "write_accepted": true,
+      "function": "FC6",
+      "modbus_readback": [
+        48879
+      ],
+      "plc_raw": "WORD#48879",
+      "plc_value": 48879,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W1",
+      "tag": "TestCoil",
+      "path": "WRITE",
+      "datatype": "BOOL",
+      "intended": true,
+      "written_raw": true,
+      "write_accepted": true,
+      "function": "FC5",
+      "modbus_readback": true,
+      "overlay_register_raw": [
+        256
+      ],
+      "plc_raw": "TRUE",
+      "plc_value": true,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W1",
+      "tag": "TestInt16Read",
+      "path": "READ",
+      "datatype": "INT16",
+      "intended": null,
+      "plc_raw": "INT#32767",
+      "plc_value": 32767,
+      "modbus_raw": [
+        32767
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 32767,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W1",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "modbus_raw": [
+        59769,
+        17142
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 123.45600128173828,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W1",
+      "tag": "TestUInt16Read",
+      "path": "READ",
+      "datatype": "UINT16",
+      "intended": null,
+      "plc_raw": "UINT#40000",
+      "plc_value": 40000,
+      "modbus_raw": [
+        40000
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 40000,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W1",
+      "tag": "TestWordRead",
+      "path": "READ",
+      "datatype": "WORD",
+      "intended": null,
+      "plc_raw": "WORD#32768",
+      "plc_value": 32768,
+      "modbus_raw": [
+        32768
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 32768,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W1",
+      "tag": "TestDiscreteInput",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": null,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W2",
+      "tag": "TestInt16Write",
+      "path": "WRITE",
+      "datatype": "INT16",
+      "intended": 1234,
+      "written_raw": [
+        1234
+      ],
+      "write_accepted": true,
+      "function": "FC6",
+      "modbus_readback": [
+        1234
+      ],
+      "plc_raw": "INT#1234",
+      "plc_value": 1234,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W2",
+      "tag": "TestReal32Write",
+      "path": "WRITE",
+      "datatype": "REAL32",
+      "intended": 18.25,
+      "written_raw": [
+        0,
+        16786
+      ],
+      "write_accepted": true,
+      "function": "FC16",
+      "modbus_readback": [
+        0,
+        16786
+      ],
+      "plc_raw": "REAL#18.25",
+      "plc_value": 18.25,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W2",
+      "tag": "TestUInt16Write",
+      "path": "WRITE",
+      "datatype": "UINT16",
+      "intended": 54321,
+      "written_raw": [
+        54321
+      ],
+      "write_accepted": true,
+      "function": "FC6",
+      "modbus_readback": [
+        54321
+      ],
+      "plc_raw": "UINT#54321",
+      "plc_value": 54321,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W2",
+      "tag": "TestWordWrite",
+      "path": "WRITE",
+      "datatype": "WORD",
+      "intended": 3855,
+      "written_raw": [
+        3855
+      ],
+      "write_accepted": true,
+      "function": "FC6",
+      "modbus_readback": [
+        3855
+      ],
+      "plc_raw": "WORD#3855",
+      "plc_value": 3855,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W2",
+      "tag": "TestCoil",
+      "path": "WRITE",
+      "datatype": "BOOL",
+      "intended": false,
+      "written_raw": false,
+      "write_accepted": true,
+      "function": "FC5",
+      "modbus_readback": false,
+      "overlay_register_raw": [
+        0
+      ],
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W2",
+      "tag": "TestInt16Read",
+      "path": "READ",
+      "datatype": "INT16",
+      "intended": null,
+      "plc_raw": "INT#32767",
+      "plc_value": 32767,
+      "modbus_raw": [
+        32767
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 32767,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W2",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "modbus_raw": [
+        59769,
+        17142
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 123.45600128173828,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W2",
+      "tag": "TestUInt16Read",
+      "path": "READ",
+      "datatype": "UINT16",
+      "intended": null,
+      "plc_raw": "UINT#40000",
+      "plc_value": 40000,
+      "modbus_raw": [
+        40000
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 40000,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W2",
+      "tag": "TestWordRead",
+      "path": "READ",
+      "datatype": "WORD",
+      "intended": null,
+      "plc_raw": "WORD#32768",
+      "plc_value": 32768,
+      "modbus_raw": [
+        32768
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 32768,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W2",
+      "tag": "TestDiscreteInput",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": null,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W3",
+      "tag": "TestInt16Write",
+      "path": "WRITE",
+      "datatype": "INT16",
+      "intended": -32768,
+      "written_raw": [
+        32768
+      ],
+      "write_accepted": true,
+      "function": "FC6",
+      "modbus_readback": [
+        32768
+      ],
+      "plc_raw": "INT#-32768",
+      "plc_value": -32768,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W3",
+      "tag": "TestReal32Write",
+      "path": "WRITE",
+      "datatype": "REAL32",
+      "intended": 123.45600128173828,
+      "written_raw": [
+        59769,
+        17142
+      ],
+      "write_accepted": true,
+      "function": "FC16",
+      "modbus_readback": [
+        59769,
+        17142
+      ],
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W3",
+      "tag": "TestUInt16Write",
+      "path": "WRITE",
+      "datatype": "UINT16",
+      "intended": 65535,
+      "written_raw": [
+        65535
+      ],
+      "write_accepted": true,
+      "function": "FC6",
+      "modbus_readback": [
+        65535
+      ],
+      "plc_raw": "UINT#65535",
+      "plc_value": 65535,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W3",
+      "tag": "TestWordWrite",
+      "path": "WRITE",
+      "datatype": "WORD",
+      "intended": 65535,
+      "written_raw": [
+        65535
+      ],
+      "write_accepted": true,
+      "function": "FC6",
+      "modbus_readback": [
+        65535
+      ],
+      "plc_raw": "WORD#65535",
+      "plc_value": 65535,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W3",
+      "tag": "TestCoil",
+      "path": "WRITE",
+      "datatype": "BOOL",
+      "intended": true,
+      "written_raw": true,
+      "write_accepted": true,
+      "function": "FC5",
+      "modbus_readback": true,
+      "overlay_register_raw": [
+        256
+      ],
+      "plc_raw": "TRUE",
+      "plc_value": true,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W3",
+      "tag": "TestInt16Read",
+      "path": "READ",
+      "datatype": "INT16",
+      "intended": null,
+      "plc_raw": "INT#32767",
+      "plc_value": 32767,
+      "modbus_raw": [
+        32767
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 32767,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W3",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "modbus_raw": [
+        59769,
+        17142
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 123.45600128173828,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W3",
+      "tag": "TestUInt16Read",
+      "path": "READ",
+      "datatype": "UINT16",
+      "intended": null,
+      "plc_raw": "UINT#40000",
+      "plc_value": 40000,
+      "modbus_raw": [
+        40000
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 40000,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W3",
+      "tag": "TestWordRead",
+      "path": "READ",
+      "datatype": "WORD",
+      "intended": null,
+      "plc_raw": "WORD#32768",
+      "plc_value": 32768,
+      "modbus_raw": [
+        32768
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 32768,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W3",
+      "tag": "TestDiscreteInput",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": null,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W4",
+      "tag": "TestInt16Write",
+      "path": "WRITE",
+      "datatype": "INT16",
+      "intended": 0,
+      "written_raw": [
+        0
+      ],
+      "write_accepted": true,
+      "function": "FC6",
+      "modbus_readback": [
+        0
+      ],
+      "plc_raw": "INT#0",
+      "plc_value": 0,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W4",
+      "tag": "TestReal32Write",
+      "path": "WRITE",
+      "datatype": "REAL32",
+      "intended": 22.0,
+      "written_raw": [
+        0,
+        16816
+      ],
+      "write_accepted": true,
+      "function": "FC16",
+      "modbus_readback": [
+        0,
+        16816
+      ],
+      "plc_raw": "REAL#22",
+      "plc_value": 22.0,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W4",
+      "tag": "TestUInt16Write",
+      "path": "WRITE",
+      "datatype": "UINT16",
+      "intended": 0,
+      "written_raw": [
+        0
+      ],
+      "write_accepted": true,
+      "function": "FC6",
+      "modbus_readback": [
+        0
+      ],
+      "plc_raw": "UINT#0",
+      "plc_value": 0,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W4",
+      "tag": "TestWordWrite",
+      "path": "WRITE",
+      "datatype": "WORD",
+      "intended": 0,
+      "written_raw": [
+        0
+      ],
+      "write_accepted": true,
+      "function": "FC6",
+      "modbus_readback": [
+        0
+      ],
+      "plc_raw": "WORD#0",
+      "plc_value": 0,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W4",
+      "tag": "TestCoil",
+      "path": "WRITE",
+      "datatype": "BOOL",
+      "intended": false,
+      "written_raw": false,
+      "write_accepted": true,
+      "function": "FC5",
+      "modbus_readback": false,
+      "overlay_register_raw": [
+        0
+      ],
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W4",
+      "tag": "TestInt16Read",
+      "path": "READ",
+      "datatype": "INT16",
+      "intended": null,
+      "plc_raw": "INT#32767",
+      "plc_value": 32767,
+      "modbus_raw": [
+        32767
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 32767,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W4",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "modbus_raw": [
+        59769,
+        17142
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 123.45600128173828,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W4",
+      "tag": "TestUInt16Read",
+      "path": "READ",
+      "datatype": "UINT16",
+      "intended": null,
+      "plc_raw": "UINT#40000",
+      "plc_value": 40000,
+      "modbus_raw": [
+        40000
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 40000,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W4",
+      "tag": "TestWordRead",
+      "path": "READ",
+      "datatype": "WORD",
+      "intended": null,
+      "plc_raw": "WORD#32768",
+      "plc_value": 32768,
+      "modbus_raw": [
+        32768
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 32768,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W4",
+      "tag": "TestDiscreteInput",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": null,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    }
+  ],
+  "real32_samples": [
+    {
+      "phase": "R0",
+      "tag": "TestReal32Read",
+      "registers": [
+        0,
+        16812
+      ],
+      "plc_value": 21.5,
+      "plc_bits": "41AC0000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R1",
+      "tag": "TestReal32Read",
+      "registers": [
+        0,
+        16816
+      ],
+      "plc_value": 22.0,
+      "plc_bits": "41B00000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R2",
+      "tag": "TestReal32Read",
+      "registers": [
+        0,
+        16786
+      ],
+      "plc_value": 18.25,
+      "plc_bits": "41920000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R3",
+      "tag": "TestReal32Read",
+      "registers": [
+        59769,
+        17142
+      ],
+      "plc_value": 123.45600128173828,
+      "plc_bits": "42F6E979",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W1",
+      "tag": "TestReal32Read",
+      "registers": [
+        59769,
+        17142
+      ],
+      "plc_value": 123.45600128173828,
+      "plc_bits": "42F6E979",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W2",
+      "tag": "TestReal32Read",
+      "registers": [
+        59769,
+        17142
+      ],
+      "plc_value": 123.45600128173828,
+      "plc_bits": "42F6E979",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W3",
+      "tag": "TestReal32Read",
+      "registers": [
+        59769,
+        17142
+      ],
+      "plc_value": 123.45600128173828,
+      "plc_bits": "42F6E979",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W4",
+      "tag": "TestReal32Read",
+      "registers": [
+        59769,
+        17142
+      ],
+      "plc_value": 123.45600128173828,
+      "plc_bits": "42F6E979",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    }
+  ],
+  "behavior": [],
+  "checks": {
+    "pymodbus_connect": true,
+    "bridge_logged_in": true,
+    "real32_ordering_determined": true,
+    "all_cases_pass": true,
+    "all_signals_verified": true,
+    "bridge_quit": true
+  },
+  "bridge_ready": {
+    "ready": true,
+    "logged_in": true,
+    "application_state_at_login": "stop",
+    "application_state": "run"
+  },
+  "real32_candidates_after_reads": [
+    "CDAB"
+  ],
+  "real32_ordering": {
+    "name": "CDAB",
+    "registers_per_value": 2,
+    "word_order": "low word first (lower address = least significant 16 bits)",
+    "byte_order": "big-endian within each register (Modbus standard)",
+    "register_order": "register[n]=low word, big-endian bytes in each register"
+  },
+  "bridge_quit": true,
+  "per_signal": {
+    "Command": {
+      "pass": true,
+      "cases": 1,
+      "method": "F06 S1 regression (HR command word -> IR status word)"
+    },
+    "TestInt16Write": {
+      "pass": true,
+      "cases": 4,
+      "paths": [
+        "WRITE"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "TestReal32Write": {
+      "pass": true,
+      "cases": 4,
+      "paths": [
+        "WRITE"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "TestUInt16Write": {
+      "pass": true,
+      "cases": 4,
+      "paths": [
+        "WRITE"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "TestWordWrite": {
+      "pass": true,
+      "cases": 4,
+      "paths": [
+        "WRITE"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "Status": {
+      "pass": true,
+      "cases": 1,
+      "method": "F06 S1 regression (HR command word -> IR status word)"
+    },
+    "TestInt16Read": {
+      "pass": true,
+      "cases": 8,
+      "paths": [
+        "READ"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "TestReal32Read": {
+      "pass": true,
+      "cases": 8,
+      "paths": [
+        "READ"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "TestUInt16Read": {
+      "pass": true,
+      "cases": 8,
+      "paths": [
+        "READ"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "TestWordRead": {
+      "pass": true,
+      "cases": 8,
+      "paths": [
+        "READ"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "TestCoil": {
+      "pass": true,
+      "cases": 4,
+      "paths": [
+        "WRITE"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "TestDiscreteInput": {
+      "pass": true,
+      "cases": 8,
+      "paths": [
+        "READ"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    }
+  },
+  "operation_status": "PASS",
+  "reason": "all typed cases passed; 12 signals verified",
+  "exit_code_intended": 0
+}

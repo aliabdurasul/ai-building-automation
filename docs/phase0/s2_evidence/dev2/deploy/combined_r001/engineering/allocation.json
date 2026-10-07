@@ -1,0 +1,131 @@
+{
+  "schema": "ai_bms.allocation_lock.v1",
+  "project_id": "BMS-DEMO",
+  "revision": 1,
+  "parent_revision": null,
+  "model_sha256": "c4530164e326208461c6695ae1e311189f9212a1626fe90d8b3a87b3e65302e7",
+  "target_sha256": "2d02a0ee88bdab568b4b1f177395aaa67cc144e8b584416f81e24ecb34700693",
+  "active": [
+    {
+      "identity": "BMS-DEMO/AHU-01/Command",
+      "symbol": "Command",
+      "datatype": "WORD",
+      "direction": "WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 0,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "BMS-DEMO/AHU-01/Setpoint",
+      "symbol": "Setpoint",
+      "datatype": "REAL32",
+      "direction": "READ_WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 1,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "BMS-DEMO/AHU-01/Status",
+      "symbol": "Status",
+      "datatype": "WORD",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/Pressure",
+      "symbol": "Pressure",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 1,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/PumpSpeed",
+      "symbol": "PumpSpeed",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 3,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/PumpState",
+      "symbol": "PumpState",
+      "datatype": "INT16",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "BMS-DEMO/AHU-01/SupplyTemp",
+      "symbol": "SupplyTemp",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 6,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/StartCommand",
+      "symbol": "PUMP01_StartCommand",
+      "datatype": "BOOL",
+      "direction": "WRITE",
+      "area": "COIL",
+      "address": 144,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/StopCommand",
+      "symbol": "PUMP01_StopCommand",
+      "datatype": "BOOL",
+      "direction": "WRITE",
+      "area": "COIL",
+      "address": 145,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "BMS-DEMO/AHU-01/FanRunning",
+      "symbol": "FanRunning",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/PumpFault",
+      "symbol": "PumpFault",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 145,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/PumpRunning",
+      "symbol": "PumpRunning",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 146,
+      "length": 1,
+      "action": "NEW"
+    }
+  ],
+  "retired": []
+}

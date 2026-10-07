@@ -1,0 +1,1 @@
+PASS r001 regenerated from stored inputs; all 11 artifacts semantically identical

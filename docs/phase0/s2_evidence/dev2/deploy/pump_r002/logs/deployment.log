@@ -1,0 +1,5 @@
+gateway=Gateway-1 target=127.0.0.1 simulation=False
+logged_in=True
+application_state=run
+online_values={'PLC_PRG.Mb_PumpSpeed_W1': 'WORD#0', 'PLC_PRG.PumpFault': 'FALSE', 'PLC_PRG.FlowRate': 'REAL#0', 'PLC_PRG.StopCommand': 'FALSE', 'PLC_PRG.StartCommand': 'FALSE', 'PLC_PRG.Mb_Pressure_W0': 'WORD#0', 'PLC_PRG.Mb_FlowRate_W0': 'WORD#0', 'PLC_PRG.Mb_StartCommand': 'FALSE', 'PLC_PRG.Mb_PumpRunning': 'FALSE', 'PLC_PRG.Mb_PumpState': 'WORD#0', 'PLC_PRG.Mb_StopCommand': 'FALSE', 'PLC_PRG.Mb_PumpSpeed_W0': 'WORD#0', 'PLC_PRG.PumpRunning': 'FALSE', 'PLC_PRG.Pressure': 'REAL#0', 'PLC_PRG.PumpSpeed': 'REAL#0', 'PLC_PRG.PumpState': 'INT#0', 'PLC_PRG.Mb_FlowRate_W1': 'WORD#0', 'PLC_PRG.Mb_Pressure_W1': 'WORD#0', 'PLC_PRG.Mb_PumpFault': 'FALSE'}
+OPERATION_STATUS=PASS

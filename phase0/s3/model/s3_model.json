@@ -1,0 +1,75 @@
+{
+  "model_id": "AHU-01-S3",
+  "ahu_id": "AHU-01",
+  "description": "S3 canonical engineering model: AHU-01 (S1-FIX variables/logic unchanged) + S3 type test signals. Signals are selected per profile; addresses not given are allocated by phase0/s3/engine/canonical.py.",
+  "platform": {
+    "target": "CODESYS Control Win V3 x64 / ModbusTCP Server Device 4.6.0.0 (type 115, id 0000 0002)",
+    "register_capacity": { "HOLDING_REGISTER": 10, "INPUT_REGISTER": 10 },
+    "register_capacity_note": "Measured: the ScriptEngine-created server exposes 10 holding + 10 input register channels; changing the assembly-size parameters via ScriptEngine does not regenerate channels (discovery_reopen/discovery_update). HR10 and coil 160 answer Modbus exception 2.",
+    "bit_overlay": {
+      "distinct_bit_areas": false,
+      "plc_bit_offset": 8,
+      "rule": "coil/discrete-input address n -> register n div 16, PLC WORD bit ((n mod 16) + 8) mod 16",
+      "evidence": "Measured on the running S1-FIX app: coil 0 -> HR0=256 (bit 8), coil 8 -> HR0=1 (bit 0, fan started), discrete inputs 8/9 = IR0 bits 0/1"
+    },
+    "unsupported": [
+      { "feature": "DistinctBitAreas=TRUE (separate coil / discrete-input areas)", "reason": "ScriptEngine stores the parameter but does not generate the coil/discrete-input channels (measured, discovery_reopen)" },
+      { "feature": "more than 10 registers per area", "reason": "assembly-size parameters do not regenerate register channels via ScriptEngine; device.update() resets them (measured, discovery_update)" },
+      { "feature": "PLC-originated value of a READ_WRITE holding register visible to FC3", "reason": "UpdateableHolding output channels are not generated via ScriptEngine; FC3 returns the last client-written value" }
+    ],
+    "real32_layout_rule": "generator copies the 2 consecutive in-memory 16-bit words of the PLC REAL to 2 consecutive registers (lower memory word -> lower register address); the resulting wire order is measured, not assumed",
+    "codesys": {
+      "plc_device_repo_name": "CODESYS Control Win V3 x64",
+      "adapter": { "name": "Ethernet", "repo_name": "Ethernet", "type": 110, "id": "0000 0002" },
+      "server": { "name": "Modbus_TCP_Server", "repo_name": "ModbusTCP Server Device", "type": 115, "id": "0000 0002" },
+      "area_parameter": { "HOLDING_REGISTER": "Holding Registers", "INPUT_REGISTER": "Input Registers" },
+      "server_expect": { "Port": "502", "DistinctBitAreas": "FALSE" }
+    }
+  },
+  "modbus": { "protocol": "Modbus TCP", "role": "server", "host": "127.0.0.1", "port": 502, "slave": 1 },
+  "variables": {
+    "StartCommand": { "type": "BOOL", "initial": false, "role": "command" },
+    "StopCommand": { "type": "BOOL", "initial": false, "role": "command" },
+    "FanCommand": { "type": "BOOL", "initial": false, "role": "output" },
+    "FanRunning": { "type": "BOOL", "initial": false, "role": "status" },
+    "FanFault": { "type": "BOOL", "initial": false, "role": "status" },
+    "SupplyTemp": { "type": "REAL", "initial": 21.0, "role": "process" },
+    "Setpoint": { "type": "REAL", "initial": 22.0, "role": "setpoint" },
+    "FanSpeed": { "type": "REAL", "initial": 50.0, "role": "output" },
+    "HeatingValve": { "type": "REAL", "initial": 0.0, "role": "output" },
+    "TestCoil": { "type": "BOOL", "initial": false, "role": "s3_test" },
+    "TestDiscreteInput": { "type": "BOOL", "initial": true, "role": "s3_test" },
+    "TestWordRead": { "type": "WORD", "initial": 42330, "role": "s3_test" },
+    "TestWordWrite": { "type": "WORD", "initial": 0, "role": "s3_test" },
+    "TestInt16Read": { "type": "INT", "initial": -1234, "role": "s3_test" },
+    "TestInt16Write": { "type": "INT", "initial": 0, "role": "s3_test" },
+    "TestUInt16Read": { "type": "UINT", "initial": 1234, "role": "s3_test" },
+    "TestUInt16Write": { "type": "UINT", "initial": 0, "role": "s3_test" },
+    "TestReal32Read": { "type": "REAL", "initial": 21.5, "role": "s3_test" },
+    "TestReal32Write": { "type": "REAL", "initial": 0.0, "role": "s3_test" }
+  },
+  "logic": "S1-FIX AHU logic (fan start/stop/fault, heating SupplyTemp < Setpoint -> HeatingValve 100 else 0), unchanged",
+  "signals": [
+    { "tag": "Command", "plc_var": "Mb_Command", "datatype": "WORD", "direction": "WRITE", "profiles": ["types", "ahu"],
+      "modbus": { "area": "HOLDING_REGISTER", "address": 0 }, "bits": { "0": "StartCommand", "1": "StopCommand" } },
+    { "tag": "Status", "plc_var": "Mb_Status", "datatype": "WORD", "direction": "READ", "profiles": ["types", "ahu"],
+      "modbus": { "area": "INPUT_REGISTER", "address": 0 }, "bits": { "0": "FanCommand", "1": "FanRunning", "2": "FanFault" } },
+
+    { "tag": "TestCoil", "datatype": "BOOL", "direction": "WRITE", "profiles": ["types"], "modbus": { "area": "COIL" } },
+    { "tag": "TestDiscreteInput", "datatype": "BOOL", "direction": "READ", "profiles": ["types"], "modbus": { "area": "DISCRETE_INPUT" } },
+    { "tag": "TestWordRead", "datatype": "WORD", "direction": "READ", "profiles": ["types"], "modbus": { "area": "INPUT_REGISTER" } },
+    { "tag": "TestWordWrite", "datatype": "WORD", "direction": "WRITE", "profiles": ["types"], "modbus": { "area": "HOLDING_REGISTER" } },
+    { "tag": "TestInt16Read", "datatype": "INT16", "direction": "READ", "profiles": ["types"], "modbus": { "area": "INPUT_REGISTER" } },
+    { "tag": "TestInt16Write", "datatype": "INT16", "direction": "WRITE", "profiles": ["types"], "modbus": { "area": "HOLDING_REGISTER" } },
+    { "tag": "TestUInt16Read", "datatype": "UINT16", "direction": "READ", "profiles": ["types"], "modbus": { "area": "INPUT_REGISTER" } },
+    { "tag": "TestUInt16Write", "datatype": "UINT16", "direction": "WRITE", "profiles": ["types"], "modbus": { "area": "HOLDING_REGISTER" } },
+    { "tag": "TestReal32Read", "datatype": "REAL32", "direction": "READ", "profiles": ["types"], "modbus": { "area": "INPUT_REGISTER", "length": 2 } },
+    { "tag": "TestReal32Write", "datatype": "REAL32", "direction": "WRITE", "profiles": ["types"], "modbus": { "area": "HOLDING_REGISTER", "length": 2 } },
+
+    { "tag": "SupplyTemp", "datatype": "REAL32", "direction": "READ", "profiles": ["ahu"], "modbus": { "area": "INPUT_REGISTER", "length": 2 } },
+    { "tag": "FanSpeed", "datatype": "REAL32", "direction": "READ", "profiles": ["ahu"], "modbus": { "area": "INPUT_REGISTER", "length": 2 } },
+    { "tag": "HeatingValve", "datatype": "REAL32", "direction": "READ", "profiles": ["ahu"], "modbus": { "area": "INPUT_REGISTER", "length": 2 } },
+    { "tag": "Setpoint", "datatype": "REAL32", "direction": "READ_WRITE", "profiles": ["ahu"], "modbus": { "area": "HOLDING_REGISTER", "length": 2 },
+      "verification_values": [20.0, 23.5, 22.0] }
+  ]
+}

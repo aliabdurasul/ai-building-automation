@@ -1,0 +1,23 @@
+{
+  "schema": "ai_bms.revision_index.v1",
+  "project_id": "PUMP-DEMO",
+  "revisions": [
+    {
+      "revision": 1,
+      "parent_revision": null,
+      "label": "PUMP_V1",
+      "model_sha256": "116a5d1666d8e40e5d3818eaa7159b432fec2e6a50cd3a568308bc14d8400e1e",
+      "status": "ACCEPTED",
+      "manifest_sha256": "833d69a1296e04eaa3d47346efaa4d5a408ff4d3ee8824468049d279b301248e"
+    }
+  ],
+  "rejected": [],
+  "current": 1,
+  "events": [
+    {
+      "event": "commit",
+      "revision": 1,
+      "label": "PUMP_V1"
+    }
+  ]
+}

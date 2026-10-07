@@ -1,0 +1,19 @@
+{
+  "schema": "ai_bms.revision_validation.v1",
+  "project_id": "AHU-DEMO",
+  "revision": 3,
+  "parent_revision": 2,
+  "status": "REJECTED",
+  "stages": {
+    "canonical": "PASS",
+    "model_rules": "FAILED"
+  },
+  "errors": [
+    {
+      "code": "MODEL_RULE",
+      "message": "ReturnTemp: missing area"
+    }
+  ],
+  "model_sha256": "531076d6e9b0c5cfb417d799187d831c4f92ece7efd2404530932c3f54e9d343",
+  "target_sha256": "aac7532c3971e50866be0b6f67c82d639525bf4803e8f18373691cfc2af5aa77"
+}

@@ -1,0 +1,20 @@
+{
+  "step": "s2_check_adapter-generic",
+  "checks": {
+    "adapter_scripts_found": true,
+    "scanner_positive_control_detects_names": true,
+    "no_equipment_names_in_adapter": true
+  },
+  "adapter_files": {
+    "create_project.py": "63323d6e8a6517b2988f90b6b8d5dd5d6109079fec791bf4af4382a2b29b23c5",
+    "deploy.py": "dbc802117f7983b7215fe717f4a38cd709157e2160d7f3c219984aec637640a0",
+    "discover_devices.py": "7f34f42dae0db94f3e9f1321a31c46974e89386f07e3f995cea661c4d21a73bc",
+    "verify_project.py": "382963ca520d71b224099a338fd10922037c1bcfcb934ac5884e28c37dff149d"
+  },
+  "words_checked": 40,
+  "hits": [],
+  "control_file": "C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\generator\\generate.py",
+  "control_hits": 16,
+  "operation_status": "PASS",
+  "reason": "3 checks passed"
+}

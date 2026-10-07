@@ -1,0 +1,17 @@
+{"t":"2026-10-06T18:14:23.736+03:00","step":"codesys_before_runtime","HR0":2,"IR0":0}
+{"t":"2026-10-06T18:14:23.755+03:00","step":"runtime_processes_before","pids":""}
+{"t":"2026-10-06T18:15:15.691+03:00","step":"start_driver_call","exe":"C:\\Program Files\\MPSSoft\\MasterSCADA 4D 1.2\\bin\\Config\\MasterPLC\\WIN64\\IWIN32.EXE","workdir":"C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc\\phase0_s81\\rt_copy_hmi3\\rt_work\\Debug_1","udp_port":31201,"start_args":" /ea:7","IncludeHMI":true}
+{"t":"2026-10-06T18:15:30.067+03:00","step":"wait_config_loaded","loaded":true}
+{"t":"2026-10-06T18:15:30.077+03:00","step":"own_runtime_process","name":"IWIN32","pid":30304}
+{"t":"2026-10-06T18:15:30.129+03:00","step":"htdocs_found","index":"C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc\\phase0_s81\\rt_copy_hmi3\\rt_work\\Debug_1\\htdocs\\index.html","files":141}
+{"t":"2026-10-06T18:15:54.739+03:00","step":"own_runtime_ports","pid":30304,"ports":"TCP 0.0.0.0:30757;TCP 0.0.0.0:31557;UDP 0.0.0.0:31201;UDP 0.0.0.0:31701;"}
+{"t":"2026-10-06T18:15:54.823+03:00","step":"hold","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-18:15:54.461, StatusCode:=Good)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-06-18:15:54.570, StatusCode:=Good)","codesys_HR0":2,"codesys_IR0":0}
+{"t":"2026-10-06T18:15:55.892+03:00","step":"hold","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-18:15:55.670, StatusCode:=Good)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-06-18:15:55.779, StatusCode:=Good)","codesys_HR0":1,"codesys_IR0":3}
+{"t":"2026-10-06T18:15:57.318+03:00","step":"hold","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-18:15:56.575, StatusCode:=Good)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-06-18:15:56.556, StatusCode:=Good)","codesys_HR0":1,"codesys_IR0":3}
+{"t":"2026-10-06T18:15:58.388+03:00","step":"hold","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-18:15:58.109, StatusCode:=Good)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-06-18:15:58.111, StatusCode:=Good)","codesys_HR0":1,"codesys_IR0":3}
+{"t":"2026-10-06T18:15:59.472+03:00","step":"hold","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-18:15:59.311, StatusCode:=Good)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-06-18:15:59.321, StatusCode:=Good)","codesys_HR0":2,"codesys_IR0":0}
+{"t":"2026-10-06T18:16:00.559+03:00","step":"hold","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-18:16:00.297, StatusCode:=Good)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-06-18:16:00.308, StatusCode:=Good)","codesys_HR0":2,"codesys_IR0":0}
+{"t":"2026-10-06T18:16:01.563+03:00","step":"hold_end","stop_flag":true,"seconds":6}
+{"t":"2026-10-06T18:16:01.681+03:00","step":"stop_controller","ok":true}
+{"t":"2026-10-06T18:16:04.789+03:00","step":"codesys_after_runtime","HR0":2,"IR0":0}
+{"t":"2026-10-06T18:16:10.692+03:00","step":"project_disposed_without_save","ok":true}

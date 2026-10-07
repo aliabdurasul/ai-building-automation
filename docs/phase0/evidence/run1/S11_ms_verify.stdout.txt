@@ -1,0 +1,13 @@
+mode=verify time=2026-10-05T10:04:57.7610962+03:00
+IUIService registered: InSAT.Framework.TestBase.UIServiceForTests
+TimedTrace not found
+TypesManager.ConfigName=MasterPLC ConfigPath=C:\Program Files\MPSSoft\MasterSCADA 4D 1.2\bin\..\Configs\MasterPLC
+OpenProject OK: AHU_S1 root=MasterSCADA.HMI.RootItem
+VERIFY workstation System.АРМ 1 sub=WIN32
+  protocol Modbus TCP sub=ModbusTCPMaster
+    module Модуль Modbus TCP 1 sub=Modbus_TCP IP=127.0.0.1 Port=502 Unit=1
+      channel FanCommand ParamType=0(РегистрХранения) Address=0 ValueType=0 AccessType=Output (1)
+        pin Output ValueTypeString=SYSTEM_INT_PARAM NetValueType=System.String
+      channel FanStatus ParamType=1(ВходнойРегистр) Address=0 ValueType=0 AccessType=Input (0)
+        pin Input ValueTypeString=SYSTEM_INT_PARAM NetValueType=System.String
+VERIFY RESULT fails=0

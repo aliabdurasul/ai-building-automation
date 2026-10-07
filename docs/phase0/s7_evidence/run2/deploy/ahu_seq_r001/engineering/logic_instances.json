@@ -1,0 +1,44 @@
+{
+  "schema": "ai_bms.logic_instances.v1",
+  "project_id": "AHU-SEQ",
+  "revision": 1,
+  "instances": [
+    {
+      "equipment": "AHU-01",
+      "type": "AHU",
+      "template": "AHU_SEQ_V1",
+      "sha256": "f634e678829a216103c3d32b9890b7f14ae0631fc05d619e74a67d5a0650c413",
+      "bind": {
+        "AhuAlarm": "AhuAlarm",
+        "AhuState": "AhuState",
+        "DamperCommand": "DamperCommand",
+        "DamperFailure": "DamperFailure",
+        "DamperFault": "DamperFault",
+        "DamperOpen": "DamperOpen",
+        "FanCommand": "FanCommand",
+        "FanFailure": "FanFailure",
+        "FanFault": "FanFault",
+        "FanRunning": "FanRunning",
+        "HeatingValve": "HeatingValve",
+        "NowMs": "NowMs",
+        "SequenceStarts": "SequenceStarts",
+        "SequenceStops": "SequenceStops",
+        "Setpoint": "Setpoint",
+        "StartCommand": "StartCommand",
+        "StartPrev": "StartPrev",
+        "StateEntryMs": "StateEntryMs",
+        "StateTrace": "StateTrace",
+        "StopCommand": "StopCommand",
+        "StopPrev": "StopPrev",
+        "SupplyTemp": "SupplyTemp"
+      },
+      "behavior_test": null,
+      "parameters": {
+        "DamperCloseTime_ms": 2000,
+        "DamperOpenTime_ms": 2000,
+        "FanStartTime_ms": 1000,
+        "FanStopTime_ms": 1000
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "reason": "all checks passed", 
+  "boot_app": {
+    "size": 252484, 
+    "path": "C:\\AI_BMS_PHASE0\\s1fix\\run1\\generated\\AI_BMS_AHU_DEMO.app", 
+    "exists": true
+  }, 
+  "server_parameters": {
+    "Port": {
+      "expected": "502", 
+      "ok": true, 
+      "actual": "502"
+    }
+  }, 
+  "checks": {
+    "server_parameters": true, 
+    "io_mappings": true, 
+    "devices_added": true, 
+    "boot_app": true, 
+    "build_0_warnings": true, 
+    "build_0_errors": true
+  }, 
+  "io_mappings": [
+    {
+      "device": "Modbus_TCP_Server", 
+      "channel_identifier": "1000_0_0_0", 
+      "read_back": "Application.PLC_PRG.Mb_Command", 
+      "iec_type": "WORD", 
+      "channel_iec_type": "", 
+      "ok": true, 
+      "parameter": "Holding Registers", 
+      "word_index": 0, 
+      "variable": "Application.PLC_PRG.Mb_Command"
+    }, 
+    {
+      "device": "Modbus_TCP_Server", 
+      "channel_identifier": "2000_0_0_0", 
+      "read_back": "Application.PLC_PRG.Mb_Status", 
+      "iec_type": "WORD", 
+      "channel_iec_type": "", 
+      "ok": true, 
+      "parameter": "Input Registers", 
+      "word_index": 0, 
+      "variable": "Application.PLC_PRG.Mb_Status"
+    }
+  ], 
+  "step": "codesys_create_build", 
+  "operation_status": "PASS", 
+  "build": {
+    "warnings": 0, 
+    "log": "C:\\AI_BMS_PHASE0\\s1fix\\run1\\logs\\build.log", 
+    "errors": 0
+  }, 
+  "devices": [
+    {
+      "type": 4096, 
+      "name": "Device", 
+      "repo_name": "CODESYS Control Win V3 x64", 
+      "version": "3.5.22.30", 
+      "id": "0000 0004"
+    }, 
+    {
+      "id": "0000 0002", 
+      "version": "4.2.0.0", 
+      "present_after_add": true, 
+      "parent": "Device", 
+      "repo_name": "Ethernet", 
+      "type": 110, 
+      "identification_matches": true, 
+      "name": "Ethernet"
+    }, 
+    {
+      "id": "0000 0002", 
+      "version": "4.6.0.0", 
+      "present_after_add": true, 
+      "parent": "Ethernet", 
+      "repo_name": "ModbusTCP Server Device", 
+      "type": 115, 
+      "identification_matches": true, 
+      "name": "Modbus_TCP_Server"
+    }
+  ], 
+  "exit_code_intended": 0, 
+  "project": "C:\\AI_BMS_PHASE0\\s1fix\\run1\\generated\\AI_BMS_AHU_DEMO.project"
+}

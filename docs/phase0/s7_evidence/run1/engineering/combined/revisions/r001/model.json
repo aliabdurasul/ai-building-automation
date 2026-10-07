@@ -1,0 +1,50 @@
+{
+  "schema": "ai_bms.engineering_model.v1",
+  "project_id": "BMS-DEMO",
+  "revision": 1,
+  "parent_revision": null,
+  "description": "AHU-01 + PUMP-01 in one canonical model and one PLC application. Identities project/equipment/tag stay distinct; PUMP-01 command PLC variables carry explicit symbols because AHU-01 already uses StartCommand/StopCommand.",
+  "modbus": { "protocol": "Modbus TCP", "role": "server", "host": "127.0.0.1", "port": 502, "slave": 1 },
+  "equipment": [
+    { "id": "AHU-01", "type": "AHU", "logic": { "template": "AHU_S1FIX_V1" } },
+    { "id": "PUMP-01", "type": "PUMP",
+      "logic": { "template": "PUMP_BASIC_V1", "bind": { "StartCommand": "PUMP01_StartCommand", "StopCommand": "PUMP01_StopCommand" } } }
+  ],
+  "variables": {
+    "StartCommand": { "type": "BOOL", "initial": false, "role": "command", "equipment": "AHU-01" },
+    "StopCommand": { "type": "BOOL", "initial": false, "role": "command", "equipment": "AHU-01" },
+    "FanCommand": { "type": "BOOL", "initial": false, "role": "output", "equipment": "AHU-01" },
+    "FanRunning": { "type": "BOOL", "initial": false, "role": "status", "equipment": "AHU-01" },
+    "FanFault": { "type": "BOOL", "initial": false, "role": "status", "equipment": "AHU-01" },
+    "SupplyTemp": { "type": "REAL", "initial": 21.0, "role": "process", "equipment": "AHU-01" },
+    "Setpoint": { "type": "REAL", "initial": 22.0, "role": "setpoint", "equipment": "AHU-01" },
+    "HeatingValve": { "type": "REAL", "initial": 0.0, "role": "output", "equipment": "AHU-01" },
+    "PUMP01_StartCommand": { "type": "BOOL", "initial": false, "role": "command", "equipment": "PUMP-01" },
+    "PUMP01_StopCommand": { "type": "BOOL", "initial": false, "role": "command", "equipment": "PUMP-01" },
+    "PumpRunning": { "type": "BOOL", "initial": false, "role": "status", "equipment": "PUMP-01" },
+    "PumpFault": { "type": "BOOL", "initial": false, "role": "status", "equipment": "PUMP-01" },
+    "PumpState": { "type": "INT", "initial": 0, "role": "status", "equipment": "PUMP-01" },
+    "PumpSpeed": { "type": "REAL", "initial": 0.0, "role": "process", "equipment": "PUMP-01" },
+    "Pressure": { "type": "REAL", "initial": 0.0, "role": "process", "equipment": "PUMP-01" }
+  },
+  "signals": [
+    { "equipment": "AHU-01", "tag": "Command", "plc_var": "Mb_Command", "datatype": "WORD", "direction": "WRITE",
+      "modbus": { "area": "HOLDING_REGISTER", "address": 0 }, "bits": { "0": "StartCommand", "1": "StopCommand" } },
+    { "equipment": "AHU-01", "tag": "Status", "plc_var": "Mb_Status", "datatype": "WORD", "direction": "READ",
+      "modbus": { "area": "INPUT_REGISTER", "address": 0 }, "bits": { "0": "FanCommand", "1": "FanRunning", "2": "FanFault" } },
+    { "equipment": "AHU-01", "tag": "FanRunning", "datatype": "BOOL", "direction": "READ", "modbus": { "area": "DISCRETE_INPUT" } },
+    { "equipment": "AHU-01", "tag": "SupplyTemp", "datatype": "REAL32", "direction": "READ", "modbus": { "area": "INPUT_REGISTER", "length": 2 } },
+    { "equipment": "AHU-01", "tag": "Setpoint", "datatype": "REAL32", "direction": "READ_WRITE", "modbus": { "area": "HOLDING_REGISTER", "length": 2 },
+      "verification_values": [21.5, 18.25, 123.456, 22.0] },
+    { "equipment": "PUMP-01", "tag": "StartCommand", "symbol": "PUMP01_StartCommand", "datatype": "BOOL", "direction": "WRITE", "modbus": { "area": "COIL" } },
+    { "equipment": "PUMP-01", "tag": "StopCommand", "symbol": "PUMP01_StopCommand", "datatype": "BOOL", "direction": "WRITE", "modbus": { "area": "COIL" } },
+    { "equipment": "PUMP-01", "tag": "PumpRunning", "datatype": "BOOL", "direction": "READ", "modbus": { "area": "DISCRETE_INPUT" } },
+    { "equipment": "PUMP-01", "tag": "PumpFault", "datatype": "BOOL", "direction": "READ", "modbus": { "area": "DISCRETE_INPUT" } },
+    { "equipment": "PUMP-01", "tag": "PumpState", "datatype": "INT16", "direction": "READ", "modbus": { "area": "INPUT_REGISTER" } },
+    { "equipment": "PUMP-01", "tag": "PumpSpeed", "datatype": "REAL32", "direction": "READ", "modbus": { "area": "INPUT_REGISTER", "length": 2 },
+      "verification_values": [50.0, 21.5, 18.25, 123.456] },
+    { "equipment": "PUMP-01", "tag": "Pressure", "datatype": "REAL32", "direction": "READ", "modbus": { "area": "INPUT_REGISTER", "length": 2 },
+      "verification_values": [3.75, 22.0, 18.25, 123.456] }
+  ],
+  "approvals": []
+}

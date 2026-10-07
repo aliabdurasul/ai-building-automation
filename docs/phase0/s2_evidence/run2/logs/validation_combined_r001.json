@@ -1,0 +1,25 @@
+{
+  "step": "s2_check_validation",
+  "checks": {
+    "status_accepted": true,
+    "all_stages_pass": true,
+    "logic_template_stage_ran": true,
+    "templates_bundled": true,
+    "no_errors": true
+  },
+  "stages": {
+    "canonical": "PASS",
+    "model_rules": "PASS",
+    "policy": "PASS",
+    "allocation": "PASS",
+    "resolved_model": "PASS",
+    "logic_template": "PASS"
+  },
+  "errors": [],
+  "templates": {
+    "AHU_S1FIX_V1": "6547b81211be44a268836df88865dadeee118098e2d92d04d663eec461c0822b",
+    "PUMP_BASIC_V1": "a971cb3a6766a309899d1aa48e30a78262b0a89ba0c089d6cd9988931b5bda98"
+  },
+  "operation_status": "PASS",
+  "reason": "5 checks passed"
+}

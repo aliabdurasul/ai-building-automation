@@ -1,0 +1,241 @@
+{
+  "step": "revision_check_integrity",
+  "checks": {
+    "all_manifests_match": true,
+    "no_extra_files": true,
+    "index_manifest_hashes_match": true,
+    "index_lists_every_revision_dir": true,
+    "no_temp_dirs_left": true
+  },
+  "revisions": [
+    {
+      "revision": 1,
+      "manifest_matches": true,
+      "extra_files": [],
+      "index_manifest_sha_matches": true,
+      "files": 11
+    },
+    {
+      "revision": 2,
+      "manifest_matches": true,
+      "extra_files": [],
+      "index_manifest_sha_matches": true,
+      "files": 11
+    },
+    {
+      "revision": 3,
+      "manifest_matches": true,
+      "extra_files": [],
+      "index_manifest_sha_matches": true,
+      "files": 11
+    },
+    {
+      "revision": 4,
+      "manifest_matches": true,
+      "extra_files": [],
+      "index_manifest_sha_matches": true,
+      "files": 11
+    }
+  ],
+  "current": 4,
+  "events": [
+    {
+      "event": "commit",
+      "revision": 1,
+      "label": "V1"
+    },
+    {
+      "event": "commit",
+      "revision": 2,
+      "label": "V2"
+    },
+    {
+      "event": "rollback",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "event": "reject",
+      "label": "invalid_duplicate_tag"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_duplicate_address"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_real32_length_1"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_missing_datatype"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_missing_area"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_invalid_direction"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_direction_area_mismatch"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_overlapping_real32"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_capacity_exceeded"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_revision_already_exists"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_unknown_parent"
+    },
+    {
+      "event": "commit",
+      "revision": 3,
+      "label": "V3"
+    },
+    {
+      "event": "reject",
+      "label": "V4_type_change"
+    },
+    {
+      "event": "reject",
+      "label": "V4_type_change_approved"
+    },
+    {
+      "event": "commit",
+      "revision": 4,
+      "label": "V5"
+    },
+    {
+      "event": "reject",
+      "label": "V6_direction_breaking"
+    }
+  ],
+  "rejected": [
+    {
+      "label": "invalid_duplicate_tag",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "DUPLICATE_TAG",
+        "MODEL_RULE"
+      ]
+    },
+    {
+      "label": "invalid_duplicate_address",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "ALLOCATION"
+      ]
+    },
+    {
+      "label": "invalid_real32_length_1",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "MODEL_RULE"
+      ]
+    },
+    {
+      "label": "invalid_missing_datatype",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "MODEL_RULE"
+      ]
+    },
+    {
+      "label": "invalid_missing_area",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "MODEL_RULE"
+      ]
+    },
+    {
+      "label": "invalid_invalid_direction",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "MODEL_RULE"
+      ]
+    },
+    {
+      "label": "invalid_direction_area_mismatch",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "MODEL_RULE"
+      ]
+    },
+    {
+      "label": "invalid_overlapping_real32",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "ALLOCATION"
+      ]
+    },
+    {
+      "label": "invalid_capacity_exceeded",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "ALLOCATION"
+      ]
+    },
+    {
+      "label": "invalid_revision_already_exists",
+      "revision": 2,
+      "parent_revision": 1,
+      "codes": [
+        "STORE"
+      ]
+    },
+    {
+      "label": "invalid_unknown_parent",
+      "revision": 3,
+      "parent_revision": 99,
+      "codes": [
+        "STORE"
+      ]
+    },
+    {
+      "label": "V4_type_change",
+      "revision": 4,
+      "parent_revision": 3,
+      "codes": [
+        "BREAKING_CHANGE_REQUIRES_APPROVAL"
+      ]
+    },
+    {
+      "label": "V4_type_change_approved",
+      "revision": 4,
+      "parent_revision": 3,
+      "codes": [
+        "ALLOCATION"
+      ]
+    },
+    {
+      "label": "V6_direction_breaking",
+      "revision": 5,
+      "parent_revision": 4,
+      "codes": [
+        "BREAKING_CHANGE_REQUIRES_APPROVAL"
+      ]
+    }
+  ],
+  "operation_status": "PASS",
+  "reason": "5 checks passed"
+}

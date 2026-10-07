@@ -1,0 +1,33 @@
+{
+  "step": "revision_check_repro",
+  "checks": {
+    "r001": true,
+    "r002": true,
+    "r003": true
+  },
+  "revisions": [
+    {
+      "revision": 1,
+      "a_matches_store": true,
+      "b_matches_store": true,
+      "a_equals_b": true,
+      "files": 11
+    },
+    {
+      "revision": 2,
+      "a_matches_store": true,
+      "b_matches_store": true,
+      "a_equals_b": true,
+      "files": 11
+    },
+    {
+      "revision": 3,
+      "a_matches_store": true,
+      "b_matches_store": true,
+      "a_equals_b": true,
+      "files": 11
+    }
+  ],
+  "operation_status": "PASS",
+  "reason": "3 checks passed"
+}

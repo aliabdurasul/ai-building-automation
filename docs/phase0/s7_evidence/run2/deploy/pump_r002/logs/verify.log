@@ -1,0 +1,32 @@
+Project Settings
+Device [4096 0000 0004 3.5.22.30]
+  Plc Logic
+    Application
+      Library Manager
+      Task Configuration
+        MainTask
+          PLC_PRG
+      PLC_PRG
+  Ethernet [110 0000 0002 4.2.0.0]
+    Modbus_TCP_Server [115 0000 0002 4.6.0.0]
+__VisualizationStyle
+CHECK device Ethernet under Device: True
+CHECK device Modbus_TCP_Server under Ethernet: True
+CHECK server Port expected=502 actual=502
+CHECK server DistinctBitAreas expected=FALSE actual=FALSE
+CHECK channels Holding Registers expected=10 actual=10
+CHECK channels Input Registers expected=10 actual=10
+CHECK map Input Registers[0] (2000_0_0_0) -> Application.PLC_PRG.Mb_Pressure_W0: True
+CHECK map Input Registers[1] (2000_1_0_0) -> Application.PLC_PRG.Mb_Pressure_W1: True
+CHECK map Input Registers[2] (2000_2_0_0) -> Application.PLC_PRG.Mb_PumpSpeed_W0: True
+CHECK map Input Registers[3] (2000_3_0_0) -> Application.PLC_PRG.Mb_PumpSpeed_W1: True
+CHECK map Input Registers[4] (2000_4_0_0) -> Application.PLC_PRG.Mb_PumpState: True
+CHECK map Input Registers[5] (2000_5_0_0) -> Application.PLC_PRG.Mb_FlowRate_W0: True
+CHECK map Input Registers[6] (2000_6_0_0) -> Application.PLC_PRG.Mb_FlowRate_W1: True
+CHECK map Holding Registers[9].8 (1000_9_0_0_8) -> Application.PLC_PRG.Mb_StartCommand: True
+CHECK map Holding Registers[9].9 (1000_9_0_0_9) -> Application.PLC_PRG.Mb_StopCommand: True
+CHECK map Input Registers[9].8 (2000_9_0_0_8) -> Application.PLC_PRG.Mb_PumpFault: True
+CHECK map Input Registers[9].9 (2000_9_0_0_9) -> Application.PLC_PRG.Mb_PumpRunning: True
+CHECK PLC_PRG == generator: True; missing vars: []
+CHECK rebuild errors=0 warnings=0
+OPERATION_STATUS=PASS

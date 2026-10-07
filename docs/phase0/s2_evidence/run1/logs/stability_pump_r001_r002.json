@@ -1,0 +1,219 @@
+{
+  "step": "revision_check_stability",
+  "checks": {
+    "existing_mappings_unchanged": true,
+    "new_mappings_avoid_owned_addresses": true,
+    "new_mappings_lowest_free": true,
+    "runtime_verified_all_signals_to": true,
+    "runtime_verified_common_same_address": true
+  },
+  "naive_lockless_allocation_would_move": [
+    {
+      "identity": "PUMP-DEMO/PUMP-01/FlowRate",
+      "locked": {
+        "area": "INPUT_REGISTER",
+        "address": 5,
+        "length": 2
+      },
+      "naive": {
+        "area": "INPUT_REGISTER",
+        "address": 0,
+        "length": 2
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/Pressure",
+      "locked": {
+        "area": "INPUT_REGISTER",
+        "address": 0,
+        "length": 2
+      },
+      "naive": {
+        "area": "INPUT_REGISTER",
+        "address": 2,
+        "length": 2
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpSpeed",
+      "locked": {
+        "area": "INPUT_REGISTER",
+        "address": 2,
+        "length": 2
+      },
+      "naive": {
+        "area": "INPUT_REGISTER",
+        "address": 4,
+        "length": 2
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpState",
+      "locked": {
+        "area": "INPUT_REGISTER",
+        "address": 4,
+        "length": 1
+      },
+      "naive": {
+        "area": "INPUT_REGISTER",
+        "address": 6,
+        "length": 1
+      }
+    }
+  ],
+  "runtime_verified": {
+    "PUMP-DEMO/PUMP-01/FlowRate": {
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "verified": true
+    },
+    "PUMP-DEMO/PUMP-01/Pressure": {
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "verified": true
+    },
+    "PUMP-DEMO/PUMP-01/PumpFault": {
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "verified": true
+    },
+    "PUMP-DEMO/PUMP-01/PumpRunning": {
+      "area": "DISCRETE_INPUT",
+      "address": 145,
+      "verified": true
+    },
+    "PUMP-DEMO/PUMP-01/PumpSpeed": {
+      "area": "INPUT_REGISTER",
+      "address": 2,
+      "verified": true
+    },
+    "PUMP-DEMO/PUMP-01/PumpState": {
+      "area": "INPUT_REGISTER",
+      "address": 4,
+      "verified": true
+    },
+    "PUMP-DEMO/PUMP-01/StartCommand": {
+      "area": "COIL",
+      "address": 144,
+      "verified": true
+    },
+    "PUMP-DEMO/PUMP-01/StopCommand": {
+      "area": "COIL",
+      "address": 145,
+      "verified": true
+    }
+  },
+  "preserved": [
+    {
+      "identity": "PUMP-DEMO/PUMP-01/Pressure",
+      "from": {
+        "area": "INPUT_REGISTER",
+        "address": 0,
+        "length": 2
+      },
+      "to": {
+        "area": "INPUT_REGISTER",
+        "address": 0,
+        "length": 2
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpFault",
+      "from": {
+        "area": "DISCRETE_INPUT",
+        "address": 144,
+        "length": 1
+      },
+      "to": {
+        "area": "DISCRETE_INPUT",
+        "address": 144,
+        "length": 1
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpRunning",
+      "from": {
+        "area": "DISCRETE_INPUT",
+        "address": 145,
+        "length": 1
+      },
+      "to": {
+        "area": "DISCRETE_INPUT",
+        "address": 145,
+        "length": 1
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpSpeed",
+      "from": {
+        "area": "INPUT_REGISTER",
+        "address": 2,
+        "length": 2
+      },
+      "to": {
+        "area": "INPUT_REGISTER",
+        "address": 2,
+        "length": 2
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpState",
+      "from": {
+        "area": "INPUT_REGISTER",
+        "address": 4,
+        "length": 1
+      },
+      "to": {
+        "area": "INPUT_REGISTER",
+        "address": 4,
+        "length": 1
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StartCommand",
+      "from": {
+        "area": "COIL",
+        "address": 144,
+        "length": 1
+      },
+      "to": {
+        "area": "COIL",
+        "address": 144,
+        "length": 1
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StopCommand",
+      "from": {
+        "area": "COIL",
+        "address": 145,
+        "length": 1
+      },
+      "to": {
+        "area": "COIL",
+        "address": 145,
+        "length": 1
+      }
+    }
+  ],
+  "moved": [],
+  "new": [
+    {
+      "identity": "PUMP-DEMO/PUMP-01/FlowRate",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "length": 2
+    }
+  ],
+  "lowest_free": [
+    {
+      "identity": "PUMP-DEMO/PUMP-01/FlowRate",
+      "address": 5,
+      "lowest_free": 5
+    }
+  ],
+  "clashes": [],
+  "retired": [],
+  "operation_status": "PASS",
+  "reason": "5 checks passed"
+}

@@ -1,0 +1,23 @@
+{
+  "step": "s2_selftest",
+  "tests_run": 13,
+  "failures": 0,
+  "errors": 0,
+  "tests": [
+    "Determinism.test_render_is_byte_stable",
+    "Determinism.test_signal_and_variable_order_irrelevant_to_allocation",
+    "MultiEquipment.test_ahu_template_equivalent_to_builtin",
+    "MultiEquipment.test_combined_identities_isolated",
+    "MultiEquipment.test_s1_words_stay_pinned_in_combined",
+    "Pump.test_breaking_type_change_requires_approval",
+    "Pump.test_pump_model_is_vendor_neutral_and_unaddressed",
+    "Pump.test_pump_v1_generation",
+    "Pump.test_revisions_add_remove_preserve",
+    "Templates.test_bundle_pins_template_content",
+    "Templates.test_slot_type_mismatch_rejected",
+    "Templates.test_template_files_are_well_formed",
+    "Templates.test_unknown_slot_and_free_text_rejected"
+  ],
+  "operation_status": "PASS",
+  "reason": "13 S2 multi-equipment tests passed"
+}

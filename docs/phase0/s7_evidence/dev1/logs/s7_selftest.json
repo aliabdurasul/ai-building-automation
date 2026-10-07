@@ -1,0 +1,23 @@
+{
+  "step": "s7_selftest",
+  "tests_run": 13,
+  "failures": 0,
+  "errors": 0,
+  "tests": [
+    "Models.test_failure_inputs_are_plc_only",
+    "Models.test_models_vendor_neutral_and_unaddressed",
+    "Models.test_s1_contract_pinned",
+    "Parameters.test_bad_parameters_rejected",
+    "Parameters.test_default_parameters_rendered",
+    "Parameters.test_parameter_override",
+    "Parameters.test_templates_without_parameters_unchanged",
+    "Scenarios.test_scenario_keys_resolve",
+    "Scenarios.test_unique_step_names",
+    "SequenceTemplate.test_commands_are_edge_triggered",
+    "SequenceTemplate.test_every_state_has_a_branch_and_unknown_falls_back",
+    "SequenceTemplate.test_fault_forces_safe_state_and_status_contract",
+    "SequenceTemplate.test_timing_only_from_parameters"
+  ],
+  "operation_status": "PASS",
+  "reason": "13 S7 behavioural-validation tests passed"
+}

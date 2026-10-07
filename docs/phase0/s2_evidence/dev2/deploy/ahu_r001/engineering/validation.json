@@ -1,0 +1,19 @@
+{
+  "schema": "ai_bms.revision_validation.v1",
+  "project_id": "AHU-DEMO",
+  "revision": 1,
+  "parent_revision": null,
+  "status": "ACCEPTED",
+  "stages": {
+    "canonical": "PASS",
+    "model_rules": "PASS",
+    "policy": "PASS",
+    "allocation": "PASS",
+    "resolved_model": "PASS",
+    "logic_template": "PASS"
+  },
+  "errors": [],
+  "model_sha256": "a9fd415ccbf8fc638457a9309457109a093a5742a1aee88d4627c301614a5d7d",
+  "target_sha256": "2d02a0ee88bdab568b4b1f177395aaa67cc144e8b584416f81e24ecb34700693",
+  "logic_templates_sha256": "d6ff15401133bbb5c09c7ab55e19247486262e0ac10cf114761c94e43c8c1590"
+}

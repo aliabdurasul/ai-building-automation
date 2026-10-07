@@ -1,0 +1,117 @@
+{
+  "test": "S1 Agentless Reproduction & Repeatability",
+  "snapshot_time": "2026-10-05T10:05:00+03:00",
+  "snapshot_method": "PowerShell queries (Get-Service, Get-Process, Get-NetTCPConnection, file VersionInfo, registry). Raw output kept in docs/phase0/evidence/env_raw.txt",
+  "executor": {
+    "note": "Commands were executed by a Cursor agent session acting strictly as a runbook operator. No MCP, no LLM API, no browser automation and no code edits were used during RUN 1 / RUN 2. See S1_final_report.md 'Executor limitation'.",
+    "windows_user_elevated": false
+  },
+  "os": {
+    "caption": "Microsoft Windows 11 Pro",
+    "version": "10.0.22000",
+    "architecture": "64-bit",
+    "shell": "Windows PowerShell 5.1"
+  },
+  "codesys": {
+    "ide_version": "3.5.22.30",
+    "ide_path": "C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe",
+    "profile": "CODESYS V3.5 SP22 Patch 3",
+    "runtime_version": "3.5.22.30",
+    "runtime_path": "C:\\Program Files\\CODESYS 3.5.22.30\\GatewayPLC\\CODESYSControlService.exe",
+    "target_device": "CODESYS Control Win V3 x64 (selected by codesys_generate_ahu.py via device_repository)",
+    "services": [
+      {"name": "CODESYS Control Win V3", "status": "Stopped", "start_type": "Manual"},
+      {"name": "CODESYS Control Win V3 - x64", "status": "Stopped", "start_type": "Manual"},
+      {"name": "CODESYS Gateway V3", "status": "Running", "start_type": "Automatic"},
+      {"name": "CODESYS ServiceControl", "status": "Running", "start_type": "Automatic"}
+    ],
+    "processes_running": ["CODESYSControlSysTray (x2)", "GatewayService (pid 5396)", "GatewaySysTray"],
+    "ide_running": false,
+    "stale_lock_files": [
+      "C:\\AI_BMS_POC\\demo\\AI_BMS_AHU_DEMO.~u (2026-10-01)",
+      "C:\\AI_BMS_POC\\simple_ahu_demo\\AI_BMS_SIMPLE_AHU.~u (2026-10-03)"
+    ],
+    "credential_env_vars": {
+      "CODESYS_DEMO_USER_set": false,
+      "CODESYS_DEMO_PASS_set": false,
+      "note": "Knowledge Pack states credentials exist in environment variables. They are NOT set (process, user or machine scope). POC MCP scripts fall back to hardcoded values via env.setdefault(). Values intentionally not recorded."
+    }
+  },
+  "masterscada": {
+    "version": "1.2.18.32894",
+    "install_root": "C:\\Program Files\\MPSSoft\\MasterSCADA 4D 1.2",
+    "components": {
+      "bin\\Config\\MasterPLC\\WIN64\\IWIN32.EXE": true,
+      "bin\\Config\\MasterPLC\\WIN64\\mplc.exe": true,
+      "bin\\Config\\MasterPLC\\WIN64\\mplc_service.exe": true,
+      "bin\\Config\\MasterPLC\\WIN64\\nginx\\nginx.exe": true,
+      "bin\\InSAT.Framework.TestBase.dll": true,
+      "bin\\InSAT.Framework.Core.dll": true
+    },
+    "runtime_processes_running": [],
+    "windows_service_registered": false,
+    "license": "Demo (per Knowledge Pack; not re-checked here)"
+  },
+  "python": {
+    "version": "3.11.9",
+    "path": "C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+    "pymodbus": "3.15.0"
+  },
+  "dotnet": {
+    "framework_release": 533325,
+    "framework_version": "4.8.09037",
+    "csc_x64_present": true
+  },
+  "network": {
+    "tcp_listen_checked_ports": [502, 11740, 4840, 8080, 8143, 8043, 30750, 30757, 31557],
+    "tcp_502_listening": false,
+    "tcp_502_established": false,
+    "other_listeners": [{"addr": "127.0.0.1", "port": 1217, "owner": "GatewayService (5396)"}],
+    "udp_31201_in_use": false,
+    "conclusion": "No PLC is serving Modbus TCP on 127.0.0.1:502 at test start."
+  },
+  "mcp_and_temp_patch": {
+    "mcptoolkit_installed": true,
+    "mcptoolkit_path": "C:\\Users\\user\\Documents\\mcptoolkit-for-codesys",
+    "patched_handler_present": true,
+    "patched_handler_path": "%TEMP%\\mcptoolkit-for-codesys\\_scripts\\handlers\\device_h.py",
+    "patched_handler_last_write": "2026-10-01T19:10:05",
+    "used_in_s1": false
+  },
+  "poc_scripts_inventory": {
+    "agentless_scriptengine_or_python": [
+      "demo\\generator\\generate_st.py (CPython generator, model -> ST)",
+      "demo\\scripts\\codesys_generate_ahu.py (ScriptEngine: create project, device, POU, task, build)",
+      "demo\\scripts\\codesys_verify.py (ScriptEngine: reopen + symbol check)",
+      "demo\\scripts\\codesys_runtime.py (ScriptEngine: simulation mode, boot app, online login attempt)",
+      "demo\\scripts\\run_demo.ps1 (orchestrator, no watchdog)",
+      "codesys_test\\scripts\\create_ai_bms_test.py, verify_open.py, run_experiment.ps1",
+      "simple_ahu_demo\\scripts\\codesys_map_modbus_io.py (ScriptEngine: V1 Modbus I/O mapping; requires existing Modbus_TCP_Server device)",
+      "simple_ahu_demo\\scripts\\codesys_ahu_v2_plc_map.py (ScriptEngine: OVERWRITES PLC_PRG with embedded hand-written V2 code + V2 mapping)",
+      "simple_ahu_demo\\scripts\\modbus_v2_probe.py, probe_modbus_live.py (pymodbus)",
+      "master_scada_research\\hmi_api_poc\\host\\AiBmsHmiPoc.exe (modes: create, modbus, verify, runtime, hmibuild, hmiverify, hmiruntime)",
+      "master_scada_research\\hmi_api_poc\\scripts\\mb.py (raw Modbus)"
+    ],
+    "mcp_dependent": [
+      "simple_ahu_demo\\scripts\\run_mcp_ahu_demo.py",
+      "run_mcp_followup.py",
+      "run_mcp_modbus_runtime.py (only script that adds Ethernet + ModbusTCP Server device)",
+      "run_mcp_modbus_sizes.py",
+      "run_modbus_io_map.py",
+      "run_ahu_v2_deploy.py (uses patched %TEMP% map_io + MCP login/download)",
+      "run_ahu_v2_start.py (MCP login/download/start)",
+      "run_live_online_test.py, run_online_rw_test.py, run_download_and_probe.py, run_modbus_correlation_mcp.py, discover_modbus_mapping.py, deploy_fuxa_ahu.py"
+    ],
+    "observations": [
+      "All demo scripts hardcode C:\\AI_BMS_POC\\demo as root (no input/output parameters).",
+      "simple_ahu_demo ScriptEngine mapping scripts hardcode the original working project AI_BMS_SIMPLE_AHU.project.",
+      "AiBmsHmiPoc.exe refuses any location outside C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc (sandbox guard).",
+      "AiBmsHmiPoc.exe Modbus settings are hardcoded (127.0.0.1, 502, unit 1, FanCommand HR0, FanStatus IR0).",
+      "No agentless (non-MCP) script exists that adds the Ethernet adapter + ModbusTCP Server device to a CODESYS project.",
+      "No agentless script exists for CODESYS login/download/start to the real SoftPLC; only ScriptEngine simulation login (codesys_runtime.py, historically FAILED).",
+      "HMI web write in the POC was performed by browser DOM clicks (agent tooling); no script exists for it.",
+      "hmiruntime does not start nginx; nginx was started manually in the POC."
+    ],
+    "modified_during_s1": false
+  }
+}

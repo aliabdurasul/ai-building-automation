@@ -1,0 +1,67 @@
+{
+  "step": "revision_check_integrity",
+  "checks": {
+    "all_manifests_match": true,
+    "no_extra_files": true,
+    "index_manifest_hashes_match": true,
+    "index_lists_every_revision_dir": true,
+    "no_temp_dirs_left": true
+  },
+  "revisions": [
+    {
+      "revision": 1,
+      "manifest_matches": true,
+      "extra_files": [],
+      "index_manifest_sha_matches": true,
+      "files": 13
+    },
+    {
+      "revision": 2,
+      "manifest_matches": true,
+      "extra_files": [],
+      "index_manifest_sha_matches": true,
+      "files": 13
+    },
+    {
+      "revision": 3,
+      "manifest_matches": true,
+      "extra_files": [],
+      "index_manifest_sha_matches": true,
+      "files": 13
+    }
+  ],
+  "current": 3,
+  "events": [
+    {
+      "event": "commit",
+      "revision": 1,
+      "label": "PUMP_V1"
+    },
+    {
+      "event": "commit",
+      "revision": 2,
+      "label": "PUMP_V2"
+    },
+    {
+      "event": "commit",
+      "revision": 3,
+      "label": "PUMP_V3"
+    },
+    {
+      "event": "reject",
+      "label": "PUMP_V4_type_change"
+    }
+  ],
+  "rejected": [
+    {
+      "label": "PUMP_V4_type_change",
+      "revision": 4,
+      "parent_revision": 3,
+      "codes": [
+        "BREAKING_CHANGE_REQUIRES_APPROVAL"
+      ]
+    }
+  ],
+  "operation_status": "PASS",
+  "reason": "5 checks passed"
+}

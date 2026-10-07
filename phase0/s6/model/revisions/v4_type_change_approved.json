@@ -1,0 +1,177 @@
+{
+  "schema": "ai_bms.engineering_model.v1",
+  "project_id": "AHU-DEMO",
+  "revision": 4,
+  "parent_revision": 3,
+  "description": "V4 attempt = V4 type change WITH engineer approval: old SupplyTemp registers are retired, a new mapping must be allocated.",
+  "modbus": {
+    "protocol": "Modbus TCP",
+    "role": "server",
+    "host": "127.0.0.1",
+    "port": 502,
+    "slave": 1
+  },
+  "equipment": [
+    {
+      "id": "AHU-01",
+      "type": "AHU",
+      "logic": "S1-FIX AHU logic (fan start/stop/fault, heating SupplyTemp < Setpoint -> HeatingValve 100 else 0), unchanged"
+    }
+  ],
+  "variables": {
+    "StartCommand": {
+      "type": "BOOL",
+      "initial": false,
+      "role": "command",
+      "equipment": "AHU-01"
+    },
+    "StopCommand": {
+      "type": "BOOL",
+      "initial": false,
+      "role": "command",
+      "equipment": "AHU-01"
+    },
+    "FanCommand": {
+      "type": "BOOL",
+      "initial": false,
+      "role": "output",
+      "equipment": "AHU-01"
+    },
+    "FanRunning": {
+      "type": "BOOL",
+      "initial": false,
+      "role": "status",
+      "equipment": "AHU-01"
+    },
+    "FanFault": {
+      "type": "BOOL",
+      "initial": false,
+      "role": "status",
+      "equipment": "AHU-01"
+    },
+    "SupplyTemp": {
+      "type": "INT",
+      "initial": 21,
+      "role": "process",
+      "equipment": "AHU-01"
+    },
+    "Setpoint": {
+      "type": "REAL",
+      "initial": 22.0,
+      "role": "setpoint",
+      "equipment": "AHU-01"
+    },
+    "HeatingValve": {
+      "type": "REAL",
+      "initial": 0.0,
+      "role": "output",
+      "equipment": "AHU-01"
+    },
+    "ReturnTemp": {
+      "type": "REAL",
+      "initial": 19.5,
+      "role": "process",
+      "equipment": "AHU-01"
+    },
+    "TestReal32Read": {
+      "type": "REAL",
+      "initial": 21.5,
+      "role": "s3_test",
+      "equipment": "AHU-01"
+    }
+  },
+  "signals": [
+    {
+      "equipment": "AHU-01",
+      "tag": "Command",
+      "plc_var": "Mb_Command",
+      "datatype": "WORD",
+      "direction": "WRITE",
+      "modbus": {
+        "area": "HOLDING_REGISTER",
+        "address": 0
+      },
+      "bits": {
+        "0": "StartCommand",
+        "1": "StopCommand"
+      }
+    },
+    {
+      "equipment": "AHU-01",
+      "tag": "Status",
+      "plc_var": "Mb_Status",
+      "datatype": "WORD",
+      "direction": "READ",
+      "modbus": {
+        "area": "INPUT_REGISTER",
+        "address": 0
+      },
+      "bits": {
+        "0": "FanCommand",
+        "1": "FanRunning",
+        "2": "FanFault"
+      }
+    },
+    {
+      "equipment": "AHU-01",
+      "tag": "FanRunning",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "modbus": {
+        "area": "DISCRETE_INPUT"
+      }
+    },
+    {
+      "equipment": "AHU-01",
+      "tag": "SupplyTemp",
+      "datatype": "INT16",
+      "direction": "READ",
+      "modbus": {
+        "area": "INPUT_REGISTER"
+      }
+    },
+    {
+      "equipment": "AHU-01",
+      "tag": "Setpoint",
+      "datatype": "REAL32",
+      "direction": "READ_WRITE",
+      "modbus": {
+        "area": "HOLDING_REGISTER",
+        "length": 2
+      },
+      "verification_values": [
+        21.5,
+        18.25,
+        123.456,
+        22.0
+      ]
+    },
+    {
+      "equipment": "AHU-01",
+      "tag": "TestReal32Read",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "modbus": {
+        "area": "INPUT_REGISTER",
+        "length": 2
+      }
+    },
+    {
+      "equipment": "AHU-01",
+      "tag": "ReturnTemp",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "modbus": {
+        "area": "INPUT_REGISTER",
+        "length": 2
+      }
+    }
+  ],
+  "approvals": [
+    {
+      "identity": "AHU-DEMO/AHU-01/SupplyTemp",
+      "change": "TYPE_CHANGED",
+      "approved_by": "engineer (S6 test)"
+    }
+  ]
+}

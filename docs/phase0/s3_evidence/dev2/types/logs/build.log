@@ -1,0 +1,17 @@
+Text: ADDED Ethernet under Device (110 0000 0002 4.2.0.0)
+Text: ADDED Modbus_TCP_Server under Ethernet (115 0000 0002 4.6.0.0)
+Text: MAP Holding Registers[0] -> Application.PLC_PRG.Mb_Command ok=True
+Text: MAP Holding Registers[1] -> Application.PLC_PRG.Mb_TestInt16Write ok=True
+Text: MAP Holding Registers[2] -> Application.PLC_PRG.Mb_TestReal32Write_W0 ok=True
+Text: MAP Holding Registers[3] -> Application.PLC_PRG.Mb_TestReal32Write_W1 ok=True
+Text: MAP Holding Registers[4] -> Application.PLC_PRG.Mb_TestUInt16Write ok=True
+Text: MAP Holding Registers[5] -> Application.PLC_PRG.TestWordWrite ok=True
+Text: MAP Input Registers[0] -> Application.PLC_PRG.Mb_Status ok=True
+Text: MAP Input Registers[1] -> Application.PLC_PRG.Mb_TestInt16Read ok=True
+Text: MAP Input Registers[2] -> Application.PLC_PRG.Mb_TestReal32Read_W0 ok=True
+Text: MAP Input Registers[3] -> Application.PLC_PRG.Mb_TestReal32Read_W1 ok=True
+Text: MAP Input Registers[4] -> Application.PLC_PRG.Mb_TestUInt16Read ok=True
+Text: MAP Input Registers[5] -> Application.PLC_PRG.TestWordRead ok=True
+Text: MAP Holding Registers[9].8 -> Application.PLC_PRG.TestCoil ok=True
+Text: MAP Input Registers[9].8 -> Application.PLC_PRG.TestDiscreteInput ok=True
+errors=0 warnings=0

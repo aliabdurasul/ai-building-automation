@@ -1,0 +1,25 @@
+mode=hmiruntime time=2026-10-05T10:07:26.3348762+03:00
+IUIService registered: InSAT.Framework.TestBase.UIServiceForTests
+TimedTrace not found
+TypesManager.ConfigName=MasterPLC ConfigPath=C:\Program Files\MPSSoft\MasterSCADA 4D 1.2\bin\..\Configs\MasterPLC
+  static MasterSCADA.Controllers.Services.ConfigurationService.ControllerConfiguration.IncludeHMI = True
+  static MasterSCADA.Controllers.Services.ConfigurationService.ControllerConfiguration.EnableStartHMIClient = False
+  static MasterSCADA.Controllers.Adapters.DebugControllerInstance.EnableLocalFixedDefaultPort = False
+  static Controllers.ControllerTypes.WindowsControllerInstance.DefaultShowTerminalWindowMode = None
+EVT {"t":"2026-10-05T10:07:43.145+03:00","step":"codesys_before_runtime","HR0":"modbus_err:SocketException","IR0":"modbus_err:SocketException"}
+EVT {"t":"2026-10-05T10:07:43.219+03:00","step":"runtime_processes_before","pids":""}
+OpenProject OK: AHU_S1 root=MasterSCADA.HMI.RootItem
+EVT {"t":"2026-10-05T10:08:21.403+03:00","step":"start_driver_call","exe":"C:\\Program Files\\MPSSoft\\MasterSCADA 4D 1.2\\bin\\Config\\MasterPLC\\WIN64\\IWIN32.EXE","workdir":"C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc\\phase0_s1\\run1\\rt_copy_hmi\\rt_work\\Debug_1","udp_port":31201,"start_args":" /ea:7","IncludeHMI":true}
+  (could not read configuration errors: Object reference not set to an instance of an object.)
+EVT {"t":"2026-10-05T10:08:35.257+03:00","step":"wait_config_loaded","loaded":true}
+EVT {"t":"2026-10-05T10:08:35.267+03:00","step":"own_runtime_process","name":"IWIN32","pid":1800}
+EVT {"t":"2026-10-05T10:08:35.317+03:00","step":"htdocs_found","index":"C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc\\phase0_s1\\run1\\rt_copy_hmi\\rt_work\\Debug_1\\htdocs\\index.html","files":141}
+EVT {"t":"2026-10-05T10:09:00.616+03:00","step":"own_runtime_ports","pid":1800,"ports":"TCP 0.0.0.0:30757;TCP 0.0.0.0:31557;UDP 0.0.0.0:31201;UDP 0.0.0.0:31701;"}
+EVT {"t":"2026-10-05T10:09:04.705+03:00","step":"hold","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-05-10:09:00.330, StatusCode:=BadOutOfService)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-05-10:09:00.549, StatusCode:=Good)","codesys_HR0":"modbus_err:SocketException","codesys_IR0":"modbus_err:SocketException"}
+EVT {"t":"2026-10-05T10:09:09.752+03:00","step":"hold","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-05-10:09:05.589, StatusCode:=BadOutOfService)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-05-10:09:05.605, StatusCode:=Good)","codesys_HR0":"modbus_err:SocketException","codesys_IR0":"modbus_err:SocketException"}
+EVT {"t":"2026-10-05T10:09:14.814+03:00","step":"hold","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-05-10:09:10.346, StatusCode:=BadOutOfService)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-05-10:09:10.618, StatusCode:=Good)","codesys_HR0":"modbus_err:SocketException","codesys_IR0":"modbus_err:SocketException"}
+EVT {"t":"2026-10-05T10:09:19.878+03:00","step":"hold","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-05-10:09:15.672, StatusCode:=BadOutOfService)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-05-10:09:15.659, StatusCode:=Good)","codesys_HR0":"modbus_err:SocketException","codesys_IR0":"modbus_err:SocketException"}
+EVT {"t":"2026-10-05T10:09:20.886+03:00","step":"hold_end","stop_flag":false,"seconds":20}
+EVT {"t":"2026-10-05T10:09:20.979+03:00","step":"stop_controller","ok":true}
+EVT {"t":"2026-10-05T10:09:28.051+03:00","step":"codesys_after_runtime","HR0":"modbus_err:SocketException","IR0":"modbus_err:SocketException"}
+EVT {"t":"2026-10-05T10:09:33.460+03:00","step":"project_disposed_without_save","ok":true}

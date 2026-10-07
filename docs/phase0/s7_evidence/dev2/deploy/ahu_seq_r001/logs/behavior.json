@@ -1,0 +1,1915 @@
+{
+  "step": "behavior",
+  "project_id": "AHU-SEQ",
+  "revision": 1,
+  "real32_ordering_reference": "CDAB",
+  "tests": [
+    {
+      "name": "scenario:AHU-01 AHU_SEQ_V1 behaviour",
+      "steps": [
+        {
+          "name": "reset",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 0
+          },
+          "plc_write": {
+            "plc:FanFailure": false,
+            "plc:DamperFailure": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 0,
+            "AHU-SEQ/AHU-01/SequenceStops": 0
+          },
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 0,
+            "AHU-SEQ/AHU-01/SequenceStops": 0,
+            "AHU-SEQ/AHU-01/AhuAlarm": false,
+            "AHU-SEQ/AHU-01/DamperOpen": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              0
+            ]
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuAlarm": false,
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 0,
+            "AHU-SEQ/AHU-01/SequenceStops": 0,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuAlarm": false,
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 0,
+            "AHU-SEQ/AHU-01/SequenceStops": 0,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuAlarm",
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/DamperOpen",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/SequenceStops",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "AHU_START_start_edge",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 1
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/Status": 3,
+            "plc:FanCommand": true,
+            "AHU-SEQ/AHU-01/FanRunning": true,
+            "plc:FanFault": false,
+            "AHU-SEQ/AHU-01/DamperCommand": true,
+            "AHU-SEQ/AHU-01/DamperOpen": true,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/StateTrace": 30
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              1
+            ]
+          },
+          "trace": {
+            "until_reached": true,
+            "signals": {
+              "AHU-SEQ/AHU-01/AhuState": {
+                "observed_runs": [
+                  2,
+                  3,
+                  4
+                ],
+                "sequence": [
+                  2,
+                  3,
+                  4
+                ],
+                "expected_sequence": [
+                  2,
+                  3,
+                  4
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 21.1,
+                    "value": 2
+                  },
+                  {
+                    "t_ms": 2025.7,
+                    "value": 3
+                  },
+                  {
+                    "t_ms": 3032.5,
+                    "value": 4
+                  }
+                ],
+                "durations": [
+                  {
+                    "value": 2,
+                    "parameter": "AHU-01.DamperOpenTime_ms",
+                    "nominal_ms": 2000,
+                    "measured_ms": 2004.6,
+                    "tolerance_ms": [
+                      -100,
+                      400
+                    ],
+                    "within_tolerance": true
+                  },
+                  {
+                    "value": 3,
+                    "parameter": "AHU-01.FanStartTime_ms",
+                    "nominal_ms": 1000,
+                    "measured_ms": 1006.8,
+                    "tolerance_ms": [
+                      -100,
+                      400
+                    ],
+                    "within_tolerance": true
+                  }
+                ],
+                "pass": true
+              },
+              "AHU-SEQ/AHU-01/DamperCommand": {
+                "observed_runs": [
+                  true
+                ],
+                "sequence": [
+                  true
+                ],
+                "expected_sequence": [
+                  true
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 40.5,
+                    "value": true
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              },
+              "AHU-SEQ/AHU-01/DamperOpen": {
+                "observed_runs": [
+                  false,
+                  true
+                ],
+                "sequence": [
+                  true
+                ],
+                "expected_sequence": [
+                  true
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 62.9,
+                    "value": false
+                  },
+                  {
+                    "t_ms": 2065.8,
+                    "value": true
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              },
+              "AHU-SEQ/AHU-01/FanRunning": {
+                "observed_runs": [
+                  false,
+                  true
+                ],
+                "sequence": [
+                  true
+                ],
+                "expected_sequence": [
+                  true
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 81.5,
+                    "value": false
+                  },
+                  {
+                    "t_ms": 3093.7,
+                    "value": true
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              },
+              "AHU-SEQ/AHU-01/Status": {
+                "observed_runs": [
+                  0,
+                  1,
+                  3
+                ],
+                "sequence": [
+                  1,
+                  3
+                ],
+                "expected_sequence": [
+                  1,
+                  3
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 101.4,
+                    "value": 0
+                  },
+                  {
+                    "t_ms": 2106.4,
+                    "value": 1
+                  },
+                  {
+                    "t_ms": 3114.3,
+                    "value": 3
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              }
+            },
+            "samples": 155,
+            "pass": true
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/DamperCommand": true,
+            "AHU-SEQ/AHU-01/DamperOpen": true,
+            "AHU-SEQ/AHU-01/FanRunning": true,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/StateTrace": 30,
+            "AHU-SEQ/AHU-01/Status": 3,
+            "plc:FanCommand": true,
+            "plc:FanFault": false
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/DamperCommand": true,
+            "AHU-SEQ/AHU-01/DamperOpen": true,
+            "AHU-SEQ/AHU-01/FanRunning": true,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/StateTrace": 30,
+            "AHU-SEQ/AHU-01/Status": 3
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/DamperCommand",
+            "AHU-SEQ/AHU-01/DamperOpen",
+            "AHU-SEQ/AHU-01/FanRunning",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/StateTrace",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanCommand",
+            "plc:FanFault"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_held",
+          "modbus_write": {},
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/Status": 3,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/StateTrace": 30
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "wait_ms": 1500,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/StateTrace": 30,
+            "AHU-SEQ/AHU-01/Status": 3
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/StateTrace": 30,
+            "AHU-SEQ/AHU-01/Status": 3
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/StateTrace",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_released",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/Status": 3,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              0
+            ]
+          },
+          "wait_ms": 500,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/Status": 3
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/Status": 3
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_edge_while_running_ignored",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 1
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/StateTrace": 30
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              1
+            ]
+          },
+          "wait_ms": 500,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/StateTrace": 30
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/StateTrace": 30
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/StateTrace"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "AHU_STOP_stop_edge",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 2
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "plc:FanCommand": false,
+            "AHU-SEQ/AHU-01/FanRunning": false,
+            "plc:FanFault": false,
+            "AHU-SEQ/AHU-01/DamperCommand": false,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/SequenceStops": 1,
+            "AHU-SEQ/AHU-01/StateTrace": 127
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              2
+            ]
+          },
+          "trace": {
+            "until_reached": true,
+            "signals": {
+              "AHU-SEQ/AHU-01/AhuState": {
+                "observed_runs": [
+                  5,
+                  6,
+                  0
+                ],
+                "sequence": [
+                  5,
+                  6,
+                  0
+                ],
+                "expected_sequence": [
+                  5,
+                  6,
+                  0
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 19.9,
+                    "value": 5
+                  },
+                  {
+                    "t_ms": 1061.4,
+                    "value": 6
+                  },
+                  {
+                    "t_ms": 3075.2,
+                    "value": 0
+                  }
+                ],
+                "durations": [
+                  {
+                    "value": 5,
+                    "parameter": "AHU-01.FanStopTime_ms",
+                    "nominal_ms": 1000,
+                    "measured_ms": 1041.5,
+                    "tolerance_ms": [
+                      -100,
+                      400
+                    ],
+                    "within_tolerance": true
+                  },
+                  {
+                    "value": 6,
+                    "parameter": "AHU-01.DamperCloseTime_ms",
+                    "nominal_ms": 2000,
+                    "measured_ms": 2013.8,
+                    "tolerance_ms": [
+                      -100,
+                      400
+                    ],
+                    "within_tolerance": true
+                  }
+                ],
+                "pass": true
+              },
+              "AHU-SEQ/AHU-01/DamperOpen": {
+                "observed_runs": [
+                  true,
+                  false
+                ],
+                "sequence": [
+                  false
+                ],
+                "expected_sequence": [
+                  false
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 40.4,
+                    "value": true
+                  },
+                  {
+                    "t_ms": 3015.0,
+                    "value": false
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              },
+              "AHU-SEQ/AHU-01/FanRunning": {
+                "observed_runs": [
+                  true,
+                  false
+                ],
+                "sequence": [
+                  false
+                ],
+                "expected_sequence": [
+                  false
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 60.1,
+                    "value": true
+                  },
+                  {
+                    "t_ms": 1021.3,
+                    "value": false
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              },
+              "AHU-SEQ/AHU-01/Status": {
+                "observed_runs": [
+                  2,
+                  0
+                ],
+                "sequence": [
+                  2,
+                  0
+                ],
+                "expected_sequence": [
+                  2,
+                  0
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 80.0,
+                    "value": 2
+                  },
+                  {
+                    "t_ms": 1041.3,
+                    "value": 0
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              }
+            },
+            "samples": 156,
+            "pass": true
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/DamperCommand": false,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/FanRunning": false,
+            "AHU-SEQ/AHU-01/SequenceStops": 1,
+            "AHU-SEQ/AHU-01/StateTrace": 127,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "plc:FanCommand": false,
+            "plc:FanFault": false
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/DamperCommand": false,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/FanRunning": false,
+            "AHU-SEQ/AHU-01/SequenceStops": 1,
+            "AHU-SEQ/AHU-01/StateTrace": 127,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/DamperCommand",
+            "AHU-SEQ/AHU-01/DamperOpen",
+            "AHU-SEQ/AHU-01/FanRunning",
+            "AHU-SEQ/AHU-01/SequenceStops",
+            "AHU-SEQ/AHU-01/StateTrace",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanCommand",
+            "plc:FanFault"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop_held",
+          "modbus_write": {},
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStops": 1,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "wait_ms": 1500,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/SequenceStops": 1
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/SequenceStops": 1
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/SequenceStops"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop_released",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStops": 1
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              0
+            ]
+          },
+          "wait_ms": 500,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStops": 1
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStops": 1
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStops"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop_edge_while_stopped_ignored",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 2
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStops": 1,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              2
+            ]
+          },
+          "wait_ms": 500,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStops": 1,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStops": 1,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStops",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_invalid_command_bit2",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 4
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/SequenceStops": 1
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              4
+            ]
+          },
+          "wait_ms": 1000,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/SequenceStops": 1,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/SequenceStops": 1,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/SequenceStops",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_invalid_command_bit3",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 8
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              8
+            ]
+          },
+          "wait_ms": 1000,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "command_cleared",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              0
+            ]
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_conflicting_start_stop_from_stopped",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 3
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              3
+            ]
+          },
+          "wait_ms": 1000,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 1,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "conflict_cleared",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              0
+            ]
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_for_running_fault",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 1
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/Status": 3,
+            "AHU-SEQ/AHU-01/SequenceStarts": 2
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              1
+            ]
+          },
+          "trace": {
+            "until_reached": true,
+            "signals": {
+              "AHU-SEQ/AHU-01/AhuState": {
+                "observed_runs": [
+                  2,
+                  3,
+                  4
+                ],
+                "sequence": [
+                  2,
+                  3,
+                  4
+                ],
+                "expected_sequence": [
+                  2,
+                  3,
+                  4
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 19.1,
+                    "value": 2
+                  },
+                  {
+                    "t_ms": 2022.1,
+                    "value": 3
+                  },
+                  {
+                    "t_ms": 3021.1,
+                    "value": 4
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              }
+            },
+            "samples": 151,
+            "pass": true
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 2,
+            "AHU-SEQ/AHU-01/Status": 3
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 2,
+            "AHU-SEQ/AHU-01/Status": 3
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "AHU_FAULT_fan_failure_during_running",
+          "modbus_write": {},
+          "plc_write": {
+            "plc:FanFailure": true
+          },
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 9,
+            "AHU-SEQ/AHU-01/Status": 4,
+            "plc:FanFault": true,
+            "AHU-SEQ/AHU-01/AhuAlarm": true,
+            "AHU-SEQ/AHU-01/DamperFault": false,
+            "plc:FanCommand": false,
+            "AHU-SEQ/AHU-01/FanRunning": false,
+            "AHU-SEQ/AHU-01/DamperCommand": false,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/StateTrace": 542
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuAlarm": true,
+            "AHU-SEQ/AHU-01/AhuState": 9,
+            "AHU-SEQ/AHU-01/DamperCommand": false,
+            "AHU-SEQ/AHU-01/DamperFault": false,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/FanRunning": false,
+            "AHU-SEQ/AHU-01/StateTrace": 542,
+            "AHU-SEQ/AHU-01/Status": 4,
+            "plc:FanCommand": false,
+            "plc:FanFault": true
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuAlarm": true,
+            "AHU-SEQ/AHU-01/AhuState": 9,
+            "AHU-SEQ/AHU-01/DamperCommand": false,
+            "AHU-SEQ/AHU-01/DamperFault": false,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/FanRunning": false,
+            "AHU-SEQ/AHU-01/StateTrace": 542,
+            "AHU-SEQ/AHU-01/Status": 4
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuAlarm",
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/DamperCommand",
+            "AHU-SEQ/AHU-01/DamperFault",
+            "AHU-SEQ/AHU-01/DamperOpen",
+            "AHU-SEQ/AHU-01/FanRunning",
+            "AHU-SEQ/AHU-01/StateTrace",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanCommand",
+            "plc:FanFault"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_released_in_fault",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 9,
+            "AHU-SEQ/AHU-01/Status": 4
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              0
+            ]
+          },
+          "wait_ms": 300,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 9,
+            "AHU-SEQ/AHU-01/Status": 4
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 9,
+            "AHU-SEQ/AHU-01/Status": 4
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_start_edge_in_fault_ignored",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 1
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 9,
+            "AHU-SEQ/AHU-01/Status": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 2
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              1
+            ]
+          },
+          "wait_ms": 500,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 9,
+            "AHU-SEQ/AHU-01/SequenceStarts": 2,
+            "AHU-SEQ/AHU-01/Status": 4
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 9,
+            "AHU-SEQ/AHU-01/SequenceStarts": 2,
+            "AHU-SEQ/AHU-01/Status": 4
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "AHU_FAULT_RECOVERY_fan_failure_cleared_start_held_stays_stopped",
+          "modbus_write": {},
+          "plc_write": {
+            "plc:FanFailure": false
+          },
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "plc:FanFault": false,
+            "AHU-SEQ/AHU-01/AhuAlarm": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 2,
+            "AHU-SEQ/AHU-01/StateTrace": 543
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "wait_ms": 1000,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuAlarm": false,
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 2,
+            "AHU-SEQ/AHU-01/StateTrace": 543,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "plc:FanFault": false
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuAlarm": false,
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/SequenceStarts": 2,
+            "AHU-SEQ/AHU-01/StateTrace": 543,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuAlarm",
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/StateTrace",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanFault"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "fault_recovery_command_cleared",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              0
+            ]
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_for_starting_fault",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 1
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 2,
+            "AHU-SEQ/AHU-01/DamperCommand": true,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 3
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              1
+            ]
+          },
+          "trace": {
+            "until_reached": true,
+            "signals": {
+              "AHU-SEQ/AHU-01/AhuState": {
+                "observed_runs": [
+                  2
+                ],
+                "sequence": [
+                  2
+                ],
+                "expected_sequence": [
+                  2
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 22.1,
+                    "value": 2
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              }
+            },
+            "samples": 1,
+            "pass": true
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 2,
+            "AHU-SEQ/AHU-01/DamperCommand": true,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 3
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 2,
+            "AHU-SEQ/AHU-01/DamperCommand": true,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 3
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/DamperCommand",
+            "AHU-SEQ/AHU-01/DamperOpen",
+            "AHU-SEQ/AHU-01/SequenceStarts"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_damper_failure_during_starting",
+          "modbus_write": {},
+          "plc_write": {
+            "plc:DamperFailure": true
+          },
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 9,
+            "AHU-SEQ/AHU-01/DamperFault": true,
+            "AHU-SEQ/AHU-01/AhuAlarm": true,
+            "plc:FanFault": false,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "AHU-SEQ/AHU-01/DamperCommand": false,
+            "AHU-SEQ/AHU-01/FanRunning": false,
+            "AHU-SEQ/AHU-01/StateTrace": 518
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuAlarm": true,
+            "AHU-SEQ/AHU-01/AhuState": 9,
+            "AHU-SEQ/AHU-01/DamperCommand": false,
+            "AHU-SEQ/AHU-01/DamperFault": true,
+            "AHU-SEQ/AHU-01/FanRunning": false,
+            "AHU-SEQ/AHU-01/StateTrace": 518,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "plc:FanFault": false
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuAlarm": true,
+            "AHU-SEQ/AHU-01/AhuState": 9,
+            "AHU-SEQ/AHU-01/DamperCommand": false,
+            "AHU-SEQ/AHU-01/DamperFault": true,
+            "AHU-SEQ/AHU-01/FanRunning": false,
+            "AHU-SEQ/AHU-01/StateTrace": 518,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuAlarm",
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/DamperCommand",
+            "AHU-SEQ/AHU-01/DamperFault",
+            "AHU-SEQ/AHU-01/FanRunning",
+            "AHU-SEQ/AHU-01/StateTrace",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanFault"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "damper_failure_cleared",
+          "modbus_write": {},
+          "plc_write": {
+            "plc:DamperFailure": false
+          },
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/DamperFault": false,
+            "AHU-SEQ/AHU-01/AhuAlarm": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 3
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "wait_ms": 500,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuAlarm": false,
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/DamperFault": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 3
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuAlarm": false,
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/DamperFault": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 3
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuAlarm",
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/DamperFault",
+            "AHU-SEQ/AHU-01/SequenceStarts"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "damper_fault_command_cleared",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              0
+            ]
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_for_abort",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 1
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 3,
+            "AHU-SEQ/AHU-01/Status": 1,
+            "AHU-SEQ/AHU-01/SequenceStarts": 4
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              1
+            ]
+          },
+          "trace": {
+            "until_reached": true,
+            "signals": {
+              "AHU-SEQ/AHU-01/AhuState": {
+                "observed_runs": [
+                  2,
+                  3
+                ],
+                "sequence": [
+                  2,
+                  3
+                ],
+                "expected_sequence": [
+                  2,
+                  3
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 19.2,
+                    "value": 2
+                  },
+                  {
+                    "t_ms": 2037.0,
+                    "value": 3
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              }
+            },
+            "samples": 101,
+            "pass": true
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 3,
+            "AHU-SEQ/AHU-01/SequenceStarts": 4,
+            "AHU-SEQ/AHU-01/Status": 1
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 3,
+            "AHU-SEQ/AHU-01/SequenceStarts": 4,
+            "AHU-SEQ/AHU-01/Status": 1
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop_edge_during_fan_starting_aborts",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 2
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "AHU-SEQ/AHU-01/SequenceStops": 2,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/StateTrace": 111
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              2
+            ]
+          },
+          "trace": {
+            "until_reached": true,
+            "signals": {
+              "AHU-SEQ/AHU-01/AhuState": {
+                "observed_runs": [
+                  5,
+                  6,
+                  0
+                ],
+                "sequence": [
+                  5,
+                  6,
+                  0
+                ],
+                "expected_sequence": [
+                  5,
+                  6,
+                  0
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 21.3,
+                    "value": 5
+                  },
+                  {
+                    "t_ms": 1007.6,
+                    "value": 6
+                  },
+                  {
+                    "t_ms": 3018.1,
+                    "value": 0
+                  }
+                ],
+                "durations": [
+                  {
+                    "value": 5,
+                    "parameter": "AHU-01.FanStopTime_ms",
+                    "nominal_ms": 1000,
+                    "measured_ms": 986.3,
+                    "tolerance_ms": [
+                      -100,
+                      400
+                    ],
+                    "within_tolerance": true
+                  },
+                  {
+                    "value": 6,
+                    "parameter": "AHU-01.DamperCloseTime_ms",
+                    "nominal_ms": 2000,
+                    "measured_ms": 2010.5,
+                    "tolerance_ms": [
+                      -100,
+                      400
+                    ],
+                    "within_tolerance": true
+                  }
+                ],
+                "pass": true
+              }
+            },
+            "samples": 150,
+            "pass": true
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/SequenceStops": 2,
+            "AHU-SEQ/AHU-01/StateTrace": 111,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/SequenceStops": 2,
+            "AHU-SEQ/AHU-01/StateTrace": 111,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/DamperOpen",
+            "AHU-SEQ/AHU-01/SequenceStops",
+            "AHU-SEQ/AHU-01/StateTrace",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "abort_command_cleared",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              0
+            ]
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_for_unknown_state",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 1
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 5
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              1
+            ]
+          },
+          "trace": {
+            "until_reached": true,
+            "signals": {
+              "AHU-SEQ/AHU-01/AhuState": {
+                "observed_runs": [
+                  2,
+                  3,
+                  4
+                ],
+                "sequence": [
+                  2,
+                  3,
+                  4
+                ],
+                "expected_sequence": [
+                  2,
+                  3,
+                  4
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 21.1,
+                    "value": 2
+                  },
+                  {
+                    "t_ms": 2025.0,
+                    "value": 3
+                  },
+                  {
+                    "t_ms": 3035.6,
+                    "value": 4
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              }
+            },
+            "samples": 150,
+            "pass": true
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 5
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 4,
+            "AHU-SEQ/AHU-01/SequenceStarts": 5
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/SequenceStarts"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_unknown_state_falls_back_to_stopped",
+          "modbus_write": {},
+          "plc_write": {
+            "AHU-SEQ/AHU-01/AhuState": 77
+          },
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "plc:FanCommand": false,
+            "AHU-SEQ/AHU-01/FanRunning": false,
+            "AHU-SEQ/AHU-01/DamperCommand": false,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 5
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "wait_ms": 500,
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/DamperCommand": false,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/FanRunning": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 5,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "plc:FanCommand": false
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/DamperCommand": false,
+            "AHU-SEQ/AHU-01/DamperOpen": false,
+            "AHU-SEQ/AHU-01/FanRunning": false,
+            "AHU-SEQ/AHU-01/SequenceStarts": 5,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/DamperCommand",
+            "AHU-SEQ/AHU-01/DamperOpen",
+            "AHU-SEQ/AHU-01/FanRunning",
+            "AHU-SEQ/AHU-01/SequenceStarts",
+            "AHU-SEQ/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanCommand"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "unknown_state_command_cleared",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Command": 0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Command": [
+              0
+            ]
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "AHU_HEATING_supply_below_setpoint",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Setpoint": 22.0
+          },
+          "plc_write": {
+            "AHU-SEQ/AHU-01/SupplyTemp": 18.0
+          },
+          "expect": {
+            "AHU-SEQ/AHU-01/Setpoint": 22.0,
+            "AHU-SEQ/AHU-01/SupplyTemp": 18.0,
+            "AHU-SEQ/AHU-01/HeatingValve": 100.0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Setpoint": [
+              0,
+              16816
+            ]
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/HeatingValve": 100.0,
+            "AHU-SEQ/AHU-01/Setpoint": 22.0,
+            "AHU-SEQ/AHU-01/SupplyTemp": 18.0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/HeatingValve": 100.0,
+            "AHU-SEQ/AHU-01/Setpoint": 22.0,
+            "AHU-SEQ/AHU-01/SupplyTemp": 18.0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/HeatingValve",
+            "AHU-SEQ/AHU-01/Setpoint",
+            "AHU-SEQ/AHU-01/SupplyTemp"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "heating_supply_equal_setpoint",
+          "modbus_write": {},
+          "plc_write": {
+            "AHU-SEQ/AHU-01/SupplyTemp": 22.0
+          },
+          "expect": {
+            "AHU-SEQ/AHU-01/SupplyTemp": 22.0,
+            "AHU-SEQ/AHU-01/HeatingValve": 0.0
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/HeatingValve": 0.0,
+            "AHU-SEQ/AHU-01/SupplyTemp": 22.0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/HeatingValve": 0.0,
+            "AHU-SEQ/AHU-01/SupplyTemp": 22.0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/HeatingValve",
+            "AHU-SEQ/AHU-01/SupplyTemp"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "heating_supply_above_setpoint",
+          "modbus_write": {},
+          "plc_write": {
+            "AHU-SEQ/AHU-01/SupplyTemp": 25.5
+          },
+          "expect": {
+            "AHU-SEQ/AHU-01/SupplyTemp": 25.5,
+            "AHU-SEQ/AHU-01/HeatingValve": 0.0
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/HeatingValve": 0.0,
+            "AHU-SEQ/AHU-01/SupplyTemp": 25.5
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/HeatingValve": 0.0,
+            "AHU-SEQ/AHU-01/SupplyTemp": 25.5
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/HeatingValve",
+            "AHU-SEQ/AHU-01/SupplyTemp"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "heating_setpoint_raised_over_modbus",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Setpoint": 30.0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-SEQ/AHU-01/Setpoint": 30.0,
+            "AHU-SEQ/AHU-01/HeatingValve": 100.0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Setpoint": [
+              0,
+              16880
+            ]
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/HeatingValve": 100.0,
+            "AHU-SEQ/AHU-01/Setpoint": 30.0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/HeatingValve": 100.0,
+            "AHU-SEQ/AHU-01/Setpoint": 30.0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/HeatingValve",
+            "AHU-SEQ/AHU-01/Setpoint"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "cleanup",
+          "modbus_write": {
+            "AHU-SEQ/AHU-01/Setpoint": 22.0,
+            "AHU-SEQ/AHU-01/Command": 0
+          },
+          "plc_write": {
+            "AHU-SEQ/AHU-01/SupplyTemp": 21.0
+          },
+          "expect": {
+            "AHU-SEQ/AHU-01/Setpoint": 22.0,
+            "AHU-SEQ/AHU-01/SupplyTemp": 21.0,
+            "AHU-SEQ/AHU-01/HeatingValve": 100.0,
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/Status": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-SEQ/AHU-01/Setpoint": [
+              0,
+              16816
+            ],
+            "AHU-SEQ/AHU-01/Command": [
+              0
+            ]
+          },
+          "observed_plc": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/HeatingValve": 100.0,
+            "AHU-SEQ/AHU-01/Setpoint": 22.0,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "AHU-SEQ/AHU-01/SupplyTemp": 21.0
+          },
+          "observed_modbus": {
+            "AHU-SEQ/AHU-01/AhuState": 0,
+            "AHU-SEQ/AHU-01/HeatingValve": 100.0,
+            "AHU-SEQ/AHU-01/Setpoint": 22.0,
+            "AHU-SEQ/AHU-01/Status": 0,
+            "AHU-SEQ/AHU-01/SupplyTemp": 21.0
+          },
+          "modbus_checked": [
+            "AHU-SEQ/AHU-01/AhuState",
+            "AHU-SEQ/AHU-01/HeatingValve",
+            "AHU-SEQ/AHU-01/Setpoint",
+            "AHU-SEQ/AHU-01/Status",
+            "AHU-SEQ/AHU-01/SupplyTemp"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "description": "S7 AHU behaviour on the running SoftPLC (template AHU_SEQ_V1, timings from the template parameters). Commands through Modbus HR0 (bit0 START, bit1 STOP); faults / test values by PLC online write; every expectation on a mapped signal is checked through Modbus AND PLC online read-back (plc:* keys are PLC-only variables). StateTrace bits: 1 STARTING, 2 DAMPER OPENING, 3 FAN STARTING, 4 RUNNING, 5 STOPPING, 6 DAMPER CLOSING, 0 STOPPED, 9 FAULT."
+    }
+  ],
+  "checks": {
+    "pymodbus_connect": true,
+    "bridge_logged_in": true,
+    "bridge_quit": true,
+    "scenario:AHU-01 AHU_SEQ_V1 behaviour": true
+  },
+  "operation_status": "PASS",
+  "reason": "35 behaviour steps passed (scenario:AHU-01 AHU_SEQ_V1 behaviour)"
+}

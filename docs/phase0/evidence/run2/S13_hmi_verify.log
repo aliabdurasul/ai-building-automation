@@ -1,0 +1,83 @@
+mode=hmiverify time=2026-10-05T10:17:54.7852135+03:00
+IUIService registered: InSAT.Framework.TestBase.UIServiceForTests
+TimedTrace not found
+TypesManager.ConfigName=MasterPLC ConfigPath=C:\Program Files\MPSSoft\MasterSCADA 4D 1.2\bin\..\Configs\MasterPLC
+OpenProject OK: AHU_S1 root=MasterSCADA.HMI.RootItem
+PASS window.exists expected=AHU_01_TEST actual=System.АРМ 1.Graphic user interface.Windows.AHU_01_TEST
+PASS window.type expected=MasterSCADA.View.ViewDeclarationInObject actual=MasterSCADA.View.ViewDeclarationInObject
+PASS window.parent expected=GroupHMI/Mnemoschemes actual=System.АРМ 1.Graphic user interface.Windows
+PASS window.width expected=800 actual=800
+PASS window.height expected=500 actual=500
+PASS window.isStartWindow expected=MainScreen -Reference-> System.АРМ 1.Graphic user interface.Windows.AHU_01_TEST actual=System.АРМ 1.Graphic user interface.Windows.AHU_01_TEST
+PASS obj.Title.exists expected=Title actual=System.АРМ 1.Graphic user interface.Windows.AHU_01_TEST.Scheme.Title
+PASS obj.Title.type expected=ViewUsage sub=TextOutput actual=MasterSCADA.View.ViewUsage sub=TextOutput ancestor=Libraries.HMI.Windows.Диалог.Текст
+PASS obj.Title.x expected=40 actual=40
+PASS obj.Title.y expected=30 actual=30
+PASS obj.Title.w expected=300 actual=300
+PASS obj.Title.h expected=40 actual=40
+PASS obj.Title.text expected=AHU_01 actual=AHU_01
+PASS obj.LblFanCommand.exists expected=LblFanCommand actual=System.АРМ 1.Graphic user interface.Windows.AHU_01_TEST.Scheme.LblFanCommand
+PASS obj.LblFanCommand.type expected=ViewUsage sub=TextOutput actual=MasterSCADA.View.ViewUsage sub=TextOutput ancestor=Libraries.HMI.Windows.Диалог.Текст
+PASS obj.LblFanCommand.x expected=40 actual=40
+PASS obj.LblFanCommand.y expected=100 actual=100
+PASS obj.LblFanCommand.w expected=200 actual=200
+PASS obj.LblFanCommand.h expected=30 actual=30
+PASS obj.LblFanCommand.text expected=Fan Command: actual=Fan Command:
+PASS obj.FanCommandValue.exists expected=FanCommandValue actual=System.АРМ 1.Graphic user interface.Windows.AHU_01_TEST.Scheme.FanCommandValue
+PASS obj.FanCommandValue.type expected=ViewUsage sub=NumericUpDown actual=MasterSCADA.View.ViewUsage sub=NumericUpDown ancestor=Libraries.HMI.Windows.Диалог.Инкремент
+PASS obj.FanCommandValue.x expected=260 actual=260
+PASS obj.FanCommandValue.y expected=100 actual=100
+PASS obj.FanCommandValue.w expected=120 actual=120
+PASS obj.FanCommandValue.h expected=30 actual=30
+PASS obj.FanCommandValue.value expected=2 actual=2
+PASS link.FanCommandValue.write(control->parameter) expected=Designer.Progress.Value -> System.АРМ 1.Parameters.FanCommandSP actual=True
+PASS link.FanCommandValue.no_read(write-only) expected=False actual=False
+PASS obj.LblFanStatus.exists expected=LblFanStatus actual=System.АРМ 1.Graphic user interface.Windows.AHU_01_TEST.Scheme.LblFanStatus
+PASS obj.LblFanStatus.type expected=ViewUsage sub=TextOutput actual=MasterSCADA.View.ViewUsage sub=TextOutput ancestor=Libraries.HMI.Windows.Диалог.Текст
+PASS obj.LblFanStatus.x expected=40 actual=40
+PASS obj.LblFanStatus.y expected=150 actual=150
+PASS obj.LblFanStatus.w expected=200 actual=200
+PASS obj.LblFanStatus.h expected=30 actual=30
+PASS obj.LblFanStatus.text expected=Fan Status: actual=Fan Status:
+PASS obj.FanStatusValue.exists expected=FanStatusValue actual=System.АРМ 1.Graphic user interface.Windows.AHU_01_TEST.Scheme.FanStatusValue
+PASS obj.FanStatusValue.type expected=ViewUsage sub=TextOutput actual=MasterSCADA.View.ViewUsage sub=TextOutput ancestor=Libraries.HMI.Windows.Диалог.Текст
+PASS obj.FanStatusValue.x expected=260 actual=260
+PASS obj.FanStatusValue.y expected=150 actual=150
+PASS obj.FanStatusValue.w expected=120 actual=120
+PASS obj.FanStatusValue.h expected=30 actual=30
+PASS link.FanStatusValue.read(channel->control) expected=System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.FanStatus.Input -> Designer.Font.Text actual=True
+PASS obj.LblSupplyTemp.exists expected=LblSupplyTemp actual=System.АРМ 1.Graphic user interface.Windows.AHU_01_TEST.Scheme.LblSupplyTemp
+PASS obj.LblSupplyTemp.type expected=ViewUsage sub=TextOutput actual=MasterSCADA.View.ViewUsage sub=TextOutput ancestor=Libraries.HMI.Windows.Диалог.Текст
+PASS obj.LblSupplyTemp.x expected=40 actual=40
+PASS obj.LblSupplyTemp.y expected=200 actual=200
+PASS obj.LblSupplyTemp.w expected=200 actual=200
+PASS obj.LblSupplyTemp.h expected=30 actual=30
+PASS obj.LblSupplyTemp.text expected=Supply Temp: actual=Supply Temp:
+PASS obj.SupplyTempValue.exists expected=SupplyTempValue actual=System.АРМ 1.Graphic user interface.Windows.AHU_01_TEST.Scheme.SupplyTempValue
+PASS obj.SupplyTempValue.type expected=ViewUsage sub=TextOutput actual=MasterSCADA.View.ViewUsage sub=TextOutput ancestor=Libraries.HMI.Windows.Диалог.Текст
+PASS obj.SupplyTempValue.x expected=260 actual=260
+PASS obj.SupplyTempValue.y expected=200 actual=200
+PASS obj.SupplyTempValue.w expected=120 actual=120
+PASS obj.SupplyTempValue.h expected=30 actual=30
+PASS obj.SupplyTempValue.text expected=XX.X °C actual=XX.X °C
+PASS obj.LblFanSpeed.exists expected=LblFanSpeed actual=System.АРМ 1.Graphic user interface.Windows.AHU_01_TEST.Scheme.LblFanSpeed
+PASS obj.LblFanSpeed.type expected=ViewUsage sub=TextOutput actual=MasterSCADA.View.ViewUsage sub=TextOutput ancestor=Libraries.HMI.Windows.Диалог.Текст
+PASS obj.LblFanSpeed.x expected=40 actual=40
+PASS obj.LblFanSpeed.y expected=250 actual=250
+PASS obj.LblFanSpeed.w expected=200 actual=200
+PASS obj.LblFanSpeed.h expected=30 actual=30
+PASS obj.LblFanSpeed.text expected=Fan Speed: actual=Fan Speed:
+PASS obj.FanSpeedValue.exists expected=FanSpeedValue actual=System.АРМ 1.Graphic user interface.Windows.AHU_01_TEST.Scheme.FanSpeedValue
+PASS obj.FanSpeedValue.type expected=ViewUsage sub=TextOutput actual=MasterSCADA.View.ViewUsage sub=TextOutput ancestor=Libraries.HMI.Windows.Диалог.Текст
+PASS obj.FanSpeedValue.x expected=260 actual=260
+PASS obj.FanSpeedValue.y expected=250 actual=250
+PASS obj.FanSpeedValue.w expected=120 actual=120
+PASS obj.FanSpeedValue.h expected=30 actual=30
+PASS obj.FanSpeedValue.text expected=XX % actual=XX %
+PASS param.FanCommandSP.exists expected=FanCommandSP actual=System.АРМ 1.Parameters.FanCommandSP
+PASS param.FanCommandSP.type expected=MasterSCADA.Attribute actual=MasterSCADA.Attribute
+PASS param.FanCommandSP.initial expected=2 actual=2
+PASS param.FanCommandSP.serverLink(channel<-param) expected=System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.FanCommand.Output <- System.АРМ 1.Parameters.FanCommandSP actual=True Value reception from
+PASS connections.count expected=2 actual=2
+Disposed (no save)
+VERIFY RESULT PASS checks=76 fails=0

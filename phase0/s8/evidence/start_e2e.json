@@ -1,0 +1,23 @@
+{
+  "test": "05_start_e2e_masterscada",
+  "source": "S15_ms_runtime_events.jsonl",
+  "write_phase": {
+    "t": "2026-10-06T17:31:28.278+03:00",
+    "step": "write_1_result",
+    "codesys_HR0_is_1": true,
+    "closed_loop_IR0_3_and_FanStatus_3": true,
+    "codesys_HR0": 1,
+    "codesys_IR0": 3,
+    "ms_FanStatus": "(Value:=3, SourceTime:=2026-10-06-17:31:28.196, StatusCode:=Good)"
+  },
+  "read_phase": {
+    "t": "2026-10-06T17:31:20.533+03:00",
+    "step": "read_1_result",
+    "match_IR0_3": true,
+    "ms_FanStatus": "(Value:=3, SourceTime:=2026-10-06-17:31:20.372, StatusCode:=Good)",
+    "codesys_IR0": 3,
+    "codesys_HR0": 1
+  },
+  "chain": "MasterSCADA FanCommand=1 -> HR0=1 -> IR0=3 -> MasterSCADA FanStatus=3",
+  "result": "PASS"
+}

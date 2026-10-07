@@ -1,0 +1,3 @@
+Script Messages: Information: MAP_MB: script started
+Script Messages: Information: MAP_MB: opening C:\AI_BMS_PHASE0\s1\run2\codesys\AI_BMS_AHU_DEMO.project
+Script Messages: Information: MAP_MB: wrote C:\AI_BMS_PHASE0\s1\run2\codesys\logs\modbus_io_map.json

@@ -1,0 +1,61 @@
+{
+  "protocol": "Modbus TCP",
+  "host": "127.0.0.1",
+  "port": 502,
+  "slave": 1,
+  "source_model": "AHU-01",
+  "registers": [
+    {
+      "address": 0,
+      "area": "holding",
+      "function_read": "FC3",
+      "function_write": "FC6/FC16",
+      "tag": "Command",
+      "plc_var": "Application.PLC_PRG.Mb_Command",
+      "datatype": "WORD",
+      "register_count": 1,
+      "bits": {
+        "0": "StartCommand",
+        "1": "StopCommand"
+      },
+      "verified": false,
+      "verification": null
+    },
+    {
+      "address": 0,
+      "area": "input",
+      "function_read": "FC4",
+      "function_write": "none",
+      "tag": "Status",
+      "plc_var": "Application.PLC_PRG.Mb_Status",
+      "datatype": "WORD",
+      "register_count": 1,
+      "bits": {
+        "0": "FanCommand",
+        "1": "FanRunning",
+        "2": "FanFault"
+      },
+      "verified": false,
+      "verification": null
+    }
+  ],
+  "unmapped": [
+    {
+      "var": "SupplyTemp",
+      "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope"
+    },
+    {
+      "var": "Setpoint",
+      "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope"
+    },
+    {
+      "var": "FanSpeed",
+      "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope"
+    },
+    {
+      "var": "HeatingValve",
+      "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope"
+    }
+  ],
+  "verified_rule": "verified=true only after external pymodbus read-back against the running generated PLC"
+}

@@ -1,0 +1,33 @@
+{
+  "step": "revision_engine_selftest",
+  "tests_run": 23,
+  "failures": 0,
+  "errors": 0,
+  "tests": [
+    "RevisionEngine.test_add_signal_preserves_existing",
+    "RevisionEngine.test_approved_type_change_reallocates_and_retires",
+    "RevisionEngine.test_deterministic_and_order_independent",
+    "RevisionEngine.test_direction_change_needing_new_area_blocked",
+    "RevisionEngine.test_direction_change_same_area_preserved",
+    "RevisionEngine.test_equipment_addition",
+    "RevisionEngine.test_invalid_capacity_exceeded",
+    "RevisionEngine.test_invalid_direction",
+    "RevisionEngine.test_invalid_duplicate_address",
+    "RevisionEngine.test_invalid_duplicate_symbol",
+    "RevisionEngine.test_invalid_duplicate_tag",
+    "RevisionEngine.test_invalid_missing_area",
+    "RevisionEngine.test_invalid_missing_datatype",
+    "RevisionEngine.test_invalid_overlapping_real32",
+    "RevisionEngine.test_invalid_real32_length_1",
+    "RevisionEngine.test_invalid_unknown_equipment",
+    "RevisionEngine.test_metadata_required",
+    "RevisionEngine.test_naive_allocation_would_move_signals",
+    "RevisionEngine.test_remove_signal_retires_address",
+    "RevisionEngine.test_retired_address_never_given_to_another_signal",
+    "RevisionEngine.test_same_identity_restored",
+    "RevisionEngine.test_type_change_blocked_without_approval",
+    "RevisionEngine.test_v1_allocation"
+  ],
+  "operation_status": "PASS",
+  "reason": "23 revision engine tests passed"
+}

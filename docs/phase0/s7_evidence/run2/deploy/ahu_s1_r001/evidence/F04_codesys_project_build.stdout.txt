@@ -1,0 +1,17 @@
+ADDED Ethernet under Device (110 0000 0002 4.2.0.0)
+ADDED Modbus_TCP_Server under Ethernet (115 0000 0002 4.6.0.0)
+MAP Holding Registers[0] -> Application.PLC_PRG.Mb_Command ok=True
+MAP Holding Registers[1] -> Application.PLC_PRG.Mb_Setpoint_W0 ok=True
+MAP Holding Registers[2] -> Application.PLC_PRG.Mb_Setpoint_W1 ok=True
+MAP Input Registers[0] -> Application.PLC_PRG.Mb_Status ok=True
+MAP Input Registers[1] -> Application.PLC_PRG.Mb_FanSpeed_W0 ok=True
+MAP Input Registers[2] -> Application.PLC_PRG.Mb_FanSpeed_W1 ok=True
+MAP Input Registers[3] -> Application.PLC_PRG.Mb_HeatingValve_W0 ok=True
+MAP Input Registers[4] -> Application.PLC_PRG.Mb_HeatingValve_W1 ok=True
+MAP Input Registers[5] -> Application.PLC_PRG.Mb_SupplyTemp_W0 ok=True
+MAP Input Registers[6] -> Application.PLC_PRG.Mb_SupplyTemp_W1 ok=True
+MAP Input Registers[7] -> Application.PLC_PRG.Mb_TestReal32Read_W0 ok=True
+MAP Input Registers[8] -> Application.PLC_PRG.Mb_TestReal32Read_W1 ok=True
+MAP Input Registers[9].8 -> Application.PLC_PRG.Mb_FanRunning ok=True
+BUILD errors=0 warnings=0
+OPERATION_STATUS=PASS

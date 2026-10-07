@@ -1,0 +1,40 @@
+# PLC_VARIABLES AHU-SEQ-r001 (revision 1) - generated, deterministic
+# name : TYPE := initial ; role ; equipment ; modbus
+StartCommand : BOOL := FALSE ; command ; AHU-01 ; HR0 bit 0 of Command
+StopCommand : BOOL := FALSE ; command ; AHU-01 ; HR0 bit 1 of Command
+FanCommand : BOOL := FALSE ; output ; AHU-01 ; IR0 bit 0 of Status
+FanRunning : BOOL := FALSE ; status ; AHU-01 ; IR0 bit 1 of Status | DI148 FanRunning BOOL READ
+FanFault : BOOL := FALSE ; status ; AHU-01 ; IR0 bit 2 of Status
+DamperCommand : BOOL := FALSE ; output ; AHU-01 ; DI145 DamperCommand BOOL READ
+DamperOpen : BOOL := FALSE ; status ; AHU-01 ; DI147 DamperOpen BOOL READ
+FanFailure : BOOL := FALSE ; fault_input ; AHU-01 ; unmapped
+DamperFailure : BOOL := FALSE ; fault_input ; AHU-01 ; unmapped
+DamperFault : BOOL := FALSE ; alarm ; AHU-01 ; DI146 DamperFault BOOL READ
+AhuAlarm : BOOL := FALSE ; alarm ; AHU-01 ; DI144 AhuAlarm BOOL READ
+AhuState : INT := 0 ; status ; AHU-01 ; IR1 AhuState INT16 READ
+StateTrace : WORD := 16#0000 ; diagnostic ; AHU-01 ; IR6 StateTrace WORD READ
+SequenceStarts : UINT := 0 ; diagnostic ; AHU-01 ; IR4 SequenceStarts UINT16 READ
+SequenceStops : UINT := 0 ; diagnostic ; AHU-01 ; IR5 SequenceStops UINT16 READ
+StartPrev : BOOL := FALSE ; internal ; AHU-01 ; unmapped
+StopPrev : BOOL := FALSE ; internal ; AHU-01 ; unmapped
+NowMs : UDINT := 0 ; internal ; AHU-01 ; unmapped
+StateEntryMs : UDINT := 0 ; internal ; AHU-01 ; unmapped
+SupplyTemp : REAL := 21.0 ; process ; AHU-01 ; IR7..IR8 SupplyTemp REAL32 READ
+Setpoint : REAL := 22.0 ; setpoint ; AHU-01 ; HR1..HR2 Setpoint REAL32 READ_WRITE
+HeatingValve : REAL := 0.0 ; output ; AHU-01 ; IR2..IR3 HeatingValve REAL32 READ
+# Modbus image variables (bound to Modbus_TCP_Server channels)
+Mb_Setpoint_W0 : WORD ; image of Setpoint ; HR1..HR2
+Mb_Setpoint_W1 : WORD ; image of Setpoint ; HR1..HR2
+Mb_AhuState : WORD ; image of AhuState ; IR1
+Mb_HeatingValve_W0 : WORD ; image of HeatingValve ; IR2..IR3
+Mb_HeatingValve_W1 : WORD ; image of HeatingValve ; IR2..IR3
+Mb_SequenceStarts : WORD ; image of SequenceStarts ; IR4
+Mb_SequenceStops : WORD ; image of SequenceStops ; IR5
+Mb_StateTrace : WORD ; image of StateTrace ; IR6
+Mb_SupplyTemp_W0 : WORD ; image of SupplyTemp ; IR7..IR8
+Mb_SupplyTemp_W1 : WORD ; image of SupplyTemp ; IR7..IR8
+Mb_AhuAlarm : BOOL ; image of AhuAlarm ; DI144
+Mb_DamperCommand : BOOL ; image of DamperCommand ; DI145
+Mb_DamperFault : BOOL ; image of DamperFault ; DI146
+Mb_DamperOpen : BOOL ; image of DamperOpen ; DI147
+Mb_FanRunning : BOOL ; image of FanRunning ; DI148

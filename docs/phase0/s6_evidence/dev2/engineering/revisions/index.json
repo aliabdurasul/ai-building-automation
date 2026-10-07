@@ -1,0 +1,237 @@
+{
+  "schema": "ai_bms.revision_index.v1",
+  "project_id": "AHU-DEMO",
+  "revisions": [
+    {
+      "revision": 1,
+      "parent_revision": null,
+      "label": "V1",
+      "model_sha256": "fa4e79133075211e4cc6f9ebc74d623259304a24219bbe92e9a637209cbf0b8a",
+      "status": "ACCEPTED",
+      "manifest_sha256": "be4910f86642bc69d1b75e4ec84967f57664ad85b465ad308c85fae737e11a52"
+    },
+    {
+      "revision": 2,
+      "parent_revision": 1,
+      "label": "V2",
+      "model_sha256": "bd1168ed9d33e9037e14c0aa5ffd9862ea5c32cf25c7fe408ddbb10b238ae9cc",
+      "status": "ACCEPTED",
+      "manifest_sha256": "2c823138d114628d6b9c1669061b1277ae2284c3b945480c15c9550a521d75ed"
+    },
+    {
+      "revision": 3,
+      "parent_revision": 2,
+      "label": "V3",
+      "model_sha256": "de30868c551a2e488adb439cefc0a98c4c01127876129a35c0331c128de06c58",
+      "status": "ACCEPTED",
+      "manifest_sha256": "dfc148a4a44fa920fe73e808cc401ade7f5917e49c8791aa1f9693d758fab147"
+    },
+    {
+      "revision": 4,
+      "parent_revision": 3,
+      "label": "V5",
+      "model_sha256": "76f3fa5b0f79ffe1ae403d423e79aed2d03e2e3700162b9ec543b04289bfd655",
+      "status": "ACCEPTED",
+      "manifest_sha256": "d81bf0cff914477ef06658f404c867788e13b6af4ee53d8e057e9b6ed11be1c2"
+    }
+  ],
+  "rejected": [
+    {
+      "label": "invalid_duplicate_tag",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "DUPLICATE_TAG",
+        "MODEL_RULE"
+      ]
+    },
+    {
+      "label": "invalid_duplicate_address",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "ALLOCATION"
+      ]
+    },
+    {
+      "label": "invalid_real32_length_1",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "MODEL_RULE"
+      ]
+    },
+    {
+      "label": "invalid_missing_datatype",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "MODEL_RULE"
+      ]
+    },
+    {
+      "label": "invalid_missing_area",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "MODEL_RULE"
+      ]
+    },
+    {
+      "label": "invalid_invalid_direction",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "MODEL_RULE"
+      ]
+    },
+    {
+      "label": "invalid_direction_area_mismatch",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "MODEL_RULE"
+      ]
+    },
+    {
+      "label": "invalid_overlapping_real32",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "ALLOCATION"
+      ]
+    },
+    {
+      "label": "invalid_capacity_exceeded",
+      "revision": 3,
+      "parent_revision": 2,
+      "codes": [
+        "ALLOCATION"
+      ]
+    },
+    {
+      "label": "invalid_revision_already_exists",
+      "revision": 2,
+      "parent_revision": 1,
+      "codes": [
+        "STORE"
+      ]
+    },
+    {
+      "label": "invalid_unknown_parent",
+      "revision": 3,
+      "parent_revision": 99,
+      "codes": [
+        "STORE"
+      ]
+    },
+    {
+      "label": "V4_type_change",
+      "revision": 4,
+      "parent_revision": 3,
+      "codes": [
+        "BREAKING_CHANGE_REQUIRES_APPROVAL"
+      ]
+    },
+    {
+      "label": "V4_type_change_approved",
+      "revision": 4,
+      "parent_revision": 3,
+      "codes": [
+        "ALLOCATION"
+      ]
+    },
+    {
+      "label": "V6_direction_breaking",
+      "revision": 5,
+      "parent_revision": 4,
+      "codes": [
+        "BREAKING_CHANGE_REQUIRES_APPROVAL"
+      ]
+    }
+  ],
+  "current": 4,
+  "events": [
+    {
+      "event": "commit",
+      "revision": 1,
+      "label": "V1"
+    },
+    {
+      "event": "commit",
+      "revision": 2,
+      "label": "V2"
+    },
+    {
+      "event": "rollback",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "event": "reject",
+      "label": "invalid_duplicate_tag"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_duplicate_address"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_real32_length_1"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_missing_datatype"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_missing_area"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_invalid_direction"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_direction_area_mismatch"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_overlapping_real32"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_capacity_exceeded"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_revision_already_exists"
+    },
+    {
+      "event": "reject",
+      "label": "invalid_unknown_parent"
+    },
+    {
+      "event": "commit",
+      "revision": 3,
+      "label": "V3"
+    },
+    {
+      "event": "reject",
+      "label": "V4_type_change"
+    },
+    {
+      "event": "reject",
+      "label": "V4_type_change_approved"
+    },
+    {
+      "event": "commit",
+      "revision": 4,
+      "label": "V5"
+    },
+    {
+      "event": "reject",
+      "label": "V6_direction_breaking"
+    }
+  ]
+}

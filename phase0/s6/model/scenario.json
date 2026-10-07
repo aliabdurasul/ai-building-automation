@@ -1,0 +1,31 @@
+{
+  "schema": "ai_bms.s6_scenario.v1",
+  "project_id": "AHU-DEMO",
+  "description": "Expected revision diff per accepted revision: identity -> [change type, mapping action]. Identities not listed get 'default'.",
+  "diffs": {
+    "1": {
+      "from": null,
+      "expect": { "AHU-DEMO/AHU-01": ["EQUIPMENT_ADDED", null] },
+      "default": ["ADDED", "NEW"]
+    },
+    "2": {
+      "from": 1,
+      "expect": { "AHU-DEMO/AHU-01/ReturnTemp": ["ADDED", "NEW"] },
+      "default": ["UNCHANGED", "PRESERVED"]
+    },
+    "3": {
+      "from": 2,
+      "expect": { "AHU-DEMO/AHU-01/FanSpeed": ["REMOVED", "RETIRED"] },
+      "default": ["UNCHANGED", "PRESERVED"]
+    },
+    "4": {
+      "from": 3,
+      "expect": {
+        "AHU-DEMO/AHU-02": ["EQUIPMENT_ADDED", null],
+        "AHU-DEMO/AHU-02/Setpoint": ["ADDED", "NEW"],
+        "AHU-DEMO/AHU-02/Enable": ["ADDED", "NEW"]
+      },
+      "default": ["UNCHANGED", "PRESERVED"]
+    }
+  }
+}

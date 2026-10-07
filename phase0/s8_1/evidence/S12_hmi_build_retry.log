@@ -1,0 +1,218 @@
+mode=hmibuild time=2026-10-06T18:08:21.2822262+03:00
+IUIService registered: InSAT.Framework.TestBase.UIServiceForTests
+TimedTrace not found
+TypesManager.ConfigName=MasterPLC ConfigPath=C:\Program Files\MPSSoft\MasterSCADA 4D 1.2\bin\..\Configs\MasterPLC
+SPEC C:\AI_BMS_POC\master_scada_research\hmi_api_poc\phase0_s81\s81_test_hmi.json screen=S81_TEST_HMI objects=8
+OpenProject OK: AHU_S81 root=MasterSCADA.HMI.RootItem
+STEP 1: create window
+  EXEC AddItem on 'Windows' def.ItemType=MasterSCADA.View.ViewDeclarationInObject display='Window'
+  window created: System.АРМ 1.Graphic user interface.Windows.Window 1 type=MasterSCADA.View.ViewDeclarationInObject
+    name now: 'S81_TEST_HMI' ref=S81_TEST_HMI
+  window Designer.Layout.Width InitialValue=800
+  window Designer.Layout.Height InitialValue=420
+STEP 1b: server parameters
+ PARAMETER FanCommandSP
+  EXEC 'Parameter FanCommandSP' via AddItem subcommand display='Parameter' name=AddItem param=ChildItemDef{_childItems=System.Collections.Generic.List`1[InSAT.Framework.Core.Services.Item.ItemsManagement.ChildItemDef]; _properties=null; _displayNameNumberBase=InSAT.Framework.Core.Services.Item.ConstItemValueProvider; ItemType=Parameter; DefId=0; DefRule=None; RefName=null; DisplayName=null; NeutralDisplayName=null; _menuDisplayName=null; _menuGroupDisplayName=null; DisplayNameScopePath=null; MinCount=null; MaxCount=null; InitialCount=null; CheckCondition=null; FixedCount=False; Rules=0; ConditionOrder=0; Browsable=True; SiblingOrder=0; _inheritable=Undefined; SetLinkDefs=null; InsertFromList=null; <Condition>k__BackingField=null; MenuName=null; InheritRules=null; _displayNameFormat=null; _parent=Parameters; NeedAddTypeItems=False; _inited=False; AutoCreatedLevel=1; _isNonRootTrigger=False; _hasInsertBySourceTigger=False; _initProps=null; }
+  -> created System.АРМ 1.Parameters.Parameter 1 type=MasterSCADA.Attribute sub=
+    param name now 'FanCommandSP' full=System.АРМ 1.Parameters.FanCommandSP
+    InitialValue=2
+    channel pin=System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.FanCommand.Output
+    LINKDEFS from=FanCommandSP count=0
+    LINKDEF from=Output other=FanCommandSP type=Value reception from dir=Forward manual=True
+    LINKDEFS from=Output count=1
+    SetLink(FanCommandSP -> System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.FanCommand.Output) result=
+    reverse SetLink(Output <- System.АРМ 1.Parameters.FanCommandSP) result=
+    LINK of FanCommandSP: type=Value reception from System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.FanCommand.Output -> System.АРМ 1.Parameters.FanCommandSP
+    FanCommandSP Var.Type=LREAL
+    LINK of Output: type=Has type System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.FanCommand.Output -> Libraries.Standard.Data types.SYSTEM_INT_PARAM
+    LINK of Output: type=Value reception from System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.FanCommand.Output -> System.АРМ 1.Parameters.FanCommandSP
+    Output Var.Type=INT
+STEP 2: insert controls
+ OBJECT Title type=Text -> palette sub=TextOutput
+  palette=Libraries.HMI.Windows.Диалог.Текст
+  InsertControl -> System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.Текст 1 type=MasterSCADA.View.ViewUsage sub=TextOutput
+    name now: 'Title' ref=Title
+    SetProperty(Designer.Layout.X, 40) ok -> 40
+    SetProperty(Designer.Layout.Y, 24) ok -> 24
+    SetProperty(Designer.Layout.Width, 400) ok -> 400
+    SetProperty(Designer.Layout.Height, 36) ok -> 36
+    SetProperty(Designer.Font.Text, S8.1 TEST HMI) ok -> S8.1 TEST HMI
+ OBJECT LblFanCommand type=Text -> palette sub=TextOutput
+  palette=Libraries.HMI.Windows.Диалог.Текст
+  InsertControl -> System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.Текст 1 type=MasterSCADA.View.ViewUsage sub=TextOutput
+    name now: 'LblFanCommand' ref=LblFanCommand
+    SetProperty(Designer.Layout.X, 40) ok -> 40
+    SetProperty(Designer.Layout.Y, 90) ok -> 90
+    SetProperty(Designer.Layout.Width, 180) ok -> 180
+    SetProperty(Designer.Layout.Height, 28) ok -> 28
+    SetProperty(Designer.Font.Text, FanCommand:) ok -> FanCommand:
+ OBJECT FanCommandValue type=NumericInput -> palette sub=NumericUpDown
+  palette=Libraries.HMI.Windows.Диалог.Инкремент
+  InsertControl -> System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.Инкремент 1 type=MasterSCADA.View.ViewUsage sub=NumericUpDown
+    name now: 'FanCommandValue' ref=FanCommandValue
+    SetProperty(Designer.Layout.X, 240) ok -> 240
+    SetProperty(Designer.Layout.Y, 90) ok -> 90
+    SetProperty(Designer.Layout.Width, 120) ok -> 120
+    SetProperty(Designer.Layout.Height, 28) ok -> 28
+    SetProperty(Designer.Progress.Value, 2) ok -> 2
+  link: control param=System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.FanCommandValue.Parameters.Текущее значение  server parameter=System.АРМ 1.Parameters.FanCommandSP
+    link control->parameter via CreateViewLinkService.CreateLink System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.FanCommandValue.Parameters.Текущее значение -> System.АРМ 1.Parameters.FanCommandSP = True
+ OBJECT LblFanStatus type=Text -> palette sub=TextOutput
+  palette=Libraries.HMI.Windows.Диалог.Текст
+  InsertControl -> System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.Текст 1 type=MasterSCADA.View.ViewUsage sub=TextOutput
+    name now: 'LblFanStatus' ref=LblFanStatus
+    SetProperty(Designer.Layout.X, 40) ok -> 40
+    SetProperty(Designer.Layout.Y, 140) ok -> 140
+    SetProperty(Designer.Layout.Width, 180) ok -> 180
+    SetProperty(Designer.Layout.Height, 28) ok -> 28
+    SetProperty(Designer.Font.Text, FanStatus:) ok -> FanStatus:
+ OBJECT FanStatusValue type=NumericValue -> palette sub=TextOutput
+  palette=Libraries.HMI.Windows.Диалог.Текст
+  InsertControl -> System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.Текст 1 type=MasterSCADA.View.ViewUsage sub=TextOutput
+    name now: 'FanStatusValue' ref=FanStatusValue
+    SetProperty(Designer.Layout.X, 240) ok -> 240
+    SetProperty(Designer.Layout.Y, 140) ok -> 140
+    SetProperty(Designer.Layout.Width, 120) ok -> 120
+    SetProperty(Designer.Layout.Height, 28) ok -> 28
+  link: control param=System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.FanStatusValue.Parameters.Текст ref=Designer.Font.Text dir=Forward  channel pin=System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.FanStatus.Input
+  CreateViewLinkService.Connect -> True
+ OBJECT LblSupplyTemp type=Text -> palette sub=TextOutput
+  palette=Libraries.HMI.Windows.Диалог.Текст
+  InsertControl -> System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.Текст 1 type=MasterSCADA.View.ViewUsage sub=TextOutput
+    name now: 'LblSupplyTemp' ref=LblSupplyTemp
+    SetProperty(Designer.Layout.X, 40) ok -> 40
+    SetProperty(Designer.Layout.Y, 190) ok -> 190
+    SetProperty(Designer.Layout.Width, 180) ok -> 180
+    SetProperty(Designer.Layout.Height, 28) ok -> 28
+    SetProperty(Designer.Font.Text, SupplyTemp:) ok -> SupplyTemp:
+ OBJECT SupplyTempValue type=NumericValue -> palette sub=TextOutput
+  palette=Libraries.HMI.Windows.Диалог.Текст
+  InsertControl -> System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.Текст 1 type=MasterSCADA.View.ViewUsage sub=TextOutput
+    name now: 'SupplyTempValue' ref=SupplyTempValue
+    SetProperty(Designer.Layout.X, 240) ok -> 240
+    SetProperty(Designer.Layout.Y, 190) ok -> 190
+    SetProperty(Designer.Layout.Width, 120) ok -> 120
+    SetProperty(Designer.Layout.Height, 28) ok -> 28
+  link: control param=System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.SupplyTempValue.Parameters.Текст ref=Designer.Font.Text dir=Forward  channel pin=System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.SupplyTemp.Input
+  CreateViewLinkService.Connect -> True
+ OBJECT Hint type=Text -> palette sub=TextOutput
+  palette=Libraries.HMI.Windows.Диалог.Текст
+  InsertControl -> System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.Текст 1 type=MasterSCADA.View.ViewUsage sub=TextOutput
+    name now: 'Hint' ref=Hint
+    SetProperty(Designer.Layout.X, 40) ok -> 40
+    SetProperty(Designer.Layout.Y, 250) ok -> 250
+    SetProperty(Designer.Layout.Width, 520) ok -> 520
+    SetProperty(Designer.Layout.Height, 28) ok -> 28
+    SetProperty(Designer.Font.Text, START=1 STOP=2 RUNNING=3 STOPPED=0 FAULT=4) ok -> START=1 STOP=2 RUNNING=3 STOPPED=0 FAULT=4
+STEP 3: connections created under window:
+  CONNECTION 'FanCommandValue.АРМ 1.Текущее значение-АРМ 1.АРМ 1.FanCommandSP' type=MasterSCADA.View.Connection
+     In<-System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.FanCommandValue.Parameters.Текущее значение; Out->System.АРМ 1.Parameters.FanCommandSP; 
+  CONNECTION 'Модуль Modbus TCP 1.АРМ 1.Modbus TCP.Модуль Modbus TCP 1.FanStatus.Input-FanStatusValue.АРМ 1.Текст' type=MasterSCADA.View.Connection
+     In<-System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.FanStatus.Input; Out->System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.FanStatusValue.Parameters.Текст; 
+  CONNECTION 'Модуль Modbus TCP 1.АРМ 1.Modbus TCP.Модуль Modbus TCP 1.SupplyTemp.Input-SupplyTempValue.АРМ 1.Текст' type=MasterSCADA.View.Connection
+     In<-System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.SupplyTemp.Input; Out->System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.SupplyTempValue.Parameters.Текст; 
+STEP 4: assign start window (LinksManagementService.Inherit -> MainScreen)
+  Inherit result=null
+  window links: Ref<-System.АРМ 1.Graphic user interface.Screen template; 
+  mainscreen links: Ref->System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI; 
+STEP 5: save
+SaveProject OK
+  - [S81_TEST_HMI] 'S81_TEST_HMI' type=MasterSCADA.View.ViewDeclarationInObject
+      props: <props err ArgumentNullException>
+      links: Ref<-System.АРМ 1.Graphic user interface.Screen template; 
+    - [Declarations] 'Local' type=MasterSCADA.View.LocalVars
+    - [Parameters] 'Parameters' type=MasterSCADA.View.Parameters
+      - [Designer.Layout.Width] 'Width' type=MasterSCADA.View.Param sub=Width
+          props: MasterSCADA.Var.InitialValue=800; 
+      - [Designer.Layout.Height] 'Height' type=MasterSCADA.View.Param sub=Height
+          props: MasterSCADA.Var.InitialValue=420; 
+      - [Designer.Layout.Z] 'Z order' type=MasterSCADA.View.Param sub=Z
+      - [Designer.Layout.Dock] 'Position' type=MasterSCADA.View.Param sub=DockStyle
+      - [Designer.Layout.HorizontalElementsAlign] 'Horizontal alignment' type=MasterSCADA.View.Param sub=HorizontalAlign
+      - [Designer.Layout.VerticalElementsAlign] 'Vertical alignment' type=MasterSCADA.View.Param sub=VerticalAlign
+      - [Designer.Element.MouseCursorKind] 'Вид курсора' type=MasterSCADA.View.Param sub=MouseCursorKind
+      - [Designer.Transform.Angle] 'Angle of rotation' type=MasterSCADA.View.Param sub=Angle
+      - [Designer.Transform.ScaleX] 'Zoom X' type=MasterSCADA.View.Param sub=ScaleX
+      - [Designer.Transform.ScaleY] 'Zoom Y' type=MasterSCADA.View.Param sub=ScaleY
+      - [Designer.Element.BorderThickness] 'Frame thickness' type=MasterSCADA.View.Param sub=BorderThickness
+      - [Designer.Element.Stroke] 'Frame color' type=MasterSCADA.View.Param sub=BorderColor
+      - [Designer.Element.Fill] 'Background fill' type=MasterSCADA.View.Param sub=BackgroundColor
+      - [Designer.Element.Opacity] 'Transparency' type=MasterSCADA.View.Param sub=Opacity
+      - [Designer.Element.BorderStyle] 'Frame style' type=MasterSCADA.View.Param sub=BorderStyle
+      - [Designer.Element.ToolTip] 'Tooltip' type=MasterSCADA.View.Param sub=ToolTip
+      - [Designer.Element.Flash] 'Flash' type=MasterSCADA.View.Param sub=Flash
+      - [Designer.Element.ShadowSize] 'Size of the shadow' type=MasterSCADA.View.Param sub=ShadowSize
+      - [Designer.Element.ShadowColor] 'Shadow color' type=MasterSCADA.View.Param sub=ShadowColor
+      - [ResourceRef] 'Background image' type=MasterSCADA.View.Param sub=Resource
+      - [BackgroundTile] 'Back tile' type=MasterSCADA.View.Param sub=BackgroundTile
+      - [Designer.Layout.X] 'X coordinate' type=MasterSCADA.View.Param sub=X
+      - [Designer.Layout.Y] 'Y coordinate' type=MasterSCADA.View.Param sub=Y
+      - [Designer.Layer.IsVisible] 'Visibility' type=MasterSCADA.View.Param sub=IsVisible
+      - [Designer.Layout.IsEnabled] 'Activity' type=MasterSCADA.View.Param sub=IsEnabled
+      - [Designer.Element.TabIndex] 'Keyboard index' type=MasterSCADA.View.Param sub=TabIndex
+      - [SkinResource] 'Shape' type=MasterSCADA.View.Param sub=SkinResource
+    - [Elements] 'Scheme' type=MasterSCADA.View.Elements
+        props: <props err ArgumentNullException>
+      - [Title] 'Title' type=MasterSCADA.View.ViewUsage sub=TextOutput
+          props: Designer.Layout.Height=36; Designer.Layout.Width=400; Designer.Layout.X=40; Designer.Layout.Y=24; 
+          links: Ref->Libraries.HMI.Windows.Диалог.Текст; 
+      - [LblFanCommand] 'LblFanCommand' type=MasterSCADA.View.ViewUsage sub=TextOutput
+          props: Designer.Layout.Height=28; Designer.Layout.Width=180; Designer.Layout.X=40; Designer.Layout.Y=90; 
+          links: Ref->Libraries.HMI.Windows.Диалог.Текст; 
+      - [FanCommandValue] 'FanCommandValue' type=MasterSCADA.View.ViewUsage sub=NumericUpDown
+          props: Designer.Layout.Height=28; Designer.Layout.Width=120; Designer.Layout.X=240; Designer.Layout.Y=90; 
+          links: Ref->Libraries.HMI.Windows.Диалог.Инкремент; 
+      - [LblFanStatus] 'LblFanStatus' type=MasterSCADA.View.ViewUsage sub=TextOutput
+          props: Designer.Layout.Height=28; Designer.Layout.Width=180; Designer.Layout.X=40; Designer.Layout.Y=140; 
+          links: Ref->Libraries.HMI.Windows.Диалог.Текст; 
+      - [FanStatusValue] 'FanStatusValue' type=MasterSCADA.View.ViewUsage sub=TextOutput
+          props: Designer.Layout.Height=28; Designer.Layout.Width=120; Designer.Layout.X=240; Designer.Layout.Y=140; 
+          links: Ref->Libraries.HMI.Windows.Диалог.Текст; 
+      - [LblSupplyTemp] 'LblSupplyTemp' type=MasterSCADA.View.ViewUsage sub=TextOutput
+          props: Designer.Layout.Height=28; Designer.Layout.Width=180; Designer.Layout.X=40; Designer.Layout.Y=190; 
+          links: Ref->Libraries.HMI.Windows.Диалог.Текст; 
+      - [SupplyTempValue] 'SupplyTempValue' type=MasterSCADA.View.ViewUsage sub=TextOutput
+          props: Designer.Layout.Height=28; Designer.Layout.Width=120; Designer.Layout.X=240; Designer.Layout.Y=190; 
+          links: Ref->Libraries.HMI.Windows.Диалог.Текст; 
+      - [Hint] 'Hint' type=MasterSCADA.View.ViewUsage sub=TextOutput
+          props: Designer.Layout.Height=28; Designer.Layout.Width=520; Designer.Layout.X=40; Designer.Layout.Y=250; 
+          links: Ref->Libraries.HMI.Windows.Диалог.Текст; 
+    - [Connections] 'Connections' type=MasterSCADA.View.Connections
+      - [LElements_FanCommandValue_Parameters_Designer.Progress.Value$.._.._.._Parameters_FanCommandSP] 'FanCommandValue.АРМ 1.Текущее значение-АРМ 1.АРМ 1.FanCommandSP' type=MasterSCADA.View.Connection
+          links: In<-System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.FanCommandValue.Parameters.Текущее значение; Out->System.АРМ 1.Parameters.FanCommandSP; 
+      - [L.._.._.._IOPorts_Modbus TCP_Модуль Modbus TCP 1_FanStatus_Input$Elements_FanStatusValue_Parameters_Designer.Font.Text] 'Модуль Modbus TCP 1.АРМ 1.Modbus TCP.Модуль Modbus TCP 1.FanStatus.Input-FanStatusValue.АРМ 1.Текст' type=MasterSCADA.View.Connection
+          links: In<-System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.FanStatus.Input; Out->System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.FanStatusValue.Parameters.Текст; 
+      - [L.._.._.._IOPorts_Modbus TCP_Модуль Modbus TCP 1_SupplyTemp_Input$Elements_SupplyTempValue_Parameters_Designer.Font.Text] 'Модуль Modbus TCP 1.АРМ 1.Modbus TCP.Модуль Modbus TCP 1.SupplyTemp.Input-SupplyTempValue.АРМ 1.Текст' type=MasterSCADA.View.Connection
+          links: In<-System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.SupplyTemp.Input; Out->System.АРМ 1.Graphic user interface.Windows.S81_TEST_HMI.Scheme.SupplyTempValue.Parameters.Текст; 
+    - [Events] 'Events' type=MasterSCADA.View.Events
+      - [Mouse click] 'Mouse click' type=MasterSCADA.View.MouseEvent sub=Click
+          props: SubTypeName=Click; 
+      - [Double click] 'Double click' type=MasterSCADA.View.MouseEvent sub=DoubleClick
+          props: SubTypeName=DoubleClick; 
+      - [Mouse click] 'Mouse click' type=MasterSCADA.View.MouseEvent sub=MouseDown
+          props: SubTypeName=MouseDown; 
+      - [Mouse release] 'Mouse release' type=MasterSCADA.View.MouseEvent sub=MouseUp
+          props: SubTypeName=MouseUp; 
+      - [Mouse capture] 'Mouse capture' type=MasterSCADA.View.MouseEvent sub=MouseEnter
+          props: SubTypeName=MouseEnter; 
+      - [Mouse leave] 'Mouse leave' type=MasterSCADA.View.MouseEvent sub=MouseLeave
+          props: SubTypeName=MouseLeave; 
+      - [Mouse move] 'Mouse move' type=MasterSCADA.View.MouseEvent sub=MouseMove
+          props: SubTypeName=MouseMove; 
+      - [Нажатие правой кнопки мыши] 'Нажатие правой кнопки мыши' type=MasterSCADA.View.MouseEvent sub=ContextMenuOpening
+          props: SubTypeName=ContextMenuOpening; 
+      - [Set focus] 'Set focus' type=MasterSCADA.View.Event sub=Focus
+          props: SubTypeName=Focus; 
+      - [Lost focus] 'Lost focus' type=MasterSCADA.View.Event sub=LostFocus
+          props: SubTypeName=LostFocus; 
+      - [Input a symbol] 'Input a symbol' type=MasterSCADA.View.KeyboardEvent sub=KeyPress
+          props: SubTypeName=KeyPress; 
+      - [Key press] 'Key press' type=MasterSCADA.View.KeyboardEvent sub=KeyDown
+          props: SubTypeName=KeyDown; 
+      - [Release key] 'Release key' type=MasterSCADA.View.KeyboardEvent sub=KeyUp
+          props: SubTypeName=KeyUp; 
+    - [Resources] 'Media' type=MasterSCADA.View.Resources
+    - [Triggers] 'Triggers' type=MasterSCADA.View.Triggers
+    - [Methods] 'Methods' type=MasterSCADA.View.Methods
+Disposed
+BUILD RESULT fails=0

@@ -1,0 +1,570 @@
+{
+  "step": "behavior",
+  "project_id": "BMS-DEMO",
+  "revision": 1,
+  "real32_ordering_reference": "CDAB",
+  "tests": [
+    {
+      "name": "template:PUMP-01:PUMP_BASIC_V1",
+      "steps": [
+        {
+          "name": "initial_stopped",
+          "modbus_write": {
+            "StartCommand": false,
+            "StopCommand": false
+          },
+          "plc_write": {
+            "PumpFault": false
+          },
+          "expect": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StartCommand": false,
+            "StopCommand": false
+          },
+          "observed_plc": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "observed_modbus": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "modbus_checked": [
+            "PumpFault",
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start",
+          "modbus_write": {
+            "StartCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StartCommand": true
+          },
+          "observed_plc": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "observed_modbus": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_released_keeps_running",
+          "modbus_write": {
+            "StartCommand": false
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StartCommand": false
+          },
+          "observed_plc": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "observed_modbus": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop",
+          "modbus_write": {
+            "StopCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StopCommand": true
+          },
+          "observed_plc": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "observed_modbus": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_while_stop_held_is_ignored",
+          "modbus_write": {
+            "StartCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StartCommand": true
+          },
+          "observed_plc": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "observed_modbus": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop_released_starts",
+          "modbus_write": {
+            "StopCommand": false
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StopCommand": false
+          },
+          "observed_plc": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "observed_modbus": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "fault_while_running_start_held",
+          "modbus_write": {},
+          "plc_write": {
+            "PumpFault": true
+          },
+          "expect": {
+            "PumpFault": true,
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PumpFault": true,
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "observed_modbus": {
+            "PumpFault": true,
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "modbus_checked": [
+            "PumpFault",
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_released_in_fault",
+          "modbus_write": {
+            "StartCommand": false
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StartCommand": false
+          },
+          "observed_plc": {
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "observed_modbus": {
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "fault_cleared_stopped",
+          "modbus_write": {},
+          "plc_write": {
+            "PumpFault": false
+          },
+          "expect": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "observed_modbus": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "modbus_checked": [
+            "PumpFault",
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "equipment": "PUMP-01",
+      "template": "PUMP_BASIC_V1",
+      "template_sha256": "a971cb3a6766a309899d1aa48e30a78262b0a89ba0c089d6cd9988931b5bda98"
+    },
+    {
+      "name": "scenario:BMS-DEMO equipment isolation",
+      "steps": [
+        {
+          "name": "reset_both_stopped",
+          "modbus_write": {
+            "BMS-DEMO/AHU-01/Command": 2,
+            "BMS-DEMO/PUMP-01/StartCommand": false,
+            "BMS-DEMO/PUMP-01/StopCommand": false
+          },
+          "plc_write": {
+            "BMS-DEMO/PUMP-01/PumpFault": false
+          },
+          "expect": {
+            "BMS-DEMO/AHU-01/Status": 0,
+            "BMS-DEMO/AHU-01/FanRunning": false,
+            "BMS-DEMO/PUMP-01/PumpState": 0,
+            "BMS-DEMO/PUMP-01/PumpRunning": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "BMS-DEMO/AHU-01/Command": [
+              2
+            ],
+            "BMS-DEMO/PUMP-01/StartCommand": false,
+            "BMS-DEMO/PUMP-01/StopCommand": false
+          },
+          "observed_plc": {
+            "BMS-DEMO/AHU-01/FanRunning": false,
+            "BMS-DEMO/AHU-01/Status": 0,
+            "BMS-DEMO/PUMP-01/PumpRunning": false,
+            "BMS-DEMO/PUMP-01/PumpState": 0
+          },
+          "observed_modbus": {
+            "BMS-DEMO/AHU-01/FanRunning": false,
+            "BMS-DEMO/AHU-01/Status": 0,
+            "BMS-DEMO/PUMP-01/PumpRunning": false,
+            "BMS-DEMO/PUMP-01/PumpState": 0
+          },
+          "modbus_checked": [
+            "BMS-DEMO/AHU-01/FanRunning",
+            "BMS-DEMO/AHU-01/Status",
+            "BMS-DEMO/PUMP-01/PumpRunning",
+            "BMS-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "ahu_start_does_not_start_pump",
+          "modbus_write": {
+            "BMS-DEMO/AHU-01/Command": 1
+          },
+          "plc_write": {},
+          "expect": {
+            "BMS-DEMO/AHU-01/Status": 3,
+            "BMS-DEMO/AHU-01/FanRunning": true,
+            "BMS-DEMO/PUMP-01/PumpState": 0,
+            "BMS-DEMO/PUMP-01/PumpRunning": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "BMS-DEMO/AHU-01/Command": [
+              1
+            ]
+          },
+          "observed_plc": {
+            "BMS-DEMO/AHU-01/FanRunning": true,
+            "BMS-DEMO/AHU-01/Status": 3,
+            "BMS-DEMO/PUMP-01/PumpRunning": false,
+            "BMS-DEMO/PUMP-01/PumpState": 0
+          },
+          "observed_modbus": {
+            "BMS-DEMO/AHU-01/FanRunning": true,
+            "BMS-DEMO/AHU-01/Status": 3,
+            "BMS-DEMO/PUMP-01/PumpRunning": false,
+            "BMS-DEMO/PUMP-01/PumpState": 0
+          },
+          "modbus_checked": [
+            "BMS-DEMO/AHU-01/FanRunning",
+            "BMS-DEMO/AHU-01/Status",
+            "BMS-DEMO/PUMP-01/PumpRunning",
+            "BMS-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "pump_start_does_not_change_ahu",
+          "modbus_write": {
+            "BMS-DEMO/PUMP-01/StartCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "BMS-DEMO/PUMP-01/PumpState": 2,
+            "BMS-DEMO/PUMP-01/PumpRunning": true,
+            "BMS-DEMO/AHU-01/Status": 3,
+            "BMS-DEMO/AHU-01/FanRunning": true
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "BMS-DEMO/PUMP-01/StartCommand": true
+          },
+          "observed_plc": {
+            "BMS-DEMO/AHU-01/FanRunning": true,
+            "BMS-DEMO/AHU-01/Status": 3,
+            "BMS-DEMO/PUMP-01/PumpRunning": true,
+            "BMS-DEMO/PUMP-01/PumpState": 2
+          },
+          "observed_modbus": {
+            "BMS-DEMO/AHU-01/FanRunning": true,
+            "BMS-DEMO/AHU-01/Status": 3,
+            "BMS-DEMO/PUMP-01/PumpRunning": true,
+            "BMS-DEMO/PUMP-01/PumpState": 2
+          },
+          "modbus_checked": [
+            "BMS-DEMO/AHU-01/FanRunning",
+            "BMS-DEMO/AHU-01/Status",
+            "BMS-DEMO/PUMP-01/PumpRunning",
+            "BMS-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "ahu_stop_does_not_stop_pump",
+          "modbus_write": {
+            "BMS-DEMO/AHU-01/Command": 2
+          },
+          "plc_write": {},
+          "expect": {
+            "BMS-DEMO/AHU-01/Status": 0,
+            "BMS-DEMO/AHU-01/FanRunning": false,
+            "BMS-DEMO/PUMP-01/PumpState": 2,
+            "BMS-DEMO/PUMP-01/PumpRunning": true
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "BMS-DEMO/AHU-01/Command": [
+              2
+            ]
+          },
+          "observed_plc": {
+            "BMS-DEMO/AHU-01/FanRunning": false,
+            "BMS-DEMO/AHU-01/Status": 0,
+            "BMS-DEMO/PUMP-01/PumpRunning": true,
+            "BMS-DEMO/PUMP-01/PumpState": 2
+          },
+          "observed_modbus": {
+            "BMS-DEMO/AHU-01/FanRunning": false,
+            "BMS-DEMO/AHU-01/Status": 0,
+            "BMS-DEMO/PUMP-01/PumpRunning": true,
+            "BMS-DEMO/PUMP-01/PumpState": 2
+          },
+          "modbus_checked": [
+            "BMS-DEMO/AHU-01/FanRunning",
+            "BMS-DEMO/AHU-01/Status",
+            "BMS-DEMO/PUMP-01/PumpRunning",
+            "BMS-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "pump_fault_does_not_change_ahu",
+          "modbus_write": {},
+          "plc_write": {
+            "BMS-DEMO/PUMP-01/PumpFault": true
+          },
+          "expect": {
+            "BMS-DEMO/PUMP-01/PumpState": 9,
+            "BMS-DEMO/PUMP-01/PumpRunning": false,
+            "BMS-DEMO/AHU-01/Status": 0,
+            "BMS-DEMO/AHU-01/FanRunning": false
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "BMS-DEMO/AHU-01/FanRunning": false,
+            "BMS-DEMO/AHU-01/Status": 0,
+            "BMS-DEMO/PUMP-01/PumpRunning": false,
+            "BMS-DEMO/PUMP-01/PumpState": 9
+          },
+          "observed_modbus": {
+            "BMS-DEMO/AHU-01/FanRunning": false,
+            "BMS-DEMO/AHU-01/Status": 0,
+            "BMS-DEMO/PUMP-01/PumpRunning": false,
+            "BMS-DEMO/PUMP-01/PumpState": 9
+          },
+          "modbus_checked": [
+            "BMS-DEMO/AHU-01/FanRunning",
+            "BMS-DEMO/AHU-01/Status",
+            "BMS-DEMO/PUMP-01/PumpRunning",
+            "BMS-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "cleanup_both_stopped",
+          "modbus_write": {
+            "BMS-DEMO/AHU-01/Command": 0,
+            "BMS-DEMO/PUMP-01/StartCommand": false
+          },
+          "plc_write": {
+            "BMS-DEMO/PUMP-01/PumpFault": false
+          },
+          "expect": {
+            "BMS-DEMO/AHU-01/Status": 0,
+            "BMS-DEMO/PUMP-01/PumpState": 0,
+            "BMS-DEMO/PUMP-01/PumpRunning": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "BMS-DEMO/AHU-01/Command": [
+              0
+            ],
+            "BMS-DEMO/PUMP-01/StartCommand": false
+          },
+          "observed_plc": {
+            "BMS-DEMO/AHU-01/Status": 0,
+            "BMS-DEMO/PUMP-01/PumpRunning": false,
+            "BMS-DEMO/PUMP-01/PumpState": 0
+          },
+          "observed_modbus": {
+            "BMS-DEMO/AHU-01/Status": 0,
+            "BMS-DEMO/PUMP-01/PumpRunning": false,
+            "BMS-DEMO/PUMP-01/PumpState": 0
+          },
+          "modbus_checked": [
+            "BMS-DEMO/AHU-01/Status",
+            "BMS-DEMO/PUMP-01/PumpRunning",
+            "BMS-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "description": "AHU-01 and PUMP-01 run in one PLC application. Commands to one equipment instance must not change the other's state. Keys are identities (project/equipment/tag); values are checked through Modbus and PLC online read-back."
+    }
+  ],
+  "checks": {
+    "pymodbus_connect": true,
+    "bridge_logged_in": true,
+    "bridge_quit": true,
+    "template:PUMP-01:PUMP_BASIC_V1": true,
+    "scenario:BMS-DEMO equipment isolation": true
+  },
+  "operation_status": "PASS",
+  "reason": "15 behaviour steps passed (template:PUMP-01:PUMP_BASIC_V1, scenario:BMS-DEMO equipment isolation)"
+}

@@ -1,0 +1,5 @@
+﻿{
+    "step":  "modbus_probe",
+    "operation_status":  "NOT_RUN",
+    "reason":  "F04_deploy_preflight BLOCKED"
+}

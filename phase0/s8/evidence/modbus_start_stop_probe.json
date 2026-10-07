@@ -1,0 +1,16 @@
+{
+  "start": {
+    "test": "05_07_start_running",
+    "modbus_HR0": 1,
+    "modbus_IR0": 3,
+    "expected_IR0": 3,
+    "result": "PASS"
+  },
+  "stop": {
+    "test": "06_08_stop_stopped",
+    "modbus_HR0": 2,
+    "modbus_IR0": 0,
+    "expected_IR0": 0,
+    "result": "PASS"
+  }
+}

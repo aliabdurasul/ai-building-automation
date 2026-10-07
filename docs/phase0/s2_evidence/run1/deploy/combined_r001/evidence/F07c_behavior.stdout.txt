@@ -1,0 +1,1 @@
+PASS 15 behaviour steps passed (template:PUMP-01:PUMP_BASIC_V1, scenario:BMS-DEMO equipment isolation)

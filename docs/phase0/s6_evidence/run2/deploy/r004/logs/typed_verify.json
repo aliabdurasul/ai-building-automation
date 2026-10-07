@@ -1,0 +1,1452 @@
+{
+  "step": "typed_verify",
+  "profile": "rev",
+  "tolerance": "bit-exact: Modbus-decoded float32 == PLC REAL (float32) and == float32(intended decimal)",
+  "cases": [
+    {
+      "phase": "R0",
+      "tag": "SupplyTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#21",
+      "plc_value": 21.0,
+      "modbus_raw": [
+        0,
+        16808
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 21.0,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R0",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": 21.5,
+      "plc_raw": "REAL#21.5",
+      "plc_value": 21.5,
+      "modbus_raw": [
+        0,
+        16812
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 21.5,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R0",
+      "tag": "ReturnTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#19.5",
+      "plc_value": 19.5,
+      "modbus_raw": [
+        0,
+        16796
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 19.5,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R0",
+      "tag": "FanRunning",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": null,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R1",
+      "tag": "SupplyTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#21",
+      "plc_value": 21.0,
+      "modbus_raw": [
+        0,
+        16808
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 21.0,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R1",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": 22.0,
+      "plc_raw": "REAL#22",
+      "plc_value": 22.0,
+      "modbus_raw": [
+        0,
+        16816
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 22.0,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R1",
+      "tag": "ReturnTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#19.5",
+      "plc_value": 19.5,
+      "modbus_raw": [
+        0,
+        16796
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 19.5,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R1",
+      "tag": "FanRunning",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": null,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R2",
+      "tag": "SupplyTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#21",
+      "plc_value": 21.0,
+      "modbus_raw": [
+        0,
+        16808
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 21.0,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R2",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": 18.25,
+      "plc_raw": "REAL#18.25",
+      "plc_value": 18.25,
+      "modbus_raw": [
+        0,
+        16786
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 18.25,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R2",
+      "tag": "ReturnTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#19.5",
+      "plc_value": 19.5,
+      "modbus_raw": [
+        0,
+        16796
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 19.5,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R2",
+      "tag": "FanRunning",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": null,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R3",
+      "tag": "SupplyTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#21",
+      "plc_value": 21.0,
+      "modbus_raw": [
+        0,
+        16808
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 21.0,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R3",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": 123.45600128173828,
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "modbus_raw": [
+        59769,
+        17142
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 123.45600128173828,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true,
+        "plc_equals_intended": true,
+        "decoded_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R3",
+      "tag": "ReturnTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#19.5",
+      "plc_value": 19.5,
+      "modbus_raw": [
+        0,
+        16796
+      ],
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 19.5,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "R3",
+      "tag": "FanRunning",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": null,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W1",
+      "tag": "Setpoint",
+      "path": "WRITE",
+      "datatype": "REAL32",
+      "intended": 21.5,
+      "written_raw": [
+        0,
+        16812
+      ],
+      "write_accepted": true,
+      "function": "FC16",
+      "modbus_readback": [
+        0,
+        16812
+      ],
+      "plc_raw": "REAL#21.5",
+      "plc_value": 21.5,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W1",
+      "tag": "AHU02_Setpoint",
+      "path": "WRITE",
+      "datatype": "REAL32",
+      "intended": 21.5,
+      "written_raw": [
+        0,
+        16812
+      ],
+      "write_accepted": true,
+      "function": "FC16",
+      "modbus_readback": [
+        0,
+        16812
+      ],
+      "plc_raw": "REAL#21.5",
+      "plc_value": 21.5,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W1",
+      "tag": "AHU02_Enable",
+      "path": "WRITE",
+      "datatype": "BOOL",
+      "intended": true,
+      "written_raw": true,
+      "write_accepted": true,
+      "function": "FC5",
+      "modbus_readback": true,
+      "overlay_register_raw": [
+        256
+      ],
+      "plc_raw": "TRUE",
+      "plc_value": true,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W1",
+      "tag": "SupplyTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#21",
+      "plc_value": 21.0,
+      "modbus_raw": [
+        0,
+        16808
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 21.0,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W1",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "modbus_raw": [
+        59769,
+        17142
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 123.45600128173828,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W1",
+      "tag": "ReturnTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#19.5",
+      "plc_value": 19.5,
+      "modbus_raw": [
+        0,
+        16796
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 19.5,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W1",
+      "tag": "FanRunning",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": null,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W2",
+      "tag": "Setpoint",
+      "path": "WRITE",
+      "datatype": "REAL32",
+      "intended": 18.25,
+      "written_raw": [
+        0,
+        16786
+      ],
+      "write_accepted": true,
+      "function": "FC16",
+      "modbus_readback": [
+        0,
+        16786
+      ],
+      "plc_raw": "REAL#18.25",
+      "plc_value": 18.25,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W2",
+      "tag": "AHU02_Setpoint",
+      "path": "WRITE",
+      "datatype": "REAL32",
+      "intended": 18.25,
+      "written_raw": [
+        0,
+        16786
+      ],
+      "write_accepted": true,
+      "function": "FC16",
+      "modbus_readback": [
+        0,
+        16786
+      ],
+      "plc_raw": "REAL#18.25",
+      "plc_value": 18.25,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W2",
+      "tag": "AHU02_Enable",
+      "path": "WRITE",
+      "datatype": "BOOL",
+      "intended": false,
+      "written_raw": false,
+      "write_accepted": true,
+      "function": "FC5",
+      "modbus_readback": false,
+      "overlay_register_raw": [
+        0
+      ],
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W2",
+      "tag": "SupplyTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#21",
+      "plc_value": 21.0,
+      "modbus_raw": [
+        0,
+        16808
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 21.0,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W2",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "modbus_raw": [
+        59769,
+        17142
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 123.45600128173828,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W2",
+      "tag": "ReturnTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#19.5",
+      "plc_value": 19.5,
+      "modbus_raw": [
+        0,
+        16796
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 19.5,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W2",
+      "tag": "FanRunning",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": null,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W3",
+      "tag": "Setpoint",
+      "path": "WRITE",
+      "datatype": "REAL32",
+      "intended": 123.45600128173828,
+      "written_raw": [
+        59769,
+        17142
+      ],
+      "write_accepted": true,
+      "function": "FC16",
+      "modbus_readback": [
+        59769,
+        17142
+      ],
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W3",
+      "tag": "AHU02_Setpoint",
+      "path": "WRITE",
+      "datatype": "REAL32",
+      "intended": 123.45600128173828,
+      "written_raw": [
+        59769,
+        17142
+      ],
+      "write_accepted": true,
+      "function": "FC16",
+      "modbus_readback": [
+        59769,
+        17142
+      ],
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W3",
+      "tag": "AHU02_Enable",
+      "path": "WRITE",
+      "datatype": "BOOL",
+      "intended": true,
+      "written_raw": true,
+      "write_accepted": true,
+      "function": "FC5",
+      "modbus_readback": true,
+      "overlay_register_raw": [
+        256
+      ],
+      "plc_raw": "TRUE",
+      "plc_value": true,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W3",
+      "tag": "SupplyTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#21",
+      "plc_value": 21.0,
+      "modbus_raw": [
+        0,
+        16808
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 21.0,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W3",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "modbus_raw": [
+        59769,
+        17142
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 123.45600128173828,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W3",
+      "tag": "ReturnTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#19.5",
+      "plc_value": 19.5,
+      "modbus_raw": [
+        0,
+        16796
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 19.5,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W3",
+      "tag": "FanRunning",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": null,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W4",
+      "tag": "Setpoint",
+      "path": "WRITE",
+      "datatype": "REAL32",
+      "intended": 22.0,
+      "written_raw": [
+        0,
+        16816
+      ],
+      "write_accepted": true,
+      "function": "FC16",
+      "modbus_readback": [
+        0,
+        16816
+      ],
+      "plc_raw": "REAL#22",
+      "plc_value": 22.0,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W4",
+      "tag": "AHU02_Setpoint",
+      "path": "WRITE",
+      "datatype": "REAL32",
+      "intended": 22.0,
+      "written_raw": [
+        0,
+        16816
+      ],
+      "write_accepted": true,
+      "function": "FC16",
+      "modbus_readback": [
+        0,
+        16816
+      ],
+      "plc_raw": "REAL#22",
+      "plc_value": 22.0,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "W4",
+      "tag": "AHU02_Enable",
+      "path": "WRITE",
+      "datatype": "BOOL",
+      "intended": false,
+      "written_raw": false,
+      "write_accepted": true,
+      "function": "FC5",
+      "modbus_readback": false,
+      "overlay_register_raw": [
+        0
+      ],
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "plc_poll_attempts": 1,
+      "plc_settled": true,
+      "checks": {
+        "write_accepted": true,
+        "modbus_readback_equals_written": true,
+        "plc_equals_intended": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W4",
+      "tag": "SupplyTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#21",
+      "plc_value": 21.0,
+      "modbus_raw": [
+        0,
+        16808
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 21.0,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W4",
+      "tag": "TestReal32Read",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#123.456",
+      "plc_value": 123.45600128173828,
+      "modbus_raw": [
+        59769,
+        17142
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 123.45600128173828,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W4",
+      "tag": "ReturnTemp",
+      "path": "READ",
+      "datatype": "REAL32",
+      "intended": null,
+      "plc_raw": "REAL#19.5",
+      "plc_value": 19.5,
+      "modbus_raw": [
+        0,
+        16796
+      ],
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": 19.5,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    },
+    {
+      "phase": "after_W4",
+      "tag": "FanRunning",
+      "path": "READ",
+      "datatype": "BOOL",
+      "intended": null,
+      "plc_raw": "FALSE",
+      "plc_value": false,
+      "modbus_raw": false,
+      "plc_poll_attempts": 2,
+      "plc_settled": true,
+      "plc_stable_across_modbus_read": true,
+      "decoded": false,
+      "checks": {
+        "modbus_read_ok": true,
+        "plc_stable_across_modbus_read": true,
+        "decoded_equals_plc": true
+      },
+      "pass": true
+    }
+  ],
+  "real32_samples": [
+    {
+      "phase": "R0",
+      "tag": "SupplyTemp",
+      "registers": [
+        0,
+        16808
+      ],
+      "plc_value": 21.0,
+      "plc_bits": "41A80000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R0",
+      "tag": "TestReal32Read",
+      "registers": [
+        0,
+        16812
+      ],
+      "plc_value": 21.5,
+      "plc_bits": "41AC0000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R0",
+      "tag": "ReturnTemp",
+      "registers": [
+        0,
+        16796
+      ],
+      "plc_value": 19.5,
+      "plc_bits": "419C0000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R1",
+      "tag": "SupplyTemp",
+      "registers": [
+        0,
+        16808
+      ],
+      "plc_value": 21.0,
+      "plc_bits": "41A80000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R1",
+      "tag": "TestReal32Read",
+      "registers": [
+        0,
+        16816
+      ],
+      "plc_value": 22.0,
+      "plc_bits": "41B00000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R1",
+      "tag": "ReturnTemp",
+      "registers": [
+        0,
+        16796
+      ],
+      "plc_value": 19.5,
+      "plc_bits": "419C0000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R2",
+      "tag": "SupplyTemp",
+      "registers": [
+        0,
+        16808
+      ],
+      "plc_value": 21.0,
+      "plc_bits": "41A80000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R2",
+      "tag": "TestReal32Read",
+      "registers": [
+        0,
+        16786
+      ],
+      "plc_value": 18.25,
+      "plc_bits": "41920000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R2",
+      "tag": "ReturnTemp",
+      "registers": [
+        0,
+        16796
+      ],
+      "plc_value": 19.5,
+      "plc_bits": "419C0000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R3",
+      "tag": "SupplyTemp",
+      "registers": [
+        0,
+        16808
+      ],
+      "plc_value": 21.0,
+      "plc_bits": "41A80000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R3",
+      "tag": "TestReal32Read",
+      "registers": [
+        59769,
+        17142
+      ],
+      "plc_value": 123.45600128173828,
+      "plc_bits": "42F6E979",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "R3",
+      "tag": "ReturnTemp",
+      "registers": [
+        0,
+        16796
+      ],
+      "plc_value": 19.5,
+      "plc_bits": "419C0000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W1",
+      "tag": "SupplyTemp",
+      "registers": [
+        0,
+        16808
+      ],
+      "plc_value": 21.0,
+      "plc_bits": "41A80000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W1",
+      "tag": "TestReal32Read",
+      "registers": [
+        59769,
+        17142
+      ],
+      "plc_value": 123.45600128173828,
+      "plc_bits": "42F6E979",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W1",
+      "tag": "ReturnTemp",
+      "registers": [
+        0,
+        16796
+      ],
+      "plc_value": 19.5,
+      "plc_bits": "419C0000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W2",
+      "tag": "SupplyTemp",
+      "registers": [
+        0,
+        16808
+      ],
+      "plc_value": 21.0,
+      "plc_bits": "41A80000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W2",
+      "tag": "TestReal32Read",
+      "registers": [
+        59769,
+        17142
+      ],
+      "plc_value": 123.45600128173828,
+      "plc_bits": "42F6E979",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W2",
+      "tag": "ReturnTemp",
+      "registers": [
+        0,
+        16796
+      ],
+      "plc_value": 19.5,
+      "plc_bits": "419C0000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W3",
+      "tag": "SupplyTemp",
+      "registers": [
+        0,
+        16808
+      ],
+      "plc_value": 21.0,
+      "plc_bits": "41A80000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W3",
+      "tag": "TestReal32Read",
+      "registers": [
+        59769,
+        17142
+      ],
+      "plc_value": 123.45600128173828,
+      "plc_bits": "42F6E979",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W3",
+      "tag": "ReturnTemp",
+      "registers": [
+        0,
+        16796
+      ],
+      "plc_value": 19.5,
+      "plc_bits": "419C0000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W4",
+      "tag": "SupplyTemp",
+      "registers": [
+        0,
+        16808
+      ],
+      "plc_value": 21.0,
+      "plc_bits": "41A80000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W4",
+      "tag": "TestReal32Read",
+      "registers": [
+        59769,
+        17142
+      ],
+      "plc_value": 123.45600128173828,
+      "plc_bits": "42F6E979",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    },
+    {
+      "phase": "after_W4",
+      "tag": "ReturnTemp",
+      "registers": [
+        0,
+        16796
+      ],
+      "plc_value": 19.5,
+      "plc_bits": "419C0000",
+      "matching_orderings": [
+        "CDAB"
+      ]
+    }
+  ],
+  "behavior": [],
+  "checks": {
+    "pymodbus_connect": true,
+    "bridge_logged_in": true,
+    "real32_ordering_determined": true,
+    "real32_ordering_matches_reference": true,
+    "all_cases_pass": true,
+    "all_signals_verified": true,
+    "bridge_quit": true
+  },
+  "reference_ordering": "CDAB",
+  "bridge_ready": {
+    "ready": true,
+    "logged_in": true,
+    "application_state_at_login": "stop",
+    "application_state": "run"
+  },
+  "real32_candidates_after_reads": [
+    "CDAB"
+  ],
+  "real32_ordering": {
+    "name": "CDAB",
+    "registers_per_value": 2,
+    "word_order": "low word first (lower address = least significant 16 bits)",
+    "byte_order": "big-endian within each register (Modbus standard)",
+    "register_order": "register[n]=low word, big-endian bytes in each register"
+  },
+  "bridge_quit": true,
+  "per_signal": {
+    "Command": {
+      "pass": true,
+      "cases": 1,
+      "method": "F06 S1 regression (HR command word -> IR status word)"
+    },
+    "Setpoint": {
+      "pass": true,
+      "cases": 4,
+      "paths": [
+        "WRITE"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "AHU02_Setpoint": {
+      "pass": true,
+      "cases": 4,
+      "paths": [
+        "WRITE"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "Status": {
+      "pass": true,
+      "cases": 1,
+      "method": "F06 S1 regression (HR command word -> IR status word)"
+    },
+    "SupplyTemp": {
+      "pass": true,
+      "cases": 8,
+      "paths": [
+        "READ"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "TestReal32Read": {
+      "pass": true,
+      "cases": 8,
+      "paths": [
+        "READ"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "ReturnTemp": {
+      "pass": true,
+      "cases": 8,
+      "paths": [
+        "READ"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "AHU02_Enable": {
+      "pass": true,
+      "cases": 4,
+      "paths": [
+        "WRITE"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    },
+    "FanRunning": {
+      "pass": true,
+      "cases": 8,
+      "paths": [
+        "READ"
+      ],
+      "method": "pymodbus + PLC online read-back"
+    }
+  },
+  "operation_status": "PASS",
+  "reason": "all typed cases passed; 9 signals verified",
+  "exit_code_intended": 0
+}

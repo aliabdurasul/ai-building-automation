@@ -1,0 +1,1002 @@
+{
+  "step": "behavior",
+  "project_id": "PUMP-DEMO",
+  "revision": 2,
+  "real32_ordering_reference": "CDAB",
+  "tests": [
+    {
+      "name": "template:PUMP-01:PUMP_BASIC_V1",
+      "steps": [
+        {
+          "name": "initial_stopped",
+          "modbus_write": {
+            "StartCommand": false,
+            "StopCommand": false
+          },
+          "plc_write": {
+            "PumpFault": false
+          },
+          "expect": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StartCommand": false,
+            "StopCommand": false
+          },
+          "observed_plc": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "observed_modbus": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "modbus_checked": [
+            "PumpFault",
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start",
+          "modbus_write": {
+            "StartCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StartCommand": true
+          },
+          "observed_plc": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "observed_modbus": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_released_keeps_running",
+          "modbus_write": {
+            "StartCommand": false
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StartCommand": false
+          },
+          "observed_plc": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "observed_modbus": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop",
+          "modbus_write": {
+            "StopCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StopCommand": true
+          },
+          "observed_plc": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "observed_modbus": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_while_stop_held_is_ignored",
+          "modbus_write": {
+            "StartCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StartCommand": true
+          },
+          "observed_plc": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "observed_modbus": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop_released_starts",
+          "modbus_write": {
+            "StopCommand": false
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StopCommand": false
+          },
+          "observed_plc": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "observed_modbus": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "fault_while_running_start_held",
+          "modbus_write": {},
+          "plc_write": {
+            "PumpFault": true
+          },
+          "expect": {
+            "PumpFault": true,
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PumpFault": true,
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "observed_modbus": {
+            "PumpFault": true,
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "modbus_checked": [
+            "PumpFault",
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_released_in_fault",
+          "modbus_write": {
+            "StartCommand": false
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "StartCommand": false
+          },
+          "observed_plc": {
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "observed_modbus": {
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "fault_cleared_stopped",
+          "modbus_write": {},
+          "plc_write": {
+            "PumpFault": false
+          },
+          "expect": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "observed_modbus": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "modbus_checked": [
+            "PumpFault",
+            "PumpRunning",
+            "PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "equipment": "PUMP-01",
+      "template": "PUMP_BASIC_V1",
+      "template_sha256": "a971cb3a6766a309899d1aa48e30a78262b0a89ba0c089d6cd9988931b5bda98"
+    },
+    {
+      "name": "scenario:PUMP-01 PUMP_BASIC_V1 S7 regression",
+      "steps": [
+        {
+          "name": "reset",
+          "modbus_write": {
+            "PUMP-DEMO/PUMP-01/StartCommand": false,
+            "PUMP-DEMO/PUMP-01/StopCommand": false
+          },
+          "plc_write": {
+            "PUMP-DEMO/PUMP-01/PumpFault": false
+          },
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpState": 0,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpFault": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "PUMP-DEMO/PUMP-01/StartCommand": false,
+            "PUMP-DEMO/PUMP-01/StopCommand": false
+          },
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/PumpFault": false,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/PumpFault": false,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/PumpFault",
+            "PUMP-DEMO/PUMP-01/PumpRunning",
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "PUMP_start_trace",
+          "modbus_write": {
+            "PUMP-DEMO/PUMP-01/StartCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpState": 2,
+            "PUMP-DEMO/PUMP-01/PumpRunning": true
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "PUMP-DEMO/PUMP-01/StartCommand": true
+          },
+          "trace": {
+            "until_reached": true,
+            "signals": {
+              "PUMP-DEMO/PUMP-01/PumpRunning": {
+                "observed_runs": [
+                  true
+                ],
+                "sequence": [
+                  true
+                ],
+                "expected_sequence": [
+                  true
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 19.4,
+                    "value": true
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              },
+              "PUMP-DEMO/PUMP-01/PumpState": {
+                "observed_runs": [
+                  2
+                ],
+                "sequence": [
+                  2
+                ],
+                "expected_sequence": [
+                  2
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 39.7,
+                    "value": 2
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              }
+            },
+            "samples": 2,
+            "pass": true
+          },
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/PumpRunning": true,
+            "PUMP-DEMO/PUMP-01/PumpState": 2
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/PumpRunning": true,
+            "PUMP-DEMO/PUMP-01/PumpState": 2
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/PumpRunning",
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_released",
+          "modbus_write": {
+            "PUMP-DEMO/PUMP-01/StartCommand": false
+          },
+          "plc_write": {},
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpState": 2
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "PUMP-DEMO/PUMP-01/StartCommand": false
+          },
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/PumpState": 2
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/PumpState": 2
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "PUMP_stop_trace",
+          "modbus_write": {
+            "PUMP-DEMO/PUMP-01/StopCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpState": 0,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "PUMP-DEMO/PUMP-01/StopCommand": true
+          },
+          "trace": {
+            "until_reached": true,
+            "signals": {
+              "PUMP-DEMO/PUMP-01/PumpRunning": {
+                "observed_runs": [
+                  false
+                ],
+                "sequence": [
+                  false
+                ],
+                "expected_sequence": [
+                  false
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 19.9,
+                    "value": false
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              },
+              "PUMP-DEMO/PUMP-01/PumpState": {
+                "observed_runs": [
+                  0
+                ],
+                "sequence": [
+                  0
+                ],
+                "expected_sequence": [
+                  0
+                ],
+                "sequence_ok": true,
+                "timeline": [
+                  {
+                    "t_ms": 39.9,
+                    "value": 0
+                  }
+                ],
+                "durations": [],
+                "pass": true
+              }
+            },
+            "samples": 2,
+            "pass": true
+          },
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/PumpRunning",
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop_released",
+          "modbus_write": {
+            "PUMP-DEMO/PUMP-01/StopCommand": false
+          },
+          "plc_write": {},
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "PUMP-DEMO/PUMP-01/StopCommand": false
+          },
+          "wait_ms": 500,
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "state1_starting_branch_forced",
+          "modbus_write": {},
+          "plc_write": {
+            "PUMP-DEMO/PUMP-01/PumpState": 1
+          },
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpState": 2,
+            "PUMP-DEMO/PUMP-01/PumpRunning": true
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/PumpRunning": true,
+            "PUMP-DEMO/PUMP-01/PumpState": 2
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/PumpRunning": true,
+            "PUMP-DEMO/PUMP-01/PumpState": 2
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/PumpRunning",
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "state3_stopping_branch_forced",
+          "modbus_write": {},
+          "plc_write": {
+            "PUMP-DEMO/PUMP-01/PumpState": 3
+          },
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpState": 0,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/PumpRunning",
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_unknown_state_falls_back_to_stopped",
+          "modbus_write": {},
+          "plc_write": {
+            "PUMP-DEMO/PUMP-01/PumpState": 77
+          },
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpState": 0,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "wait_ms": 300,
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/PumpRunning",
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "PUMP_fault_while_stopped",
+          "modbus_write": {},
+          "plc_write": {
+            "PUMP-DEMO/PUMP-01/PumpFault": true
+          },
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpState": 9,
+            "PUMP-DEMO/PUMP-01/PumpFault": true,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/PumpFault": true,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 9
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/PumpFault": true,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 9
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/PumpFault",
+            "PUMP-DEMO/PUMP-01/PumpRunning",
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_start_during_fault_blocked",
+          "modbus_write": {
+            "PUMP-DEMO/PUMP-01/StartCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpState": 9,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "PUMP-DEMO/PUMP-01/StartCommand": true
+          },
+          "wait_ms": 1000,
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 9
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 9
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/PumpRunning",
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_released_in_fault",
+          "modbus_write": {
+            "PUMP-DEMO/PUMP-01/StartCommand": false
+          },
+          "plc_write": {},
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpState": 9
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "PUMP-DEMO/PUMP-01/StartCommand": false
+          },
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/PumpState": 9
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/PumpState": 9
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "PUMP_fault_recovery_stopped",
+          "modbus_write": {},
+          "plc_write": {
+            "PUMP-DEMO/PUMP-01/PumpFault": false
+          },
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpState": 0,
+            "PUMP-DEMO/PUMP-01/PumpFault": false,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "wait_ms": 500,
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/PumpFault": false,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/PumpFault": false,
+            "PUMP-DEMO/PUMP-01/PumpRunning": false,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/PumpFault",
+            "PUMP-DEMO/PUMP-01/PumpRunning",
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "PUMP_REAL32_50_0",
+          "modbus_write": {},
+          "plc_write": {
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 50.0,
+            "PUMP-DEMO/PUMP-01/Pressure": 50.0,
+            "PUMP-DEMO/PUMP-01/FlowRate": 50.0
+          },
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 50.0,
+            "PUMP-DEMO/PUMP-01/Pressure": 50.0,
+            "PUMP-DEMO/PUMP-01/FlowRate": 50.0
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/FlowRate": 50.0,
+            "PUMP-DEMO/PUMP-01/Pressure": 50.0,
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 50.0
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/FlowRate": 50.0,
+            "PUMP-DEMO/PUMP-01/Pressure": 50.0,
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 50.0
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/FlowRate",
+            "PUMP-DEMO/PUMP-01/Pressure",
+            "PUMP-DEMO/PUMP-01/PumpSpeed"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "PUMP_REAL32_3_75",
+          "modbus_write": {},
+          "plc_write": {
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 3.75,
+            "PUMP-DEMO/PUMP-01/Pressure": 3.75,
+            "PUMP-DEMO/PUMP-01/FlowRate": 3.75
+          },
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 3.75,
+            "PUMP-DEMO/PUMP-01/Pressure": 3.75,
+            "PUMP-DEMO/PUMP-01/FlowRate": 3.75
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/FlowRate": 3.75,
+            "PUMP-DEMO/PUMP-01/Pressure": 3.75,
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 3.75
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/FlowRate": 3.75,
+            "PUMP-DEMO/PUMP-01/Pressure": 3.75,
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 3.75
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/FlowRate",
+            "PUMP-DEMO/PUMP-01/Pressure",
+            "PUMP-DEMO/PUMP-01/PumpSpeed"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "PUMP_REAL32_21_5",
+          "modbus_write": {},
+          "plc_write": {
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 21.5,
+            "PUMP-DEMO/PUMP-01/Pressure": 21.5,
+            "PUMP-DEMO/PUMP-01/FlowRate": 21.5
+          },
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 21.5,
+            "PUMP-DEMO/PUMP-01/Pressure": 21.5,
+            "PUMP-DEMO/PUMP-01/FlowRate": 21.5
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/FlowRate": 21.5,
+            "PUMP-DEMO/PUMP-01/Pressure": 21.5,
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 21.5
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/FlowRate": 21.5,
+            "PUMP-DEMO/PUMP-01/Pressure": 21.5,
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 21.5
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/FlowRate",
+            "PUMP-DEMO/PUMP-01/Pressure",
+            "PUMP-DEMO/PUMP-01/PumpSpeed"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 2,
+          "pass": true
+        },
+        {
+          "name": "PUMP_REAL32_123_456",
+          "modbus_write": {},
+          "plc_write": {
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 123.456,
+            "PUMP-DEMO/PUMP-01/Pressure": 123.456,
+            "PUMP-DEMO/PUMP-01/FlowRate": 123.456
+          },
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 123.456,
+            "PUMP-DEMO/PUMP-01/Pressure": 123.456,
+            "PUMP-DEMO/PUMP-01/FlowRate": 123.456
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/FlowRate": 123.45600128173828,
+            "PUMP-DEMO/PUMP-01/Pressure": 123.45600128173828,
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 123.45600128173828
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/FlowRate": 123.45600128173828,
+            "PUMP-DEMO/PUMP-01/Pressure": 123.45600128173828,
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 123.45600128173828
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/FlowRate",
+            "PUMP-DEMO/PUMP-01/Pressure",
+            "PUMP-DEMO/PUMP-01/PumpSpeed"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 2,
+          "pass": true
+        },
+        {
+          "name": "PUMP_REAL32_distinct_per_signal",
+          "modbus_write": {},
+          "plc_write": {
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 50.0,
+            "PUMP-DEMO/PUMP-01/Pressure": 3.75,
+            "PUMP-DEMO/PUMP-01/FlowRate": 21.5
+          },
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 50.0,
+            "PUMP-DEMO/PUMP-01/Pressure": 3.75,
+            "PUMP-DEMO/PUMP-01/FlowRate": 21.5
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/FlowRate": 21.5,
+            "PUMP-DEMO/PUMP-01/Pressure": 3.75,
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 50.0
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/FlowRate": 21.5,
+            "PUMP-DEMO/PUMP-01/Pressure": 3.75,
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 50.0
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/FlowRate",
+            "PUMP-DEMO/PUMP-01/Pressure",
+            "PUMP-DEMO/PUMP-01/PumpSpeed"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "cleanup",
+          "modbus_write": {},
+          "plc_write": {
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 0.0,
+            "PUMP-DEMO/PUMP-01/Pressure": 0.0,
+            "PUMP-DEMO/PUMP-01/FlowRate": 0.0
+          },
+          "expect": {
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 0.0,
+            "PUMP-DEMO/PUMP-01/Pressure": 0.0,
+            "PUMP-DEMO/PUMP-01/FlowRate": 0.0,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "PUMP-DEMO/PUMP-01/FlowRate": 0.0,
+            "PUMP-DEMO/PUMP-01/Pressure": 0.0,
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 0.0,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "observed_modbus": {
+            "PUMP-DEMO/PUMP-01/FlowRate": 0.0,
+            "PUMP-DEMO/PUMP-01/Pressure": 0.0,
+            "PUMP-DEMO/PUMP-01/PumpSpeed": 0.0,
+            "PUMP-DEMO/PUMP-01/PumpState": 0
+          },
+          "modbus_checked": [
+            "PUMP-DEMO/PUMP-01/FlowRate",
+            "PUMP-DEMO/PUMP-01/Pressure",
+            "PUMP-DEMO/PUMP-01/PumpSpeed",
+            "PUMP-DEMO/PUMP-01/PumpState"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "description": "S7 PUMP behaviour complementing the PUMP_BASIC_V1 template behaviour test: Modbus trace of the start/stop transitions (STARTING / STOPPING last one PLC cycle, so they are allowed but not required on Modbus), the STARTING and STOPPING branches proven by forcing PumpState online, unknown state fallback, fault while stopped, and REAL32 read-back of PumpSpeed / Pressure / FlowRate (PLC online write, Modbus FC4 decoded with the S3-measured word order)."
+    }
+  ],
+  "checks": {
+    "pymodbus_connect": true,
+    "bridge_logged_in": true,
+    "bridge_quit": true,
+    "template:PUMP-01:PUMP_BASIC_V1": true,
+    "scenario:PUMP-01 PUMP_BASIC_V1 S7 regression": true
+  },
+  "operation_status": "PASS",
+  "reason": "27 behaviour steps passed (template:PUMP-01:PUMP_BASIC_V1, scenario:PUMP-01 PUMP_BASIC_V1 S7 regression)"
+}

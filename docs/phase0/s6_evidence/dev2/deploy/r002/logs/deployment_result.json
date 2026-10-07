@@ -1,0 +1,28 @@
+{
+  "simulation_mode": false, 
+  "application_state": "run", 
+  "gateways": [
+    "Gateway-1"
+  ], 
+  "reason": "downloaded, running, generated variables readable online", 
+  "before_login": {
+    "is_logged_in": false, 
+    "application_state": "none"
+  }, 
+  "target_ip": "127.0.0.1", 
+  "step": "deploy", 
+  "operation_status": "PASS", 
+  "runtime_boot_application": "created", 
+  "credentials_source": "CODESYS_USER/CODESYS_PASSWORD", 
+  "gateway_used": "Gateway-1", 
+  "credentials_present": true, 
+  "logged_in": true, 
+  "online_values": {
+    "PLC_PRG.StartCommand": "FALSE", 
+    "PLC_PRG.Mb_Command": "WORD#0", 
+    "PLC_PRG.Mb_Status": "WORD#0", 
+    "PLC_PRG.FanRunning": "FALSE"
+  }, 
+  "exit_code_intended": 0, 
+  "project": "C:\\AI_BMS_PHASE0\\s6\\dev2\\deploy\\r002\\generated\\AI_BMS_S6_r002.project"
+}

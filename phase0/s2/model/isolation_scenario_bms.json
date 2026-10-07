@@ -1,0 +1,32 @@
+{
+  "schema": "ai_bms.behavior_scenario.v1",
+  "name": "BMS-DEMO equipment isolation",
+  "description": "AHU-01 and PUMP-01 run in one PLC application. Commands to one equipment instance must not change the other's state. Keys are identities (project/equipment/tag); values are checked through Modbus and PLC online read-back.",
+  "steps": [
+    {"name": "reset_both_stopped",
+     "modbus_write": {"BMS-DEMO/AHU-01/Command": 2, "BMS-DEMO/PUMP-01/StartCommand": false, "BMS-DEMO/PUMP-01/StopCommand": false},
+     "plc_write": {"BMS-DEMO/PUMP-01/PumpFault": false},
+     "expect": {"BMS-DEMO/AHU-01/Status": 0, "BMS-DEMO/AHU-01/FanRunning": false,
+                "BMS-DEMO/PUMP-01/PumpState": 0, "BMS-DEMO/PUMP-01/PumpRunning": false}},
+    {"name": "ahu_start_does_not_start_pump",
+     "modbus_write": {"BMS-DEMO/AHU-01/Command": 1},
+     "expect": {"BMS-DEMO/AHU-01/Status": 3, "BMS-DEMO/AHU-01/FanRunning": true,
+                "BMS-DEMO/PUMP-01/PumpState": 0, "BMS-DEMO/PUMP-01/PumpRunning": false}},
+    {"name": "pump_start_does_not_change_ahu",
+     "modbus_write": {"BMS-DEMO/PUMP-01/StartCommand": true},
+     "expect": {"BMS-DEMO/PUMP-01/PumpState": 2, "BMS-DEMO/PUMP-01/PumpRunning": true,
+                "BMS-DEMO/AHU-01/Status": 3, "BMS-DEMO/AHU-01/FanRunning": true}},
+    {"name": "ahu_stop_does_not_stop_pump",
+     "modbus_write": {"BMS-DEMO/AHU-01/Command": 2},
+     "expect": {"BMS-DEMO/AHU-01/Status": 0, "BMS-DEMO/AHU-01/FanRunning": false,
+                "BMS-DEMO/PUMP-01/PumpState": 2, "BMS-DEMO/PUMP-01/PumpRunning": true}},
+    {"name": "pump_fault_does_not_change_ahu",
+     "plc_write": {"BMS-DEMO/PUMP-01/PumpFault": true},
+     "expect": {"BMS-DEMO/PUMP-01/PumpState": 9, "BMS-DEMO/PUMP-01/PumpRunning": false,
+                "BMS-DEMO/AHU-01/Status": 0, "BMS-DEMO/AHU-01/FanRunning": false}},
+    {"name": "cleanup_both_stopped",
+     "modbus_write": {"BMS-DEMO/AHU-01/Command": 0, "BMS-DEMO/PUMP-01/StartCommand": false},
+     "plc_write": {"BMS-DEMO/PUMP-01/PumpFault": false},
+     "expect": {"BMS-DEMO/AHU-01/Status": 0, "BMS-DEMO/PUMP-01/PumpState": 0, "BMS-DEMO/PUMP-01/PumpRunning": false}}
+  ]
+}

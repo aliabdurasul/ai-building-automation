@@ -1,0 +1,81 @@
+{
+  "schema": "ai_bms.allocation_lock.v1",
+  "project_id": "PUMP-DEMO",
+  "revision": 1,
+  "parent_revision": null,
+  "model_sha256": "116a5d1666d8e40e5d3818eaa7159b432fec2e6a50cd3a568308bc14d8400e1e",
+  "target_sha256": "97b63d2b588d7f5c2db4c06603be1e2ae2270f140df1020dc1001e82289ceeed",
+  "active": [
+    {
+      "identity": "PUMP-DEMO/PUMP-01/Pressure",
+      "symbol": "Pressure",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpSpeed",
+      "symbol": "PumpSpeed",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 2,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpState",
+      "symbol": "PumpState",
+      "datatype": "INT16",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 4,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StartCommand",
+      "symbol": "StartCommand",
+      "datatype": "BOOL",
+      "direction": "WRITE",
+      "area": "COIL",
+      "address": 144,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StopCommand",
+      "symbol": "StopCommand",
+      "datatype": "BOOL",
+      "direction": "WRITE",
+      "area": "COIL",
+      "address": 145,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpFault",
+      "symbol": "PumpFault",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpRunning",
+      "symbol": "PumpRunning",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 145,
+      "length": 1,
+      "action": "NEW"
+    }
+  ],
+  "retired": []
+}

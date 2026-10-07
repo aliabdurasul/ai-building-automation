@@ -1,0 +1,28 @@
+test_add_signal_preserves_existing (__main__.RevisionEngine.test_add_signal_preserves_existing) ... ok
+test_approved_type_change_reallocates_and_retires (__main__.RevisionEngine.test_approved_type_change_reallocates_and_retires) ... ok
+test_deterministic_and_order_independent (__main__.RevisionEngine.test_deterministic_and_order_independent) ... ok
+test_direction_change_needing_new_area_blocked (__main__.RevisionEngine.test_direction_change_needing_new_area_blocked) ... ok
+test_direction_change_same_area_preserved (__main__.RevisionEngine.test_direction_change_same_area_preserved) ... ok
+test_equipment_addition (__main__.RevisionEngine.test_equipment_addition) ... ok
+test_invalid_capacity_exceeded (__main__.RevisionEngine.test_invalid_capacity_exceeded) ... ok
+test_invalid_direction (__main__.RevisionEngine.test_invalid_direction) ... ok
+test_invalid_duplicate_address (__main__.RevisionEngine.test_invalid_duplicate_address) ... ok
+test_invalid_duplicate_symbol (__main__.RevisionEngine.test_invalid_duplicate_symbol) ... ok
+test_invalid_duplicate_tag (__main__.RevisionEngine.test_invalid_duplicate_tag) ... ok
+test_invalid_missing_area (__main__.RevisionEngine.test_invalid_missing_area) ... ok
+test_invalid_missing_datatype (__main__.RevisionEngine.test_invalid_missing_datatype) ... ok
+test_invalid_overlapping_real32 (__main__.RevisionEngine.test_invalid_overlapping_real32) ... ok
+test_invalid_real32_length_1 (__main__.RevisionEngine.test_invalid_real32_length_1) ... ok
+test_invalid_unknown_equipment (__main__.RevisionEngine.test_invalid_unknown_equipment) ... ok
+test_metadata_required (__main__.RevisionEngine.test_metadata_required) ... ok
+test_naive_allocation_would_move_signals (__main__.RevisionEngine.test_naive_allocation_would_move_signals) ... ok
+test_remove_signal_retires_address (__main__.RevisionEngine.test_remove_signal_retires_address) ... ok
+test_retired_address_never_given_to_another_signal (__main__.RevisionEngine.test_retired_address_never_given_to_another_signal) ... ok
+test_same_identity_restored (__main__.RevisionEngine.test_same_identity_restored) ... ok
+test_type_change_blocked_without_approval (__main__.RevisionEngine.test_type_change_blocked_without_approval) ... ok
+test_v1_allocation (__main__.RevisionEngine.test_v1_allocation) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.214s
+
+OK

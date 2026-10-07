@@ -1,0 +1,14 @@
+{
+  "hold_ready": true,
+  "result": "BLOCKED",
+  "before_IR0": 3,
+  "bridge_start": {
+    "cmd": "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"c:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s8_1\\harness\\plc_online_bridge_s81.py\"",
+    "pid": 26124
+  },
+  "bridge_ready": {
+    "reason": "login failed: Login failed:\r\nUnable to connect to the device for item 'Device.Application' due to the following reason:\r\nInvalid user authentication on the targetDo you want to continue with the items?",
+    "ready": false
+  },
+  "reason": "PLC online auth failed: login failed: Login failed:\r\nUnable to connect to the device for item 'Device.Application' due to the following reason:\r\nInvalid user authentication on the targetDo you want to continue with the items?"
+}

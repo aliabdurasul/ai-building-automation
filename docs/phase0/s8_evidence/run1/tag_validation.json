@@ -1,0 +1,49 @@
+{
+  "test": "11_14_tag_validation",
+  "tags": [
+    {
+      "Tag": "FanCommand",
+      "Area": "HOLDING_REGISTER",
+      "Address": 0,
+      "DataType": "INT16",
+      "RW": "WRITE",
+      "Expected": 1,
+      "Observed_modbus": 1,
+      "Observed_masterscada": "written via MS debug Output pin",
+      "Result": "PASS"
+    },
+    {
+      "Tag": "FanStatus",
+      "Area": "INPUT_REGISTER",
+      "Address": 0,
+      "DataType": "INT16",
+      "RW": "READ",
+      "Expected": 3,
+      "Observed_modbus": 3,
+      "Observed_masterscada": "(Value:=3, SourceTime:=2026-10-06-17:31:28.196, StatusCode:=Good)",
+      "Result": "PASS"
+    },
+    {
+      "Tag": "FanRunning",
+      "Area": "derived IR0 bit1",
+      "Address": 0,
+      "DataType": "BOOL",
+      "RW": "READ",
+      "Expected": true,
+      "Observed_modbus": "IR0==3 implies bit1",
+      "Observed_masterscada": "via FanStatus word",
+      "Result": "PASS"
+    },
+    {
+      "Tag": "FanFault",
+      "Area": "derived IR0 bit2",
+      "Address": 0,
+      "DataType": "BOOL",
+      "RW": "READ",
+      "Expected": "cleared while RUNNING",
+      "Observed_modbus": "IR0==3 (bit2 clear)",
+      "Observed_masterscada": "via FanStatus",
+      "Result": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"started_by_bridge": true, "application_state": "run", "reason": "served 21 requests", "application_state_at_login": "stop", "step": "plc_online_bridge", "operation_status": "PASS", "requests": 21, "quit_received": true, "exit_code_intended": 0, "project": "C:\\AI_BMS_PHASE0\\s2\\run1\\deploy\\combined_r001\\generated\\AI_BMS_S2_BMS_DEMO_r001.project"}

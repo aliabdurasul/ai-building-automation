@@ -1,0 +1,18 @@
+=== AHU demo generate start ===
+ui_present=False
+Loaded DECL bytes=350 IMPL bytes=454
+Creating project: C:\AI_BMS_PHASE0\s1\run2\codesys\AI_BMS_AHU_DEMO.project
+Found device: name='CODESYS Control Win V3 x64' id='0000 0004' type=4096 version='3.5.22.30'
+Adding device from CODESYS Control Win V3 x64
+Application ready: Application
+Created TaskConfiguration
+Created MainTask
+Created PLC_PRG
+MainTask calls PLC_PRG
+Saving project
+Saved size=227024
+Building Application
+build_error_count=0
+STATUS=OK
+device=CODESYS Control Win V3 x64 project=C:\AI_BMS_PHASE0\s1\run2\codesys\AI_BMS_AHU_DEMO.project
+=== AHU demo generate end ===

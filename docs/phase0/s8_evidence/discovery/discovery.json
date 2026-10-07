@@ -1,0 +1,52 @@
+{
+  "step": "s8_discovery",
+  "timestamp": "2026-10-06T17:25:00+03:00",
+  "operation_status": "BLOCKED",
+  "reason": "CODESYS Control Win V3 - x64 Stopped; tcp/502 not listening — MasterSCADA E2E cannot start",
+  "masterscada": {
+    "product": "MasterSCADA 4D",
+    "version": "1.2.18.32894",
+    "install_root": "C:\\Program Files\\MPSSoft\\MasterSCADA 4D 1.2",
+    "windows_service_registered": false,
+    "automation_host": "C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc\\host\\AiBmsHmiPoc.exe",
+    "sandbox_root": "C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc",
+    "s1_design_time": "PASS",
+    "s1_runtime_e2e": "FAIL (no PLC on 502 at S1 time)"
+  },
+  "codesys": {
+    "ide": "3.5.22.30",
+    "runtime_service": "CODESYS Control Win V3 - x64",
+    "service_status_at_discovery": "Stopped",
+    "tcp_502": false,
+    "tcp_11740": false,
+    "s7_last_project": "AI_BMS_S7_AHU_S1_r001.project",
+    "contract": {
+      "HR0": "Command WORD bit0=START bit1=STOP",
+      "IR0": "Status WORD bit0=FanCommand bit1=FanRunning bit2=FanFault"
+    }
+  },
+  "existing_ms_channels": [
+    {"name": "FanCommand", "area": "HOLDING_REGISTER", "address": 0, "access": "Output", "datatype": "INT16"},
+    {"name": "FanStatus", "area": "INPUT_REGISTER", "address": 0, "access": "Input", "datatype": "INT16"}
+  ],
+  "real32_ordering_reference": "CDAB (S3 measured; do not rediscover)",
+  "constraints": {
+    "no_codesys_mapping_change": true,
+    "no_product_ui": true,
+    "no_llm_mcp": true,
+    "no_s7_overwrite": true,
+    "evidence_under": ["phase0/s8", "docs/phase0/s8_evidence", "C:\\\\AI_BMS_PHASE0\\\\s8"]
+  },
+  "matrix_planned": [
+    "01_tcp_connectivity", "02_modbus_connection", "03_masterscada_read", "04_masterscada_write",
+    "05_start_e2e", "06_stop_e2e", "07_running_feedback", "08_stopped_feedback", "09_fault_feedback",
+    "10_real32_read", "11_fanrunning_tag", "12_fanfault_tag", "13_status_tag", "14_command_tag",
+    "15_triple_comparison", "16_runtime_stability"
+  ],
+  "checks": {
+    "masterscada_installed": true,
+    "aibms_hmi_poc_present": true,
+    "softplc_serving_modbus": false,
+    "s7_evidence_intact": true
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "ai_bms.revision_validation.v1",
+  "project_id": "AHU-DEMO",
+  "revision": 3,
+  "parent_revision": 2,
+  "status": "REJECTED",
+  "stages": {
+    "canonical": "PASS",
+    "model_rules": "FAILED"
+  },
+  "errors": [
+    {
+      "code": "MODEL_RULE",
+      "message": "ReturnTemp: READ (PLC->client) signal must use INPUT_REGISTER/DISCRETE_INPUT, not HOLDING_REGISTER"
+    }
+  ],
+  "model_sha256": "8e26d378fb19028aba831c3773f2687a814948e445dae8db1189edf0b19119ae",
+  "target_sha256": "aac7532c3971e50866be0b6f67c82d639525bf4803e8f18373691cfc2af5aa77"
+}

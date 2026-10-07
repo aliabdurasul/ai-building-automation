@@ -1,0 +1,273 @@
+{
+  "step": "behavior",
+  "project_id": "PUMP-DEMO",
+  "revision": 2,
+  "tests": [
+    {
+      "name": "template:PUMP-01:PUMP_BASIC_V1",
+      "steps": [
+        {
+          "name": "initial_stopped",
+          "modbus_write": {
+            "StartCommand": false,
+            "StopCommand": false
+          },
+          "plc_write": {
+            "PumpFault": false
+          },
+          "expect": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "errors": [],
+          "observed_plc": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "observed_modbus": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "modbus_checked": [
+            "PumpFault",
+            "PumpRunning",
+            "PumpState"
+          ],
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start",
+          "modbus_write": {
+            "StartCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "errors": [],
+          "observed_plc": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "observed_modbus": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_released_keeps_running",
+          "modbus_write": {
+            "StartCommand": false
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "errors": [],
+          "observed_plc": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "observed_modbus": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop",
+          "modbus_write": {
+            "StopCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "errors": [],
+          "observed_plc": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "observed_modbus": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_while_stop_held_is_ignored",
+          "modbus_write": {
+            "StartCommand": true
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "errors": [],
+          "observed_plc": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "observed_modbus": {
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop_released_starts",
+          "modbus_write": {
+            "StopCommand": false
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "errors": [],
+          "observed_plc": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "observed_modbus": {
+            "PumpRunning": true,
+            "PumpState": 2
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "fault_while_running_start_held",
+          "modbus_write": {},
+          "plc_write": {
+            "PumpFault": true
+          },
+          "expect": {
+            "PumpFault": true,
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "errors": [],
+          "observed_plc": {
+            "PumpFault": true,
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "observed_modbus": {
+            "PumpFault": true,
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "modbus_checked": [
+            "PumpFault",
+            "PumpRunning",
+            "PumpState"
+          ],
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_released_in_fault",
+          "modbus_write": {
+            "StartCommand": false
+          },
+          "plc_write": {},
+          "expect": {
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "errors": [],
+          "observed_plc": {
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "observed_modbus": {
+            "PumpRunning": false,
+            "PumpState": 9
+          },
+          "modbus_checked": [
+            "PumpRunning",
+            "PumpState"
+          ],
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "fault_cleared_stopped",
+          "modbus_write": {},
+          "plc_write": {
+            "PumpFault": false
+          },
+          "expect": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "errors": [],
+          "observed_plc": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "observed_modbus": {
+            "PumpFault": false,
+            "PumpRunning": false,
+            "PumpState": 0
+          },
+          "modbus_checked": [
+            "PumpFault",
+            "PumpRunning",
+            "PumpState"
+          ],
+          "poll_attempts": 1,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "equipment": "PUMP-01",
+      "template": "PUMP_BASIC_V1",
+      "template_sha256": "a971cb3a6766a309899d1aa48e30a78262b0a89ba0c089d6cd9988931b5bda98"
+    }
+  ],
+  "checks": {
+    "pymodbus_connect": true,
+    "bridge_logged_in": true,
+    "bridge_quit": true,
+    "template:PUMP-01:PUMP_BASIC_V1": true
+  },
+  "operation_status": "PASS",
+  "reason": "9 behaviour steps passed (template:PUMP-01:PUMP_BASIC_V1)"
+}

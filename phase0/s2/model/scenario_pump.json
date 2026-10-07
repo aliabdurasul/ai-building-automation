@@ -1,0 +1,22 @@
+{
+  "schema": "ai_bms.s6_scenario.v1",
+  "project_id": "PUMP-DEMO",
+  "description": "S2 PUMP revision sequence. Expected revision diff per accepted revision: identity -> [change type, mapping action]. Identities not listed get 'default'. Revision 4 (PumpSpeed REAL32 -> INT16, no approval) must be rejected and is checked separately.",
+  "diffs": {
+    "1": {
+      "from": null,
+      "expect": { "PUMP-DEMO/PUMP-01": ["EQUIPMENT_ADDED", null] },
+      "default": ["ADDED", "NEW"]
+    },
+    "2": {
+      "from": 1,
+      "expect": { "PUMP-DEMO/PUMP-01/FlowRate": ["ADDED", "NEW"] },
+      "default": ["UNCHANGED", "PRESERVED"]
+    },
+    "3": {
+      "from": 2,
+      "expect": { "PUMP-DEMO/PUMP-01/Pressure": ["REMOVED", "RETIRED"] },
+      "default": ["UNCHANGED", "PRESERVED"]
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "step": "s2_check_isolation",
+  "checks": {
+    "multiple_equipment_types": true,
+    "identities_unique": true,
+    "identity_format_project_equipment_tag": true,
+    "plc_symbols_unique": true,
+    "variables_owned_by_one_equipment": true,
+    "template_bindings_stay_inside_equipment": true,
+    "no_variable_driven_by_two_templates": true,
+    "same_tag_in_two_equipment_distinct_identities": true,
+    "pump_logic_bound_to_ahu_variable": true,
+    "duplicate_plc_symbol_across_equipment": true,
+    "template_for_other_equipment_type": true,
+    "unknown_logic_template": true
+  },
+  "equipment": {
+    "AHU-01": [
+      "BMS-DEMO/AHU-01/Command",
+      "BMS-DEMO/AHU-01/FanRunning",
+      "BMS-DEMO/AHU-01/Setpoint",
+      "BMS-DEMO/AHU-01/Status",
+      "BMS-DEMO/AHU-01/SupplyTemp"
+    ],
+    "PUMP-01": [
+      "BMS-DEMO/PUMP-01/Pressure",
+      "BMS-DEMO/PUMP-01/PumpFault",
+      "BMS-DEMO/PUMP-01/PumpRunning",
+      "BMS-DEMO/PUMP-01/PumpSpeed",
+      "BMS-DEMO/PUMP-01/PumpState",
+      "BMS-DEMO/PUMP-01/StartCommand",
+      "BMS-DEMO/PUMP-01/StopCommand"
+    ]
+  },
+  "cases": [
+    {
+      "name": "same_tag_in_two_equipment_distinct_identities",
+      "status": "ACCEPTED",
+      "expected": "ACCEPTED",
+      "expected_code": null,
+      "errors": [],
+      "passed": true,
+      "identities": [
+        "BMS-DEMO/AHU-01/Setpoint",
+        "BMS-DEMO/PUMP-01/Setpoint"
+      ]
+    },
+    {
+      "name": "pump_logic_bound_to_ahu_variable",
+      "status": "REJECTED",
+      "expected": "REJECTED",
+      "expected_code": "LOGIC_TEMPLATE",
+      "errors": [
+        {
+          "code": "LOGIC_TEMPLATE",
+          "message": "PUMP-01: slot StartCommand bound to StartCommand, which belongs to equipment 'AHU-01' (equipment isolation)"
+        },
+        {
+          "code": "LOGIC_TEMPLATE",
+          "message": "variable StartCommand is bound by the logic of both AHU-01 and PUMP-01"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "duplicate_plc_symbol_across_equipment",
+      "status": "REJECTED",
+      "expected": "REJECTED",
+      "expected_code": "DUPLICATE_SYMBOL",
+      "errors": [
+        {
+          "code": "DUPLICATE_SYMBOL",
+          "message": "symbol FanRunning used by BMS-DEMO/AHU-01/FanRunning and BMS-DEMO/PUMP-01/StartCommand; give one an explicit 'symbol'"
+        },
+        {
+          "code": "MODEL_RULE",
+          "message": "FanRunning: duplicate tag"
+        },
+        {
+          "code": "MODEL_RULE",
+          "message": "FanRunning: plc_var FanRunning used by two signals"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "template_for_other_equipment_type",
+      "status": "REJECTED",
+      "expected": "REJECTED",
+      "expected_code": "LOGIC_TEMPLATE",
+      "errors": [
+        {
+          "code": "LOGIC_TEMPLATE",
+          "message": "PUMP-01: template PUMP_BASIC_V1 is for equipment type PUMP, equipment is 'AHU'"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "unknown_logic_template",
+      "status": "REJECTED",
+      "expected": "REJECTED",
+      "expected_code": "LOGIC_TEMPLATE",
+      "errors": [
+        {
+          "code": "LOGIC_TEMPLATE",
+          "message": "PUMP-01: unknown logic template 'PUMP_DOES_NOT_EXIST'"
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "ahu": "AHU-01",
+  "pump": "PUMP-01",
+  "operation_status": "PASS",
+  "reason": "12 checks passed"
+}

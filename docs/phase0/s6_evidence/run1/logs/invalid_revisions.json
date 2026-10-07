@@ -1,0 +1,258 @@
+{
+  "step": "revision_check_invalid",
+  "checks": {
+    "duplicate_tag_rejected": true,
+    "duplicate_address_rejected": true,
+    "real32_length_1_rejected": true,
+    "missing_datatype_rejected": true,
+    "missing_area_rejected": true,
+    "invalid_direction_rejected": true,
+    "direction_area_mismatch_rejected": true,
+    "overlapping_real32_rejected": true,
+    "capacity_exceeded_rejected": true,
+    "revision_already_exists_rejected": true,
+    "unknown_parent_rejected": true,
+    "previous_valid_revision_reproducible": true,
+    "store_revisions_unchanged": true
+  },
+  "cases": [
+    {
+      "label": "invalid_duplicate_tag",
+      "expected_code": "DUPLICATE_TAG",
+      "expected_text": "duplicate tag",
+      "status": "REJECTED",
+      "process_exit_code": 21,
+      "errors": [
+        {
+          "code": "DUPLICATE_TAG",
+          "message": "duplicate tag ReturnTemp in equipment AHU-01 (identity AHU-DEMO/AHU-01/ReturnTemp)"
+        },
+        {
+          "code": "MODEL_RULE",
+          "message": "ReturnTemp: duplicate tag"
+        },
+        {
+          "code": "MODEL_RULE",
+          "message": "ReturnTemp: plc_var ReturnTemp used by two signals"
+        }
+      ],
+      "rejected": true,
+      "expected_error_found": true,
+      "accepted_revisions_unchanged": true,
+      "diff_summary": null,
+      "pass": true,
+      "case": "duplicate_tag"
+    },
+    {
+      "label": "invalid_duplicate_address",
+      "expected_code": "ALLOCATION",
+      "expected_text": "overlaps",
+      "status": "REJECTED",
+      "process_exit_code": 21,
+      "errors": [
+        {
+          "code": "ALLOCATION",
+          "message": "SupplyTemp: INPUT_REGISTER 3..4 overlaps ['ExhaustRaw']"
+        }
+      ],
+      "rejected": true,
+      "expected_error_found": true,
+      "accepted_revisions_unchanged": true,
+      "diff_summary": {
+        "ADDED": 1,
+        "UNCHANGED": 8
+      },
+      "pass": true,
+      "case": "duplicate_address"
+    },
+    {
+      "label": "invalid_real32_length_1",
+      "expected_code": "MODEL_RULE",
+      "expected_text": "requires length=2",
+      "status": "REJECTED",
+      "process_exit_code": 21,
+      "errors": [
+        {
+          "code": "MODEL_RULE",
+          "message": "ReturnTemp: REAL32 requires length=2, model has length=1"
+        }
+      ],
+      "rejected": true,
+      "expected_error_found": true,
+      "accepted_revisions_unchanged": true,
+      "diff_summary": null,
+      "pass": true,
+      "case": "real32_length_1"
+    },
+    {
+      "label": "invalid_missing_datatype",
+      "expected_code": "MODEL_RULE",
+      "expected_text": "missing datatype",
+      "status": "REJECTED",
+      "process_exit_code": 21,
+      "errors": [
+        {
+          "code": "MODEL_RULE",
+          "message": "ReturnTemp: missing datatype"
+        }
+      ],
+      "rejected": true,
+      "expected_error_found": true,
+      "accepted_revisions_unchanged": true,
+      "diff_summary": null,
+      "pass": true,
+      "case": "missing_datatype"
+    },
+    {
+      "label": "invalid_missing_area",
+      "expected_code": "MODEL_RULE",
+      "expected_text": "missing area",
+      "status": "REJECTED",
+      "process_exit_code": 21,
+      "errors": [
+        {
+          "code": "MODEL_RULE",
+          "message": "ReturnTemp: missing area"
+        }
+      ],
+      "rejected": true,
+      "expected_error_found": true,
+      "accepted_revisions_unchanged": true,
+      "diff_summary": null,
+      "pass": true,
+      "case": "missing_area"
+    },
+    {
+      "label": "invalid_invalid_direction",
+      "expected_code": "MODEL_RULE",
+      "expected_text": "unsupported direction",
+      "status": "REJECTED",
+      "process_exit_code": 21,
+      "errors": [
+        {
+          "code": "MODEL_RULE",
+          "message": "ReturnTemp: missing/unsupported direction 'BIDIRECTIONAL'"
+        }
+      ],
+      "rejected": true,
+      "expected_error_found": true,
+      "accepted_revisions_unchanged": true,
+      "diff_summary": null,
+      "pass": true,
+      "case": "invalid_direction"
+    },
+    {
+      "label": "invalid_direction_area_mismatch",
+      "expected_code": "MODEL_RULE",
+      "expected_text": "must use INPUT_REGISTER",
+      "status": "REJECTED",
+      "process_exit_code": 21,
+      "errors": [
+        {
+          "code": "MODEL_RULE",
+          "message": "ReturnTemp: READ (PLC->client) signal must use INPUT_REGISTER/DISCRETE_INPUT, not HOLDING_REGISTER"
+        }
+      ],
+      "rejected": true,
+      "expected_error_found": true,
+      "accepted_revisions_unchanged": true,
+      "diff_summary": null,
+      "pass": true,
+      "case": "direction_area_mismatch"
+    },
+    {
+      "label": "invalid_overlapping_real32",
+      "expected_code": "ALLOCATION",
+      "expected_text": "overlaps",
+      "status": "REJECTED",
+      "process_exit_code": 21,
+      "errors": [
+        {
+          "code": "ALLOCATION",
+          "message": "SupplyTemp: INPUT_REGISTER 3..4 overlaps ['MixedAirTemp']"
+        },
+        {
+          "code": "ALLOCATION",
+          "message": "TestReal32Read: INPUT_REGISTER 5..6 overlaps ['MixedAirTemp']"
+        }
+      ],
+      "rejected": true,
+      "expected_error_found": true,
+      "accepted_revisions_unchanged": true,
+      "diff_summary": {
+        "ADDED": 1,
+        "UNCHANGED": 8
+      },
+      "pass": true,
+      "case": "overlapping_real32"
+    },
+    {
+      "label": "invalid_capacity_exceeded",
+      "expected_code": "ALLOCATION",
+      "expected_text": "free register",
+      "status": "REJECTED",
+      "process_exit_code": 21,
+      "errors": [
+        {
+          "code": "ALLOCATION",
+          "message": "MixedAirTemp: no 2 free register(s) left in INPUT_REGISTER (capacity 10)"
+        },
+        {
+          "code": "ALLOCATION",
+          "message": "OutdoorTemp: no 2 free register(s) left in INPUT_REGISTER (capacity 10)"
+        }
+      ],
+      "rejected": true,
+      "expected_error_found": true,
+      "accepted_revisions_unchanged": true,
+      "diff_summary": {
+        "ADDED": 2,
+        "UNCHANGED": 8
+      },
+      "pass": true,
+      "case": "capacity_exceeded"
+    },
+    {
+      "label": "invalid_revision_already_exists",
+      "expected_code": "STORE",
+      "expected_text": "already exists",
+      "status": "REJECTED",
+      "process_exit_code": 21,
+      "errors": [
+        {
+          "code": "STORE",
+          "message": "revision 2 already exists; revisions are immutable"
+        }
+      ],
+      "rejected": true,
+      "expected_error_found": true,
+      "accepted_revisions_unchanged": true,
+      "diff_summary": null,
+      "pass": true,
+      "case": "revision_already_exists"
+    },
+    {
+      "label": "invalid_unknown_parent",
+      "expected_code": "STORE",
+      "expected_text": "not an accepted revision",
+      "status": "REJECTED",
+      "process_exit_code": 21,
+      "errors": [
+        {
+          "code": "STORE",
+          "message": "parent_revision 99 is not an accepted revision"
+        }
+      ],
+      "rejected": true,
+      "expected_error_found": true,
+      "accepted_revisions_unchanged": true,
+      "diff_summary": null,
+      "pass": true,
+      "case": "unknown_parent"
+    }
+  ],
+  "latest_valid_revision": 2,
+  "latest_reproduce": "r002 regenerated from stored inputs; all 11 artifacts semantically identical",
+  "operation_status": "PASS",
+  "reason": "13 checks passed"
+}

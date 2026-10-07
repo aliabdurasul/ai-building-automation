@@ -1,0 +1,523 @@
+{
+  "schema": "ai_bms.revision_diff.v1",
+  "project_id": "BMS-DEMO",
+  "from_revision": null,
+  "to_revision": 1,
+  "summary": {
+    "ADDED": 12,
+    "EQUIPMENT_ADDED": 2
+  },
+  "breaking_changes": [],
+  "changes": [
+    {
+      "identity": "BMS-DEMO/AHU-01",
+      "equipment": "AHU-01",
+      "type": "EQUIPMENT_ADDED",
+      "breaking": false
+    },
+    {
+      "identity": "BMS-DEMO/AHU-01/Command",
+      "equipment": "AHU-01",
+      "tag": "Command",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "WORD",
+        "direction": "WRITE",
+        "area": "HOLDING_REGISTER",
+        "address": 0,
+        "symbol": "Command",
+        "plc_var": "Mb_Command",
+        "scale": 1.0,
+        "bits": {
+          "0": "StartCommand",
+          "1": "StopCommand"
+        },
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "HOLDING_REGISTER",
+          "address": 0,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "BMS-DEMO/AHU-01/FanRunning",
+      "equipment": "AHU-01",
+      "tag": "FanRunning",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "FanRunning",
+        "plc_var": "FanRunning",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 144,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "BMS-DEMO/AHU-01/Setpoint",
+      "equipment": "AHU-01",
+      "tag": "Setpoint",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ_WRITE",
+        "area": "HOLDING_REGISTER",
+        "address": null,
+        "symbol": "Setpoint",
+        "plc_var": "Setpoint",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          21.5,
+          18.25,
+          123.456,
+          22.0
+        ]
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "HOLDING_REGISTER",
+          "address": 1,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "BMS-DEMO/AHU-01/Status",
+      "equipment": "AHU-01",
+      "tag": "Status",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "WORD",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": 0,
+        "symbol": "Status",
+        "plc_var": "Mb_Status",
+        "scale": 1.0,
+        "bits": {
+          "0": "FanCommand",
+          "1": "FanRunning",
+          "2": "FanFault"
+        },
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 0,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "BMS-DEMO/AHU-01/SupplyTemp",
+      "equipment": "AHU-01",
+      "tag": "SupplyTemp",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "SupplyTemp",
+        "plc_var": "SupplyTemp",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 6,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01",
+      "equipment": "PUMP-01",
+      "type": "EQUIPMENT_ADDED",
+      "breaking": false
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/Pressure",
+      "equipment": "PUMP-01",
+      "tag": "Pressure",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "Pressure",
+        "plc_var": "Pressure",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          3.75,
+          22.0,
+          18.25,
+          123.456
+        ]
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 1,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/PumpFault",
+      "equipment": "PUMP-01",
+      "tag": "PumpFault",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "PumpFault",
+        "plc_var": "PumpFault",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 145,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/PumpRunning",
+      "equipment": "PUMP-01",
+      "tag": "PumpRunning",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "PumpRunning",
+        "plc_var": "PumpRunning",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 146,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/PumpSpeed",
+      "equipment": "PUMP-01",
+      "tag": "PumpSpeed",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "PumpSpeed",
+        "plc_var": "PumpSpeed",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          50.0,
+          21.5,
+          18.25,
+          123.456
+        ]
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 3,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/PumpState",
+      "equipment": "PUMP-01",
+      "tag": "PumpState",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "INT16",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "PumpState",
+        "plc_var": "PumpState",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 5,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/StartCommand",
+      "equipment": "PUMP-01",
+      "tag": "StartCommand",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "BOOL",
+        "direction": "WRITE",
+        "area": "COIL",
+        "address": null,
+        "symbol": "PUMP01_StartCommand",
+        "plc_var": "PUMP01_StartCommand",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "COIL",
+          "address": 144,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "BMS-DEMO/PUMP-01/StopCommand",
+      "equipment": "PUMP-01",
+      "tag": "StopCommand",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "BOOL",
+        "direction": "WRITE",
+        "area": "COIL",
+        "address": null,
+        "symbol": "PUMP01_StopCommand",
+        "plc_var": "PUMP01_StopCommand",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "COIL",
+          "address": 145,
+          "length": 1
+        }
+      }
+    }
+  ],
+  "variable_changes": [
+    {
+      "variable": "FanCommand",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "output",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "FanFault",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "status",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "FanRunning",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "status",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "HeatingValve",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 0.0,
+        "role": "output",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "PUMP01_StartCommand",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "command",
+        "equipment": "PUMP-01"
+      }
+    },
+    {
+      "variable": "PUMP01_StopCommand",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "command",
+        "equipment": "PUMP-01"
+      }
+    },
+    {
+      "variable": "Pressure",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 0.0,
+        "role": "process",
+        "equipment": "PUMP-01"
+      }
+    },
+    {
+      "variable": "PumpFault",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "status",
+        "equipment": "PUMP-01"
+      }
+    },
+    {
+      "variable": "PumpRunning",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "status",
+        "equipment": "PUMP-01"
+      }
+    },
+    {
+      "variable": "PumpSpeed",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 0.0,
+        "role": "process",
+        "equipment": "PUMP-01"
+      }
+    },
+    {
+      "variable": "PumpState",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "INT",
+        "initial": 0,
+        "role": "status",
+        "equipment": "PUMP-01"
+      }
+    },
+    {
+      "variable": "Setpoint",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 22.0,
+        "role": "setpoint",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "StartCommand",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "command",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "StopCommand",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "command",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "SupplyTemp",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 21.0,
+        "role": "process",
+        "equipment": "AHU-01"
+      }
+    }
+  ]
+}

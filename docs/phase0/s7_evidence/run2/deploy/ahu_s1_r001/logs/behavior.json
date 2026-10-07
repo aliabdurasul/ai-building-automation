@@ -1,0 +1,855 @@
+{
+  "step": "behavior",
+  "project_id": "AHU-S1",
+  "revision": 1,
+  "real32_ordering_reference": "CDAB",
+  "tests": [
+    {
+      "name": "scenario:AHU-01 AHU_S1FIX_V1 existing behaviour",
+      "steps": [
+        {
+          "name": "reset_stopped",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 2
+          },
+          "plc_write": {
+            "plc:FanFault": false
+          },
+          "expect": {
+            "AHU-S1/AHU-01/Status": 0,
+            "plc:FanCommand": false,
+            "AHU-S1/AHU-01/FanRunning": false,
+            "plc:FanFault": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              2
+            ]
+          },
+          "observed_plc": {
+            "AHU-S1/AHU-01/FanRunning": false,
+            "AHU-S1/AHU-01/Status": 0,
+            "plc:FanCommand": false,
+            "plc:FanFault": false
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/FanRunning": false,
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/FanRunning",
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanCommand",
+            "plc:FanFault"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "reset_command_cleared",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              0
+            ]
+          },
+          "observed_plc": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "AHU_START_hr0_1",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 1
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 3,
+            "plc:FanCommand": true,
+            "AHU-S1/AHU-01/FanRunning": true,
+            "plc:FanFault": false,
+            "plc:StartCommand": true,
+            "plc:StopCommand": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              1
+            ]
+          },
+          "observed_plc": {
+            "AHU-S1/AHU-01/FanRunning": true,
+            "AHU-S1/AHU-01/Status": 3,
+            "plc:FanCommand": true,
+            "plc:FanFault": false,
+            "plc:StartCommand": true,
+            "plc:StopCommand": false
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/FanRunning": true,
+            "AHU-S1/AHU-01/Status": 3
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/FanRunning",
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanCommand",
+            "plc:FanFault",
+            "plc:StartCommand",
+            "plc:StopCommand"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_held",
+          "modbus_write": {},
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 3,
+            "AHU-S1/AHU-01/FanRunning": true
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "wait_ms": 1500,
+          "observed_plc": {
+            "AHU-S1/AHU-01/FanRunning": true,
+            "AHU-S1/AHU-01/Status": 3
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/FanRunning": true,
+            "AHU-S1/AHU-01/Status": 3
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/FanRunning",
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "start_released_stays_running",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 3,
+            "plc:StartCommand": false,
+            "AHU-S1/AHU-01/FanRunning": true
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              0
+            ]
+          },
+          "wait_ms": 500,
+          "observed_plc": {
+            "AHU-S1/AHU-01/FanRunning": true,
+            "AHU-S1/AHU-01/Status": 3,
+            "plc:StartCommand": false
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/FanRunning": true,
+            "AHU-S1/AHU-01/Status": 3
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/FanRunning",
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:StartCommand"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_invalid_command_bit2_while_running",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 4
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 3,
+            "plc:StartCommand": false,
+            "plc:StopCommand": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              4
+            ]
+          },
+          "wait_ms": 1000,
+          "observed_plc": {
+            "AHU-S1/AHU-01/Status": 3,
+            "plc:StartCommand": false,
+            "plc:StopCommand": false
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/Status": 3
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:StartCommand",
+            "plc:StopCommand"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "AHU_STOP_hr0_2",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 2
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 0,
+            "plc:FanCommand": false,
+            "AHU-S1/AHU-01/FanRunning": false,
+            "plc:StopCommand": true
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              2
+            ]
+          },
+          "observed_plc": {
+            "AHU-S1/AHU-01/FanRunning": false,
+            "AHU-S1/AHU-01/Status": 0,
+            "plc:FanCommand": false,
+            "plc:StopCommand": true
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/FanRunning": false,
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/FanRunning",
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanCommand",
+            "plc:StopCommand"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop_held",
+          "modbus_write": {},
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "wait_ms": 1500,
+          "observed_plc": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "stop_released_stays_stopped",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 0,
+            "plc:StopCommand": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              0
+            ]
+          },
+          "wait_ms": 500,
+          "observed_plc": {
+            "AHU-S1/AHU-01/Status": 0,
+            "plc:StopCommand": false
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:StopCommand"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_invalid_command_bit3_while_stopped",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 8
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              8
+            ]
+          },
+          "wait_ms": 1000,
+          "observed_plc": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_conflicting_start_stop_stop_wins",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 3
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 0,
+            "plc:StartCommand": true,
+            "plc:StopCommand": true,
+            "plc:FanCommand": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              3
+            ]
+          },
+          "wait_ms": 1000,
+          "observed_plc": {
+            "AHU-S1/AHU-01/Status": 0,
+            "plc:FanCommand": false,
+            "plc:StartCommand": true,
+            "plc:StopCommand": true
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanCommand",
+            "plc:StartCommand",
+            "plc:StopCommand"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "conflict_stop_released_start_level_starts",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 1
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 3
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              1
+            ]
+          },
+          "observed_plc": {
+            "AHU-S1/AHU-01/Status": 3
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/Status": 3
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "AHU_FAULT_fan_fault_while_running",
+          "modbus_write": {},
+          "plc_write": {
+            "plc:FanFault": true
+          },
+          "expect": {
+            "AHU-S1/AHU-01/Status": 4,
+            "plc:FanCommand": false,
+            "AHU-S1/AHU-01/FanRunning": false,
+            "plc:FanFault": true
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "AHU-S1/AHU-01/FanRunning": false,
+            "AHU-S1/AHU-01/Status": 4,
+            "plc:FanCommand": false,
+            "plc:FanFault": true
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/FanRunning": false,
+            "AHU-S1/AHU-01/Status": 4
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/FanRunning",
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanCommand",
+            "plc:FanFault"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_start_held_during_fault_blocked",
+          "modbus_write": {},
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 4,
+            "plc:FanCommand": false
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "wait_ms": 1000,
+          "observed_plc": {
+            "AHU-S1/AHU-01/Status": 4,
+            "plc:FanCommand": false
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/Status": 4
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanCommand"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "AHU_FAULT_RECOVERY_fault_cleared_level_start_restarts",
+          "modbus_write": {},
+          "plc_write": {
+            "plc:FanFault": false
+          },
+          "expect": {
+            "AHU-S1/AHU-01/Status": 3,
+            "plc:FanFault": false,
+            "AHU-S1/AHU-01/FanRunning": true
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "AHU-S1/AHU-01/FanRunning": true,
+            "AHU-S1/AHU-01/Status": 3,
+            "plc:FanFault": false
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/FanRunning": true,
+            "AHU-S1/AHU-01/Status": 3
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/FanRunning",
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanFault"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "fault_recovery_stop",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 2
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              2
+            ]
+          },
+          "observed_plc": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "fault_while_stopped",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 0
+          },
+          "plc_write": {
+            "plc:FanFault": true
+          },
+          "expect": {
+            "AHU-S1/AHU-01/Status": 4,
+            "plc:FanCommand": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              0
+            ]
+          },
+          "observed_plc": {
+            "AHU-S1/AHU-01/Status": 4,
+            "plc:FanCommand": false
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/Status": 4
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanCommand"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "negative_start_during_fault_blocked",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 1
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Status": 4,
+            "plc:FanCommand": false,
+            "AHU-S1/AHU-01/FanRunning": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              1
+            ]
+          },
+          "wait_ms": 1000,
+          "observed_plc": {
+            "AHU-S1/AHU-01/FanRunning": false,
+            "AHU-S1/AHU-01/Status": 4,
+            "plc:FanCommand": false
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/FanRunning": false,
+            "AHU-S1/AHU-01/Status": 4
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/FanRunning",
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanCommand"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "fault_cleared_after_start_released_stays_stopped",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Command": 0
+          },
+          "plc_write": {
+            "plc:FanFault": false
+          },
+          "expect": {
+            "AHU-S1/AHU-01/Status": 0,
+            "plc:FanFault": false
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Command": [
+              0
+            ]
+          },
+          "wait_ms": 500,
+          "observed_plc": {
+            "AHU-S1/AHU-01/Status": 0,
+            "plc:FanFault": false
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/Status"
+          ],
+          "plc_only": [
+            "plc:FanFault"
+          ],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "AHU_HEATING_supply_below_setpoint",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Setpoint": 22.0
+          },
+          "plc_write": {
+            "AHU-S1/AHU-01/SupplyTemp": 18.0
+          },
+          "expect": {
+            "AHU-S1/AHU-01/Setpoint": 22.0,
+            "AHU-S1/AHU-01/SupplyTemp": 18.0,
+            "AHU-S1/AHU-01/HeatingValve": 100.0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Setpoint": [
+              0,
+              16816
+            ]
+          },
+          "observed_plc": {
+            "AHU-S1/AHU-01/HeatingValve": 100.0,
+            "AHU-S1/AHU-01/Setpoint": 22.0,
+            "AHU-S1/AHU-01/SupplyTemp": 18.0
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/HeatingValve": 100.0,
+            "AHU-S1/AHU-01/Setpoint": 22.0,
+            "AHU-S1/AHU-01/SupplyTemp": 18.0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/HeatingValve",
+            "AHU-S1/AHU-01/Setpoint",
+            "AHU-S1/AHU-01/SupplyTemp"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "heating_supply_equal_setpoint",
+          "modbus_write": {},
+          "plc_write": {
+            "AHU-S1/AHU-01/SupplyTemp": 22.0
+          },
+          "expect": {
+            "AHU-S1/AHU-01/SupplyTemp": 22.0,
+            "AHU-S1/AHU-01/HeatingValve": 0.0
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "AHU-S1/AHU-01/HeatingValve": 0.0,
+            "AHU-S1/AHU-01/SupplyTemp": 22.0
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/HeatingValve": 0.0,
+            "AHU-S1/AHU-01/SupplyTemp": 22.0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/HeatingValve",
+            "AHU-S1/AHU-01/SupplyTemp"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "heating_supply_above_setpoint",
+          "modbus_write": {},
+          "plc_write": {
+            "AHU-S1/AHU-01/SupplyTemp": 25.5
+          },
+          "expect": {
+            "AHU-S1/AHU-01/SupplyTemp": 25.5,
+            "AHU-S1/AHU-01/HeatingValve": 0.0
+          },
+          "errors": [],
+          "modbus_written_raw": {},
+          "observed_plc": {
+            "AHU-S1/AHU-01/HeatingValve": 0.0,
+            "AHU-S1/AHU-01/SupplyTemp": 25.5
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/HeatingValve": 0.0,
+            "AHU-S1/AHU-01/SupplyTemp": 25.5
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/HeatingValve",
+            "AHU-S1/AHU-01/SupplyTemp"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "heating_setpoint_raised_over_modbus",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Setpoint": 30.0
+          },
+          "plc_write": {},
+          "expect": {
+            "AHU-S1/AHU-01/Setpoint": 30.0,
+            "AHU-S1/AHU-01/HeatingValve": 100.0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Setpoint": [
+              0,
+              16880
+            ]
+          },
+          "observed_plc": {
+            "AHU-S1/AHU-01/HeatingValve": 100.0,
+            "AHU-S1/AHU-01/Setpoint": 30.0
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/HeatingValve": 100.0,
+            "AHU-S1/AHU-01/Setpoint": 30.0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/HeatingValve",
+            "AHU-S1/AHU-01/Setpoint"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        },
+        {
+          "name": "cleanup",
+          "modbus_write": {
+            "AHU-S1/AHU-01/Setpoint": 22.0,
+            "AHU-S1/AHU-01/Command": 0
+          },
+          "plc_write": {
+            "AHU-S1/AHU-01/SupplyTemp": 21.0
+          },
+          "expect": {
+            "AHU-S1/AHU-01/Setpoint": 22.0,
+            "AHU-S1/AHU-01/SupplyTemp": 21.0,
+            "AHU-S1/AHU-01/HeatingValve": 100.0,
+            "AHU-S1/AHU-01/Status": 0
+          },
+          "errors": [],
+          "modbus_written_raw": {
+            "AHU-S1/AHU-01/Setpoint": [
+              0,
+              16816
+            ],
+            "AHU-S1/AHU-01/Command": [
+              0
+            ]
+          },
+          "observed_plc": {
+            "AHU-S1/AHU-01/HeatingValve": 100.0,
+            "AHU-S1/AHU-01/Setpoint": 22.0,
+            "AHU-S1/AHU-01/Status": 0,
+            "AHU-S1/AHU-01/SupplyTemp": 21.0
+          },
+          "observed_modbus": {
+            "AHU-S1/AHU-01/HeatingValve": 100.0,
+            "AHU-S1/AHU-01/Setpoint": 22.0,
+            "AHU-S1/AHU-01/Status": 0,
+            "AHU-S1/AHU-01/SupplyTemp": 21.0
+          },
+          "modbus_checked": [
+            "AHU-S1/AHU-01/HeatingValve",
+            "AHU-S1/AHU-01/Setpoint",
+            "AHU-S1/AHU-01/Status",
+            "AHU-S1/AHU-01/SupplyTemp"
+          ],
+          "plc_only": [],
+          "modbus_plc_match": true,
+          "poll_attempts": 1,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "description": "S7 behaviour of the existing S1/S1-FIX AHU logic (template AHU_S1FIX_V1) on the running SoftPLC. The logic is level-based (no edge detection, no sequence, no damper): START latches FanCommand/FanRunning while FanFault is FALSE, STOP and FanFault reset them, STOP wins over START in the same scan. Commands through Modbus HR0, FanFault / SupplyTemp by PLC online write; mapped signals checked through Modbus AND PLC read-back."
+    }
+  ],
+  "checks": {
+    "pymodbus_connect": true,
+    "bridge_logged_in": true,
+    "bridge_quit": true,
+    "scenario:AHU-01 AHU_S1FIX_V1 existing behaviour": true
+  },
+  "operation_status": "PASS",
+  "reason": "24 behaviour steps passed (scenario:AHU-01 AHU_S1FIX_V1 existing behaviour)"
+}

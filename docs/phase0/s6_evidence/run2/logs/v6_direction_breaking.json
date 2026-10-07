@@ -1,0 +1,53 @@
+{
+  "step": "revision_check_expect-reject",
+  "checks": {
+    "rejected": true,
+    "expected_error_found": true,
+    "accepted_revisions_unchanged": true
+  },
+  "breaking_changes": [
+    {
+      "identity": "AHU-DEMO/AHU-01/SupplyTemp",
+      "type": "DIRECTION_CHANGED",
+      "from": "READ",
+      "to": "READ_WRITE",
+      "breaking": true,
+      "approved": false,
+      "field_changes": [
+        {
+          "field": "direction",
+          "from": "READ",
+          "to": "READ_WRITE"
+        },
+        {
+          "field": "area",
+          "from": "INPUT_REGISTER",
+          "to": "HOLDING_REGISTER"
+        }
+      ]
+    }
+  ],
+  "case": {
+    "label": "V6_direction_breaking",
+    "expected_code": "BREAKING_CHANGE_REQUIRES_APPROVAL",
+    "expected_text": "DIRECTION_CHANGED",
+    "status": "REJECTED",
+    "process_exit_code": 21,
+    "errors": [
+      {
+        "code": "BREAKING_CHANGE_REQUIRES_APPROVAL",
+        "message": "AHU-DEMO/AHU-01/SupplyTemp: DIRECTION_CHANGED 'READ' -> 'READ_WRITE' is a breaking change; add approvals [{\"identity\": \"AHU-DEMO/AHU-01/SupplyTemp\", \"change\": \"DIRECTION_CHANGED\"}] to apply it (the old mapping is then retired and a new mapping allocated)"
+      }
+    ],
+    "rejected": true,
+    "expected_error_found": true,
+    "accepted_revisions_unchanged": true,
+    "diff_summary": {
+      "DIRECTION_CHANGED": 1,
+      "UNCHANGED": 8
+    },
+    "pass": true
+  },
+  "operation_status": "PASS",
+  "reason": "3 checks passed"
+}

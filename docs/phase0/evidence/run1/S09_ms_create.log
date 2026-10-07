@@ -1,0 +1,408 @@
+mode=create time=2026-10-05T10:03:34.3445315+03:00
+IUIService registered: InSAT.Framework.TestBase.UIServiceForTests
+TimedTrace not found
+TypesManager.ConfigName=MasterPLC ConfigPath=C:\Program Files\MPSSoft\MasterSCADA 4D 1.2\bin\..\Configs\MasterPLC
+template=MasterSCADA.Project.HMI.Default projectType=MasterSCADA.Project.HMI
+storeService=InSAT.Framework.DbStore.Services.Store.FirebirdStore.FirebirdStoreService
+Location=C:\AI_BMS_POC\master_scada_research\hmi_api_poc\phase0_s1\run1\projects\AHU_S1
+CreateProject OK: name=AHU_S1 id=d19f0eb9-da0e-4b7f-9944-f924cfc209b3 root=MasterSCADA.HMI.RootItem
+SaveProject OK; IsNewUnSavedProject=False
+- [Проект] 'Project' type=MasterSCADA.HMI.RootItem
+  - [SystemRoot] 'System' type=MasterSCADA.Group.SystemRoot
+    - [SecurityRoot] 'Безопасность' type=MasterSCADA.Security.Root
+      - [Settings] 'Settings' type=Item
+        - [DefaultUserRef] 'Пользователь по умолчанию' type=MasterSCADA.Security.UserRef
+        - [ProjectIntegrityCheck] 'Контроль целостности проекта' type=MasterSCADA.System.Setting
+        - [ProjectIntegrityBlockStart] 'Блокировать запуск при неуспешной проверке проекта' type=MasterSCADA.System.Setting
+        - [ProjectIntegrityPeriod] 'Период проверки целостности проекта' type=MasterSCADA.System.Setting
+        - [ProgramIntegrityCheck] 'Контроль целостности ПО' type=MasterSCADA.System.Setting
+        - [ProgramIntegrityBlockStart] 'Блокировать запуск при неуспешной проверке ПО' type=MasterSCADA.System.Setting
+        - [ProgramIntegrityPeriod] 'Период проверки целостности ПО' type=MasterSCADA.System.Setting
+        - [ADServer] 'Адрес сервера Active Directory' type=MasterSCADA.System.Setting
+        - [LogInvalidLogin] 'Фиксировать неуспешные попытки входа в систему' type=MasterSCADA.System.Setting
+        - [DisableDeleteLoggedUsers] 'Запрет удаления авторизованных операторов' type=MasterSCADA.System.Setting
+        - [BlockDisabledControls] 'Блокировать недоступные элементы' type=MasterSCADA.System.Setting
+        - [DisabledControlsTooltip] 'Подсказка для недоступных элементов' type=MasterSCADA.System.Setting
+        - [RequestPasswordOnLogout] 'Запрашивать пароль при выходе из системы' type=MasterSCADA.System.Setting
+        - [SingleUserMode] 'Однопользовательский режим' type=MasterSCADA.System.Setting
+      - [Users] 'Пользователи' type=MasterSCADA.Security.Users
+      - [UserGroups] 'Роли' type=MasterSCADA.Security.UserGroups
+        - [_All] 'Все' type=MasterSCADA.Security.FixedUserGroup
+      - [Permissions] 'Права доступа' type=MasterSCADA.Security.SystemPermissions
+        - [Login] 'Вход в систему' type=MasterSCADA.Security.Permission
+        - [OpenWindow] 'Открытие окна' type=MasterSCADA.Security.Permission
+        - [Control] 'Управление' type=MasterSCADA.Security.Permission
+        - [ChangeUsers] 'Изменение пользователей' type=MasterSCADA.Security.Permission
+        - [ChangeSelfPassword] 'Изменение собственного пароля' type=MasterSCADA.Security.Permission
+        - [BlockUsers] 'Управление блокировкой пользователей' type=MasterSCADA.Security.Permission
+        - [JournalAck] 'Квитирование сообщения' type=MasterSCADA.Security.Permission
+        - [JournalGroupAck] 'Групповое квитирование сообщений' type=MasterSCADA.Security.Permission
+        - [JournalUseFilters] 'Использование фильтров в журнале' type=MasterSCADA.Security.Permission
+        - [JournalPrint] 'Печать сообщений' type=MasterSCADA.Security.Permission
+        - [JournalSave] 'Экспорт сообщений' type=MasterSCADA.Security.Permission
+        - [TrendAddPens] 'Изменение состава перьев' type=MasterSCADA.Security.Permission
+        - [TrendChangePens] 'Изменение настройки перьев' type=MasterSCADA.Security.Permission
+        - [TrendSave] 'Экспорт графика' type=MasterSCADA.Security.Permission
+        - [TrendPrint] 'Печать графика' type=MasterSCADA.Security.Permission
+        - [DataTableEdit] 'Редактирование ячеек таблицы' type=MasterSCADA.Security.Permission
+        - [DataTableFilter] 'Использование фильтров в таблице' type=MasterSCADA.Security.Permission
+        - [DirectoryEdit] 'Редактирование записи справочника' type=MasterSCADA.Security.Permission
+        - [DirectoryAdd] 'Добавление записи справочника' type=MasterSCADA.Security.Permission
+        - [DirectoryDelete] 'Удаление записи справочника' type=MasterSCADA.Security.Permission
+        - [DirectoryFilter] 'Использование фильтров в справочнике' type=MasterSCADA.Security.Permission
+      - [Archives] 'Archives' type=Item
+      - [UserSettings] 'Настройки пользователей' type=MasterSCADA.Security.UserSettings
+  - [ObjectRoot] 'Objects' type=MasterSCADA.Objects
+  - [LibraryRoot] 'Libraries' type=MasterSCADA.HMI.ProjectIncludedLibraries
+    - [MainLibrary] 'Standard' type=MasterSCADA.ExternalLibrary.Main
+      - [LDLibrary] 'LD' type=MasterSCADA.Library.LD
+        - [Силовая линия] 'Power line ' type=MasterSCADA.Program.PowerLineType
+        - [Ветвление] 'Branch' type=MasterSCADA.Program.PowerBranchType
+        - [Терминатор] 'Terminator' type=MasterSCADA.Program.TerminatorType
+        - [Контакт] 'Contact' type=MasterSCADA.Program.ContactType
+        - [Замкнутый контакт] 'Closed contact' type=MasterSCADA.Program.ContactType
+        - [Контакт по фронту] 'Contact by the front' type=MasterSCADA.Program.ContactType
+        - [Контакт по спаду] 'Contact by decay' type=MasterSCADA.Program.ContactType
+        - [Катушка] 'Coil' type=MasterSCADA.Program.CoilType
+        - [Инверсная катушка] 'Inverse coil' type=MasterSCADA.Program.CoilType
+        - [Катушка установки] 'Installation coil ' type=MasterSCADA.Program.CoilType
+        - [Катушка сброса] 'Discharge coil ' type=MasterSCADA.Program.CoilType
+        - [Катушка по фронту] 'Coil by the front' type=MasterSCADA.Program.CoilType
+        - [Катушка по спаду] 'Coil by decay' type=MasterSCADA.Program.CoilType
+      - [SFCLibrary] 'SFC' type=MasterSCADA.Library.SFC
+        - [Шаг] 'Step' type=MasterSCADA.Program.StepType
+        - [Ветка] 'Branch' type=MasterSCADA.Program.FlowType
+        - [Переход] 'Transition' type=MasterSCADA.Program.JumpType
+        - [Терминатор] 'Terminator' type=MasterSCADA.Program.TerminatorType
+        - [Ветвление выбора] 'Selection branch ' type=MasterSCADA.Program.FlowBranch.ORType
+        - [Параллельное ветвление] 'Parallel branch' type=MasterSCADA.Program.FlowBranch.ANDType
+      - [UserTypes] 'Data types' type=MasterSCADA.Types.UserTypesNode
+        - [SYSTEM_LREAL_PARAM] 'SYSTEM_LREAL_PARAM' type=MasterSCADA.Types.Struct
+        - [SYSTEM_BOOL_PARAM] 'SYSTEM_BOOL_PARAM' type=MasterSCADA.Types.Struct
+        - [SYSTEM_DINT_PARAM] 'SYSTEM_DINT_PARAM' type=MasterSCADA.Types.Struct
+        - [SYSTEM_STRING_PARAM] 'SYSTEM_STRING_PARAM' type=MasterSCADA.Types.Struct
+        - [SYSTEM_DWORD_PARAM] 'SYSTEM_DWORD_PARAM' type=MasterSCADA.Types.Struct
+        - [SYSTEM_DT_PARAM] 'SYSTEM_DT_PARAM' type=MasterSCADA.Types.Struct
+        - [SYSTEM_LINT_PARAM] 'SYSTEM_LINT_PARAM' type=MasterSCADA.Types.Struct
+        - [System] 'Системные' type=GroupItem
+        - [SYSTEM_REAL_PARAM] 'SYSTEM_REAL_PARAM' type=MasterSCADA.Types.Struct
+        - [SYSTEM_INT_PARAM] 'SYSTEM_INT_PARAM' type=MasterSCADA.Types.Struct
+        - [SYSTEM_LWORD_PARAM] 'SYSTEM_LWORD_PARAM' type=MasterSCADA.Types.Struct
+        - [SYSTEM_BYTE_PARAM] 'SYSTEM_BYTE_PARAM' type=MasterSCADA.Types.Struct
+        - [SYSTEM_WORD_PARAM] 'SYSTEM_WORD_PARAM' type=MasterSCADA.Types.Struct
+        - [SYSTEM_DOUBLE_POINT_PARAM] 'SYSTEM_DOUBLE_POINT_PARAM' type=MasterSCADA.Types.Struct
+        - [DOUBLE_POINT] 'DOUBLE_POINT' type=MasterSCADA.Types.Enum
+      - [Functions] 'Standard features' type=MasterSCADA.Library.StandartFunctions
+        - [Булевы функции] 'Булевы функции' type=GroupItem
+        - [Математические функции] 'Mathematical functions' type=GroupItem
+        - [Функции сдвига] 'Shift function' type=GroupItem
+        - [Функции сравнения] 'Comparison functions' type=GroupItem
+        - [Тригонометрические функции] 'Trigonometric functions' type=GroupItem
+        - [Функции работы со строками] 'String functions' type=GroupItem
+        - [Функции работы с датой-временем] 'Date/time functions ' type=GroupItem
+        - [Логарифмические функции] 'Logarithmic functions' type=GroupItem
+        - [Функции выбора] 'Selection function' type=GroupItem
+        - [Функции конвертации] 'Функции конвертации' type=GroupItem
+        - [Функции работы с массивами] 'Функции работы с массивами' type=GroupItem
+        - [Служебные функции] 'Служебные функции' type=GroupItem
+      - [FunctionBlocks] 'Standard FB' type=MasterSCADA.Library.StandartFB
+        - [Детекторы фронтов] 'Детекторы фронтов' type=GroupItem
+        - [Таймеры] 'Timers' type=GroupItem
+        - [Триггеры] 'Триггеры' type=GroupItem
+        - [Счетчики] 'Counters' type=GroupItem
+      - [Controllers] 'Nodes' type=MasterSCADA.System.Controllers
+        - [Windows] 'АРМ' type=MasterSCADA.System.Controller sub=WIN32
+        - [BaseItemsNodes] 'Базовые узлы' type=GroupItem
+        - [CloudService] 'Облачный сервис' type=MasterSCADA.System.Controller sub=CloudService
+        - [Server] 'Сервер' type=MasterSCADA.System.Controller sub=Server
+        - [Controller] 'Контроллер' type=MasterSCADA.System.Controller sub=Controller
+        - [OperatorPanel] 'Панель оператора' type=MasterSCADA.System.Controller sub=OperatorPanel
+      - [Protocols] 'Protocols' type=MasterSCADA.System.Protocols
+        - [OPC UA] 'OPC UA' type=MasterSCADA.System.ProtocolType sub=OPC_UA
+        - [Modbus TCP] 'Modbus TCP' type=MasterSCADA.System.ProtocolType sub=ModbusTCPMaster
+        - [Modbus RTU] 'Modbus RTU' type=MasterSCADA.System.ProtocolType sub=ModbusRTUMaster
+        - [DCON] 'DCON' type=MasterSCADA.System.ProtocolType sub=DCON
+        - [System] 'Системные' type=GroupItem
+        - [BaseItems] 'Базовые' type=GroupItem
+        - [Internal] 'Встроенные' type=GroupItem
+        - [OPC DA] 'OPC DA' type=MasterSCADA.System.ProtocolType sub=OPC_DA
+        - [Modbus RTU over TCP] 'Modbus RTU over TCP' type=MasterSCADA.System.ProtocolType sub=ModbusRTUOverTCPMaster
+        - [OPC HDA] 'OPC HDA' type=MasterSCADA.System.ProtocolType sub=OPC_HDA
+      - [IOModules] 'Remote I/O' type=MasterSCADA.System.IOModules
+        - [Modbus] 'Modbus' type=GroupItem
+        - [BaseModules] 'Базовые' type=GroupItem
+      - [Tags] 'Tags' type=MasterSCADA.Tags
+        - [Вещественный тег] 'Вещественный тег' type=MasterSCADA.Tag
+        - [Целый тег] 'Целый тег' type=MasterSCADA.Tag
+        - [Логический тег] 'Логический тег' type=MasterSCADA.Tag
+      - [Alarms] 'Events' type=MasterSCADA.Library.StandardAlarmTypes
+        - [AuditEvent] 'Действие пользователя' type=MasterSCADA.AuditEventType sub=AuditEventType
+        - [AlarmCondition] 'Alarm' type=MasterSCADA.AlarmConditionType sub=AlarmCondition
+        - [LimitAlarm] 'Контроль границ' type=MasterSCADA.LimitAlarm sub=LimitAlarm
+        - [RateOfChangeAlarm] 'Контроль скорости изменения' type=MasterSCADA.RateOfChangeAlarm sub=RateOfChangeAlarm
+        - [BaseAlarm] 'Базовое сообщение' type=MasterSCADA.BaseAlarmType
+        - [SystemEvent] 'Системное сообщение' type=MasterSCADA.SystemEventType sub=SystemEventType
+        - [SystemAuditEvent] 'Сообщение ИБ' type=MasterSCADA.SystemAuditEventType sub=SystemAuditEventType
+      - [Scales] 'Scales' type=MasterSCADA.Library.StandardScaleTypes
+        - [Шкала DI] 'Шкала DI' type=MasterSCADA.Scale.DI sub=ScaleDICondition
+        - [Шкала] 'Scale' type=MasterSCADA.Scale
+        - [Шкала AI] 'Шкала AI' type=MasterSCADA.Scale.AI sub=ScaleCondition
+      - [ArchiveTemplates] 'Шаблоны архивирования' type=MasterSCADA.Library.StandardArchiveTemplates
+        - [Шаблон архивирования] 'Шаблон архивирования' type=MasterSCADA.ArchiveTemplate
+    - [ProjectLibrary] 'Local library' type=MasterSCADA.ProjectLibrary
+      - [Themes] 'Themes' type=View.StandartThemes
+        - [Стандартная] 'Standard' type=View.Theme
+    - [HMI] 'HMI' type=MasterSCADA.HMI.ExternalLibrary
+      - [UserTypes] 'Data types' type=MasterSCADA.Types.UserTypesNode
+        - [OrientationType] 'OrientationType' type=MasterSCADA.Types.Enum
+        - [HorizontalAlignType] 'HorizontalAlignType' type=MasterSCADA.Types.Enum
+        - [VerticalAlignType] 'VerticalAlignType' type=MasterSCADA.Types.Enum
+        - [BorderStyleType] 'BorderStyleType' type=MasterSCADA.Types.Enum
+        - [KeyboardVisibilityType] 'KeyboardVisibilityType' type=MasterSCADA.Types.Enum
+        - [KeyboardType] 'KeyboardType' type=MasterSCADA.Types.Enum
+        - [GradientColorType] 'GradientColorType' type=MasterSCADA.Types.Derived
+        - [SolidColorType] 'SolidColorType' type=MasterSCADA.Types.Derived
+        - [TableGridType] 'TableGridType' type=MasterSCADA.Types.Enum
+        - [ResourceType] 'ResourceType' type=MasterSCADA.Types.Derived
+        - [DateTimeType] 'DateTimeType' type=MasterSCADA.Types.Enum
+        - [TileType] 'TileType' type=MasterSCADA.Types.Enum
+        - [LayoutType] 'LayoutType' type=MasterSCADA.Types.Enum
+        - [AttachType] 'AttachType' type=MasterSCADA.Types.Enum
+        - [HorizontalAlignTypeExt] 'HorizontalAlignTypeExt' type=MasterSCADA.Types.Enum
+        - [SizeToContentType] 'SizeToContentType' type=MasterSCADA.Types.Enum
+        - [DockType] 'DockType' type=MasterSCADA.Types.Enum
+        - [OperationType] 'OperationType' type=MasterSCADA.Types.Enum
+        - [SizeType] 'SizeType' type=MasterSCADA.Types.Enum
+        - [VerticalAlignTypeExt] 'VerticalAlignTypeExt' type=MasterSCADA.Types.Enum
+        - [MatrixColorType] 'MatrixColorType' type=MasterSCADA.Types.Derived
+        - [EventChangeType] 'EventChangeType' type=MasterSCADA.Types.Enum
+        - [FillDirection] 'FillDirection' type=MasterSCADA.Types.Enum
+        - [ActionArea] 'ActionArea' type=MasterSCADA.Types.Enum
+        - [TrendPens] 'TrendPens' type=MasterSCADA.Types.Array sub=LREAL
+        - [TrendPen] 'TrendPen' type=MasterSCADA.Types.Struct
+        - [TrendPenLimit] 'TrendPenLimit' type=MasterSCADA.Types.Struct
+        - [TrendPenLimits] 'TrendPenLimits' type=MasterSCADA.Types.Array sub=REAL
+        - [LineJoin] 'LineJoin' type=MasterSCADA.Types.Enum
+        - [ClockType] 'ClockType' type=MasterSCADA.Types.Enum
+        - [AnchorType] 'AnchorType' type=MasterSCADA.Types.Enum
+        - [JournalCondition] 'JournalCondition' type=MasterSCADA.Types.Struct sub=Condition
+        - [JournalFilters] 'JournalFilters' type=MasterSCADA.Types.Array sub=LREAL
+        - [JournalConditions] 'JournalConditions' type=MasterSCADA.Types.Array sub=LREAL
+        - [JournalFilter] 'JournalFilter' type=MasterSCADA.Types.Struct sub=Filter
+        - [FilterCombineType] 'FilterCombineType' type=MasterSCADA.Types.Enum
+        - [FilterCompareType] 'FilterCompareType' type=MasterSCADA.Types.Enum
+        - [JournalColumn] 'JournalColumn' type=MasterSCADA.Types.Struct sub=Column
+        - [SortType] 'SortType' type=MasterSCADA.Types.Enum
+        - [JournalRowStyle] 'JournalRowStyle' type=MasterSCADA.Types.Struct sub=RowStyle
+        - [JournalRowStyles] 'JournalRowStyles' type=MasterSCADA.Types.Array sub=LREAL
+        - [JournalColumns] 'JournalColumns' type=MasterSCADA.Types.Array sub=LREAL
+        - [DateTimeType_Full] 'DateTimeType_Full' type=MasterSCADA.Types.Enum
+        - [FilterConditionType] 'FilterConditionType' type=MasterSCADA.Types.Enum
+        - [ProportionType] 'ProportionType' type=MasterSCADA.Types.Enum
+        - [TableColumn] 'TableColumn' type=MasterSCADA.Types.Struct sub=Column
+        - [TableColumns] 'TableColumns' type=MasterSCADA.Types.Array sub=LREAL
+        - [OpenDialogPoint] 'OpenDialogPoint' type=MasterSCADA.Types.Enum
+        - [PenPointType] 'PenPointType' type=MasterSCADA.Types.Enum
+        - [SourceType] 'SourceType' type=MasterSCADA.Types.Enum
+        - [ChartPen] 'ChartPen' type=MasterSCADA.Types.Struct
+        - [ChartPens] 'ChartPens' type=MasterSCADA.Types.Array sub=LREAL
+        - [SaveStateType] 'SaveStateType' type=MasterSCADA.Types.Enum
+        - [CRS] 'CRS' type=MasterSCADA.Types.Enum
+        - [MapType] 'MapType' type=MasterSCADA.Types.Enum
+        - [DiscreteTrendPen] 'DiscreteTrendPen' type=MasterSCADA.Types.Struct
+        - [DiscreteTrendPens] 'DiscreteTrendPens' type=MasterSCADA.Types.Array sub=LREAL
+        - [MouseCursorKinds] 'MouseCursorKinds' type=MasterSCADA.Types.Enum
+      - [Mnemoschemes] 'Windows' type=MasterSCADA.View.ViewTypes
+        - [Примитивы] 'Примитивы' type=GroupItem
+        - [Панели] 'Панели' type=GroupItem
+        - [Контролы] 'Контролы' type=GroupItem
+        - [Диалог] 'Диалог' type=GroupItem
+      - [Themes] 'Themes' type=View.Themes
+        - [Стандартная] 'Стандартная' type=View.Theme
+        - [Темная] 'Темная' type=View.Theme
+        - [Изумруд] 'Изумруд' type=View.Theme
+        - [Default] 'По умолчанию' type=View.Theme
+        - [Темная оранжевая] 'Темная оранжевая' type=View.Theme
+        - [Синяя оранжевая] 'Синяя оранжевая' type=View.Theme
+        - [Синяя серая] 'Синяя серая' type=View.Theme
+        - [Металлик] 'Металлик' type=View.Theme
+        - [Металлик 2] 'Металлик 2' type=View.Theme
+      - [Requests] 'Screen data sources' type=MasterSCADA.System.Requests
+        - [JSON] 'JSON' type=MasterSCADA.System.Request sub=JSON
+    - [BaseObjects] 'BaseObjects' type=MasterSCADA.HMI.ExternalLibrary
+      - [Mnemoschemes] 'Windows' type=MasterSCADA.View.ViewTypes
+        - [Индикатор] 'Индикатор' type=MasterSCADA.View.ViewType
+        - [Задатчик] 'Задатчик' type=MasterSCADA.View.ViewType
+        - [Метка] 'Метка' type=MasterSCADA.View.ViewType sub=Mark
+        - [Панель управления] 'Панель управления' type=GroupItem
+        - [Теплообменник] 'Теплообменник' type=GroupItem
+        - [Элементы функциональных схем] 'Элементы функциональных схем' type=GroupItem
+        - [Емкости] 'Емкости' type=GroupItem
+        - [Горелка] 'Горелка' type=GroupItem
+        - [Воздуходувки] 'Воздуходувки' type=GroupItem
+        - [Конвейеры_Шнеки] 'Конвейеры/Шнеки' type=GroupItem
+        - [Задвижки_Клапаны] 'Задвижки/Клапаны' type=GroupItem
+        - [Насосы] 'Насосы' type=GroupItem
+        - [Воздуховод] 'Воздуховод' type=GroupItem
+        - [Трубопровод] 'Трубопровод' type=GroupItem
+        - [Аппараты] 'Аппараты' type=GroupItem
+        - [Трубопровод изометрический] 'Трубопровод изометрический' type=GroupItem
+      - [ChannelTypes] 'Каналы' type=MasterSCADA.System.ChannelTypes
+        - [AIO] 'AIO' type=MasterSCADA.System.ChannelType
+        - [DIO] 'DIO' type=MasterSCADA.System.ChannelType
+        - [AI] 'AI' type=MasterSCADA.System.ChannelType
+        - [DI] 'DI' type=MasterSCADA.System.ChannelType
+        - [AO] 'AO' type=MasterSCADA.System.ChannelType
+        - [DO] 'DO' type=MasterSCADA.System.ChannelType
+      - [Themes] 'Темы' type=View.Themes
+        - [Темная] 'Темная' type=View.Theme
+        - [Изумруд] 'Изумруд' type=View.Theme
+        - [Темная оранжевая] 'Темная оранжевая' type=View.Theme
+        - [Синяя оранжевая] 'Синяя оранжевая' type=View.Theme
+        - [Синяя серая] 'Синяя серая' type=View.Theme
+        - [Металлик] 'Металлик' type=View.Theme
+        - [Default] 'По умолчанию' type=View.Theme
+      - [UserTypes] 'Data types' type=MasterSCADA.Types.UserTypesNode
+        - [AlarmStatus] 'AlarmStatus' type=MasterSCADA.Types.Enum
+        - [Mode] 'Mode' type=MasterSCADA.Types.Enum
+        - [Motor] 'Motor' type=MasterSCADA.Types.Enum
+        - [Emergency] 'Emergency' type=MasterSCADA.Types.Enum
+        - [Movement] 'Movement' type=MasterSCADA.Types.Enum
+        - [ShutterState] 'ShutterState' type=MasterSCADA.Types.Enum
+        - [DriveState] 'DriveState' type=MasterSCADA.Types.Enum
+        - [SessionParameters] 'SessionParameters' type=MasterSCADA.Types.Struct
+        - [AggregateType] 'AggregateType' type=MasterSCADA.Types.Enum
+        - [XMLReturnType] 'XMLReturnType' type=MasterSCADA.Types.Enum
+        - [TOD_INTERVAL] 'TOD_INTERVAL' type=MasterSCADA.Types.Struct
+        - [DT_INTERVAL] 'DT_INTERVAL' type=MasterSCADA.Types.Struct
+        - [IntegrityCheckType] 'IntegrityCheckType' type=MasterSCADA.Types.Enum
+        - [CheckedFileInfo] 'CheckedFileInfo' type=MasterSCADA.Types.Struct
+        - [FileInfo] 'FileInfo' type=MasterSCADA.Types.Struct
+      - [FunctionBlocks] 'FB' type=MasterSCADA.Program.FunctionBlocks
+        - [InitialModeStateControl] 'InitialModeStateControl' type=MasterSCADA.Program.FunctionBlockST
+        - [ModeStateControl] 'ModeStateControl' type=MasterSCADA.Program.FunctionBlockST
+        - [PumpBlowerMotorControl] 'PumpBlowerMotorControl' type=MasterSCADA.Program.FunctionBlockST
+        - [PumpBlowerControl] 'PumpBlowerControl' type=MasterSCADA.Program.FunctionBlockST
+        - [MixerMotorControl] 'MixerMotorControl' type=MasterSCADA.Program.FunctionBlockST
+        - [ScrewMotorControl] 'ScrewMotorControl' type=MasterSCADA.Program.FunctionBlockST
+        - [ScrewConveyerControl] 'ScrewConveyerControl' type=MasterSCADA.Program.FunctionBlockST
+        - [ShutterDriveControl] 'ShutterDriveControl' type=MasterSCADA.Program.FunctionBlockST
+        - [Системные] 'Системные' type=GroupItem
+        - [Users] 'Users' type=GroupItem
+      - [ObjectRoot] 'Objects' type=MasterSCADA.Objects
+        - [Насос] 'Насос' type=MasterSCADA.Object
+        - [Воздуходувка] 'Воздуходувка' type=MasterSCADA.Object
+        - [Мешалка] 'Мешалка' type=MasterSCADA.Object
+        - [Шнек] 'Шнек' type=MasterSCADA.Object
+        - [Конвейер] 'Конвейер' type=MasterSCADA.Object
+        - [Задвижка] 'Задвижка' type=MasterSCADA.Object
+      - [Functions] 'Functions' type=MasterSCADA.Program.Functions
+        - [Системные] 'Системные' type=GroupItem
+    - [OSCAT] 'OSCAT' type=MasterSCADA.ExternalLibrary
+      - [Functions] 'Functions' type=MasterSCADA.Program.Functions
+        - [Mathematics] 'Математика' type=GroupItem
+        - [Arithmetic Functions] 'Арифметические функции' type=GroupItem
+        - [Geometric Functions] 'Геометрические функции' type=GroupItem
+        - [Time & Date] 'Дата и время' type=GroupItem
+        - [Logic Modules] 'Логические модули' type=GroupItem
+        - [Calculations] 'Преобразования' type=GroupItem
+        - [Signal processing] 'Обработка сигналов' type=GroupItem
+        - [Sensors] 'Датчики' type=GroupItem
+        - [Measuring Modules] 'Модули измерения' type=GroupItem
+        - [Control Modules] 'Модули регулирования' type=GroupItem
+        - [Device Driver] 'Управление устройствами' type=GroupItem
+      - [FunctionBlocks] 'FB' type=MasterSCADA.Program.FunctionBlocks
+        - [Arithmetic Functions] 'Арифметические функции' type=GroupItem
+        - [Memory Modules] 'Модули памяти' type=GroupItem
+        - [Pulse Generators] 'Генераторы импульсов' type=GroupItem
+        - [Logic Modules] 'Логические модули' type=GroupItem
+        - [Latches] 'Триггеры' type=GroupItem
+        - [Signal Generators] 'Генераторы сигналов' type=GroupItem
+        - [Signal processing] 'Обработка сигналов' type=GroupItem
+        - [Measuring Modules] 'Модули измерения' type=GroupItem
+        - [Calculations] 'Преобразования' type=GroupItem
+        - [Control Modules] 'Модули регулирования' type=GroupItem
+        - [Device Driver] 'Управление устройствами' type=GroupItem
+    - [Images] 'Images' type=MasterSCADA.HMI.ExternalLibrary
+      - [Mnemoschemes] 'Windows' type=MasterSCADA.View.ViewTypes
+        - [Иконки нефтедобыча] 'Иконки нефтедобыча' type=GroupItem
+        - [Индикаторы] 'Индикаторы' type=GroupItem
+        - [Кнопки] 'Кнопки' type=GroupItem
+        - [Переключатели] 'Переключатели' type=GroupItem
+    - [Protocols] 'Protocols' type=MasterSCADA.ExternalLibrary
+      - [UserTypes] 'Data types' type=MasterSCADA.Types.UserTypesNode
+        - [SNMPClient] 'SNMPClient' type=GroupItem
+        - [Web] 'Web' type=GroupItem
+        - [Siemens] 'Siemens' type=GroupItem
+        - [Mitsubishi] 'Mitsubishi' type=GroupItem
+        - [Omron] 'Omron' type=GroupItem
+        - [COMBaudRate] 'COMBaudRate' type=GroupItem
+        - [SQLTransaction] 'SQLTransaction' type=MasterSCADA.Types.Enum
+        - [BACnet] 'BACnet' type=GroupItem
+        - [Dlms] 'Dlms' type=GroupItem
+        - [Logica] 'Logica' type=GroupItem
+        - [IEC104] 'IEC104' type=GroupItem
+        - [SRTP] 'SRTP' type=GroupItem
+        - [Dlcm] 'Dlcm' type=GroupItem
+      - [Protocols] 'Protocols' type=MasterSCADA.System.Protocols
+        - [MSSQL] 'MSSQL' type=MasterSCADA.System.ProtocolType sub=MSSQL
+        - [IEC104] 'IEC104' type=MasterSCADA.System.ProtocolType sub=IEC104
+        - [Меркурий 230] 'Меркурий 230' type=MasterSCADA.System.ProtocolType sub=Mercury230
+        - [IEC61850] 'IEC61850' type=MasterSCADA.System.ProtocolType sub=IEC61850
+        - [SNMP Client] 'SNMP Client' type=MasterSCADA.System.ProtocolType sub=SNMP_Client
+        - [PostgreSQL] 'PostgreSQL' type=MasterSCADA.System.ProtocolType sub=PostgreSQL
+        - [MQTT] 'MQTT' type=MasterSCADA.System.ProtocolType sub=MQTT
+        - [MySQL] 'MySQL' type=MasterSCADA.System.ProtocolType sub=MySQL
+      - [IOModules] 'Remote I/O' type=MasterSCADA.System.IOModules
+        - [Меркурий 230] 'Меркурий 230' type=GroupItem
+        - [SQL] 'SQL' type=GroupItem
+      - [FunctionBlocks] 'FB' type=MasterSCADA.Program.FunctionBlocks
+        - [HttpClient] 'HttpClient' type=MasterSCADA.Program.FunctionBlockST
+        - [SqlRequest] 'SqlRequest' type=MasterSCADA.Program.FunctionBlockST
+        - [SqlRequestWithResult] 'SqlRequestWithResult' type=MasterSCADA.Program.FunctionBlockST
+        - [UdpClient] 'UdpClient' type=MasterSCADA.Program.FunctionBlockST
+        - [FileSync] 'FileSync' type=MasterSCADA.Program.FunctionBlockST
+    - [OWEN] 'OWEN' type=MasterSCADA.ExternalLibrary
+      - [Controllers] 'Nodes' type=MasterSCADA.System.Controllers
+        - [PLC110_30] 'PLC110_30' type=MasterSCADA.System.Controller sub=PLC110_30
+        - [PLC110_60] 'PLC110_60' type=MasterSCADA.System.Controller sub=PLC110_30
+        - [PLC210_01] 'PLC210_01' type=MasterSCADA.System.Controller sub=PLC210_02
+        - [PLC210_02] 'PLC210_02' type=MasterSCADA.System.Controller sub=PLC210_02
+        - [PLC210_03] 'PLC210_03' type=MasterSCADA.System.Controller sub=PLC210_02
+      - [IOModules] 'Remote I/O' type=MasterSCADA.System.IOModules
+        - [ОВЕН Modbus RTU] 'ОВЕН Modbus RTU' type=GroupItem
+        - [ОВЕН DCON] 'ОВЕН DCON' type=GroupItem
+        - [ОВЕН Modbus TCP] 'ОВЕН Modbus TCP' type=GroupItem
+      - [UserTypes] 'Data types' type=MasterSCADA.Types.UserTypesNode
+        - [PLC210DIMode] 'PLC210DIMode' type=MasterSCADA.Types.Enum
+        - [PLC210DOMode] 'PLC210DOMode' type=MasterSCADA.Types.Enum
+      - [Scripts] 'Скрипты' type=MasterSCADA.Program.Scripts
+        - [UpdateChannelIndex] 'UpdateChannelIndex' type=MasterSCADA.Program.Script
+      - [FunctionBlocks] 'FB' type=MasterSCADA.Program.FunctionBlocks
+        - [DO_24] 'DO_24' type=MasterSCADA.Program.FunctionBlockST
+        - [DI_32] 'DI_32' type=MasterSCADA.Program.FunctionBlockST
+        - [SecondsFrom2000ToDT] 'SecondsFrom2000ToDT' type=MasterSCADA.Program.FunctionBlockST
+    - [ICP DAS] 'ICP DAS' type=MasterSCADA.ExternalLibrary
+      - [Controllers] 'Nodes' type=MasterSCADA.System.Controllers
+        - [WinPAC8000] 'WinPAC8000' type=MasterSCADA.System.Controller sub=WinPAC8000
+        - [LinPAC8000] 'LinPAC8000' type=MasterSCADA.System.Controller sub=LinPAC8000
+        - [XPAC8000] 'XPAC8000' type=MasterSCADA.System.Controller sub=XPAC8000
+        - [WinPAC5000] 'WinPAC5000' type=MasterSCADA.System.Controller sub=WinPAC5000
+        - [WinPAC9000] 'WinPAC9000' type=MasterSCADA.System.Controller
+      - [IOModules] 'Remote I/O' type=MasterSCADA.System.IOModules
+        - [BaseItemsModules] 'Базовые устройства' type=GroupItem
+        - [I-8000] 'I-8000' type=GroupItem
+        - [I-87000] 'I-87000' type=GroupItem
+        - [I-7000] 'I-7000' type=GroupItem
+        - [M-7000] 'M-7000' type=GroupItem
+        - [ET-7000] 'ET-7000' type=GroupItem
+        - [tmSeries (Modbus)] 'tmSeries (Modbus)' type=GroupItem
+        - [tmSeries (DCON)] 'tmSeries (DCON)' type=GroupItem
+        - [tET Series] 'tET Series' type=GroupItem
+        - [I-9000] 'I-9000' type=GroupItem
+        - [I-97000] 'I-97000' type=GroupItem
+      - [UserTypes] 'Data types' type=MasterSCADA.Types.UserTypesNode
+        - [i8_AnalogRange] 'i8_AnalogRange' type=MasterSCADA.Types.Enum
+Disposed
+FILE C:\AI_BMS_POC\master_scada_research\hmi_api_poc\phase0_s1\run1\projects\AHU_S1\AHU_S1.fdb 58019840
+FILE C:\AI_BMS_POC\master_scada_research\hmi_api_poc\phase0_s1\run1\projects\AHU_S1\info.xml 462

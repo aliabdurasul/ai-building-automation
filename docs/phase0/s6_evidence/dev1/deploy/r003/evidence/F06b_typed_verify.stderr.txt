@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\ai automation\ai-building-automation\phase0\s3\probe\typed_verify.py", line 407, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\Users\user\Documents\ai automation\ai-building-automation\phase0\s3\probe\typed_verify.py", line 306, in main
+    plc, vals, attempts, settled = plc_poll(writes, intended)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Documents\ai automation\ai-building-automation\phase0\s3\probe\typed_verify.py", line 208, in plc_poll
+    raw = bridge.read([expr(s) for s in group])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Documents\ai automation\ai-building-automation\phase0\s3\probe\typed_verify.py", line 77, in read
+    r = self.call({"op": "read", "exprs": exprs})
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Documents\ai automation\ai-building-automation\phase0\s3\probe\typed_verify.py", line 72, in call
+    return json.loads(res.read_text(encoding="utf-8"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\pathlib.py", line 1058, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\AI_BMS_PHASE0\\s6\\dev1\\deploy\\r003\\bridge\\res_0031.json'

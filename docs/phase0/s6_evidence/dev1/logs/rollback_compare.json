@@ -1,0 +1,16 @@
+{
+  "step": "revision_check_rollback-compare",
+  "checks": {
+    "engineering_artifacts_identical": true,
+    "plc_source_identical": true,
+    "verified_mapping_identical": true,
+    "all_signals_verified_after_rollback": true,
+    "codesys_and_runtime_results_identical": true,
+    "rollback_runtime_pass": true,
+    "index_rollback_event": true
+  },
+  "differences": [],
+  "typed_cases_compared": 36,
+  "operation_status": "PASS",
+  "reason": "7 checks passed"
+}

@@ -1,0 +1,147 @@
+{
+  "schema": "ai_bms.engineering_model.v1",
+  "project_id": "PUMP-DEMO",
+  "revision": 3,
+  "parent_revision": 2,
+  "description": "PUMP V3 = V2 - Pressure (CASE REMOVE: Pressure RETIRED, other mappings PRESERVED).",
+  "modbus": {
+    "protocol": "Modbus TCP",
+    "role": "server",
+    "host": "127.0.0.1",
+    "port": 502,
+    "slave": 1
+  },
+  "equipment": [
+    {
+      "id": "PUMP-01",
+      "type": "PUMP",
+      "logic": {
+        "template": "PUMP_BASIC_V1"
+      }
+    }
+  ],
+  "variables": {
+    "StartCommand": {
+      "type": "BOOL",
+      "initial": false,
+      "role": "command",
+      "equipment": "PUMP-01"
+    },
+    "StopCommand": {
+      "type": "BOOL",
+      "initial": false,
+      "role": "command",
+      "equipment": "PUMP-01"
+    },
+    "PumpRunning": {
+      "type": "BOOL",
+      "initial": false,
+      "role": "status",
+      "equipment": "PUMP-01"
+    },
+    "PumpFault": {
+      "type": "BOOL",
+      "initial": false,
+      "role": "status",
+      "equipment": "PUMP-01"
+    },
+    "PumpState": {
+      "type": "INT",
+      "initial": 0,
+      "role": "status",
+      "equipment": "PUMP-01"
+    },
+    "PumpSpeed": {
+      "type": "REAL",
+      "initial": 0.0,
+      "role": "process",
+      "equipment": "PUMP-01"
+    },
+    "FlowRate": {
+      "type": "REAL",
+      "initial": 0.0,
+      "role": "process",
+      "equipment": "PUMP-01"
+    }
+  },
+  "signals": [
+    {
+      "equipment": "PUMP-01",
+      "tag": "StartCommand",
+      "datatype": "BOOL",
+      "direction": "WRITE",
+      "modbus": {
+        "area": "COIL"
+      }
+    },
+    {
+      "equipment": "PUMP-01",
+      "tag": "StopCommand",
+      "datatype": "BOOL",
+      "direction": "WRITE",
+      "modbus": {
+        "area": "COIL"
+      }
+    },
+    {
+      "equipment": "PUMP-01",
+      "tag": "PumpRunning",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "modbus": {
+        "area": "DISCRETE_INPUT"
+      }
+    },
+    {
+      "equipment": "PUMP-01",
+      "tag": "PumpFault",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "modbus": {
+        "area": "DISCRETE_INPUT"
+      }
+    },
+    {
+      "equipment": "PUMP-01",
+      "tag": "PumpState",
+      "datatype": "INT16",
+      "direction": "READ",
+      "modbus": {
+        "area": "INPUT_REGISTER"
+      }
+    },
+    {
+      "equipment": "PUMP-01",
+      "tag": "PumpSpeed",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "modbus": {
+        "area": "INPUT_REGISTER",
+        "length": 2
+      },
+      "verification_values": [
+        50.0,
+        21.5,
+        18.25,
+        123.456
+      ]
+    },
+    {
+      "equipment": "PUMP-01",
+      "tag": "FlowRate",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "modbus": {
+        "area": "INPUT_REGISTER",
+        "length": 2
+      },
+      "verification_values": [
+        12.5,
+        22.0,
+        18.25,
+        123.456
+      ]
+    }
+  ],
+  "approvals": []
+}

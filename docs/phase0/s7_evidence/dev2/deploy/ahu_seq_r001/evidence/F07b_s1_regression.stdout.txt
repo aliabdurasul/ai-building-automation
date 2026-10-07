@@ -1,0 +1,1 @@
+PASS HR0=1 -> IR0=3 (FanCommand, FanRunning set, FanFault clear) and HR0=2 -> IR0=0 observed; FanRunning DI148 followed

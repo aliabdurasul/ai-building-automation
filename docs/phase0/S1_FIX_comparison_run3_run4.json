@@ -1,0 +1,881 @@
+{
+  "test": "S1-FIX determinism run3 vs run4",
+  "semantic_verdict": "DETERMINISTIC",
+  "binary_bytes": "DIFFERENT",
+  "binary_note": "byte equality of .project/.app not required",
+  "differences": [],
+  "items": [
+    {
+      "item": "generated ST PLC_PRG_decl.st (sha256)",
+      "kind": "semantic",
+      "equal": true,
+      "run3": "8a4f98cfc8e5f2c95a1736fba2516853f8662495feb08d0852b4457f685e520d",
+      "run4": "8a4f98cfc8e5f2c95a1736fba2516853f8662495feb08d0852b4457f685e520d"
+    },
+    {
+      "item": "generated ST PLC_PRG_impl.st (sha256)",
+      "kind": "semantic",
+      "equal": true,
+      "run3": "71ff2b029d9967074f13cffa4cdd6d1d662e60d5b744ea56629c8b29a2592499",
+      "run4": "71ff2b029d9967074f13cffa4cdd6d1d662e60d5b744ea56629c8b29a2592499"
+    },
+    {
+      "item": "generated ST PLC_PRG.st (sha256)",
+      "kind": "semantic",
+      "equal": true,
+      "run3": "6d57461e738eb7cbe07adf0699fc5447efe8cf737df903fe89355a14c5c7134b",
+      "run4": "6d57461e738eb7cbe07adf0699fc5447efe8cf737df903fe89355a14c5c7134b"
+    },
+    {
+      "item": "modbus_mapping.json",
+      "kind": "semantic",
+      "equal": true,
+      "run3": {
+        "protocol": "Modbus TCP",
+        "host": "127.0.0.1",
+        "port": 502,
+        "slave": 1,
+        "source_model": "AHU-01",
+        "registers": [
+          {
+            "address": 0,
+            "area": "holding",
+            "function_read": "FC3",
+            "function_write": "FC6/FC16",
+            "tag": "Command",
+            "plc_var": "Application.PLC_PRG.Mb_Command",
+            "datatype": "WORD",
+            "register_count": 1,
+            "bits": {
+              "0": "StartCommand",
+              "1": "StopCommand"
+            },
+            "verified": true
+          },
+          {
+            "address": 0,
+            "area": "input",
+            "function_read": "FC4",
+            "function_write": "none",
+            "tag": "Status",
+            "plc_var": "Application.PLC_PRG.Mb_Status",
+            "datatype": "WORD",
+            "register_count": 1,
+            "bits": {
+              "0": "FanCommand",
+              "1": "FanRunning",
+              "2": "FanFault"
+            },
+            "verified": true
+          }
+        ],
+        "unmapped": [
+          {
+            "var": "SupplyTemp",
+            "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope"
+          },
+          {
+            "var": "Setpoint",
+            "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope"
+          },
+          {
+            "var": "FanSpeed",
+            "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope"
+          },
+          {
+            "var": "HeatingValve",
+            "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope"
+          }
+        ],
+        "verified_rule": "verified=true only after external pymodbus read-back against the running generated PLC"
+      },
+      "run4": {
+        "protocol": "Modbus TCP",
+        "host": "127.0.0.1",
+        "port": 502,
+        "slave": 1,
+        "source_model": "AHU-01",
+        "registers": [
+          {
+            "address": 0,
+            "area": "holding",
+            "function_read": "FC3",
+            "function_write": "FC6/FC16",
+            "tag": "Command",
+            "plc_var": "Application.PLC_PRG.Mb_Command",
+            "datatype": "WORD",
+            "register_count": 1,
+            "bits": {
+              "0": "StartCommand",
+              "1": "StopCommand"
+            },
+            "verified": true
+          },
+          {
+            "address": 0,
+            "area": "input",
+            "function_read": "FC4",
+            "function_write": "none",
+            "tag": "Status",
+            "plc_var": "Application.PLC_PRG.Mb_Status",
+            "datatype": "WORD",
+            "register_count": 1,
+            "bits": {
+              "0": "FanCommand",
+              "1": "FanRunning",
+              "2": "FanFault"
+            },
+            "verified": true
+          }
+        ],
+        "unmapped": [
+          {
+            "var": "SupplyTemp",
+            "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope"
+          },
+          {
+            "var": "Setpoint",
+            "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope"
+          },
+          {
+            "var": "FanSpeed",
+            "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope"
+          },
+          {
+            "var": "HeatingValve",
+            "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope"
+          }
+        ],
+        "verified_rule": "verified=true only after external pymodbus read-back against the running generated PLC"
+      }
+    },
+    {
+      "item": "codesys_plan.json",
+      "kind": "semantic",
+      "equal": true,
+      "run3": {
+        "project_file": "AI_BMS_AHU_DEMO.project",
+        "boot_app_file": "AI_BMS_AHU_DEMO.app",
+        "plc_device_repo_name": "CODESYS Control Win V3 x64",
+        "devices": [
+          {
+            "parent": "Device",
+            "name": "Ethernet",
+            "repo_name": "Ethernet",
+            "type": 110,
+            "id": "0000 0002"
+          },
+          {
+            "parent": "Ethernet",
+            "name": "Modbus_TCP_Server",
+            "repo_name": "ModbusTCP Server Device",
+            "type": 115,
+            "id": "0000 0002"
+          }
+        ],
+        "server_expect": {
+          "Port": 502
+        },
+        "io_mappings": [
+          {
+            "device": "Modbus_TCP_Server",
+            "parameter": "Holding Registers",
+            "word_index": 0,
+            "variable": "Application.PLC_PRG.Mb_Command",
+            "iec_type": "WORD"
+          },
+          {
+            "device": "Modbus_TCP_Server",
+            "parameter": "Input Registers",
+            "word_index": 0,
+            "variable": "Application.PLC_PRG.Mb_Status",
+            "iec_type": "WORD"
+          }
+        ],
+        "required_variables": [
+          "StartCommand",
+          "StopCommand",
+          "FanCommand",
+          "FanRunning",
+          "FanFault",
+          "SupplyTemp",
+          "Setpoint",
+          "FanSpeed",
+          "HeatingValve",
+          "Mb_Command",
+          "Mb_Status"
+        ]
+      },
+      "run4": {
+        "project_file": "AI_BMS_AHU_DEMO.project",
+        "boot_app_file": "AI_BMS_AHU_DEMO.app",
+        "plc_device_repo_name": "CODESYS Control Win V3 x64",
+        "devices": [
+          {
+            "parent": "Device",
+            "name": "Ethernet",
+            "repo_name": "Ethernet",
+            "type": 110,
+            "id": "0000 0002"
+          },
+          {
+            "parent": "Ethernet",
+            "name": "Modbus_TCP_Server",
+            "repo_name": "ModbusTCP Server Device",
+            "type": 115,
+            "id": "0000 0002"
+          }
+        ],
+        "server_expect": {
+          "Port": 502
+        },
+        "io_mappings": [
+          {
+            "device": "Modbus_TCP_Server",
+            "parameter": "Holding Registers",
+            "word_index": 0,
+            "variable": "Application.PLC_PRG.Mb_Command",
+            "iec_type": "WORD"
+          },
+          {
+            "device": "Modbus_TCP_Server",
+            "parameter": "Input Registers",
+            "word_index": 0,
+            "variable": "Application.PLC_PRG.Mb_Status",
+            "iec_type": "WORD"
+          }
+        ],
+        "required_variables": [
+          "StartCommand",
+          "StopCommand",
+          "FanCommand",
+          "FanRunning",
+          "FanFault",
+          "SupplyTemp",
+          "Setpoint",
+          "FanSpeed",
+          "HeatingValve",
+          "Mb_Command",
+          "Mb_Status"
+        ]
+      }
+    },
+    {
+      "item": "create_result.devices",
+      "kind": "semantic",
+      "equal": true,
+      "run3": [
+        {
+          "type": 4096,
+          "name": "Device",
+          "repo_name": "CODESYS Control Win V3 x64",
+          "version": "3.5.22.30",
+          "id": "0000 0004"
+        },
+        {
+          "id": "0000 0002",
+          "version": "4.2.0.0",
+          "present_after_add": true,
+          "parent": "Device",
+          "repo_name": "Ethernet",
+          "type": 110,
+          "identification_matches": true,
+          "name": "Ethernet"
+        },
+        {
+          "id": "0000 0002",
+          "version": "4.6.0.0",
+          "present_after_add": true,
+          "parent": "Ethernet",
+          "repo_name": "ModbusTCP Server Device",
+          "type": 115,
+          "identification_matches": true,
+          "name": "Modbus_TCP_Server"
+        }
+      ],
+      "run4": [
+        {
+          "type": 4096,
+          "name": "Device",
+          "repo_name": "CODESYS Control Win V3 x64",
+          "version": "3.5.22.30",
+          "id": "0000 0004"
+        },
+        {
+          "id": "0000 0002",
+          "version": "4.2.0.0",
+          "present_after_add": true,
+          "parent": "Device",
+          "repo_name": "Ethernet",
+          "type": 110,
+          "identification_matches": true,
+          "name": "Ethernet"
+        },
+        {
+          "id": "0000 0002",
+          "version": "4.6.0.0",
+          "present_after_add": true,
+          "parent": "Ethernet",
+          "repo_name": "ModbusTCP Server Device",
+          "type": 115,
+          "identification_matches": true,
+          "name": "Modbus_TCP_Server"
+        }
+      ]
+    },
+    {
+      "item": "create_result.server_parameters",
+      "kind": "semantic",
+      "equal": true,
+      "run3": {
+        "Port": {
+          "expected": "502",
+          "ok": true,
+          "actual": "502"
+        }
+      },
+      "run4": {
+        "Port": {
+          "expected": "502",
+          "ok": true,
+          "actual": "502"
+        }
+      }
+    },
+    {
+      "item": "create_result.io_mappings",
+      "kind": "semantic",
+      "equal": true,
+      "run3": [
+        {
+          "device": "Modbus_TCP_Server",
+          "channel_identifier": "1000_0_0_0",
+          "read_back": "Application.PLC_PRG.Mb_Command",
+          "iec_type": "WORD",
+          "channel_iec_type": "",
+          "ok": true,
+          "parameter": "Holding Registers",
+          "word_index": 0,
+          "variable": "Application.PLC_PRG.Mb_Command"
+        },
+        {
+          "device": "Modbus_TCP_Server",
+          "channel_identifier": "2000_0_0_0",
+          "read_back": "Application.PLC_PRG.Mb_Status",
+          "iec_type": "WORD",
+          "channel_iec_type": "",
+          "ok": true,
+          "parameter": "Input Registers",
+          "word_index": 0,
+          "variable": "Application.PLC_PRG.Mb_Status"
+        }
+      ],
+      "run4": [
+        {
+          "device": "Modbus_TCP_Server",
+          "channel_identifier": "1000_0_0_0",
+          "read_back": "Application.PLC_PRG.Mb_Command",
+          "iec_type": "WORD",
+          "channel_iec_type": "",
+          "ok": true,
+          "parameter": "Holding Registers",
+          "word_index": 0,
+          "variable": "Application.PLC_PRG.Mb_Command"
+        },
+        {
+          "device": "Modbus_TCP_Server",
+          "channel_identifier": "2000_0_0_0",
+          "read_back": "Application.PLC_PRG.Mb_Status",
+          "iec_type": "WORD",
+          "channel_iec_type": "",
+          "ok": true,
+          "parameter": "Input Registers",
+          "word_index": 0,
+          "variable": "Application.PLC_PRG.Mb_Status"
+        }
+      ]
+    },
+    {
+      "item": "create_result.build",
+      "kind": "semantic",
+      "equal": true,
+      "run3": {
+        "warnings": 0,
+        "errors": 0
+      },
+      "run4": {
+        "warnings": 0,
+        "errors": 0
+      }
+    },
+    {
+      "item": "create_result.checks",
+      "kind": "semantic",
+      "equal": true,
+      "run3": {
+        "server_parameters": true,
+        "io_mappings": true,
+        "devices_added": true,
+        "boot_app": true,
+        "build_0_warnings": true,
+        "build_0_errors": true
+      },
+      "run4": {
+        "server_parameters": true,
+        "io_mappings": true,
+        "devices_added": true,
+        "boot_app": true,
+        "build_0_warnings": true,
+        "build_0_errors": true
+      }
+    },
+    {
+      "item": "create_result.operation_status",
+      "kind": "semantic",
+      "equal": true,
+      "run3": "PASS",
+      "run4": "PASS"
+    },
+    {
+      "item": "verify_result.device_tree",
+      "kind": "semantic",
+      "equal": true,
+      "run3": [
+        {
+          "is_device": false,
+          "depth": 0,
+          "name": "Project Settings"
+        },
+        {
+          "is_device": true,
+          "depth": 0,
+          "type": 4096,
+          "name": "Device",
+          "version": "3.5.22.30",
+          "id": "0000 0004"
+        },
+        {
+          "is_device": false,
+          "depth": 1,
+          "name": "Plc Logic"
+        },
+        {
+          "is_device": false,
+          "depth": 2,
+          "name": "Application"
+        },
+        {
+          "is_device": false,
+          "depth": 3,
+          "name": "Library Manager"
+        },
+        {
+          "is_device": false,
+          "depth": 3,
+          "name": "Task Configuration"
+        },
+        {
+          "is_device": false,
+          "depth": 4,
+          "name": "MainTask"
+        },
+        {
+          "is_device": false,
+          "depth": 5,
+          "name": "PLC_PRG"
+        },
+        {
+          "is_device": false,
+          "depth": 3,
+          "name": "PLC_PRG"
+        },
+        {
+          "is_device": true,
+          "depth": 1,
+          "type": 110,
+          "name": "Ethernet",
+          "version": "4.2.0.0",
+          "id": "0000 0002"
+        },
+        {
+          "is_device": true,
+          "depth": 2,
+          "type": 115,
+          "name": "Modbus_TCP_Server",
+          "version": "4.6.0.0",
+          "id": "0000 0002"
+        },
+        {
+          "is_device": false,
+          "depth": 0,
+          "name": "__VisualizationStyle"
+        }
+      ],
+      "run4": [
+        {
+          "is_device": false,
+          "depth": 0,
+          "name": "Project Settings"
+        },
+        {
+          "is_device": true,
+          "depth": 0,
+          "type": 4096,
+          "name": "Device",
+          "version": "3.5.22.30",
+          "id": "0000 0004"
+        },
+        {
+          "is_device": false,
+          "depth": 1,
+          "name": "Plc Logic"
+        },
+        {
+          "is_device": false,
+          "depth": 2,
+          "name": "Application"
+        },
+        {
+          "is_device": false,
+          "depth": 3,
+          "name": "Library Manager"
+        },
+        {
+          "is_device": false,
+          "depth": 3,
+          "name": "Task Configuration"
+        },
+        {
+          "is_device": false,
+          "depth": 4,
+          "name": "MainTask"
+        },
+        {
+          "is_device": false,
+          "depth": 5,
+          "name": "PLC_PRG"
+        },
+        {
+          "is_device": false,
+          "depth": 3,
+          "name": "PLC_PRG"
+        },
+        {
+          "is_device": true,
+          "depth": 1,
+          "type": 110,
+          "name": "Ethernet",
+          "version": "4.2.0.0",
+          "id": "0000 0002"
+        },
+        {
+          "is_device": true,
+          "depth": 2,
+          "type": 115,
+          "name": "Modbus_TCP_Server",
+          "version": "4.6.0.0",
+          "id": "0000 0002"
+        },
+        {
+          "is_device": false,
+          "depth": 0,
+          "name": "__VisualizationStyle"
+        }
+      ]
+    },
+    {
+      "item": "verify_result.server_parameters",
+      "kind": "semantic",
+      "equal": true,
+      "run3": {
+        "Port": {
+          "expected": "502",
+          "ok": true,
+          "actual": "502"
+        }
+      },
+      "run4": {
+        "Port": {
+          "expected": "502",
+          "ok": true,
+          "actual": "502"
+        }
+      }
+    },
+    {
+      "item": "verify_result.io_mappings",
+      "kind": "semantic",
+      "equal": true,
+      "run3": [
+        {
+          "channel_identifier": "1000_0_0_0",
+          "expected": "Application.PLC_PRG.Mb_Command",
+          "word_index": 0,
+          "ok": true,
+          "actual": "Application.PLC_PRG.Mb_Command",
+          "parameter": "Holding Registers",
+          "iec_address_is_automatic": "True"
+        },
+        {
+          "channel_identifier": "2000_0_0_0",
+          "expected": "Application.PLC_PRG.Mb_Status",
+          "word_index": 0,
+          "ok": true,
+          "actual": "Application.PLC_PRG.Mb_Status",
+          "parameter": "Input Registers",
+          "iec_address_is_automatic": "True"
+        }
+      ],
+      "run4": [
+        {
+          "channel_identifier": "1000_0_0_0",
+          "expected": "Application.PLC_PRG.Mb_Command",
+          "word_index": 0,
+          "ok": true,
+          "actual": "Application.PLC_PRG.Mb_Command",
+          "parameter": "Holding Registers",
+          "iec_address_is_automatic": "True"
+        },
+        {
+          "channel_identifier": "2000_0_0_0",
+          "expected": "Application.PLC_PRG.Mb_Status",
+          "word_index": 0,
+          "ok": true,
+          "actual": "Application.PLC_PRG.Mb_Status",
+          "parameter": "Input Registers",
+          "iec_address_is_automatic": "True"
+        }
+      ]
+    },
+    {
+      "item": "verify_result.plc_prg_decl",
+      "kind": "semantic",
+      "equal": true,
+      "run3": "PROGRAM PLC_PRG\nVAR\n    (* Deterministic demo for AHU-01 *)\n    StartCommand : BOOL := FALSE;\n    StopCommand : BOOL := FALSE;\n    FanCommand : BOOL := FALSE;\n    FanRunning : BOOL := FALSE;\n    FanFault : BOOL := FALSE;\n    SupplyTemp : REAL := 21.0;\n    Setpoint : REAL := 22.0;\n    FanSpeed : REAL := 50.0;\n    HeatingValve : REAL := 0.0;\n    (* Modbus TCP image (16-bit words, mapped to Modbus_TCP_Server I/O) *)\n    Mb_Command : WORD; (* HR0 Command: bit0=StartCommand, bit1=StopCommand *)\n    Mb_Status : WORD; (* IR0 Status: bit0=FanCommand, bit1=FanRunning, bit2=FanFault *)\nEND_VAR",
+      "run4": "PROGRAM PLC_PRG\nVAR\n    (* Deterministic demo for AHU-01 *)\n    StartCommand : BOOL := FALSE;\n    StopCommand : BOOL := FALSE;\n    FanCommand : BOOL := FALSE;\n    FanRunning : BOOL := FALSE;\n    FanFault : BOOL := FALSE;\n    SupplyTemp : REAL := 21.0;\n    Setpoint : REAL := 22.0;\n    FanSpeed : REAL := 50.0;\n    HeatingValve : REAL := 0.0;\n    (* Modbus TCP image (16-bit words, mapped to Modbus_TCP_Server I/O) *)\n    Mb_Command : WORD; (* HR0 Command: bit0=StartCommand, bit1=StopCommand *)\n    Mb_Status : WORD; (* IR0 Status: bit0=FanCommand, bit1=FanRunning, bit2=FanFault *)\nEND_VAR"
+    },
+    {
+      "item": "verify_result.plc_prg_impl",
+      "kind": "semantic",
+      "equal": true,
+      "run3": "(* MODBUS IN: HR0 Command word -> commands *)\nStartCommand := Mb_Command.0;\nStopCommand := Mb_Command.1;\n\n(* FAN START *)\nIF StartCommand = TRUE AND FanFault = FALSE THEN\n    FanCommand := TRUE;\n    FanRunning := TRUE;\nEND_IF;\n\n(* FAN STOP *)\nIF StopCommand = TRUE THEN\n    FanCommand := FALSE;\n    FanRunning := FALSE;\nEND_IF;\n\n(* FAN FAULT *)\nIF FanFault = TRUE THEN\n    FanCommand := FALSE;\n    FanRunning := FALSE;\nEND_IF;\n\n(* HEATING - simple demo, not PID *)\nIF SupplyTemp < Setpoint THEN\n    HeatingValve := 100.0;\nELSE\n    HeatingValve := 0.0;\nEND_IF;\n\n(* MODBUS OUT: status -> IR0 Status word *)\nMb_Status := 0;\nMb_Status.0 := FanCommand;\nMb_Status.1 := FanRunning;\nMb_Status.2 := FanFault;",
+      "run4": "(* MODBUS IN: HR0 Command word -> commands *)\nStartCommand := Mb_Command.0;\nStopCommand := Mb_Command.1;\n\n(* FAN START *)\nIF StartCommand = TRUE AND FanFault = FALSE THEN\n    FanCommand := TRUE;\n    FanRunning := TRUE;\nEND_IF;\n\n(* FAN STOP *)\nIF StopCommand = TRUE THEN\n    FanCommand := FALSE;\n    FanRunning := FALSE;\nEND_IF;\n\n(* FAN FAULT *)\nIF FanFault = TRUE THEN\n    FanCommand := FALSE;\n    FanRunning := FALSE;\nEND_IF;\n\n(* HEATING - simple demo, not PID *)\nIF SupplyTemp < Setpoint THEN\n    HeatingValve := 100.0;\nELSE\n    HeatingValve := 0.0;\nEND_IF;\n\n(* MODBUS OUT: status -> IR0 Status word *)\nMb_Status := 0;\nMb_Status.0 := FanCommand;\nMb_Status.1 := FanRunning;\nMb_Status.2 := FanFault;"
+    },
+    {
+      "item": "verify_result.missing_variables",
+      "kind": "semantic",
+      "equal": true,
+      "run3": [],
+      "run4": []
+    },
+    {
+      "item": "verify_result.rebuild",
+      "kind": "semantic",
+      "equal": true,
+      "run3": {
+        "warnings": 0,
+        "errors": 0
+      },
+      "run4": {
+        "warnings": 0,
+        "errors": 0
+      }
+    },
+    {
+      "item": "verify_result.checks",
+      "kind": "semantic",
+      "equal": true,
+      "run3": {
+        "plc_prg_matches_generator": true,
+        "server_parameters": true,
+        "device_tree": true,
+        "io_mappings": true,
+        "rebuild_0_errors": true,
+        "rebuild_0_warnings": true,
+        "required_variables": true
+      },
+      "run4": {
+        "plc_prg_matches_generator": true,
+        "server_parameters": true,
+        "device_tree": true,
+        "io_mappings": true,
+        "rebuild_0_errors": true,
+        "rebuild_0_warnings": true,
+        "required_variables": true
+      }
+    },
+    {
+      "item": "verify_result.operation_status",
+      "kind": "semantic",
+      "equal": true,
+      "run3": "PASS",
+      "run4": "PASS"
+    },
+    {
+      "item": "deployment_result.json status",
+      "kind": "semantic",
+      "equal": true,
+      "run3": "PASS",
+      "run4": "PASS"
+    },
+    {
+      "item": "modbus_probe.json status",
+      "kind": "semantic",
+      "equal": true,
+      "run3": "PASS",
+      "run4": "PASS"
+    },
+    {
+      "item": "modbus_probe.checks",
+      "kind": "semantic",
+      "equal": true,
+      "run3": {
+        "tcp_connect": true,
+        "pymodbus_connect": true,
+        "baseline_hr0_ir0_zero": true,
+        "start_write_accepted": true,
+        "start_hr_readback": true,
+        "start_ir_reached_3": true,
+        "stop_write_accepted": true,
+        "stop_hr_readback": true,
+        "stop_ir_reached_0": true
+      },
+      "run4": {
+        "tcp_connect": true,
+        "pymodbus_connect": true,
+        "baseline_hr0_ir0_zero": true,
+        "start_write_accepted": true,
+        "start_hr_readback": true,
+        "start_ir_reached_3": true,
+        "stop_write_accepted": true,
+        "stop_hr_readback": true,
+        "stop_ir_reached_0": true
+      }
+    },
+    {
+      "item": "step status vector (step, operation_status, process_exit_code)",
+      "kind": "semantic",
+      "equal": true,
+      "run3": [
+        [
+          "F00_preflight",
+          "INFO",
+          null
+        ],
+        [
+          "F01_generate",
+          "PASS",
+          0
+        ],
+        [
+          "F02_codesys_create_build",
+          "PASS",
+          0
+        ],
+        [
+          "F03_codesys_verify",
+          "PASS",
+          0
+        ],
+        [
+          "F04_deploy_preflight",
+          "PASS",
+          null
+        ],
+        [
+          "F05_deploy",
+          "PASS",
+          0
+        ],
+        [
+          "F05b_runtime_verify",
+          "PASS",
+          null
+        ],
+        [
+          "F06_modbus_probe",
+          "PASS",
+          0
+        ],
+        [
+          "F07_post_state",
+          "INFO",
+          null
+        ]
+      ],
+      "run4": [
+        [
+          "F00_preflight",
+          "INFO",
+          null
+        ],
+        [
+          "F01_generate",
+          "PASS",
+          0
+        ],
+        [
+          "F02_codesys_create_build",
+          "PASS",
+          0
+        ],
+        [
+          "F03_codesys_verify",
+          "PASS",
+          0
+        ],
+        [
+          "F04_deploy_preflight",
+          "PASS",
+          null
+        ],
+        [
+          "F05_deploy",
+          "PASS",
+          0
+        ],
+        [
+          "F05b_runtime_verify",
+          "PASS",
+          null
+        ],
+        [
+          "F06_modbus_probe",
+          "PASS",
+          0
+        ],
+        [
+          "F07_post_state",
+          "INFO",
+          null
+        ]
+      ]
+    },
+    {
+      "item": "AI_BMS_AHU_DEMO.project (byte hash, informational)",
+      "kind": "hash",
+      "equal": false,
+      "run3": {
+        "sha256": "a2c54a261355a0e7a3bcf391384ce66e6725e8d9fa0a1d47f2c5cf1ad6799d28",
+        "size": 274384
+      },
+      "run4": {
+        "sha256": "5c6c8444a791c4ba27cb2860a6f091feed824bd5483d57e32d76bcbe7b046e5c",
+        "size": 274384
+      }
+    },
+    {
+      "item": "AI_BMS_AHU_DEMO.app (byte hash, informational)",
+      "kind": "hash",
+      "equal": false,
+      "run3": {
+        "sha256": "d7b5739a7e6fbe252f4bd8fb229752cfa4e821472daf76d5eb2b0cdafc65c47c",
+        "size": 252484
+      },
+      "run4": {
+        "sha256": "84b81cb86770f8c3b83848e88a76aa51dc9c6dda982c1600a821ceba6f72607f",
+        "size": 252484
+      }
+    }
+  ]
+}

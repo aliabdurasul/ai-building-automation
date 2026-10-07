@@ -1,0 +1,122 @@
+{
+  "step": "revision_check_diff",
+  "checks": {
+    "revision_metadata": true,
+    "independent_recomputation_matches": true,
+    "scenario_expectations": true,
+    "no_breaking_changes": true
+  },
+  "mismatches": [],
+  "summary": {
+    "ADDED": 7,
+    "EQUIPMENT_ADDED": 1
+  },
+  "changes": [
+    {
+      "identity": "AHU-DEMO/AHU-01",
+      "type": "EQUIPMENT_ADDED",
+      "breaking": false,
+      "mapping": null
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Command",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "HOLDING_REGISTER",
+          "address": 0,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/FanRunning",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 144,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/FanSpeed",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 1,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Setpoint",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "HOLDING_REGISTER",
+          "address": 1,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Status",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 0,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/SupplyTemp",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 3,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/TestReal32Read",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 5,
+          "length": 2
+        }
+      }
+    }
+  ],
+  "operation_status": "PASS",
+  "reason": "4 checks passed"
+}

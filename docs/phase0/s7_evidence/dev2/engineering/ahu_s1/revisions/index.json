@@ -1,0 +1,23 @@
+{
+  "schema": "ai_bms.revision_index.v1",
+  "project_id": "AHU-S1",
+  "revisions": [
+    {
+      "revision": 1,
+      "parent_revision": null,
+      "label": "AHU_S1_V1",
+      "model_sha256": "27cd4063859a3c9108ded1ac060475ba98fc22fbdf453df3752af14c342d5eae",
+      "status": "ACCEPTED",
+      "manifest_sha256": "0c0843ff8897a83d852a5a975d9d648729a6032426b86f80725be5d56b8f271e"
+    }
+  ],
+  "rejected": [],
+  "current": 1,
+  "events": [
+    {
+      "event": "commit",
+      "revision": 1,
+      "label": "AHU_S1_V1"
+    }
+  ]
+}

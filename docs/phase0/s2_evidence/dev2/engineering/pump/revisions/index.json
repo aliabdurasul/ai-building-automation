@@ -1,0 +1,62 @@
+{
+  "schema": "ai_bms.revision_index.v1",
+  "project_id": "PUMP-DEMO",
+  "revisions": [
+    {
+      "revision": 1,
+      "parent_revision": null,
+      "label": "PUMP_V1",
+      "model_sha256": "116a5d1666d8e40e5d3818eaa7159b432fec2e6a50cd3a568308bc14d8400e1e",
+      "status": "ACCEPTED",
+      "manifest_sha256": "833d69a1296e04eaa3d47346efaa4d5a408ff4d3ee8824468049d279b301248e"
+    },
+    {
+      "revision": 2,
+      "parent_revision": 1,
+      "label": "PUMP_V2",
+      "model_sha256": "de885d4933d9b828e04e865f46e26022d9a78193ce745ef883e822dc4476810e",
+      "status": "ACCEPTED",
+      "manifest_sha256": "d4810cd703bf6b8576ff22512a88322913e74042db04cef3f97b4c790503e6d2"
+    },
+    {
+      "revision": 3,
+      "parent_revision": 2,
+      "label": "PUMP_V3",
+      "model_sha256": "0ad6b23c04df4c8eee22a0fadb49d6ef8d62de6887aaf15b5c1669b2927817ef",
+      "status": "ACCEPTED",
+      "manifest_sha256": "063ce867a86d7991f3a403788fb56f078a3e67cc5c37b851d2196dfc1e1dc505"
+    }
+  ],
+  "rejected": [
+    {
+      "label": "PUMP_V4_type_change",
+      "revision": 4,
+      "parent_revision": 3,
+      "codes": [
+        "BREAKING_CHANGE_REQUIRES_APPROVAL"
+      ]
+    }
+  ],
+  "current": 3,
+  "events": [
+    {
+      "event": "commit",
+      "revision": 1,
+      "label": "PUMP_V1"
+    },
+    {
+      "event": "commit",
+      "revision": 2,
+      "label": "PUMP_V2"
+    },
+    {
+      "event": "commit",
+      "revision": 3,
+      "label": "PUMP_V3"
+    },
+    {
+      "event": "reject",
+      "label": "PUMP_V4_type_change"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\ai automation\ai-building-automation\phase0\s3\engine\test_engine.py", line 173, in <module>
+    sys.exit(run_to_file(sys.argv[2]))
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Documents\ai automation\ai-building-automation\phase0\s3\engine\test_engine.py", line 155, in run_to_file
+    names = sorted(t.id().split(".", 1)[1] for t in _iter(suite))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Documents\ai automation\ai-building-automation\phase0\s3\engine\test_engine.py", line 155, in <genexpr>
+    names = sorted(t.id().split(".", 1)[1] for t in _iter(suite))
+                   ^^^^
+AttributeError: 'NoneType' object has no attribute 'id'

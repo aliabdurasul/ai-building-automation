@@ -1,0 +1,40 @@
+=== verify open start ===
+Opened: C:\AI_BMS_PHASE0\s1\run2\codesys\AI_BMS_AHU_DEMO.project
+DECL_LEN=350 IMPL_LEN=454
+DECL:
+PROGRAM PLC_PRG
+VAR
+(* Deterministic demo for AHU-01 *)
+StartCommand : BOOL := FALSE;
+StopCommand : BOOL := FALSE;
+FanCommand : BOOL := FALSE;
+FanRunning : BOOL := FALSE;
+FanFault : BOOL := FALSE;
+SupplyTemp : REAL := 21.0;
+Setpoint : REAL := 22.0;
+FanSpeed : REAL := 50.0;
+HeatingValve : REAL := 0.0;
+END_VAR
+IMPL:
+(* FAN START *)
+IF StartCommand = TRUE AND FanFault = FALSE THEN
+FanCommand := TRUE;
+FanRunning := TRUE;
+END_IF;
+(* FAN STOP *)
+IF StopCommand = TRUE THEN
+FanCommand := FALSE;
+FanRunning := FALSE;
+END_IF;
+(* FAN FAULT *)
+IF FanFault = TRUE THEN
+FanCommand := FALSE;
+FanRunning := FALSE;
+END_IF;
+(* HEATING - simple demo, not PID *)
+IF SupplyTemp < Setpoint THEN
+HeatingValve := 100.0;
+ELSE
+HeatingValve := 0.0;
+END_IF;
+STATUS=OK all required symbols present

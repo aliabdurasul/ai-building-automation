@@ -1,0 +1,72 @@
+{
+  "step": "generate",
+  "profile": "ahu",
+  "model": "C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\model\\s3_model.json",
+  "model_sha256": "923e0b89f396efc0f928a306d319e8924b64720de98f7823b24164068a6448ec",
+  "artifacts": [
+    "C:\\AI_BMS_PHASE0\\s3\\dev4\\ahu\\generated\\PLC_PRG_decl.st",
+    "C:\\AI_BMS_PHASE0\\s3\\dev4\\ahu\\generated\\PLC_PRG_impl.st",
+    "C:\\AI_BMS_PHASE0\\s3\\dev4\\ahu\\generated\\PLC_PRG.st",
+    "C:\\AI_BMS_PHASE0\\s3\\dev4\\ahu\\engineering\\allocation.json",
+    "C:\\AI_BMS_PHASE0\\s3\\dev4\\ahu\\engineering\\modbus_mapping.json",
+    "C:\\AI_BMS_PHASE0\\s3\\dev4\\ahu\\engineering\\codesys_plan.json"
+  ],
+  "allocation": [
+    {
+      "tag": "Command",
+      "datatype": "WORD",
+      "direction": "WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 0,
+      "length": 1,
+      "allocation": "pinned"
+    },
+    {
+      "tag": "Setpoint",
+      "datatype": "REAL32",
+      "direction": "READ_WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 1,
+      "length": 2,
+      "allocation": "auto"
+    },
+    {
+      "tag": "Status",
+      "datatype": "WORD",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "length": 1,
+      "allocation": "pinned"
+    },
+    {
+      "tag": "FanSpeed",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 1,
+      "length": 2,
+      "allocation": "auto"
+    },
+    {
+      "tag": "HeatingValve",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 3,
+      "length": 2,
+      "allocation": "auto"
+    },
+    {
+      "tag": "SupplyTemp",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "length": 2,
+      "allocation": "auto"
+    }
+  ],
+  "operation_status": "PASS",
+  "reason": "validated, allocated, ST + mapping + codesys plan generated"
+}

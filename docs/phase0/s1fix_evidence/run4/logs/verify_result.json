@@ -1,0 +1,121 @@
+{
+  "plc_prg_impl": "(* MODBUS IN: HR0 Command word -> commands *)\nStartCommand := Mb_Command.0;\nStopCommand := Mb_Command.1;\n\n(* FAN START *)\nIF StartCommand = TRUE AND FanFault = FALSE THEN\n    FanCommand := TRUE;\n    FanRunning := TRUE;\nEND_IF;\n\n(* FAN STOP *)\nIF StopCommand = TRUE THEN\n    FanCommand := FALSE;\n    FanRunning := FALSE;\nEND_IF;\n\n(* FAN FAULT *)\nIF FanFault = TRUE THEN\n    FanCommand := FALSE;\n    FanRunning := FALSE;\nEND_IF;\n\n(* HEATING - simple demo, not PID *)\nIF SupplyTemp < Setpoint THEN\n    HeatingValve := 100.0;\nELSE\n    HeatingValve := 0.0;\nEND_IF;\n\n(* MODBUS OUT: status -> IR0 Status word *)\nMb_Status := 0;\nMb_Status.0 := FanCommand;\nMb_Status.1 := FanRunning;\nMb_Status.2 := FanFault;", 
+  "reason": "all checks passed", 
+  "server_parameters": {
+    "Port": {
+      "expected": "502", 
+      "ok": true, 
+      "actual": "502"
+    }
+  }, 
+  "checks": {
+    "plc_prg_matches_generator": true, 
+    "server_parameters": true, 
+    "device_tree": true, 
+    "io_mappings": true, 
+    "rebuild_0_errors": true, 
+    "rebuild_0_warnings": true, 
+    "required_variables": true
+  }, 
+  "io_mappings": [
+    {
+      "channel_identifier": "1000_0_0_0", 
+      "expected": "Application.PLC_PRG.Mb_Command", 
+      "word_index": 0, 
+      "ok": true, 
+      "actual": "Application.PLC_PRG.Mb_Command", 
+      "parameter": "Holding Registers", 
+      "iec_address_is_automatic": "True"
+    }, 
+    {
+      "channel_identifier": "2000_0_0_0", 
+      "expected": "Application.PLC_PRG.Mb_Status", 
+      "word_index": 0, 
+      "ok": true, 
+      "actual": "Application.PLC_PRG.Mb_Status", 
+      "parameter": "Input Registers", 
+      "iec_address_is_automatic": "True"
+    }
+  ], 
+  "step": "codesys_verify", 
+  "operation_status": "PASS", 
+  "device_tree": [
+    {
+      "is_device": false, 
+      "depth": 0, 
+      "name": "Project Settings"
+    }, 
+    {
+      "is_device": true, 
+      "depth": 0, 
+      "type": 4096, 
+      "name": "Device", 
+      "version": "3.5.22.30", 
+      "id": "0000 0004"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 1, 
+      "name": "Plc Logic"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 2, 
+      "name": "Application"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 3, 
+      "name": "Library Manager"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 3, 
+      "name": "Task Configuration"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 4, 
+      "name": "MainTask"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 5, 
+      "name": "PLC_PRG"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 3, 
+      "name": "PLC_PRG"
+    }, 
+    {
+      "is_device": true, 
+      "depth": 1, 
+      "type": 110, 
+      "name": "Ethernet", 
+      "version": "4.2.0.0", 
+      "id": "0000 0002"
+    }, 
+    {
+      "is_device": true, 
+      "depth": 2, 
+      "type": 115, 
+      "name": "Modbus_TCP_Server", 
+      "version": "4.6.0.0", 
+      "id": "0000 0002"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 0, 
+      "name": "__VisualizationStyle"
+    }
+  ], 
+  "missing_variables": [], 
+  "plc_prg_decl": "PROGRAM PLC_PRG\nVAR\n    (* Deterministic demo for AHU-01 *)\n    StartCommand : BOOL := FALSE;\n    StopCommand : BOOL := FALSE;\n    FanCommand : BOOL := FALSE;\n    FanRunning : BOOL := FALSE;\n    FanFault : BOOL := FALSE;\n    SupplyTemp : REAL := 21.0;\n    Setpoint : REAL := 22.0;\n    FanSpeed : REAL := 50.0;\n    HeatingValve : REAL := 0.0;\n    (* Modbus TCP image (16-bit words, mapped to Modbus_TCP_Server I/O) *)\n    Mb_Command : WORD; (* HR0 Command: bit0=StartCommand, bit1=StopCommand *)\n    Mb_Status : WORD; (* IR0 Status: bit0=FanCommand, bit1=FanRunning, bit2=FanFault *)\nEND_VAR", 
+  "rebuild": {
+    "warnings": 0, 
+    "errors": 0
+  }, 
+  "exit_code_intended": 0, 
+  "project": "C:\\AI_BMS_PHASE0\\s1fix\\run4\\generated\\AI_BMS_AHU_DEMO.project"
+}

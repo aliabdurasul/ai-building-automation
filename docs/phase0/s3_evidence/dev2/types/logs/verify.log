@@ -1,0 +1,35 @@
+Project Settings
+Device [4096 0000 0004 3.5.22.30]
+  Plc Logic
+    Application
+      Library Manager
+      Task Configuration
+        MainTask
+          PLC_PRG
+      PLC_PRG
+  Ethernet [110 0000 0002 4.2.0.0]
+    Modbus_TCP_Server [115 0000 0002 4.6.0.0]
+__VisualizationStyle
+CHECK device Ethernet under Device: True
+CHECK device Modbus_TCP_Server under Ethernet: True
+CHECK server Port expected=502 actual=502
+CHECK server DistinctBitAreas expected=FALSE actual=FALSE
+CHECK channels Holding Registers expected=10 actual=10
+CHECK channels Input Registers expected=10 actual=10
+CHECK map Holding Registers[0] (1000_0_0_0) -> Application.PLC_PRG.Mb_Command: True
+CHECK map Holding Registers[1] (1000_1_0_0) -> Application.PLC_PRG.Mb_TestInt16Write: True
+CHECK map Holding Registers[2] (1000_2_0_0) -> Application.PLC_PRG.Mb_TestReal32Write_W0: True
+CHECK map Holding Registers[3] (1000_3_0_0) -> Application.PLC_PRG.Mb_TestReal32Write_W1: True
+CHECK map Holding Registers[4] (1000_4_0_0) -> Application.PLC_PRG.Mb_TestUInt16Write: True
+CHECK map Holding Registers[5] (1000_5_0_0) -> Application.PLC_PRG.TestWordWrite: True
+CHECK map Input Registers[0] (2000_0_0_0) -> Application.PLC_PRG.Mb_Status: True
+CHECK map Input Registers[1] (2000_1_0_0) -> Application.PLC_PRG.Mb_TestInt16Read: True
+CHECK map Input Registers[2] (2000_2_0_0) -> Application.PLC_PRG.Mb_TestReal32Read_W0: True
+CHECK map Input Registers[3] (2000_3_0_0) -> Application.PLC_PRG.Mb_TestReal32Read_W1: True
+CHECK map Input Registers[4] (2000_4_0_0) -> Application.PLC_PRG.Mb_TestUInt16Read: True
+CHECK map Input Registers[5] (2000_5_0_0) -> Application.PLC_PRG.TestWordRead: True
+CHECK map Holding Registers[9].8 (1000_9_0_0_8) -> Application.PLC_PRG.TestCoil: True
+CHECK map Input Registers[9].8 (2000_9_0_0_8) -> Application.PLC_PRG.TestDiscreteInput: True
+CHECK PLC_PRG == generator: True; missing vars: []
+CHECK rebuild errors=0 warnings=0
+OPERATION_STATUS=PASS

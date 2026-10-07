@@ -1,0 +1,88 @@
+{
+  "tests": [
+    {
+      "id": "01",
+      "test": "MasterSCADA connectivity",
+      "result": "PASS",
+      "evidence": "connectivity.json"
+    },
+    {
+      "id": "02",
+      "test": "START E2E",
+      "result": "PASS",
+      "evidence": "s81_runtime_events.jsonl"
+    },
+    {
+      "id": "03",
+      "test": "STOP E2E",
+      "result": "PASS",
+      "evidence": "s81_runtime_events.jsonl"
+    },
+    {
+      "id": "04",
+      "test": "FAULT feedback",
+      "result": "BLOCKED",
+      "evidence": "fault_master_scada.json"
+    },
+    {
+      "id": "05",
+      "test": "FAULT recovery",
+      "result": "BLOCKED",
+      "evidence": "fault_master_scada.json"
+    },
+    {
+      "id": "06",
+      "test": "REAL32 read \u2014 SupplyTemp",
+      "result": "PASS",
+      "evidence": "analog_master_scada.json"
+    },
+    {
+      "id": "07",
+      "test": "REAL32 second value",
+      "result": "PASS",
+      "evidence": "analog_master_scada.json"
+    },
+    {
+      "id": "08",
+      "test": "CODESYS \u2194 Modbus \u2194 MasterSCADA comparison",
+      "result": "PARTIAL",
+      "evidence": "analog_master_scada.json; fault_master_scada.json"
+    },
+    {
+      "id": "09",
+      "test": "Operator HMI START",
+      "result": "PASS",
+      "evidence": "operator_hmi.json"
+    },
+    {
+      "id": "10",
+      "test": "Operator HMI STOP",
+      "result": "PASS",
+      "evidence": "operator_hmi.json"
+    },
+    {
+      "id": "11",
+      "test": "Operator HMI RUNNING",
+      "result": "PASS",
+      "evidence": "operator_hmi.json"
+    },
+    {
+      "id": "12",
+      "test": "Operator HMI STOPPED",
+      "result": "PASS",
+      "evidence": "operator_hmi.json"
+    },
+    {
+      "id": "13",
+      "test": "Operator HMI FAULT",
+      "result": "BLOCKED",
+      "evidence": "operator_hmi.json; fault_master_scada.json"
+    }
+  ],
+  "counts": {
+    "PASS": 9,
+    "BLOCKED": 3,
+    "PARTIAL": 1
+  },
+  "overall_hint": "PARTIAL if any BLOCKED/NOT VERIFIED on required FAULT/REAL32/HMI"
+}

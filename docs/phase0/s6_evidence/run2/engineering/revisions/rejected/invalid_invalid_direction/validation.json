@@ -1,0 +1,19 @@
+{
+  "schema": "ai_bms.revision_validation.v1",
+  "project_id": "AHU-DEMO",
+  "revision": 3,
+  "parent_revision": 2,
+  "status": "REJECTED",
+  "stages": {
+    "canonical": "PASS",
+    "model_rules": "FAILED"
+  },
+  "errors": [
+    {
+      "code": "MODEL_RULE",
+      "message": "ReturnTemp: missing/unsupported direction 'BIDIRECTIONAL'"
+    }
+  ],
+  "model_sha256": "06e4ce5d9f0866b33867ce4c65e21cd3da97115331f2e8f65260d20901b942d4",
+  "target_sha256": "aac7532c3971e50866be0b6f67c82d639525bf4803e8f18373691cfc2af5aa77"
+}

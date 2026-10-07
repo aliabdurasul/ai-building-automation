@@ -1,0 +1,302 @@
+mode=modbus time=2026-10-06T17:56:59.6621650+03:00
+IUIService registered: InSAT.Framework.TestBase.UIServiceForTests
+TimedTrace not found
+TypesManager.ConfigName=MasterPLC ConfigPath=C:\Program Files\MPSSoft\MasterSCADA 4D 1.2\bin\..\Configs\MasterPLC
+OpenProject OK: AHU_S81 root=MasterSCADA.HMI.RootItem
+STEP A: AddItem subcommands on System:
+    CMD on 'System': display='ЂђЊ' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.Standard.Nodes.ЂђЊ); DisplayNameFormat=null; }
+    CMD on 'System': display='Љ®­ва®««Ґа' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.Standard.Nodes.Љ®­ва®««Ґа); DisplayNameFormat=null; }
+    CMD on 'System': display='Џ ­Ґ«м ®ЇҐа в®а ' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.Standard.Nodes.Џ ­Ґ«м ®ЇҐа в®а ); DisplayNameFormat=null; }
+    CMD on 'System': display='‘ҐаўҐа' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.Standard.Nodes.‘ҐаўҐа); DisplayNameFormat=null; }
+    CMD on 'System': display='ЋЎ« з­л© бҐаўЁб' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.Standard.Nodes.ЋЎ« з­л© бҐаўЁб); DisplayNameFormat=null; }
+    CMD on 'System': display='PLC110_30' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.OWEN.Nodes.PLC110_30); DisplayNameFormat=null; }
+    CMD on 'System': display='PLC110_60' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.OWEN.Nodes.PLC110_60); DisplayNameFormat=null; }
+    CMD on 'System': display='PLC210_01' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.OWEN.Nodes.PLC210_01); DisplayNameFormat=null; }
+    CMD on 'System': display='PLC210_02' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.OWEN.Nodes.PLC210_02); DisplayNameFormat=null; }
+    CMD on 'System': display='PLC210_03' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.OWEN.Nodes.PLC210_03); DisplayNameFormat=null; }
+    CMD on 'System': display='WinPAC8000' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.ICP DAS.Nodes.WinPAC8000); DisplayNameFormat=null; }
+    CMD on 'System': display='WinPAC5000' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.ICP DAS.Nodes.WinPAC5000); DisplayNameFormat=null; }
+    CMD on 'System': display='XPAC8000' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.ICP DAS.Nodes.XPAC8000); DisplayNameFormat=null; }
+    CMD on 'System': display='LinPAC8000' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.ICP DAS.Nodes.LinPAC8000); DisplayNameFormat=null; }
+    CMD on 'System': display='WinPAC9000' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.ICP DAS.Nodes.WinPAC9000); DisplayNameFormat=null; }
+  EXEC 'workstation' via AddItem subcommand display='ЂђЊ' name=InsertInheratedCopy param=InsertCommand{ItemDef=Controller; Source=Item(Libraries.Standard.Nodes.ЂђЊ); DisplayNameFormat=null; }
+  -> created System.ЂђЊ 1 type=MasterSCADA.System.Controller sub=WIN32
+  - [ЂђЊ 1] 'ЂђЊ 1' type=MasterSCADA.System.Controller sub=WIN32
+    - [GroupHMI] 'Graphic user interface' type=MasterSCADA.System.VisualizationGroup
+    - [Settings] 'Settings' type=Item
+    - [Protocols] 'Services' type=Item
+    - [Archives] 'Archives' type=Item
+    - [Tasks] 'Tasks' type=MasterSCADA.Tasks
+    - [ExtAccessChannelsMap] 'External channels' type=MasterSCADA.System.ChannelsMap sub=ExternalChannels
+    - [IOPorts] 'IO Protocols' type=MasterSCADA.System.IOPorts
+STEP B: find protocol host under workstation
+  EXEC 'Modbus TCP protocol' via AddItem subcommand display='Modbus TCP' name=InsertInheratedCopy param=InsertCommand{ItemDef=Protocol; Source=Item(Libraries.Standard.Protocols.Modbus TCP); DisplayNameFormat=null; }
+  -> created System.ЂђЊ 1.IO Protocols.Modbus TCP type=MasterSCADA.System.Protocol sub=ModbusTCPMaster
+    SETTING id=0 ref=DataArchiveRef name='Data archive' value=
+    SETTING id=0 ref=EventsArchiveRef name='ЂаеЁў б®®ЎйҐ­Ё©' value=
+    SETTING id=1 ref=’ ©¬ гв name='’ ©¬ гв' value=1000
+    SETTING id=6 ref=Љ®«ЁзҐбвў® Ї®ўв®а®ў ЇаЁ ­Ґг¤ з­®¬ ®Їа®бҐ name='Љ®«ЁзҐбвў® Ї®ўв®а®ў ЇаЁ ­Ґг¤ з­®¬ ®Їа®бҐ' value=1
+    SETTING id=16 ref=Modbus Ї®ўҐае TCP name='Modbus Ї®ўҐае TCP' value=False
+STEP C: module under protocol; candidates:
+    CMD on 'Modbus TCP': display='Remote I/O Ћ‚…Ќ Modbus TCP' name=ItemsManagement.InsertFromList param=ChildItemDef{_childItems=System.Collections.Generic.List`1[InSAT.Framework.Core.Services.Item.ItemsManagement.ChildItemDef]; _properties=null; _displayNameNumberBase=InSAT.Framework.Core.Services.Item.ConstItemValueProvider; ItemType=Remote I/O; DefId=0; DefRule=None; RefName=null; DisplayName=null; NeutralDisplayName=null; _menuDisplayName=null; _menuGroupDisplayName=null; DisplayNameScopePath=null; MinCount=null; MaxCount=null; InitialCount=null; CheckCondition=null; FixedCount=False; Rules=0; ConditionOrder=0; Browsable=True; SiblingOrder=0; _inheritable=Undefined; SetLinkDefs=null; InsertFromList=InSAT.Framework.Core.Services.Item.ItemsManagement.ChildItemDef+InsertFromListDef; <Condition>k__BackingField=null; MenuName=null; InheritRules=null; _displayNameFormat=null; _parent=Element; NeedAddTypeItems=False; _inited=True; AutoCreatedLevel=0; _isNonRootTrigger=False; _hasInsertBySourceTigger=False; _initProps=null; }
+    CMD on 'Modbus TCP': display='Remote I/O Ѓ §®ўлҐ гбва®©бвў ' name=ItemsManagement.InsertFromList param=ChildItemDef{_childItems=System.Collections.Generic.List`1[InSAT.Framework.Core.Services.Item.ItemsManagement.ChildItemDef]; _properties=null; _displayNameNumberBase=InSAT.Framework.Core.Services.Item.ConstItemValueProvider; ItemType=Remote I/O; DefId=0; DefRule=None; RefName=null; DisplayName=null; NeutralDisplayName=null; _menuDisplayName=null; _menuGroupDisplayName=null; DisplayNameScopePath=null; MinCount=null; MaxCount=null; InitialCount=null; CheckCondition=null; FixedCount=False; Rules=0; ConditionOrder=0; Browsable=True; SiblingOrder=0; _inheritable=Undefined; SetLinkDefs=null; InsertFromList=InSAT.Framework.Core.Services.Item.ItemsManagement.ChildItemDef+InsertFromListDef; <Condition>k__BackingField=null; MenuName=null; InheritRules=null; _displayNameFormat=null; _parent=Element; NeedAddTypeItems=False; _inited=True; AutoCreatedLevel=0; _isNonRootTrigger=False; _hasInsertBySourceTigger=False; _initProps=null; }
+    CMD on 'Modbus TCP': display='Remote I/O ET-7000' name=ItemsManagement.InsertFromList param=ChildItemDef{_childItems=System.Collections.Generic.List`1[InSAT.Framework.Core.Services.Item.ItemsManagement.ChildItemDef]; _properties=null; _displayNameNumberBase=InSAT.Framework.Core.Services.Item.ConstItemValueProvider; ItemType=Remote I/O; DefId=0; DefRule=None; RefName=null; DisplayName=null; NeutralDisplayName=null; _menuDisplayName=null; _menuGroupDisplayName=null; DisplayNameScopePath=null; MinCount=null; MaxCount=null; InitialCount=null; CheckCondition=null; FixedCount=False; Rules=0; ConditionOrder=0; Browsable=True; SiblingOrder=0; _inheritable=Undefined; SetLinkDefs=null; InsertFromList=InSAT.Framework.Core.Services.Item.ItemsManagement.ChildItemDef+InsertFromListDef; <Condition>k__BackingField=null; MenuName=null; InheritRules=null; _displayNameFormat=null; _parent=Element; NeedAddTypeItems=False; _inited=True; AutoCreatedLevel=0; _isNonRootTrigger=False; _hasInsertBySourceTigger=False; _initProps=null; }
+    CMD on 'Modbus TCP': display='Remote I/O tET Series' name=ItemsManagement.InsertFromList param=ChildItemDef{_childItems=System.Collections.Generic.List`1[InSAT.Framework.Core.Services.Item.ItemsManagement.ChildItemDef]; _properties=null; _displayNameNumberBase=InSAT.Framework.Core.Services.Item.ConstItemValueProvider; ItemType=Remote I/O; DefId=0; DefRule=None; RefName=null; DisplayName=null; NeutralDisplayName=null; _menuDisplayName=null; _menuGroupDisplayName=null; DisplayNameScopePath=null; MinCount=null; MaxCount=null; InitialCount=null; CheckCondition=null; FixedCount=False; Rules=0; ConditionOrder=0; Browsable=True; SiblingOrder=0; _inheritable=Undefined; SetLinkDefs=null; InsertFromList=InSAT.Framework.Core.Services.Item.ItemsManagement.ChildItemDef+InsertFromListDef; <Condition>k__BackingField=null; MenuName=null; InheritRules=null; _displayNameFormat=null; _parent=Element; NeedAddTypeItems=False; _inited=True; AutoCreatedLevel=0; _isNonRootTrigger=False; _hasInsertBySourceTigger=False; _initProps=null; }
+    CMD on 'Modbus TCP': display='Programs' name=AddItem param=<null>
+    CMD on 'Modbus TCP': display='Њ®¤г«м Modbus TCP' name=InsertInheratedCopy param=InsertCommand{ItemDef=Remote I/O; Source=Item(Libraries.Standard.Remote I/O.Modbus.Њ®¤г«м Modbus TCP); DisplayNameFormat=null; }
+    CMD on 'Modbus TCP': display='Folder' name=AddItem param=ChildItemDef{_childItems=System.Collections.Generic.List`1[InSAT.Framework.Core.Services.Item.ItemsManagement.ChildItemDef]; _properties=null; _displayNameNumberBase=InSAT.Framework.Core.Services.Item.ConstItemValueProvider; ItemType=Folder; DefId=0; DefRule=None; RefName=null; DisplayName=Folder; NeutralDisplayName=Џ ЇЄ ; _menuDisplayName=null; _menuGroupDisplayName=null; DisplayNameScopePath=null; MinCount=null; MaxCount=null; InitialCount=null; CheckCondition=null; FixedCount=False; Rules=0; ConditionOrder=0; Browsable=True; SiblingOrder=0; _inheritable=Undefined; SetLinkDefs=null; InsertFromList=null; <Condition>k__BackingField=null; MenuName=null; InheritRules=null; _displayNameFormat={DisplayName} {Number}; _parent=Element; NeedAddTypeItems=False; _inited=True; AutoCreatedLevel=0; _isNonRootTrigger=False; _hasInsertBySourceTigger=False; _initProps=null; }
+    CMD on 'Modbus TCP': display='Window' name=AddItem param=ChildItemDef{_childItems=System.Collections.Generic.List`1[InSAT.Framework.Core.Services.Item.ItemsManagement.ChildItemDef]; _properties=null; _displayNameNumberBase=InSAT.Framework.Core.Services.Item.ConstItemValueProvider; ItemType=Window; DefId=0; DefRule=None; RefName=null; DisplayName=null; NeutralDisplayName=null; _menuDisplayName=null; _menuGroupDisplayName=null; DisplayNameScopePath=null; MinCount=null; MaxCount=null; InitialCount=null; CheckCondition=null; FixedCount=False; Rules=0; ConditionOrder=0; Browsable=True; SiblingOrder=0; _inheritable=Undefined; SetLinkDefs=null; InsertFromList=null; <Condition>k__BackingField=InSAT.Framework.Core.Services.Item.ItemsManagement.Triggers.MultiTrigger; MenuName=null; InheritRules=null; _displayNameFormat=null; _parent=Windows; NeedAddTypeItems=False; _inited=False; AutoCreatedLevel=2; _isNonRootTrigger=False; _hasInsertBySourceTigger=False; _initProps=null; }
+    CMD on 'Modbus TCP': display='Event Alarm' name=InsertInheratedCopy param=InsertCommand{ItemDef=Event; Source=Item(Libraries.Standard.Events.Alarm); DisplayNameFormat=null; }
+    CMD on 'Modbus TCP': display='ЋвзҐв' name=AddItem param=ChildItemDef{_childItems=System.Collections.Generic.List`1[InSAT.Framework.Core.Services.Item.ItemsManagement.ChildItemDef]; _properties=null; _displayNameNumberBase=InSAT.Framework.Core.Services.Item.ConstItemValueProvider; ItemType=ЋвзҐв; DefId=0; DefRule=None; RefName=null; DisplayName=null; NeutralDisplayName=null; _menuDisplayName=null; _menuGroupDisplayName=null; DisplayNameScopePath=null; MinCount=null; MaxCount=null; InitialCount=null; CheckCondition=null; FixedCount=False; Rules=0; ConditionOrder=0; Browsable=True; SiblingOrder=0; _inheritable=Undefined; SetLinkDefs=null; InsertFromList=null; <Condition>k__BackingField=null; MenuName=null; InheritRules=null; _displayNameFormat=null; _parent=ЋвзҐвл; NeedAddTypeItems=False; _inited=False; AutoCreatedLevel=2; _isNonRootTrigger=False; _hasInsertBySourceTigger=False; _initProps=null; }
+  EXEC 'Modbus TCP module' via AddItem subcommand display='Њ®¤г«м Modbus TCP' name=InsertInheratedCopy param=InsertCommand{ItemDef=Remote I/O; Source=Item(Libraries.Standard.Remote I/O.Modbus.Њ®¤г«м Modbus TCP); DisplayNameFormat=null; }
+  -> created System.ЂђЊ 1.IO Protocols.Modbus TCP.Њ®¤г«м Modbus TCP 1 type=MasterSCADA.System.IOModule sub=Modbus_TCP
+  module settings before:
+    SETTING id=20 ref=IP  ¤аҐб name='IP  ¤аҐб' value=0.0.0.0
+    SETTING id=21 ref=TCP Ї®ав name='TCP Ї®ав' value=502
+    SETTING id=2 ref=Ђ¤аҐб гбва®©бвў  name='Ђ¤аҐб гбва®©бвў ' value=1
+    SETTING id=1 ref=’ ©¬ гв name='’ ©¬ гв' value=
+    SETTING id=3 ref=Њ ЄбЁ¬ «м­л© Ё­вҐаў « ­ҐЁбЇ®«м§гҐ¬ле  ¤аҐб®ў name='Њ ЄбЁ¬ «м­л© Ё­вҐаў « ­ҐЁбЇ®«м§гҐ¬ле  ¤аҐб®ў' value=
+    SETTING id=4 ref=Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў ўҐйҐбвўҐ­­ле name='Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў ўҐйҐбвўҐ­­ле' value=2
+    SETTING id=5 ref=Њ ЄбЁ¬ «м­л© а §¬Ґа ¬ ббЁў  name='Њ ЄбЁ¬ «м­л© а §¬Ґа ¬ ббЁў ' value=125
+    SETTING id=6 ref=Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў жҐ«ле name='Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў жҐ«ле' value=2
+    SETTING id=7 ref=€бЇ®«м§®ў вм ЈагЇЇ®ўлҐ § Їа®бл name='€бЇ®«м§®ў вм ЈагЇЇ®ўлҐ § Їа®бл' value=False
+    SETTING id=9 ref=Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў ўҐйҐбвўҐ­­ле  (8 Ў ©в) name='Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў ўҐйҐбвўҐ­­ле  (8 Ў ©в)' value=2
+    SetSettingValue(Њ®¤г«м Modbus TCP 1, 20, 127.0.0.1) -> IP  ¤аҐб
+    SetSettingValue(Њ®¤г«м Modbus TCP 1, 21, 502) -> TCP Ї®ав
+    SetSettingValue(Њ®¤г«м Modbus TCP 1, 2, 1) -> Ђ¤аҐб гбва®©бвў 
+  module settings after:
+    SETTING id=20 ref=IP  ¤аҐб name='IP  ¤аҐб' value=127.0.0.1
+    SETTING id=21 ref=TCP Ї®ав name='TCP Ї®ав' value=502
+    SETTING id=2 ref=Ђ¤аҐб гбва®©бвў  name='Ђ¤аҐб гбва®©бвў ' value=1
+    SETTING id=1 ref=’ ©¬ гв name='’ ©¬ гв' value=
+    SETTING id=3 ref=Њ ЄбЁ¬ «м­л© Ё­вҐаў « ­ҐЁбЇ®«м§гҐ¬ле  ¤аҐб®ў name='Њ ЄбЁ¬ «м­л© Ё­вҐаў « ­ҐЁбЇ®«м§гҐ¬ле  ¤аҐб®ў' value=
+    SETTING id=4 ref=Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў ўҐйҐбвўҐ­­ле name='Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў ўҐйҐбвўҐ­­ле' value=2
+    SETTING id=5 ref=Њ ЄбЁ¬ «м­л© а §¬Ґа ¬ ббЁў  name='Њ ЄбЁ¬ «м­л© а §¬Ґа ¬ ббЁў ' value=125
+    SETTING id=6 ref=Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў жҐ«ле name='Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў жҐ«ле' value=2
+    SETTING id=7 ref=€бЇ®«м§®ў вм ЈагЇЇ®ўлҐ § Їа®бл name='€бЇ®«м§®ў вм ЈагЇЇ®ўлҐ § Їа®бл' value=False
+    SETTING id=9 ref=Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў ўҐйҐбвўҐ­­ле  (8 Ў ©в) name='Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў ўҐйҐбвўҐ­­ле  (8 Ў ©в)' value=2
+STEP D: channels
+  channel System.ЂђЊ 1.IO Protocols.Modbus TCP.Њ®¤г«м Modbus TCP 1.FanCommand type=MasterSCADA.System.Channel
+    SetSettingValue(FanCommand, 12, ђҐЈЁбва•а ­Ґ­Ёп) -> ’ЁЇ пзҐ©ЄЁ
+    SetSettingValue(FanCommand, 10, 0) -> Ђ¤аҐб пзҐ©ЄЁ
+    SetSettingValue(FanCommand, 11, –Ґ«л©) -> ’ЁЇ §­ зҐ­Ёп
+    (resolved InSAT.Framework.MasterSCADA.Common.AccessTypes -> MasterSCADA.Types.AccessTypes in MasterSCADA.Scheme)
+    AccessType=Output ParamType=ђҐЈЁбва•а ­Ґ­Ёп ValueType=–Ґ«л© Address=0
+    systemParamType=SYSTEM_INT_PARAM
+    pin Output linked to SYSTEM_INT_PARAM
+  channel System.ЂђЊ 1.IO Protocols.Modbus TCP.Њ®¤г«м Modbus TCP 1.FanStatus type=MasterSCADA.System.Channel
+    SetSettingValue(FanStatus, 12, ‚е®¤­®©ђҐЈЁбва) -> ’ЁЇ пзҐ©ЄЁ
+    SetSettingValue(FanStatus, 10, 0) -> Ђ¤аҐб пзҐ©ЄЁ
+    SetSettingValue(FanStatus, 11, –Ґ«л©) -> ’ЁЇ §­ зҐ­Ёп
+    (resolved InSAT.Framework.MasterSCADA.Common.AccessTypes -> MasterSCADA.Types.AccessTypes in MasterSCADA.Scheme)
+    AccessType=Input ParamType=‚е®¤­®©ђҐЈЁбва ValueType=–Ґ«л© Address=0
+    systemParamType=SYSTEM_INT_PARAM
+    pin Input linked to SYSTEM_INT_PARAM
+STEP D2: S8.1 REAL32 channels (SupplyTemp IR5, FanSpeed IR1)
+  module float byte-order setting id=4 current=2
+  channel System.ЂђЊ 1.IO Protocols.Modbus TCP.Њ®¤г«м Modbus TCP 1.SupplyTemp type=MasterSCADA.System.Channel
+    SetSettingValue(SupplyTemp, 12, ‚е®¤­®©ђҐЈЁбва) -> ’ЁЇ пзҐ©ЄЁ
+    SetSettingValue(SupplyTemp, 10, 5) -> Ђ¤аҐб пзҐ©ЄЁ
+    SetSettingValue(SupplyTemp, 11, ‚ҐйҐбвўҐ­­л©) -> ’ЁЇ §­ зҐ­Ёп
+    (resolved InSAT.Framework.MasterSCADA.Common.AccessTypes -> MasterSCADA.Types.AccessTypes in MasterSCADA.Scheme)
+    AccessType=Input ParamType=‚е®¤­®©ђҐЈЁбва ValueType=‚ҐйҐбвўҐ­­л© Address=5
+    systemParamType=SYSTEM_REAL_PARAM
+    pin Input linked to SYSTEM_REAL_PARAM
+  channel System.ЂђЊ 1.IO Protocols.Modbus TCP.Њ®¤г«м Modbus TCP 1.FanSpeed type=MasterSCADA.System.Channel
+    SetSettingValue(FanSpeed, 12, ‚е®¤­®©ђҐЈЁбва) -> ’ЁЇ пзҐ©ЄЁ
+    SetSettingValue(FanSpeed, 10, 1) -> Ђ¤аҐб пзҐ©ЄЁ
+    SetSettingValue(FanSpeed, 11, ‚ҐйҐбвўҐ­­л©) -> ’ЁЇ §­ зҐ­Ёп
+    (resolved InSAT.Framework.MasterSCADA.Common.AccessTypes -> MasterSCADA.Types.AccessTypes in MasterSCADA.Scheme)
+    AccessType=Input ParamType=‚е®¤­®©ђҐЈЁбва ValueType=‚ҐйҐбвўҐ­­л© Address=1
+    systemParamType=SYSTEM_REAL_PARAM
+    pin Input linked to SYSTEM_REAL_PARAM
+STEP E: save
+SaveProject OK
+  - [ЂђЊ 1] 'ЂђЊ 1' type=MasterSCADA.System.Controller sub=WIN32
+    - [GroupHMI] 'Graphic user interface' type=MasterSCADA.System.VisualizationGroup
+      - [Mnemoschemes] 'Windows' type=MasterSCADA.View.ViewDeclarationInObjects
+      - [MainScreen] 'Screen template' type=MasterSCADA.View.Screen
+        - [Parameters] 'Parameters' type=MasterSCADA.View.ScreenParameters
+          - [Designer.Layout.Width] 'Width' type=MasterSCADA.View.Param sub=Width
+          - [Designer.Layout.Height] 'Height' type=MasterSCADA.View.Param sub=Height
+          - [Designer.Element.BorderThickness] 'Frame thickness' type=MasterSCADA.View.Param sub=BorderThickness
+          - [Designer.Element.Stroke] 'Frame color' type=MasterSCADA.View.Param sub=BorderColor
+          - [Designer.Element.Fill] 'Background fill' type=MasterSCADA.View.Param sub=BackgroundColor
+          - [Designer.Element.Opacity] 'Transparency' type=MasterSCADA.View.Param sub=Opacity
+          - [Designer.Element.BorderStyle] 'Frame style' type=MasterSCADA.View.Param sub=BorderStyle
+          - [Designer.Element.ToolTip] 'Tooltip' type=MasterSCADA.View.Param sub=ToolTip
+          - [ResourceRef] 'Background image' type=MasterSCADA.View.Param sub=Resource
+          - [BackgroundTile] 'Back tile' type=MasterSCADA.View.Param sub=BackgroundTile
+        - [Elements] 'Scheme' type=MasterSCADA.View.ScreenElements
+          - [MainStatus] 'Status bar' type=MasterSCADA.View.ViewPanelUsage sub=TaskBar
+            - [Declarations] 'Local' type=MasterSCADA.View.UsageLocalVars
+            - [Parameters] 'Parameters' type=MasterSCADA.View.PanelViewUsageParameters
+            - [Events] 'Events' type=MasterSCADA.View.UsageEvents
+            - [Elements] 'Scheme' type=MasterSCADA.View.Elements
+            - [UsageConnections] 'Connections' type=MasterSCADA.View.UsageConnections
+            - [Resources] 'Media' type=MasterSCADA.View.Resources
+            - [Triggers] 'Triggers' type=MasterSCADA.View.Triggers
+          - [MainContainer] 'Container of start window' type=MasterSCADA.View.ViewUsage sub=Frame
+            - [Parameters] 'Parameters' type=MasterSCADA.View.ViewUsageParameters
+            - [Events] 'Events' type=MasterSCADA.View.UsageEvents
+            - [Declarations] 'Local' type=MasterSCADA.View.UsageLocalVars
+            - [Resources] 'Media' type=MasterSCADA.View.UsageResources
+        - [Connections] 'Connections' type=MasterSCADA.View.Connections
+        - [Events] 'Events' type=MasterSCADA.View.Events
+        - [Resources] 'Media' type=MasterSCADA.View.Resources
+        - [Triggers] 'Triggers' type=MasterSCADA.View.Triggers
+      - [Resources] 'Media' type=MasterSCADA.View.Resources
+    - [Settings] 'Settings' type=Item
+      - [DataArchiveRef] 'ЂаеЁў ¤ ­­ле ў Ї ¬пвЁ' type=MasterSCADA.System.ArchiveRef
+    - [Protocols] 'Services' type=Item
+      - [‘®еа ­Ґ­ЁҐ б®бв®п­Ёп] '‘®еа ­Ґ­ЁҐ б®бв®п­Ёп' type=MasterSCADA.System.Protocol sub=SaveState
+        - [Settings] 'Settings' type=Item
+          - [DataArchiveRef] 'Data archive' type=MasterSCADA.System.ArchiveRef
+          - [EventsArchiveRef] 'ЂаеЁў б®®ЎйҐ­Ё©' type=MasterSCADA.System.EventsArchiveRef
+          - [RestartStorePlace] 'ЊҐбв® еа ­Ґ­Ёп ¤ ­­ле' type=MasterSCADA.System.Setting
+          - [DataActualityTimeout] '‚аҐ¬п  Євг «м­®бвЁ ¤ ­­ле' type=MasterSCADA.System.Setting
+        - [ChannelsSettings] 'Channel settings' type=MasterSCADA.System.ChannelSettings
+      - [EthernetUpperLevel] 'ЊҐ¦г§«®ў п бўп§м' type=MasterSCADA.System.Protocol sub=EthernetUpperLevel
+        - [Settings] 'Settings' type=Item
+          - [DataArchiveRef] 'Data archive' type=MasterSCADA.System.ArchiveRef
+          - [EventsArchiveRef] 'ЂаеЁў б®®ЎйҐ­Ё©' type=MasterSCADA.System.EventsArchiveRef
+          - [MainIPAddress] 'IP  ¤аҐб' type=MasterSCADA.System.Setting
+          - [AllowOPCUA] '„®бвгЇ Ї® OPC UA' type=MasterSCADA.System.Setting
+          - [Number] 'Ќ®¬Ґа нЄ§Ґ¬Ї«па  MPLC' type=MasterSCADA.System.Setting
+          - [TimeOut] '’ ©¬- гв (¬б)' type=MasterSCADA.System.Setting
+          - [OPCUAPort] 'Џ®ав ¤«п OPC UA' type=MasterSCADA.System.Setting
+          - [OPCUAUsername] '‹®ЈЁ­ ¤«п OPC UA' type=MasterSCADA.System.Setting
+          - [OPCUAPassword] 'Џ а®«м ¤«п OPC UA' type=MasterSCADA.System.Setting
+          - [OPCUAClientAddress] 'Ђ¤аҐб Є«ЁҐ­в  OPC UA' type=MasterSCADA.System.Setting
+          - [OPCUAUseStringNodeId] '€бЇ®«м§®ў вм бва®Є®ўлҐ NodeId ў OPC UA' type=MasterSCADA.System.Setting
+          - [RemoteArchivePeriod] 'ЏҐаЁ®¤ § Їа®б   аеЁў­ле ¤ ­­ле' type=MasterSCADA.System.Setting
+          - [OPCUAUseTranslitedNames] '€бЇ®«м§®ў вм Їа®Ја ¬¬­лҐ Ё¬Ґ­  ¤«п ЁҐа аеЁЁ ў OPC UA' type=MasterSCADA.System.Setting
+          - [ModbusTCPPort] 'Џ®ав ¤«п Modbus TCP' type=MasterSCADA.System.Setting
+          - [WebPort] 'Џ®ав ¤«п Web бҐаўҐа ' type=MasterSCADA.System.Setting
+          - [MaxUdpPacket] 'Њ ЄбЁ¬ «м­л© а §¬Ґа UDP Ї ЄҐв ' type=MasterSCADA.System.Setting
+          - [AutoStartPLC] 'Ђўв®§ ЇгбЄ ЁбЇ®«­ЁвҐ«м­®© бЁбвҐ¬л' type=MasterSCADA.System.Setting
+          - [ModbusBytesFormat] 'Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў Modbus' type=MasterSCADA.System.Setting
+          - [DisableAutoLoadConfig] '‡ ЇаҐв  ўв®§ Јаг§ЄЁ Їа®ҐЄв ' type=MasterSCADA.System.Setting
+          - [DisableIncomingRequests] '‡ ЇаҐв ўе®¤пйЁе Ї®¤Є«озҐ­Ё©' type=MasterSCADA.System.Setting
+          - [ModbusTCPMaxSessions] 'Њ ЄбЁ¬ «м­®Ґ зЁб«® Ї®¤Є«озҐ­Ё© Modbus TCP' type=MasterSCADA.System.Setting
+          - [ModbusTCPIdleTimeout] '‚аҐ¬п ­Ґ ЄвЁў­®бвЁ Ї®¤Є«озҐ­Ёп Modbus TCP' type=MasterSCADA.System.Setting
+          - [AllowIEC104] '„®бвгЇ Ї® IEC104' type=MasterSCADA.System.Setting
+          - [OPCUAStructBrowseType] 'Ћв®Ўа ¦Ґ­ЁҐ бвагЄвга ў OPC UA бҐаўҐаҐ' type=MasterSCADA.System.Setting
+          - [IEC104Port] 'Џ®ав ¤«п IEC104' type=MasterSCADA.System.Setting
+          - [IEC104_ASDU] 'ASDU  ¤аҐб IEC104' type=MasterSCADA.System.Setting
+          - [IEC104_SendPeriodical] 'ЏҐаЁ®¤ жЁЄ«ЁзҐбЄ®© а ббл«ЄЁ Ї® IEC104' type=MasterSCADA.System.Setting
+          - [IEC104_IsUTCTime] '‚ IEC104 ¬ҐвЄЁ ўаҐ¬Ґ­Ё ў д®а¬ вҐ UTC' type=MasterSCADA.System.Setting
+          - [IEC104_InterrogationSendTime] 'ЏҐаҐ¤ ў вм ¬ҐвЄг ўаҐ¬Ґ­Ё ЇаЁ ®ЎйҐ¬ ®Їа®бҐ IEC104' type=MasterSCADA.System.Setting
+          - [AllowIEC61850] '„®бвгЇ Ї® IEC61850' type=MasterSCADA.System.Setting
+          - [IEC61850Port] 'Џ®ав ¤«п IEC61850' type=MasterSCADA.System.Setting
+          - [IEC61850_DataValue_As_Group] '‚ IEC61850 Ї а ¬Ґвал SYSTEM_*_VALUE ЇаҐ¤бв ў«пвм Є Є t, q, stVal' type=MasterSCADA.System.Setting
+          - [IEC61850_UseTLS] '€бЇ®«м§®ў вм TLS ¤«п IEC61850' type=MasterSCADA.System.Setting
+          - [IEC61850_Max_DAName_Length] 'ЋЈа ­ЁзҐ­ЁҐ ¤«Ё­л Ё¬Ґ­Ё г§«  ў IEC61850' type=MasterSCADA.System.Setting
+          - [GetRemoteArchiveTimeout] '’ ©¬ гв § Їа®б   аеЁў ' type=MasterSCADA.System.Setting
+          - [RemoteArchiveLimitPerItem] 'Љ®«ЁзҐбвў® ЇҐаҐ¤ ў Ґ¬ле  аеЁў­ле §­ зҐ­Ё©' type=MasterSCADA.System.Setting
+        - [ChannelsSettings] 'Channel settings' type=MasterSCADA.System.ChannelSettings
+    - [Archives] 'Archives' type=Item
+      - [MainArchive] 'Ћб­®ў­®©  аеЁў ¤ ­­ле' type=MasterSCADA.System.Archive
+        - [Settings] 'Settings' type=Item
+          - [MaxTime] 'Maximal time of storing' type=MasterSCADA.System.Setting
+          - [MaxSize] 'Maximal archive volume (Mb)' type=MasterSCADA.System.Setting
+          - [MaxDelValues] 'Number of elements deleted in 1 operation' type=MasterSCADA.System.Setting
+          - [CleanupPeriod] 'Period of archive cleaning' type=MasterSCADA.System.Setting
+          - [Location] 'Ѓ„' type=MasterSCADA.System.Setting
+          - [WriteByChange] 'Writing by change' type=MasterSCADA.System.Setting
+          - [Deadband] 'Dead band' type=MasterSCADA.System.Setting
+          - [MinWritePeriod] 'Minimal period of writing' type=MasterSCADA.System.Setting
+          - [MaxWritePeriod] 'Maximal period of writing' type=MasterSCADA.System.Setting
+          - [WriteTaskPeriod] 'ЏҐаЁ®¤ § ¤ зЁ § ЇЁбЁ  аеЁў ' type=MasterSCADA.System.Setting
+          - [ReconnectTimeout] '€­вҐаў « ¬Ґ¦¤г Ї®ЇлвЄ ¬Ё Ї®¤Є«озҐ­Ёп' type=MasterSCADA.System.Setting
+          - [ConnectionsCount] 'Њ ЄбЁ¬ «м­®Ґ Є®«ЁзҐбвў® ®¤­®ўаҐ¬Ґ­­ле Ї®¤Є«озҐ­Ё©' type=MasterSCADA.System.Setting
+          - [WriteBufferSize] 'Њ ЄбЁ¬ «м­л© а §¬Ґа ®зҐаҐ¤Ё § ЇЁбЁ' type=MasterSCADA.System.Setting
+          - [VacuumTime] 'ЏҐаЁ®¤ Ї®¤бзҐв  бв вЁбвЁЄЁ' type=MasterSCADA.System.Setting
+          - [RedundancySync] '‘Ё­еа®­Ё§ жЁп Ѓ„ ЇаЁ аҐ§ҐаўЁа®ў ­ЁЁ' type=MasterSCADA.System.Setting
+          - [WriteThreadsCount] 'K®«ЁзҐбвў® Ї®в®Є®ў § ЇЁбЁ' type=MasterSCADA.System.Setting
+          - [MaxWriteValues] '—Ёб«® § ЇЁблў Ґ¬ле §­ зҐ­Ё© ў ®¤­®© ®ЇҐа жЁЁ' type=MasterSCADA.System.Setting
+          - [Host] '‘ҐаўҐа' type=MasterSCADA.System.Setting
+          - [User] 'Џ®«м§®ў вҐ«м' type=MasterSCADA.System.Setting
+          - [Pass] 'Password' type=MasterSCADA.System.Setting
+          - [Port] 'Џ®ав' type=MasterSCADA.System.Setting
+          - [Parameters] 'Џ а ¬Ґвал Ї®¤Є«озҐ­Ёп' type=MasterSCADA.System.Setting
+          - [ProviderType] '’ЁЇ Ѓ„' type=MasterSCADA.System.Setting
+      - [MainEventsArchive] 'Ћб­®ў­®©  аеЁў б®®ЎйҐ­Ё©' type=MasterSCADA.System.EventsArchive
+        - [Settings] 'Settings' type=Item
+          - [MaxTime] 'Maximal time of storing' type=MasterSCADA.System.Setting
+          - [MaxSize] 'Maximal archive volume (Mb)' type=MasterSCADA.System.Setting
+          - [MaxDelValues] 'Number of elements deleted in 1 operation' type=MasterSCADA.System.Setting
+          - [CleanupPeriod] 'Period of archive cleaning' type=MasterSCADA.System.Setting
+          - [Location] 'Ѓ„' type=MasterSCADA.System.Setting
+          - [WriteTaskPeriod] 'ЏҐаЁ®¤ § ¤ зЁ § ЇЁбЁ  аеЁў ' type=MasterSCADA.System.Setting
+          - [ReconnectTimeout] '€­вҐаў « ¬Ґ¦¤г Ї®ЇлвЄ ¬Ё Ї®¤Є«озҐ­Ёп' type=MasterSCADA.System.Setting
+          - [‘onnectionsCount] 'Њ ЄбЁ¬ «м­®Ґ Є®«ЁзҐбвў® ®¤­®ўаҐ¬Ґ­­ле Ї®¤Є«озҐ­Ё©' type=MasterSCADA.System.Setting
+          - [WriteBufferSize] 'Њ ЄбЁ¬ «м­л© а §¬Ґа ®зҐаҐ¤Ё § ЇЁбЁ' type=MasterSCADA.System.Setting
+          - [VacuumTime] 'ЏҐаЁ®¤ Ї®¤бзҐв  бв вЁбвЁЄЁ' type=MasterSCADA.System.Setting
+          - [RedundancySync] '‘Ё­еа®­Ё§ жЁп Ѓ„ ЇаЁ аҐ§ҐаўЁа®ў ­ЁЁ' type=MasterSCADA.System.Setting
+          - [Host] '‘ҐаўҐа' type=MasterSCADA.System.Setting
+          - [User] 'Џ®«м§®ў вҐ«м' type=MasterSCADA.System.Setting
+          - [Pass] 'Password' type=MasterSCADA.System.Setting
+          - [Port] 'Џ®ав' type=MasterSCADA.System.Setting
+          - [Parameters] 'Џ а ¬Ґвал Ї®¤Є«озҐ­Ёп' type=MasterSCADA.System.Setting
+          - [ProviderType] '’ЁЇ Ѓ„' type=MasterSCADA.System.Setting
+    - [Tasks] 'Tasks' type=MasterSCADA.Tasks
+      - [MainTask] 'Main task' type=MasterSCADA.Task
+    - [ExtAccessChannelsMap] 'External channels' type=MasterSCADA.System.ChannelsMap sub=ExternalChannels
+    - [IOPorts] 'IO Protocols' type=MasterSCADA.System.IOPorts
+      - [Modbus TCP] 'Modbus TCP' type=MasterSCADA.System.Protocol sub=ModbusTCPMaster
+        - [Settings] 'Settings' type=Item
+          - [’ ©¬ гв] '’ ©¬ гв' type=MasterSCADA.System.Setting
+          - [Љ®«ЁзҐбвў® Ї®ўв®а®ў ЇаЁ ­Ґг¤ з­®¬ ®Їа®бҐ] 'Љ®«ЁзҐбвў® Ї®ўв®а®ў ЇаЁ ­Ґг¤ з­®¬ ®Їа®бҐ' type=MasterSCADA.System.Setting
+          - [Modbus Ї®ўҐае TCP] 'Modbus Ї®ўҐае TCP' type=MasterSCADA.System.Setting
+          - [DataArchiveRef] 'Data archive' type=MasterSCADA.System.ArchiveRef
+          - [EventsArchiveRef] 'ЂаеЁў б®®ЎйҐ­Ё©' type=MasterSCADA.System.EventsArchiveRef
+        - [ChannelsSettings] 'Channel settings' type=MasterSCADA.System.ChannelSettings
+        - [Њ®¤г«м Modbus TCP 1] 'Њ®¤г«м Modbus TCP 1' type=MasterSCADA.System.IOModule sub=Modbus_TCP
+          - [NumChannel] '’ҐЄгйЁ© Є ­ «' type=MasterSCADA.Attribute
+          - [SetChannel] '“бв ­®ўЁвм Є ­ «' type=MasterSCADA.Attribute
+          - [Settings] 'Settings' type=Item
+            - [IP  ¤аҐб] 'IP  ¤аҐб' type=MasterSCADA.System.Setting
+            - [TCP Ї®ав] 'TCP Ї®ав' type=MasterSCADA.System.Setting
+            - [Ђ¤аҐб гбва®©бвў ] 'Ђ¤аҐб гбва®©бвў ' type=MasterSCADA.System.Setting
+            - [’ ©¬ гв] '’ ©¬ гв' type=MasterSCADA.System.Setting
+            - [Њ ЄбЁ¬ «м­л© Ё­вҐаў « ­ҐЁбЇ®«м§гҐ¬ле  ¤аҐб®ў] 'Њ ЄбЁ¬ «м­л© Ё­вҐаў « ­ҐЁбЇ®«м§гҐ¬ле  ¤аҐб®ў' type=MasterSCADA.System.Setting
+            - [Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў ўҐйҐбвўҐ­­ле] 'Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў ўҐйҐбвўҐ­­ле' type=MasterSCADA.System.Setting
+            - [Њ ЄбЁ¬ «м­л© а §¬Ґа ¬ ббЁў ] 'Њ ЄбЁ¬ «м­л© а §¬Ґа ¬ ббЁў ' type=MasterSCADA.System.Setting
+            - [Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў жҐ«ле] 'Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў жҐ«ле' type=MasterSCADA.System.Setting
+            - [€бЇ®«м§®ў вм ЈагЇЇ®ўлҐ § Їа®бл] '€бЇ®«м§®ў вм ЈагЇЇ®ўлҐ § Їа®бл' type=MasterSCADA.System.Setting
+            - [Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў ўҐйҐбвўҐ­­ле  (8 Ў ©в)] 'Џ®б«Ґ¤®ў вҐ«м­®бвм Ў ©в ў ўҐйҐбвўҐ­­ле  (8 Ў ©в)' type=MasterSCADA.System.Setting
+          - [ChannelsSettings] 'Channel settings' type=MasterSCADA.System.ChannelSettings
+            - [Ђ¤аҐб пзҐ©ЄЁ] 'Ђ¤аҐб пзҐ©ЄЁ' type=MasterSCADA.System.Setting
+            - [’ЁЇ §­ зҐ­Ёп] '’ЁЇ §­ зҐ­Ёп' type=MasterSCADA.System.Setting
+            - [’ЁЇ пзҐ©ЄЁ] '’ЁЇ пзҐ©ЄЁ' type=MasterSCADA.System.Setting
+          - [Fault] 'ЋвЄ §' type=MasterSCADA.Attribute
+          - [FanCommand] 'FanCommand' type=MasterSCADA.System.Channel
+            - [Settings] 'Settings' type=MasterSCADA.System.ChannelSettings
+            - [Output] 'Output' type=MasterSCADA.Attribute
+          - [FanStatus] 'FanStatus' type=MasterSCADA.System.Channel
+            - [Settings] 'Settings' type=MasterSCADA.System.ChannelSettings
+            - [Input] 'Input' type=MasterSCADA.Attribute
+          - [SupplyTemp] 'SupplyTemp' type=MasterSCADA.System.Channel
+            - [Settings] 'Settings' type=MasterSCADA.System.ChannelSettings
+            - [Input] 'Input' type=MasterSCADA.Attribute
+          - [FanSpeed] 'FanSpeed' type=MasterSCADA.System.Channel
+            - [Settings] 'Settings' type=MasterSCADA.System.ChannelSettings
+            - [Input] 'Input' type=MasterSCADA.Attribute
+  settings of FanCommand
+    SETTING id=10 ref=Ђ¤аҐб пзҐ©ЄЁ name='Ђ¤аҐб пзҐ©ЄЁ' value=0
+    SETTING id=11 ref=’ЁЇ §­ зҐ­Ёп name='’ЁЇ §­ зҐ­Ёп' value=0
+    SETTING id=12 ref=’ЁЇ пзҐ©ЄЁ name='’ЁЇ пзҐ©ЄЁ' value=0
+  settings of FanStatus
+    SETTING id=10 ref=Ђ¤аҐб пзҐ©ЄЁ name='Ђ¤аҐб пзҐ©ЄЁ' value=0
+    SETTING id=11 ref=’ЁЇ §­ зҐ­Ёп name='’ЁЇ §­ зҐ­Ёп' value=0
+    SETTING id=12 ref=’ЁЇ пзҐ©ЄЁ name='’ЁЇ пзҐ©ЄЁ' value=1
+  settings of SupplyTemp
+    SETTING id=10 ref=Ђ¤аҐб пзҐ©ЄЁ name='Ђ¤аҐб пзҐ©ЄЁ' value=5
+    SETTING id=11 ref=’ЁЇ §­ зҐ­Ёп name='’ЁЇ §­ зҐ­Ёп' value=2
+    SETTING id=12 ref=’ЁЇ пзҐ©ЄЁ name='’ЁЇ пзҐ©ЄЁ' value=1
+  settings of FanSpeed
+    SETTING id=10 ref=Ђ¤аҐб пзҐ©ЄЁ name='Ђ¤аҐб пзҐ©ЄЁ' value=1
+    SETTING id=11 ref=’ЁЇ §­ зҐ­Ёп name='’ЁЇ §­ зҐ­Ёп' value=2
+    SETTING id=12 ref=’ЁЇ пзҐ©ЄЁ name='’ЁЇ пзҐ©ЄЁ' value=1
+Disposed

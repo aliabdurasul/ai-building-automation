@@ -1,0 +1,158 @@
+{
+  "step": "revision_check_diff",
+  "checks": {
+    "revision_metadata": true,
+    "independent_recomputation_matches": true,
+    "scenario_expectations": true,
+    "no_breaking_changes": true
+  },
+  "mismatches": [],
+  "summary": {
+    "ADDED": 1,
+    "UNCHANGED": 7
+  },
+  "changes": [
+    {
+      "identity": "PUMP-DEMO/PUMP-01/FlowRate",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 5,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/Pressure",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "INPUT_REGISTER",
+          "address": 0,
+          "length": 2
+        },
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 0,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpFault",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "DISCRETE_INPUT",
+          "address": 144,
+          "length": 1
+        },
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 144,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpRunning",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "DISCRETE_INPUT",
+          "address": 145,
+          "length": 1
+        },
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 145,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpSpeed",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "INPUT_REGISTER",
+          "address": 2,
+          "length": 2
+        },
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 2,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpState",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "INPUT_REGISTER",
+          "address": 4,
+          "length": 1
+        },
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 4,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StartCommand",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "COIL",
+          "address": 144,
+          "length": 1
+        },
+        "to": {
+          "area": "COIL",
+          "address": 144,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StopCommand",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "COIL",
+          "address": 145,
+          "length": 1
+        },
+        "to": {
+          "area": "COIL",
+          "address": 145,
+          "length": 1
+        }
+      }
+    }
+  ],
+  "operation_status": "PASS",
+  "reason": "4 checks passed"
+}

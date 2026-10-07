@@ -1,0 +1,5 @@
+WROTE C:\AI_BMS_PHASE0\s1fix\run2\generated\PLC_PRG_decl.st
+WROTE C:\AI_BMS_PHASE0\s1fix\run2\generated\PLC_PRG_impl.st
+WROTE C:\AI_BMS_PHASE0\s1fix\run2\generated\PLC_PRG.st
+WROTE C:\AI_BMS_PHASE0\s1fix\run2\engineering\modbus_mapping.json
+WROTE C:\AI_BMS_PHASE0\s1fix\run2\engineering\codesys_plan.json

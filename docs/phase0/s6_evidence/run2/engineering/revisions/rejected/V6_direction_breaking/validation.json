@@ -1,0 +1,20 @@
+{
+  "schema": "ai_bms.revision_validation.v1",
+  "project_id": "AHU-DEMO",
+  "revision": 5,
+  "parent_revision": 4,
+  "status": "REJECTED",
+  "stages": {
+    "canonical": "PASS",
+    "model_rules": "PASS",
+    "policy": "BLOCKED"
+  },
+  "errors": [
+    {
+      "code": "BREAKING_CHANGE_REQUIRES_APPROVAL",
+      "message": "AHU-DEMO/AHU-01/SupplyTemp: DIRECTION_CHANGED 'READ' -> 'READ_WRITE' is a breaking change; add approvals [{\"identity\": \"AHU-DEMO/AHU-01/SupplyTemp\", \"change\": \"DIRECTION_CHANGED\"}] to apply it (the old mapping is then retired and a new mapping allocated)"
+    }
+  ],
+  "model_sha256": "cdb9b305b2fa9a3a9f9d7d1a99aa509cfbf8c5ac7fbc714f6639b105785bcda5",
+  "target_sha256": "aac7532c3971e50866be0b6f67c82d639525bf4803e8f18373691cfc2af5aa77"
+}

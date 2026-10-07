@@ -1,0 +1,39 @@
+{
+  "step": "revision_check_dry-run-check",
+  "checks": {
+    "dry_run_accepted": true,
+    "store_untouched": true,
+    "change_type": true,
+    "mapping_action": true,
+    "non_breaking": true
+  },
+  "change": {
+    "identity": "AHU-DEMO/AHU-02/Setpoint",
+    "type": "DIRECTION_CHANGED",
+    "from": "READ_WRITE",
+    "to": "WRITE",
+    "breaking": false,
+    "mapping": {
+      "action": "PRESERVED",
+      "from": {
+        "area": "HOLDING_REGISTER",
+        "address": 3,
+        "length": 2
+      },
+      "to": {
+        "area": "HOLDING_REGISTER",
+        "address": 3,
+        "length": 2
+      }
+    },
+    "field_changes": [
+      {
+        "field": "direction",
+        "from": "READ_WRITE",
+        "to": "WRITE"
+      }
+    ]
+  },
+  "operation_status": "PASS",
+  "reason": "5 checks passed"
+}

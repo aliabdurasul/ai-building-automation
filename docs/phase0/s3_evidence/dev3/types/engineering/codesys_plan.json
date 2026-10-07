@@ -1,0 +1,150 @@
+{
+  "project_file": "AI_BMS_S3_types.project",
+  "boot_app_file": "AI_BMS_S3_types.app",
+  "plc_device_repo_name": "CODESYS Control Win V3 x64",
+  "devices": [
+    {
+      "parent": "Device",
+      "name": "Ethernet",
+      "repo_name": "Ethernet",
+      "type": 110,
+      "id": "0000 0002"
+    },
+    {
+      "parent": "Ethernet",
+      "name": "Modbus_TCP_Server",
+      "repo_name": "ModbusTCP Server Device",
+      "type": 115,
+      "id": "0000 0002"
+    }
+  ],
+  "server_expect": {
+    "Port": "502",
+    "DistinctBitAreas": "FALSE"
+  },
+  "channel_counts": {
+    "Holding Registers": 10,
+    "Input Registers": 10
+  },
+  "io_mappings": [
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Holding Registers",
+      "word_index": 0,
+      "variable": "Application.PLC_PRG.Mb_Command"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Holding Registers",
+      "word_index": 1,
+      "variable": "Application.PLC_PRG.Mb_TestInt16Write"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Holding Registers",
+      "word_index": 2,
+      "variable": "Application.PLC_PRG.Mb_TestReal32Write_W0"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Holding Registers",
+      "word_index": 3,
+      "variable": "Application.PLC_PRG.Mb_TestReal32Write_W1"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Holding Registers",
+      "word_index": 4,
+      "variable": "Application.PLC_PRG.Mb_TestUInt16Write"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Holding Registers",
+      "word_index": 5,
+      "variable": "Application.PLC_PRG.Mb_TestWordWrite"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Input Registers",
+      "word_index": 0,
+      "variable": "Application.PLC_PRG.Mb_Status"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Input Registers",
+      "word_index": 1,
+      "variable": "Application.PLC_PRG.Mb_TestInt16Read"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Input Registers",
+      "word_index": 2,
+      "variable": "Application.PLC_PRG.Mb_TestReal32Read_W0"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Input Registers",
+      "word_index": 3,
+      "variable": "Application.PLC_PRG.Mb_TestReal32Read_W1"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Input Registers",
+      "word_index": 4,
+      "variable": "Application.PLC_PRG.Mb_TestUInt16Read"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Input Registers",
+      "word_index": 5,
+      "variable": "Application.PLC_PRG.Mb_TestWordRead"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Holding Registers",
+      "word_index": 9,
+      "bit_index": 8,
+      "variable": "Application.PLC_PRG.Mb_TestCoil"
+    },
+    {
+      "device": "Modbus_TCP_Server",
+      "parameter": "Input Registers",
+      "word_index": 9,
+      "bit_index": 8,
+      "variable": "Application.PLC_PRG.Mb_TestDiscreteInput"
+    }
+  ],
+  "required_variables": [
+    "StartCommand",
+    "StopCommand",
+    "FanCommand",
+    "FanRunning",
+    "FanFault",
+    "SupplyTemp",
+    "Setpoint",
+    "FanSpeed",
+    "HeatingValve",
+    "TestCoil",
+    "TestDiscreteInput",
+    "TestWordRead",
+    "TestWordWrite",
+    "TestInt16Read",
+    "TestInt16Write",
+    "TestUInt16Read",
+    "TestUInt16Write",
+    "TestReal32Read",
+    "TestReal32Write",
+    "Mb_TestInt16Write",
+    "Mb_TestReal32Write_W0",
+    "Mb_TestReal32Write_W1",
+    "Mb_TestUInt16Write",
+    "Mb_TestWordWrite",
+    "Mb_TestInt16Read",
+    "Mb_TestReal32Read_W0",
+    "Mb_TestReal32Read_W1",
+    "Mb_TestUInt16Read",
+    "Mb_TestWordRead",
+    "Mb_TestCoil",
+    "Mb_TestDiscreteInput"
+  ]
+}

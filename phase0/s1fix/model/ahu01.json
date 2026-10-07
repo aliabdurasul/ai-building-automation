@@ -1,0 +1,64 @@
+{
+  "ahu_id": "AHU-01",
+  "name": "AHU-01",
+  "description": "S1-FIX engineering model: POC AHU-01 demo model + Modbus TCP image (HR0 command word, IR0 status word)",
+  "source": "C:\\AI_BMS_POC\\demo\\model\\ahu01.json (variables/logic unchanged)",
+  "variables": {
+    "StartCommand": { "type": "BOOL", "initial": false, "role": "command" },
+    "StopCommand": { "type": "BOOL", "initial": false, "role": "command" },
+    "FanCommand": { "type": "BOOL", "initial": false, "role": "output" },
+    "FanRunning": { "type": "BOOL", "initial": false, "role": "status" },
+    "FanFault": { "type": "BOOL", "initial": false, "role": "status" },
+    "SupplyTemp": { "type": "REAL", "initial": 21.0, "role": "process" },
+    "Setpoint": { "type": "REAL", "initial": 22.0, "role": "setpoint" },
+    "FanSpeed": { "type": "REAL", "initial": 50.0, "role": "output" },
+    "HeatingValve": { "type": "REAL", "initial": 0.0, "role": "output" }
+  },
+  "logic": {
+    "fan_start": "IF StartCommand AND NOT FanFault THEN FanCommand:=TRUE; FanRunning:=TRUE; END_IF",
+    "fan_stop": "IF StopCommand THEN FanCommand:=FALSE; FanRunning:=FALSE; END_IF",
+    "fan_fault": "IF FanFault THEN FanCommand:=FALSE; FanRunning:=FALSE; END_IF",
+    "heating": "IF SupplyTemp < Setpoint THEN HeatingValve:=100.0; ELSE HeatingValve:=0.0; END_IF"
+  },
+  "modbus": {
+    "protocol": "Modbus TCP",
+    "role": "server",
+    "host": "127.0.0.1",
+    "port": 502,
+    "slave": 1,
+    "codesys": {
+      "plc_device_repo_name": "CODESYS Control Win V3 x64",
+      "adapter": { "name": "Ethernet", "repo_name": "Ethernet", "type": 110, "id": "0000 0002" },
+      "server": { "name": "Modbus_TCP_Server", "repo_name": "ModbusTCP Server Device", "type": 115, "id": "0000 0002" },
+      "holding_parameter": "Holding Registers",
+      "input_parameter": "Input Registers",
+      "port_parameter": "Port"
+    },
+    "images": [
+      {
+        "tag": "Command",
+        "plc_var": "Mb_Command",
+        "iec_type": "WORD",
+        "area": "holding",
+        "address": 0,
+        "direction": "client_to_plc",
+        "bits": { "0": "StartCommand", "1": "StopCommand" }
+      },
+      {
+        "tag": "Status",
+        "plc_var": "Mb_Status",
+        "iec_type": "WORD",
+        "area": "input",
+        "address": 0,
+        "direction": "plc_to_client",
+        "bits": { "0": "FanCommand", "1": "FanRunning", "2": "FanFault" }
+      }
+    ],
+    "unmapped": [
+      { "var": "SupplyTemp", "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope" },
+      { "var": "Setpoint", "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope" },
+      { "var": "FanSpeed", "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope" },
+      { "var": "HeatingValve", "reason": "REAL (32-bit): REAL32 Modbus encoding out of S1-FIX scope" }
+    ]
+  }
+}

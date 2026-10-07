@@ -1,0 +1,34 @@
+{
+  "step": "rollback",
+  "revision": 1,
+  "reproducible": true,
+  "differences": [],
+  "files_compared": [
+    "engineering/allocation.json",
+    "engineering/codesys_plan.json",
+    "engineering/modbus_mapping.json",
+    "engineering/model.json",
+    "engineering/revision_diff.json",
+    "engineering/target.json",
+    "engineering/validation.json",
+    "generated/plc/PLC_PRG.st",
+    "generated/plc/PLC_PRG_decl.st",
+    "generated/plc/PLC_PRG_impl.st",
+    "generated/plc/PLC_VARIABLES.txt"
+  ],
+  "written": [
+    "C:\\AI_BMS_PHASE0\\s6\\dev1\\deploy\\rollback_r001\\engineering\\allocation.json",
+    "C:\\AI_BMS_PHASE0\\s6\\dev1\\deploy\\rollback_r001\\engineering\\codesys_plan.json",
+    "C:\\AI_BMS_PHASE0\\s6\\dev1\\deploy\\rollback_r001\\engineering\\modbus_mapping.json",
+    "C:\\AI_BMS_PHASE0\\s6\\dev1\\deploy\\rollback_r001\\engineering\\model.json",
+    "C:\\AI_BMS_PHASE0\\s6\\dev1\\deploy\\rollback_r001\\engineering\\revision_diff.json",
+    "C:\\AI_BMS_PHASE0\\s6\\dev1\\deploy\\rollback_r001\\engineering\\target.json",
+    "C:\\AI_BMS_PHASE0\\s6\\dev1\\deploy\\rollback_r001\\engineering\\validation.json",
+    "C:\\AI_BMS_PHASE0\\s6\\dev1\\deploy\\rollback_r001\\generated\\PLC_PRG.st",
+    "C:\\AI_BMS_PHASE0\\s6\\dev1\\deploy\\rollback_r001\\generated\\PLC_PRG_decl.st",
+    "C:\\AI_BMS_PHASE0\\s6\\dev1\\deploy\\rollback_r001\\generated\\PLC_PRG_impl.st",
+    "C:\\AI_BMS_PHASE0\\s6\\dev1\\deploy\\rollback_r001\\generated\\PLC_VARIABLES.txt"
+  ],
+  "operation_status": "PASS",
+  "reason": "r001 regenerated from stored inputs; all 11 artifacts semantically identical"
+}

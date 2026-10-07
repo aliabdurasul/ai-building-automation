@@ -1,0 +1,19 @@
+{
+  "step": "stage",
+  "revision": 2,
+  "written": [
+    "C:\\AI_BMS_PHASE0\\s6\\run2\\deploy\\r002\\engineering\\allocation.json",
+    "C:\\AI_BMS_PHASE0\\s6\\run2\\deploy\\r002\\engineering\\codesys_plan.json",
+    "C:\\AI_BMS_PHASE0\\s6\\run2\\deploy\\r002\\engineering\\modbus_mapping.json",
+    "C:\\AI_BMS_PHASE0\\s6\\run2\\deploy\\r002\\engineering\\model.json",
+    "C:\\AI_BMS_PHASE0\\s6\\run2\\deploy\\r002\\engineering\\revision_diff.json",
+    "C:\\AI_BMS_PHASE0\\s6\\run2\\deploy\\r002\\engineering\\target.json",
+    "C:\\AI_BMS_PHASE0\\s6\\run2\\deploy\\r002\\engineering\\validation.json",
+    "C:\\AI_BMS_PHASE0\\s6\\run2\\deploy\\r002\\generated\\PLC_PRG.st",
+    "C:\\AI_BMS_PHASE0\\s6\\run2\\deploy\\r002\\generated\\PLC_PRG_decl.st",
+    "C:\\AI_BMS_PHASE0\\s6\\run2\\deploy\\r002\\generated\\PLC_PRG_impl.st",
+    "C:\\AI_BMS_PHASE0\\s6\\run2\\deploy\\r002\\generated\\PLC_VARIABLES.txt"
+  ],
+  "operation_status": "PASS",
+  "reason": "r002 staged (manifest verified)"
+}

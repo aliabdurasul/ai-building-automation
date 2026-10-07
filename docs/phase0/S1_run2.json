@@ -1,0 +1,124 @@
+{
+  "test": "S1 agentless reproduction",
+  "run": "run2",
+  "executor": "Cursor agent acting strictly as runbook operator (shell only). No MCP, no LLM API, no GUI automation, no %TEMP% patch, no POC edits.",
+  "staging": {
+    "codesys": "C:\\AI_BMS_PHASE0\\s1\\run2\\codesys",
+    "masterscada": "C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc\\phase0_s1\\run2",
+    "evidence": "docs/phase0/evidence/run2"
+  },
+  "raw_harness_record": "docs/phase0/evidence/run2/harness_run2.json",
+  "status_legend": "same as S1_run1.json",
+  "steps": [
+    {
+      "step": "S00_preflight", "status": "INFO", "timestamp": "2026-10-05T10:11:03.957+03:00", "duration_seconds": null,
+      "command": "(harness internal checks)", "exit_code": null, "artifacts": [], "manual_intervention": false,
+      "notes": "Identical to run1: tcp/502 not listening; no CODESYS/IWIN32 running; SoftPLC Stopped; not elevated; mcp_used=false; temp_patch_used=false."
+    },
+    {
+      "step": "S01_staging", "status": "PASS", "timestamp": "2026-10-05T10:11:05.699+03:00", "duration_seconds": null,
+      "command": "Copy-Relocated (literal path-string substitution) of 7 POC files + spec", "exit_code": null,
+      "artifacts": ["codesys\\model\\ahu01.json", "codesys\\generator\\generate_st.py", "codesys\\scripts\\*.py", "phase0_s1\\run2\\ahu_01_test_v3.json"],
+      "manual_intervention": true,
+      "notes": "MI-01 and MI-02 repeated (same substitution counts as run1)."
+    },
+    {
+      "step": "S02_generate_st", "status": "PASS", "timestamp": "2026-10-05T10:11:05.767+03:00", "duration_seconds": 2.7,
+      "command": "python codesys\\generator\\generate_st.py", "exit_code": 0,
+      "artifacts": ["generated\\PLC_PRG_decl.st", "generated\\PLC_PRG_impl.st", "generated\\PLC_PRG.st"], "manual_intervention": false,
+      "notes": "Byte-identical to run1 (see S1_comparison.json)."
+    },
+    {
+      "step": "S03_codesys_generate_build", "status": "PASS", "timestamp": "2026-10-05T10:11:08.622+03:00", "duration_seconds": 45.3,
+      "command": "CODESYS.exe --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=codesys_generate_ahu.py", "exit_code": 0,
+      "artifacts": ["AI_BMS_AHU_DEMO.project", "logs\\generate_result.txt"], "manual_intervention": false,
+      "notes": "0 errors, 0 warnings; build_error_count=0. .project same size as run1 (225104 B) but different bytes."
+    },
+    {
+      "step": "S04_codesys_verify", "status": "PASS", "timestamp": "2026-10-05T10:11:53.909+03:00", "duration_seconds": 43.2,
+      "command": "CODESYS.exe ... --noUI --runscript=codesys_verify.py", "exit_code": 0,
+      "artifacts": ["logs\\verify_result.txt"], "manual_intervention": false,
+      "notes": "Read-back DECL/IMPL identical to run1 after path normalization; STATUS=OK."
+    },
+    {
+      "step": "S05_codesys_clean_mapping", "status": "FAIL", "timestamp": "2026-10-05T10:12:37.175+03:00", "duration_seconds": 31.8,
+      "command": "CODESYS.exe ... --noUI --runscript=codesys_map_modbus_io.py", "exit_code": 0,
+      "artifacts": ["logs\\modbus_io_map.json"], "manual_intervention": false,
+      "notes": "Clean mapping: FAIL. 'Modbus_TCP_Server not found'. Exit code 0 despite failure. Same as run1."
+    },
+    {
+      "step": "S06_codesys_online_attempt", "status": "FAIL", "timestamp": "2026-10-05T10:13:09.053+03:00", "duration_seconds": 109.9,
+      "command": "CODESYS.exe ... --noUI --runscript=codesys_runtime.py", "exit_code": 4,
+      "artifacts": ["generated\\AI_BMS_AHU_DEMO.app (97508 B)", "logs\\runtime_result.txt"], "manual_intervention": false,
+      "notes": "Boot app created; login failed 'Invalid user authentication on the target'; STATUS=PARTIAL. Duration +31 s vs run1 (78.9 s). .app same size, different bytes."
+    },
+    {
+      "step": "S07_softplc_service_start", "status": "BLOCKED", "timestamp": "2026-10-05T10:15:04.694+03:00", "duration_seconds": null,
+      "command": "Start-Service 'CODESYS Control Win V3 - x64' (non-elevated)", "exit_code": null, "artifacts": [], "manual_intervention": false,
+      "notes": "Same error as run1 (cannot open service); remained Stopped."
+    },
+    {
+      "step": "S08_modbus_probe", "status": "FAIL", "timestamp": "2026-10-05T10:15:06.958+03:00", "duration_seconds": 4.9,
+      "command": "python codesys\\scripts\\modbus_v2_probe.py", "exit_code": 0,
+      "artifacts": ["logs\\modbus_v2_probe.json"], "manual_intervention": false,
+      "notes": "{\"connect\": false}; exit code 0. No register read-back."
+    },
+    {
+      "step": "S09_ms_create", "status": "PASS", "timestamp": "2026-10-05T10:15:11.911+03:00", "duration_seconds": 42.5,
+      "command": "AiBmsHmiPoc.exe create <ms_stage>\\projects AHU_S1 <log>", "exit_code": 0,
+      "artifacts": ["projects\\AHU_S1\\AHU_S1.fdb", "projects\\AHU_S1\\info.xml"], "manual_intervention": false,
+      "notes": "Log identical to run1 after normalization."
+    },
+    {
+      "step": "S10_ms_modbus", "status": "PASS", "timestamp": "2026-10-05T10:15:54.428+03:00", "duration_seconds": 41.6,
+      "command": "AiBmsHmiPoc.exe modbus <prj> AHU_S1 <log>", "exit_code": 0,
+      "artifacts": ["AHU_S1.fdb (modified)"], "manual_intervention": false,
+      "notes": "Log identical to run1 after normalization."
+    },
+    {
+      "step": "S11_ms_verify", "status": "PASS", "timestamp": "2026-10-05T10:16:36.033+03:00", "duration_seconds": 36.5,
+      "command": "AiBmsHmiPoc.exe verify <prj> AHU_S1 <log>", "exit_code": 0,
+      "artifacts": ["evidence\\run2\\S11_ms_verify.log"], "manual_intervention": false,
+      "notes": "VERIFY RESULT fails=0; read-back identical to run1 after normalization."
+    },
+    {
+      "step": "S12_hmi_build", "status": "PASS", "timestamp": "2026-10-05T10:17:12.616+03:00", "duration_seconds": 40.6,
+      "command": "AiBmsHmiPoc.exe hmibuild <prj> AHU_S1 ahu_01_test_v3.json <log>", "exit_code": 0,
+      "artifacts": ["AHU_S1.fdb (modified)"], "manual_intervention": false,
+      "notes": "BUILD RESULT fails=0."
+    },
+    {
+      "step": "S13_hmi_verify", "status": "PASS", "timestamp": "2026-10-05T10:17:53.220+03:00", "duration_seconds": 44.9,
+      "command": "AiBmsHmiPoc.exe hmiverify <prj> AHU_S1 ahu_01_test_v3.json <evidence.json> <log>", "exit_code": 0,
+      "artifacts": ["evidence\\run2\\S13_hmi_verify_evidence.json"], "manual_intervention": false,
+      "notes": "VERIFY RESULT PASS checks=76 fails=0; evidence JSON identical to run1 after normalization."
+    },
+    {
+      "step": "S14_rt_copy", "status": "INFO", "timestamp": "2026-10-05T10:18:38.174+03:00", "duration_seconds": null,
+      "command": "Copy-Item projects\\AHU_S1 rt_copy\\AHU_S1 -Recurse", "exit_code": null, "artifacts": ["rt_copy\\AHU_S1"], "manual_intervention": false, "notes": ""
+    },
+    {
+      "step": "S15_ms_runtime", "status": "FAIL", "timestamp": "2026-10-05T10:18:38.198+03:00", "duration_seconds": 15.3,
+      "command": "AiBmsHmiPoc.exe runtime <rt_copy> AHU_S1 <events.jsonl> <log>", "exit_code": 1,
+      "artifacts": ["evidence\\run2\\S15_ms_runtime.log", "evidence\\run2\\S15_ms_runtime_events.jsonl"], "manual_intervention": false,
+      "notes": "FATAL SocketException 127.0.0.1:502 refused. Same as run1."
+    },
+    {
+      "step": "S16a_rt_copy_hmi", "status": "INFO", "timestamp": "2026-10-05T10:18:53.682+03:00", "duration_seconds": null,
+      "command": "Copy-Item projects\\AHU_S1 rt_copy_hmi\\AHU_S1 -Recurse", "exit_code": null, "artifacts": ["rt_copy_hmi\\AHU_S1"], "manual_intervention": false, "notes": ""
+    },
+    {
+      "step": "S16_hmi_runtime", "status": "FAIL", "timestamp": "2026-10-05T10:18:53.713+03:00", "duration_seconds": 122.6,
+      "command": "AiBmsHmiPoc.exe hmiruntime <rt_copy_hmi> AHU_S1 20 7 <events.jsonl> <log>", "exit_code": 0,
+      "artifacts": ["rt_copy_hmi\\rt_work\\Debug_1\\htdocs (141 files)", "evidence\\run2\\S16_hmi_runtime.log", "evidence\\run2\\S16_hmi_runtime_events.jsonl"],
+      "manual_intervention": false,
+      "notes": "htdocs 141 files, byte-identical to run1. IWIN32 debug runtime pid 11736. FanStatus quality BadWaitingForInitialData (first sample) then BadOutOfService; CODESYS HR0/IR0 SocketException. No PLC running; no operator write; no nginx/browser."
+    },
+    {
+      "step": "S17_post_state", "status": "INFO", "timestamp": "2026-10-05T10:20:58.560+03:00", "duration_seconds": null,
+      "command": "(harness internal checks)", "exit_code": null, "artifacts": [], "manual_intervention": false,
+      "notes": "tcp/502 not listening; no IWIN32/CODESYS left running; SoftPLC Stopped."
+    }
+  ],
+  "chain_result": "Same stop points as run1: S05 (clean mapping) and S06/S07 (PLC online). Step status vector identical to run1."
+}

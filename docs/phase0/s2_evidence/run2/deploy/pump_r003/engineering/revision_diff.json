@@ -1,0 +1,378 @@
+{
+  "schema": "ai_bms.revision_diff.v1",
+  "project_id": "PUMP-DEMO",
+  "from_revision": 2,
+  "to_revision": 3,
+  "summary": {
+    "REMOVED": 1,
+    "UNCHANGED": 7
+  },
+  "breaking_changes": [],
+  "changes": [
+    {
+      "identity": "PUMP-DEMO/PUMP-01/FlowRate",
+      "equipment": "PUMP-01",
+      "tag": "FlowRate",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "FlowRate",
+        "plc_var": "FlowRate",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          12.5,
+          22.0,
+          18.25,
+          123.456
+        ]
+      },
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "FlowRate",
+        "plc_var": "FlowRate",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          12.5,
+          22.0,
+          18.25,
+          123.456
+        ]
+      },
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "INPUT_REGISTER",
+          "address": 5,
+          "length": 2
+        },
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 5,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/Pressure",
+      "equipment": "PUMP-01",
+      "tag": "Pressure",
+      "type": "REMOVED",
+      "breaking": false,
+      "before": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "Pressure",
+        "plc_var": "Pressure",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          3.75,
+          22.0,
+          18.25,
+          123.456
+        ]
+      },
+      "mapping": {
+        "action": "RETIRED",
+        "from": {
+          "area": "INPUT_REGISTER",
+          "address": 0,
+          "length": 2
+        },
+        "to": null
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpFault",
+      "equipment": "PUMP-01",
+      "tag": "PumpFault",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "PumpFault",
+        "plc_var": "PumpFault",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "after": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "PumpFault",
+        "plc_var": "PumpFault",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "DISCRETE_INPUT",
+          "address": 144,
+          "length": 1
+        },
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 144,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpRunning",
+      "equipment": "PUMP-01",
+      "tag": "PumpRunning",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "PumpRunning",
+        "plc_var": "PumpRunning",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "after": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "PumpRunning",
+        "plc_var": "PumpRunning",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "DISCRETE_INPUT",
+          "address": 145,
+          "length": 1
+        },
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 145,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpSpeed",
+      "equipment": "PUMP-01",
+      "tag": "PumpSpeed",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "PumpSpeed",
+        "plc_var": "PumpSpeed",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          50.0,
+          21.5,
+          18.25,
+          123.456
+        ]
+      },
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "PumpSpeed",
+        "plc_var": "PumpSpeed",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          50.0,
+          21.5,
+          18.25,
+          123.456
+        ]
+      },
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "INPUT_REGISTER",
+          "address": 2,
+          "length": 2
+        },
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 2,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpState",
+      "equipment": "PUMP-01",
+      "tag": "PumpState",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "INT16",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "PumpState",
+        "plc_var": "PumpState",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "after": {
+        "datatype": "INT16",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "PumpState",
+        "plc_var": "PumpState",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "INPUT_REGISTER",
+          "address": 4,
+          "length": 1
+        },
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 4,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StartCommand",
+      "equipment": "PUMP-01",
+      "tag": "StartCommand",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "BOOL",
+        "direction": "WRITE",
+        "area": "COIL",
+        "address": null,
+        "symbol": "StartCommand",
+        "plc_var": "StartCommand",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "after": {
+        "datatype": "BOOL",
+        "direction": "WRITE",
+        "area": "COIL",
+        "address": null,
+        "symbol": "StartCommand",
+        "plc_var": "StartCommand",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "COIL",
+          "address": 144,
+          "length": 1
+        },
+        "to": {
+          "area": "COIL",
+          "address": 144,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StopCommand",
+      "equipment": "PUMP-01",
+      "tag": "StopCommand",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "field_changes": [],
+      "before": {
+        "datatype": "BOOL",
+        "direction": "WRITE",
+        "area": "COIL",
+        "address": null,
+        "symbol": "StopCommand",
+        "plc_var": "StopCommand",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "after": {
+        "datatype": "BOOL",
+        "direction": "WRITE",
+        "area": "COIL",
+        "address": null,
+        "symbol": "StopCommand",
+        "plc_var": "StopCommand",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "COIL",
+          "address": 145,
+          "length": 1
+        },
+        "to": {
+          "area": "COIL",
+          "address": 145,
+          "length": 1
+        }
+      }
+    }
+  ],
+  "variable_changes": [
+    {
+      "variable": "Pressure",
+      "type": "VARIABLE_REMOVED",
+      "before": {
+        "type": "REAL",
+        "initial": 0.0,
+        "role": "process",
+        "equipment": "PUMP-01"
+      }
+    }
+  ]
+}

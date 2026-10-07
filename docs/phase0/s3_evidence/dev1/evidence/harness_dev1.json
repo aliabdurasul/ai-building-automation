@@ -1,0 +1,351 @@
+﻿{
+    "run":  "dev1",
+    "stage":  "C:\\AI_BMS_PHASE0\\s3\\dev1",
+    "profiles":  [
+                     "types",
+                     "ahu"
+                 ],
+    "steps":  [
+                  {
+                      "step":  "F00_preflight",
+                      "timestamp":  "2026-10-05T13:07:21.9741090+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "INFO",
+                                        "reason":  "environment facts"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "INFO",
+                      "reason":  "environment facts",
+                      "data":  {
+                                   "elevated":  false,
+                                   "softplc_service":  "Running",
+                                   "tcp_502":  true,
+                                   "tcp_11740":  true,
+                                   "tcp_1217":  true,
+                                   "model_sha256":  "923e0b89f396efc0f928a306d319e8924b64720de98f7823b24164068a6448ec",
+                                   "mcp_used":  false,
+                                   "llm_used":  false,
+                                   "temp_patch_used":  false,
+                                   "gui_automation_used":  false,
+                                   "old_poc_used":  false
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F00b_engine_selftest",
+                      "timestamp":  "2026-10-05T13:07:22.2043756+03:00",
+                      "duration_seconds":  5.6,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\engine\\test_engine.py\" --result \"C:\\AI_BMS_PHASE0\\s3\\dev1\\logs\\engine_selftest.json\"",
+                      "process":  {
+                                      "exit_code":  1,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "FAILED",
+                                        "reason":  "no result file written"
+                                    },
+                      "process_exit_code":  1,
+                      "operation_status":  "FAILED",
+                      "reason":  "no result file written",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s3\\dev1\\logs\\engine_selftest.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F01_generate",
+                      "timestamp":  "2026-10-05T13:07:27.8646327+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F02_codesys_create_build",
+                      "timestamp":  "2026-10-05T13:07:27.8666313+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F03_codesys_verify",
+                      "timestamp":  "2026-10-05T13:07:27.8686316+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F04_deploy_preflight",
+                      "timestamp":  "2026-10-05T13:07:27.8706333+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F05_deploy",
+                      "timestamp":  "2026-10-05T13:07:27.8746453+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F06_s1_regression",
+                      "timestamp":  "2026-10-05T13:07:27.8776343+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "types/F07_typed_verify",
+                      "timestamp":  "2026-10-05T13:07:27.8796379+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F01_generate",
+                      "timestamp":  "2026-10-05T13:07:27.8886350+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F02_codesys_create_build",
+                      "timestamp":  "2026-10-05T13:07:27.8946311+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F03_codesys_verify",
+                      "timestamp":  "2026-10-05T13:07:27.8966302+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F04_deploy_preflight",
+                      "timestamp":  "2026-10-05T13:07:27.8996350+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F05_deploy",
+                      "timestamp":  "2026-10-05T13:07:27.9016358+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F06_s1_regression",
+                      "timestamp":  "2026-10-05T13:07:27.9046351+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "ahu/F07_typed_verify",
+                      "timestamp":  "2026-10-05T13:07:27.9126346+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "NOT_RUN",
+                                        "reason":  "F00b_engine_selftest FAILED"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "NOT_RUN",
+                      "reason":  "F00b_engine_selftest FAILED",
+                      "data":  null,
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F08_post_state",
+                      "timestamp":  "2026-10-05T13:07:30.9260715+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "INFO",
+                                        "reason":  "post-run facts"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "INFO",
+                      "reason":  "post-run facts",
+                      "data":  {
+                                   "softplc_service":  "Running",
+                                   "tcp_502":  true,
+                                   "codesys_left_running":  [
+
+                                                            ]
+                               },
+                      "manual_intervention":  false
+                  }
+              ]
+}

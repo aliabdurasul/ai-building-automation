@@ -1,0 +1,6 @@
+WROTE C:\AI_BMS_PHASE0\s3\dev2\ahu\generated\PLC_PRG_decl.st
+WROTE C:\AI_BMS_PHASE0\s3\dev2\ahu\generated\PLC_PRG_impl.st
+WROTE C:\AI_BMS_PHASE0\s3\dev2\ahu\generated\PLC_PRG.st
+WROTE C:\AI_BMS_PHASE0\s3\dev2\ahu\engineering\allocation.json
+WROTE C:\AI_BMS_PHASE0\s3\dev2\ahu\engineering\modbus_mapping.json
+WROTE C:\AI_BMS_PHASE0\s3\dev2\ahu\engineering\codesys_plan.json

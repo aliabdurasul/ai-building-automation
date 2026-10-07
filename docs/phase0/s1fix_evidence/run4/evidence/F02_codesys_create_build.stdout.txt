@@ -1,0 +1,6 @@
+ADDED Ethernet under Device (110 0000 0002 4.2.0.0)
+ADDED Modbus_TCP_Server under Ethernet (115 0000 0002 4.6.0.0)
+MAP Holding Registers[0] -> Application.PLC_PRG.Mb_Command ok=True
+MAP Input Registers[0] -> Application.PLC_PRG.Mb_Status ok=True
+BUILD errors=0 warnings=0
+OPERATION_STATUS=PASS

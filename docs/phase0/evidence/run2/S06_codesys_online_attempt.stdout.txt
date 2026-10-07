@@ -1,0 +1,11 @@
+=== runtime/boot attempt start ===
+ui_present=False
+simulation=True
+BOOT_APP exists=True size=97508 path=C:\AI_BMS_PHASE0\s1\run2\codesys\generated\AI_BMS_AHU_DEMO.app
+online application created
+ONLINE_EXCEPTION: Login failed:
+Unable to connect to the device for item 'Device.Application' due to the following reason:
+Invalid user authentication on the targetDo you want to continue with the items?
+STATUS=PARTIAL boot_app_ok online_blocked
+MANUAL REQUIRED: Start Windows service 'CODESYS Control Win V3 - x64' as Administrator, then re-run codesys_runtime.py / login+download
+REASON: SoftPLC service start returned Access Denied; --noUI login to real Gateway SoftPLC not established

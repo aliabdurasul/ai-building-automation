@@ -1,0 +1,17 @@
+{
+  "schema": "ai_bms.revision_manifest.v1",
+  "revision": 1,
+  "files": {
+    "engineering/allocation.json": "0d93c485a8fd8ab79b580bdecc5e13663a2631d04f6aab29be43bdc68fe2001f",
+    "engineering/codesys_plan.json": "edb496096209da54a5762b840a1d44b94db04004310ef9f8bb91dbf89382cdce",
+    "engineering/modbus_mapping.json": "fa9f7dcd9cad74a535e89e48f0e8f50e6d6e03338cbc6b7e30e08286939f1c56",
+    "engineering/model.json": "fa4e79133075211e4cc6f9ebc74d623259304a24219bbe92e9a637209cbf0b8a",
+    "engineering/revision_diff.json": "468b247e749bca73dd07d10546d1403adba9242cf8ced9afeeac1e1baa225ec1",
+    "engineering/target.json": "aac7532c3971e50866be0b6f67c82d639525bf4803e8f18373691cfc2af5aa77",
+    "engineering/validation.json": "fdb4b312dc65f2483bab3b2433515b70eeac6283415db43551d3d8afdf579365",
+    "generated/plc/PLC_PRG.st": "b28836743519969a08c693090bc4ef1d8bc15821e4e77fe2fecae87b9f1e1aa6",
+    "generated/plc/PLC_PRG_decl.st": "57e7dec8a1e5abdfa82325f7e3c4044acea1bfb89bad1e1a7bccf826422e0d29",
+    "generated/plc/PLC_PRG_impl.st": "57f2ca41310442f95fd5bc05b2ab6556dbb3c00e2c48af48818a031f5305a640",
+    "generated/plc/PLC_VARIABLES.txt": "668aa4e561069731fd4be06c3a0e46781ab7d794756d8a7ca3d82ef735561157"
+  }
+}

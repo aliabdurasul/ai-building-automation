@@ -1,0 +1,29 @@
+{
+  "test": "09_fault_e2e",
+  "method": "PLC online write FanFault=TRUE while running",
+  "bridge": {
+    "ready": true,
+    "logged_in": true,
+    "application_state_at_login": "stop",
+    "application_state": "run"
+  },
+  "before_fault": {
+    "HR0": 1,
+    "IR0": 3
+  },
+  "after_fault": {
+    "IR0": 4,
+    "plc": {
+      "PLC_PRG.FanCommand": "FALSE",
+      "PLC_PRG.FanFault": "TRUE",
+      "PLC_PRG.FanRunning": "FALSE"
+    },
+    "expected_IR0": 4
+  },
+  "modbus_fault_bit": true,
+  "masterscada": "NOT VERIFIED \u2014 MS debug runtime not held open during fault inject",
+  "operation_status": "PARTIAL",
+  "reason": "CODESYS FanFault + Modbus IR0=4 observed; MasterSCADA FAULT HMI NOT VERIFIED",
+  "codesys_modbus_status": "PASS",
+  "masterscada_status": "NOT VERIFIED"
+}

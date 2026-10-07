@@ -1,0 +1,172 @@
+{
+  "step": "revision_check_stability",
+  "checks": {
+    "existing_mappings_unchanged": true,
+    "new_mappings_avoid_owned_addresses": true,
+    "new_mappings_lowest_free": true,
+    "runtime_verified_all_signals_to": true,
+    "runtime_verified_common_same_address": true
+  },
+  "naive_lockless_allocation_would_move": [
+    {
+      "identity": "AHU-DEMO/AHU-01/ReturnTemp",
+      "locked": {
+        "area": "INPUT_REGISTER",
+        "address": 7,
+        "length": 2
+      },
+      "naive": {
+        "area": "INPUT_REGISTER",
+        "address": 1,
+        "length": 2
+      }
+    }
+  ],
+  "runtime_verified": {
+    "AHU-DEMO/AHU-01/Command": {
+      "area": "HOLDING_REGISTER",
+      "address": 0,
+      "verified": true
+    },
+    "AHU-DEMO/AHU-01/FanRunning": {
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "verified": true
+    },
+    "AHU-DEMO/AHU-01/ReturnTemp": {
+      "area": "INPUT_REGISTER",
+      "address": 7,
+      "verified": true
+    },
+    "AHU-DEMO/AHU-01/Setpoint": {
+      "area": "HOLDING_REGISTER",
+      "address": 1,
+      "verified": true
+    },
+    "AHU-DEMO/AHU-01/Status": {
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "verified": true
+    },
+    "AHU-DEMO/AHU-01/SupplyTemp": {
+      "area": "INPUT_REGISTER",
+      "address": 3,
+      "verified": true
+    },
+    "AHU-DEMO/AHU-01/TestReal32Read": {
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "verified": true
+    }
+  },
+  "preserved": [
+    {
+      "identity": "AHU-DEMO/AHU-01/Command",
+      "from": {
+        "area": "HOLDING_REGISTER",
+        "address": 0,
+        "length": 1
+      },
+      "to": {
+        "area": "HOLDING_REGISTER",
+        "address": 0,
+        "length": 1
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/FanRunning",
+      "from": {
+        "area": "DISCRETE_INPUT",
+        "address": 144,
+        "length": 1
+      },
+      "to": {
+        "area": "DISCRETE_INPUT",
+        "address": 144,
+        "length": 1
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/ReturnTemp",
+      "from": {
+        "area": "INPUT_REGISTER",
+        "address": 7,
+        "length": 2
+      },
+      "to": {
+        "area": "INPUT_REGISTER",
+        "address": 7,
+        "length": 2
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Setpoint",
+      "from": {
+        "area": "HOLDING_REGISTER",
+        "address": 1,
+        "length": 2
+      },
+      "to": {
+        "area": "HOLDING_REGISTER",
+        "address": 1,
+        "length": 2
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Status",
+      "from": {
+        "area": "INPUT_REGISTER",
+        "address": 0,
+        "length": 1
+      },
+      "to": {
+        "area": "INPUT_REGISTER",
+        "address": 0,
+        "length": 1
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/SupplyTemp",
+      "from": {
+        "area": "INPUT_REGISTER",
+        "address": 3,
+        "length": 2
+      },
+      "to": {
+        "area": "INPUT_REGISTER",
+        "address": 3,
+        "length": 2
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/TestReal32Read",
+      "from": {
+        "area": "INPUT_REGISTER",
+        "address": 5,
+        "length": 2
+      },
+      "to": {
+        "area": "INPUT_REGISTER",
+        "address": 5,
+        "length": 2
+      }
+    }
+  ],
+  "moved": [],
+  "new": [],
+  "lowest_free": [],
+  "clashes": [],
+  "retired": [
+    {
+      "identity": "AHU-DEMO/AHU-01/FanSpeed",
+      "datatype": "REAL32",
+      "area": "INPUT_REGISTER",
+      "address": 1,
+      "length": 2,
+      "last_active_revision": 2,
+      "rule": "reserved for this identity; never assigned to another identity"
+    }
+  ],
+  "operation_status": "PASS",
+  "reason": "5 checks passed"
+}

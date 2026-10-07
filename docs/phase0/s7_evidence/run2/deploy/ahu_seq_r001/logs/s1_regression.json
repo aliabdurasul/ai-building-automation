@@ -1,0 +1,50 @@
+{
+  "step": "s1_regression",
+  "revision": 1,
+  "host": "127.0.0.1",
+  "port": 502,
+  "unit_id": 1,
+  "hr": 0,
+  "ir": 0,
+  "status_bits": {
+    "FanCommand": 0,
+    "FanRunning": 1,
+    "FanFault": 2
+  },
+  "fan_running_di": 148,
+  "checks": {
+    "tcp_connect": true,
+    "pymodbus_connect": true,
+    "start_write_accepted": true,
+    "start_hr_readback": true,
+    "start_ir_reached_3": true,
+    "start_bits": true,
+    "start_fan_running_di": true,
+    "stop_write_accepted": true,
+    "stop_hr_readback": true,
+    "stop_ir_reached_0": true,
+    "stop_bits": true,
+    "stop_fan_running_di": true
+  },
+  "baseline": {
+    "hr": 0,
+    "ir": 0
+  },
+  "start_ir_last": 3,
+  "bits_after_start": {
+    "FanCommand": true,
+    "FanFault": false,
+    "FanRunning": true
+  },
+  "di_after_start": true,
+  "stop_ir_last": 0,
+  "bits_after_stop": {
+    "FanCommand": false,
+    "FanFault": false,
+    "FanRunning": false
+  },
+  "di_after_stop": false,
+  "operation_status": "PASS",
+  "reason": "HR0=1 -> IR0=3 (FanCommand, FanRunning set, FanFault clear) and HR0=2 -> IR0=0 observed; FanRunning DI148 followed",
+  "exit_code_intended": 0
+}

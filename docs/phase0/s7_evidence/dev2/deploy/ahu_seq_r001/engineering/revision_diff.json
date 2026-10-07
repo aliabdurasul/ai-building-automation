@@ -1,0 +1,636 @@
+{
+  "schema": "ai_bms.revision_diff.v1",
+  "project_id": "AHU-SEQ",
+  "from_revision": null,
+  "to_revision": 1,
+  "summary": {
+    "ADDED": 14,
+    "EQUIPMENT_ADDED": 1
+  },
+  "breaking_changes": [],
+  "changes": [
+    {
+      "identity": "AHU-SEQ/AHU-01",
+      "equipment": "AHU-01",
+      "type": "EQUIPMENT_ADDED",
+      "breaking": false
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/AhuAlarm",
+      "equipment": "AHU-01",
+      "tag": "AhuAlarm",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "AhuAlarm",
+        "plc_var": "AhuAlarm",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 144,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/AhuState",
+      "equipment": "AHU-01",
+      "tag": "AhuState",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "INT16",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "AhuState",
+        "plc_var": "AhuState",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 1,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/Command",
+      "equipment": "AHU-01",
+      "tag": "Command",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "WORD",
+        "direction": "WRITE",
+        "area": "HOLDING_REGISTER",
+        "address": 0,
+        "symbol": "Command",
+        "plc_var": "Mb_Command",
+        "scale": 1.0,
+        "bits": {
+          "0": "StartCommand",
+          "1": "StopCommand"
+        },
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "HOLDING_REGISTER",
+          "address": 0,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/DamperCommand",
+      "equipment": "AHU-01",
+      "tag": "DamperCommand",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "DamperCommand",
+        "plc_var": "DamperCommand",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 145,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/DamperFault",
+      "equipment": "AHU-01",
+      "tag": "DamperFault",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "DamperFault",
+        "plc_var": "DamperFault",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 146,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/DamperOpen",
+      "equipment": "AHU-01",
+      "tag": "DamperOpen",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "DamperOpen",
+        "plc_var": "DamperOpen",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 147,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/FanRunning",
+      "equipment": "AHU-01",
+      "tag": "FanRunning",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "BOOL",
+        "direction": "READ",
+        "area": "DISCRETE_INPUT",
+        "address": null,
+        "symbol": "FanRunning",
+        "plc_var": "FanRunning",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 148,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/HeatingValve",
+      "equipment": "AHU-01",
+      "tag": "HeatingValve",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "HeatingValve",
+        "plc_var": "HeatingValve",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 2,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/SequenceStarts",
+      "equipment": "AHU-01",
+      "tag": "SequenceStarts",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "UINT16",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "SequenceStarts",
+        "plc_var": "SequenceStarts",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 4,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/SequenceStops",
+      "equipment": "AHU-01",
+      "tag": "SequenceStops",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "UINT16",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "SequenceStops",
+        "plc_var": "SequenceStops",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 5,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/Setpoint",
+      "equipment": "AHU-01",
+      "tag": "Setpoint",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ_WRITE",
+        "area": "HOLDING_REGISTER",
+        "address": null,
+        "symbol": "Setpoint",
+        "plc_var": "Setpoint",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          21.5,
+          18.25,
+          123.456,
+          22.0
+        ]
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "HOLDING_REGISTER",
+          "address": 1,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/StateTrace",
+      "equipment": "AHU-01",
+      "tag": "StateTrace",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "WORD",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "StateTrace",
+        "plc_var": "StateTrace",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 6,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/Status",
+      "equipment": "AHU-01",
+      "tag": "Status",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "WORD",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": 0,
+        "symbol": "Status",
+        "plc_var": "Mb_Status",
+        "scale": 1.0,
+        "bits": {
+          "0": "FanCommand",
+          "1": "FanRunning",
+          "2": "FanFault"
+        },
+        "verification_values": null
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 0,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/SupplyTemp",
+      "equipment": "AHU-01",
+      "tag": "SupplyTemp",
+      "type": "ADDED",
+      "breaking": false,
+      "after": {
+        "datatype": "REAL32",
+        "direction": "READ",
+        "area": "INPUT_REGISTER",
+        "address": null,
+        "symbol": "SupplyTemp",
+        "plc_var": "SupplyTemp",
+        "scale": 1.0,
+        "bits": null,
+        "verification_values": [
+          21.5,
+          18.25,
+          123.456,
+          21.0
+        ]
+      },
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 7,
+          "length": 2
+        }
+      }
+    }
+  ],
+  "variable_changes": [
+    {
+      "variable": "AhuAlarm",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "alarm",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "AhuState",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "INT",
+        "initial": 0,
+        "role": "status",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "DamperCommand",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "output",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "DamperFailure",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "fault_input",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "DamperFault",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "alarm",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "DamperOpen",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "status",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "FanCommand",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "output",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "FanFailure",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "fault_input",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "FanFault",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "status",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "FanRunning",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "status",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "HeatingValve",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 0.0,
+        "role": "output",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "NowMs",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "UDINT",
+        "initial": 0,
+        "role": "internal",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "SequenceStarts",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "UINT",
+        "initial": 0,
+        "role": "diagnostic",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "SequenceStops",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "UINT",
+        "initial": 0,
+        "role": "diagnostic",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "Setpoint",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 22.0,
+        "role": "setpoint",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "StartCommand",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "command",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "StartPrev",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "internal",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "StateEntryMs",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "UDINT",
+        "initial": 0,
+        "role": "internal",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "StateTrace",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "WORD",
+        "initial": 0,
+        "role": "diagnostic",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "StopCommand",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "command",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "StopPrev",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "BOOL",
+        "initial": false,
+        "role": "internal",
+        "equipment": "AHU-01"
+      }
+    },
+    {
+      "variable": "SupplyTemp",
+      "type": "VARIABLE_ADDED",
+      "after": {
+        "type": "REAL",
+        "initial": 21.0,
+        "role": "process",
+        "equipment": "AHU-01"
+      }
+    }
+  ]
+}

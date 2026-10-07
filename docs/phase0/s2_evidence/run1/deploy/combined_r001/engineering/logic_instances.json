@@ -1,0 +1,139 @@
+{
+  "schema": "ai_bms.logic_instances.v1",
+  "project_id": "BMS-DEMO",
+  "revision": 1,
+  "instances": [
+    {
+      "equipment": "AHU-01",
+      "type": "AHU",
+      "template": "AHU_S1FIX_V1",
+      "sha256": "6547b81211be44a268836df88865dadeee118098e2d92d04d663eec461c0822b",
+      "bind": {
+        "FanCommand": "FanCommand",
+        "FanFault": "FanFault",
+        "FanRunning": "FanRunning",
+        "HeatingValve": "HeatingValve",
+        "Setpoint": "Setpoint",
+        "StartCommand": "StartCommand",
+        "StopCommand": "StopCommand",
+        "SupplyTemp": "SupplyTemp"
+      },
+      "behavior_test": null
+    },
+    {
+      "equipment": "PUMP-01",
+      "type": "PUMP",
+      "template": "PUMP_BASIC_V1",
+      "sha256": "a971cb3a6766a309899d1aa48e30a78262b0a89ba0c089d6cd9988931b5bda98",
+      "bind": {
+        "PumpFault": "PumpFault",
+        "PumpRunning": "PumpRunning",
+        "PumpState": "PumpState",
+        "StartCommand": "PUMP01_StartCommand",
+        "StopCommand": "PUMP01_StopCommand"
+      },
+      "behavior_test": {
+        "description": "Commands through Modbus (client-writable mapped slots); fault injected PLC-side (online write); every expectation checked both through Modbus and PLC online read-back.",
+        "steps": [
+          {
+            "expect": {
+              "PumpFault": false,
+              "PumpRunning": false,
+              "PumpState": 0
+            },
+            "modbus_write": {
+              "StartCommand": false,
+              "StopCommand": false
+            },
+            "name": "initial_stopped",
+            "plc_write": {
+              "PumpFault": false
+            }
+          },
+          {
+            "expect": {
+              "PumpRunning": true,
+              "PumpState": 2
+            },
+            "modbus_write": {
+              "StartCommand": true
+            },
+            "name": "start"
+          },
+          {
+            "expect": {
+              "PumpRunning": true,
+              "PumpState": 2
+            },
+            "modbus_write": {
+              "StartCommand": false
+            },
+            "name": "start_released_keeps_running"
+          },
+          {
+            "expect": {
+              "PumpRunning": false,
+              "PumpState": 0
+            },
+            "modbus_write": {
+              "StopCommand": true
+            },
+            "name": "stop"
+          },
+          {
+            "expect": {
+              "PumpRunning": false,
+              "PumpState": 0
+            },
+            "modbus_write": {
+              "StartCommand": true
+            },
+            "name": "start_while_stop_held_is_ignored"
+          },
+          {
+            "expect": {
+              "PumpRunning": true,
+              "PumpState": 2
+            },
+            "modbus_write": {
+              "StopCommand": false
+            },
+            "name": "stop_released_starts"
+          },
+          {
+            "expect": {
+              "PumpFault": true,
+              "PumpRunning": false,
+              "PumpState": 9
+            },
+            "name": "fault_while_running_start_held",
+            "plc_write": {
+              "PumpFault": true
+            }
+          },
+          {
+            "expect": {
+              "PumpRunning": false,
+              "PumpState": 9
+            },
+            "modbus_write": {
+              "StartCommand": false
+            },
+            "name": "start_released_in_fault"
+          },
+          {
+            "expect": {
+              "PumpFault": false,
+              "PumpRunning": false,
+              "PumpState": 0
+            },
+            "name": "fault_cleared_stopped",
+            "plc_write": {
+              "PumpFault": false
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

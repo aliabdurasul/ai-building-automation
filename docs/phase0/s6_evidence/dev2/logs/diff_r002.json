@@ -1,0 +1,158 @@
+{
+  "step": "revision_check_diff",
+  "checks": {
+    "revision_metadata": true,
+    "independent_recomputation_matches": true,
+    "scenario_expectations": true,
+    "no_breaking_changes": true
+  },
+  "mismatches": [],
+  "summary": {
+    "ADDED": 1,
+    "UNCHANGED": 7
+  },
+  "changes": [
+    {
+      "identity": "AHU-DEMO/AHU-01/Command",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "HOLDING_REGISTER",
+          "address": 0,
+          "length": 1
+        },
+        "to": {
+          "area": "HOLDING_REGISTER",
+          "address": 0,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/FanRunning",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "DISCRETE_INPUT",
+          "address": 144,
+          "length": 1
+        },
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 144,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/FanSpeed",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "INPUT_REGISTER",
+          "address": 1,
+          "length": 2
+        },
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 1,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/ReturnTemp",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 7,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Setpoint",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "HOLDING_REGISTER",
+          "address": 1,
+          "length": 2
+        },
+        "to": {
+          "area": "HOLDING_REGISTER",
+          "address": 1,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/Status",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "INPUT_REGISTER",
+          "address": 0,
+          "length": 1
+        },
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 0,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/SupplyTemp",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "INPUT_REGISTER",
+          "address": 3,
+          "length": 2
+        },
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 3,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "AHU-DEMO/AHU-01/TestReal32Read",
+      "type": "UNCHANGED",
+      "breaking": false,
+      "mapping": {
+        "action": "PRESERVED",
+        "from": {
+          "area": "INPUT_REGISTER",
+          "address": 5,
+          "length": 2
+        },
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 5,
+          "length": 2
+        }
+      }
+    }
+  ],
+  "operation_status": "PASS",
+  "reason": "4 checks passed"
+}

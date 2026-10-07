@@ -1,0 +1,18 @@
+test_render_is_byte_stable (__main__.Determinism.test_render_is_byte_stable) ... ok
+test_signal_and_variable_order_irrelevant_to_allocation (__main__.Determinism.test_signal_and_variable_order_irrelevant_to_allocation) ... ok
+test_ahu_template_equivalent_to_builtin (__main__.MultiEquipment.test_ahu_template_equivalent_to_builtin) ... ok
+test_combined_identities_isolated (__main__.MultiEquipment.test_combined_identities_isolated) ... ok
+test_s1_words_stay_pinned_in_combined (__main__.MultiEquipment.test_s1_words_stay_pinned_in_combined) ... ok
+test_breaking_type_change_requires_approval (__main__.Pump.test_breaking_type_change_requires_approval) ... ok
+test_pump_model_is_vendor_neutral_and_unaddressed (__main__.Pump.test_pump_model_is_vendor_neutral_and_unaddressed) ... ok
+test_pump_v1_generation (__main__.Pump.test_pump_v1_generation) ... ok
+test_revisions_add_remove_preserve (__main__.Pump.test_revisions_add_remove_preserve) ... ok
+test_bundle_pins_template_content (__main__.Templates.test_bundle_pins_template_content) ... ok
+test_slot_type_mismatch_rejected (__main__.Templates.test_slot_type_mismatch_rejected) ... ok
+test_template_files_are_well_formed (__main__.Templates.test_template_files_are_well_formed) ... ok
+test_unknown_slot_and_free_text_rejected (__main__.Templates.test_unknown_slot_and_free_text_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.272s
+
+OK

@@ -1,0 +1,126 @@
+{
+  "step": "s8_test_matrix",
+  "rows": [
+    {
+      "id": "01",
+      "test": "TCP connectivity",
+      "result": "PASS",
+      "evidence": "master_scada_connectivity.json"
+    },
+    {
+      "id": "02",
+      "test": "Modbus connection FC3/FC4/FC6",
+      "result": "PASS",
+      "evidence": "master_scada_connectivity.json"
+    },
+    {
+      "id": "03",
+      "test": "MasterSCADA read FanStatus",
+      "result": "PASS",
+      "evidence": "S15_ms_runtime_events.jsonl read_*"
+    },
+    {
+      "id": "04",
+      "test": "MasterSCADA write FanCommand",
+      "result": "PASS",
+      "evidence": "S15_ms_runtime_events.jsonl write_*"
+    },
+    {
+      "id": "05",
+      "test": "START E2E MS->HR0=1->IR0=3->MS",
+      "result": "PASS",
+      "evidence": "start_e2e.json"
+    },
+    {
+      "id": "06",
+      "test": "STOP E2E MS->HR0=2->IR0=0->MS",
+      "result": "PASS",
+      "evidence": "stop_e2e.json"
+    },
+    {
+      "id": "07",
+      "test": "RUNNING feedback IR0=3",
+      "result": "PASS",
+      "evidence": "start_e2e.json"
+    },
+    {
+      "id": "08",
+      "test": "STOPPED feedback IR0=0",
+      "result": "PASS",
+      "evidence": "stop_e2e.json"
+    },
+    {
+      "id": "09",
+      "test": "FAULT feedback MasterSCADA",
+      "result": "NOT VERIFIED",
+      "evidence": "fault_e2e.json (CODESYS/Modbus PASS; MS FAULT display not held)"
+    },
+    {
+      "id": "09b",
+      "test": "FAULT CODESYS+Modbus IR0=4",
+      "result": "PASS",
+      "evidence": "fault_e2e.json"
+    },
+    {
+      "id": "10",
+      "test": "REAL32 MasterSCADA read",
+      "result": "NOT VERIFIED",
+      "evidence": "analog_e2e.json"
+    },
+    {
+      "id": "10b",
+      "test": "REAL32 Modbus CDAB decode",
+      "result": "PASS",
+      "evidence": "analog_e2e.json"
+    },
+    {
+      "id": "11",
+      "test": "FanRunning tag (via Status)",
+      "result": "PASS",
+      "evidence": "tag_validation.json"
+    },
+    {
+      "id": "12",
+      "test": "FanFault tag while RUNNING clear",
+      "result": "PASS",
+      "evidence": "tag_validation.json"
+    },
+    {
+      "id": "13",
+      "test": "Status tag FanStatus IR0",
+      "result": "PASS",
+      "evidence": "tag_validation.json"
+    },
+    {
+      "id": "14",
+      "test": "Command tag FanCommand HR0",
+      "result": "PASS",
+      "evidence": "tag_validation.json"
+    },
+    {
+      "id": "15",
+      "test": "CODESYS <-> Modbus <-> MasterSCADA comparison",
+      "result": "PASS",
+      "evidence": "S15 summary closed_loop_ok"
+    },
+    {
+      "id": "16",
+      "test": "Runtime stability (Good status)",
+      "result": "PASS",
+      "evidence": "S15 StatusCode:=Good samples"
+    },
+    {
+      "id": "17",
+      "test": "HMI operator screen E2E",
+      "result": "NOT VERIFIED",
+      "evidence": "debug runtime used; no browser operator path in S8"
+    }
+  ],
+  "summary": {
+    "PASS": 16,
+    "NOT VERIFIED": 3
+  },
+  "operation_status": "PASS",
+  "s8_overall": "PARTIAL",
+  "reason": "Critical MasterSCADA START/STOP closed-loop PASS; FAULT MS display, REAL32 MS tags, and operator HMI remain NOT VERIFIED"
+}

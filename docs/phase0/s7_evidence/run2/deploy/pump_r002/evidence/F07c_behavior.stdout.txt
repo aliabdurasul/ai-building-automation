@@ -1,0 +1,1 @@
+PASS 27 behaviour steps passed (template:PUMP-01:PUMP_BASIC_V1, scenario:PUMP-01 PUMP_BASIC_V1 S7 regression)

@@ -1,0 +1,69 @@
+mode=runtime time=2026-10-06T17:30:10.7626391+03:00
+IUIService registered: InSAT.Framework.TestBase.UIServiceForTests
+TimedTrace not found
+TypesManager.ConfigName=MasterPLC ConfigPath=C:\Program Files\MPSSoft\MasterSCADA 4D 1.2\bin\..\Configs\MasterPLC
+RUNTIME statics (vendor TestUtils.InitTests equivalents):
+  static MasterSCADA.Controllers.Services.ConfigurationService.ControllerConfiguration.IncludeHMI = False
+  static MasterSCADA.Controllers.Services.ConfigurationService.ControllerConfiguration.EnableStartHMIClient = False
+  static MasterSCADA.Controllers.Adapters.DebugControllerInstance.EnableLocalFixedDefaultPort = False
+  static Controllers.ControllerTypes.WindowsControllerInstance.DefaultShowTerminalWindowMode = None
+  ApplicationHlp.Initialize(C:\AI_BMS_POC\master_scada_research\hmi_api_poc\phase0_s8\rt_copy\rt_work) via Void Initialize()
+EVT {"t":"2026-10-06T17:30:21.968+03:00","step":"codesys_before_runtime","HR0":0,"IR0":0}
+EVT {"t":"2026-10-06T17:30:22.685+03:00","step":"net_502_before_runtime","local":"0.0.0.0:502","remote":"0.0.0.0:0","state":"LISTENING","pid":23432,"process":"CODESYSControlService"}
+EVT {"t":"2026-10-06T17:30:22.704+03:00","step":"net_502_before_runtime","local":"127.0.0.1:49219","remote":"127.0.0.1:502","state":"TIME_WAIT","pid":0,"process":"Idle"}
+EVT {"t":"2026-10-06T17:30:22.705+03:00","step":"net_502_before_runtime","local":"127.0.0.1:49220","remote":"127.0.0.1:502","state":"TIME_WAIT","pid":0,"process":"Idle"}
+OpenProject OK: AHU_S8 root=MasterSCADA.HMI.RootItem
+EVT {"t":"2026-10-06T17:30:56.625+03:00","step":"upper_level_modbus_slave_port","setting_ModbusTCPPort":"502"}
+EVT {"t":"2026-10-06T17:31:00.022+03:00","step":"project_opened","project":"AHU_S8","workstation":"System.АРМ 1","FanCommand_pin":"System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.FanCommand.Output","FanStatus_pin":"System.АРМ 1.IO Protocols.Modbus TCP.Модуль Modbus TCP 1.FanStatus.Input"}
+EVT {"t":"2026-10-06T17:31:00.025+03:00","step":"start_driver_call","exe":"C:\\Program Files\\MPSSoft\\MasterSCADA 4D 1.2\\bin\\Config\\MasterPLC\\WIN64\\IWIN32.EXE","workdir":"C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc\\phase0_s8\\rt_copy\\rt_work\\Debug_1","udp_port":31201,"emulate":false,"autoLoad":true}
+  (could not read configuration errors: Object reference not set to an instance of an object.)
+EVT {"t":"2026-10-06T17:31:11.636+03:00","step":"wait_config_loaded","loaded":true}
+EVT {"t":"2026-10-06T17:31:11.644+03:00","step":"runtime_process","name":"IWIN32","pid":6392}
+EVT {"t":"2026-10-06T17:31:12.838+03:00","step":"net_502_while_runtime_running","local":"0.0.0.0:502","remote":"0.0.0.0:0","state":"LISTENING","pid":23432,"process":"CODESYSControlService"}
+EVT {"t":"2026-10-06T17:31:12.838+03:00","step":"net_502_while_runtime_running","local":"127.0.0.1:502","remote":"127.0.0.1:49480","state":"ESTABLISHED","pid":23432,"process":"CODESYSControlService"}
+EVT {"t":"2026-10-06T17:31:12.855+03:00","step":"net_502_while_runtime_running","local":"127.0.0.1:49219","remote":"127.0.0.1:502","state":"TIME_WAIT","pid":0,"process":"Idle"}
+EVT {"t":"2026-10-06T17:31:12.855+03:00","step":"net_502_while_runtime_running","local":"127.0.0.1:49220","remote":"127.0.0.1:502","state":"TIME_WAIT","pid":0,"process":"Idle"}
+EVT {"t":"2026-10-06T17:31:12.872+03:00","step":"net_502_while_runtime_running","local":"127.0.0.1:49480","remote":"127.0.0.1:502","state":"ESTABLISHED","pid":6392,"process":"IWIN32"}
+EVT {"t":"2026-10-06T17:31:12.873+03:00","step":"first_FanStatus_value","received":true,"value":"(Value:=0, SourceTime:=2026-10-06-17:31:12.663, StatusCode:=Good)","FanCommand_value":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)"}
+EVT {"t":"2026-10-06T17:31:12.947+03:00","step":"read_0_baseline","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:12.663, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":0,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:13.533+03:00","step":"read_0_baseline","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:12.987, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":0,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:14.118+03:00","step":"read_0_baseline","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:13.533, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":0,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:14.704+03:00","step":"read_0_baseline","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:14.542, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":0,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:15.287+03:00","step":"read_0_baseline","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:15.126, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":0,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:15.872+03:00","step":"read_0_baseline","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:15.672, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":0,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:16.678+03:00","step":"read_1_stimulus_direct_HR0","value":1,"note":"test client writes StartCommand so CODESYS logic produces FanCommand/FanRunning in IR0"}
+EVT {"t":"2026-10-06T17:31:17.039+03:00","step":"read_1_after","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-17:31:16.817, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":1,"codesys_IR0":3}
+EVT {"t":"2026-10-06T17:31:17.623+03:00","step":"read_1_after","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-17:31:17.462, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":1,"codesys_IR0":3}
+EVT {"t":"2026-10-06T17:31:18.210+03:00","step":"read_1_after","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-17:31:17.950, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":1,"codesys_IR0":3}
+EVT {"t":"2026-10-06T17:31:19.380+03:00","step":"read_1_after","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-17:31:18.629, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":1,"codesys_IR0":3}
+EVT {"t":"2026-10-06T17:31:19.967+03:00","step":"read_1_after","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-17:31:19.806, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":1,"codesys_IR0":3}
+EVT {"t":"2026-10-06T17:31:20.533+03:00","step":"read_1_result","match_IR0_3":true,"ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-17:31:20.372, StatusCode:=Good)","codesys_IR0":3,"codesys_HR0":1}
+EVT {"t":"2026-10-06T17:31:20.573+03:00","step":"read_2_stimulus_direct_HR0","value":2}
+EVT {"t":"2026-10-06T17:31:20.935+03:00","step":"read_2_after","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:20.713, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":2,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:21.923+03:00","step":"read_2_after","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:21.804, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":2,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:22.488+03:00","step":"read_2_after","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:22.308, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":2,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:23.075+03:00","step":"read_2_after","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:22.932, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":2,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:23.659+03:00","step":"read_2_after","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:23.498, StatusCode:=Good)","ms_FanCommand":"(Value:=0, SourceTime:=1601-01-01-03:00:00.000, StatusCode:=BadWaitingForInitialData)","codesys_HR0":2,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:24.525+03:00","step":"read_2_result","match_IR0_0":true,"ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:23.619, StatusCode:=Good)","codesys_IR0":0,"codesys_HR0":2}
+EVT {"t":"2026-10-06T17:31:24.526+03:00","step":"pin_children","FanCommand_Output_children":"Value,SourceTime,StatusCode","FanStatus_Input_children":"Value,SourceTime,StatusCode"}
+EVT {"t":"2026-10-06T17:31:24.526+03:00","step":"write_target","how":"child pin 'Value' of Output"}
+EVT {"t":"2026-10-06T17:31:24.538+03:00","step":"write_1_masterscada_FanCommand","value":1}
+EVT {"t":"2026-10-06T17:31:25.169+03:00","step":"write_1_after","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-17:31:24.826, StatusCode:=Good)","ms_FanCommand":"(Value:=1, SourceTime:=2026-10-06-17:31:24.661, StatusCode:=Good)","codesys_HR0":1,"codesys_IR0":3}
+EVT {"t":"2026-10-06T17:31:25.735+03:00","step":"write_1_after","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-17:31:25.512, StatusCode:=Good)","ms_FanCommand":"(Value:=1, SourceTime:=2026-10-06-17:31:24.661, StatusCode:=Good)","codesys_HR0":1,"codesys_IR0":3}
+EVT {"t":"2026-10-06T17:31:26.300+03:00","step":"write_1_after","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-17:31:26.098, StatusCode:=Good)","ms_FanCommand":"(Value:=1, SourceTime:=2026-10-06-17:31:24.661, StatusCode:=Good)","codesys_HR0":1,"codesys_IR0":3}
+EVT {"t":"2026-10-06T17:31:27.104+03:00","step":"write_1_after","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-17:31:26.220, StatusCode:=Good)","ms_FanCommand":"(Value:=1, SourceTime:=2026-10-06-17:31:24.661, StatusCode:=Good)","codesys_HR0":1,"codesys_IR0":3}
+EVT {"t":"2026-10-06T17:31:27.691+03:00","step":"write_1_after","ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-17:31:27.490, StatusCode:=Good)","ms_FanCommand":"(Value:=1, SourceTime:=2026-10-06-17:31:24.661, StatusCode:=Good)","codesys_HR0":1,"codesys_IR0":3}
+EVT {"t":"2026-10-06T17:31:28.278+03:00","step":"write_1_result","codesys_HR0_is_1":true,"closed_loop_IR0_3_and_FanStatus_3":true,"codesys_HR0":1,"codesys_IR0":3,"ms_FanStatus":"(Value:=3, SourceTime:=2026-10-06-17:31:28.196, StatusCode:=Good)"}
+EVT {"t":"2026-10-06T17:31:28.278+03:00","step":"write_2_masterscada_FanCommand","value":2}
+EVT {"t":"2026-10-06T17:31:28.923+03:00","step":"write_2_after","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:28.742, StatusCode:=Good)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-06-17:31:28.421, StatusCode:=Good)","codesys_HR0":2,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:29.669+03:00","step":"write_2_after","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:28.842, StatusCode:=Good)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-06-17:31:28.421, StatusCode:=Good)","codesys_HR0":2,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:30.252+03:00","step":"write_2_after","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:30.051, StatusCode:=Good)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-06-17:31:28.421, StatusCode:=Good)","codesys_HR0":2,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:30.836+03:00","step":"write_2_after","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:30.715, StatusCode:=Good)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-06-17:31:28.421, StatusCode:=Good)","codesys_HR0":2,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:31.419+03:00","step":"write_2_after","ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:31.197, StatusCode:=Good)","ms_FanCommand":"(Value:=2, SourceTime:=2026-10-06-17:31:28.421, StatusCode:=Good)","codesys_HR0":2,"codesys_IR0":0}
+EVT {"t":"2026-10-06T17:31:32.342+03:00","step":"write_2_result","codesys_HR0_is_2":true,"closed_loop_IR0_0_and_FanStatus_0":true,"codesys_HR0":2,"codesys_IR0":0,"ms_FanStatus":"(Value:=0, SourceTime:=2026-10-06-17:31:32.038, StatusCode:=Good)"}
+EVT {"t":"2026-10-06T17:31:32.353+03:00","step":"unblock","ok":true}
+EVT {"t":"2026-10-06T17:31:32.354+03:00","step":"summary","read_ok":true,"write_ok":true,"closed_loop_ok":true}
+EVT {"t":"2026-10-06T17:31:32.468+03:00","step":"stop_controller","ok":true}
+EVT {"t":"2026-10-06T17:31:35.484+03:00","step":"runtime_process_after_stop","name":"IWIN32","pid":6392}
+EVT {"t":"2026-10-06T17:31:35.561+03:00","step":"codesys_after_runtime","HR0":2,"IR0":0}
+EVT {"t":"2026-10-06T17:31:40.671+03:00","step":"project_disposed_without_save","ok":true}

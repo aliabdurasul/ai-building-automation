@@ -1,0 +1,19 @@
+{
+  "schema": "ai_bms.revision_validation.v1",
+  "project_id": "PUMP-DEMO",
+  "revision": 2,
+  "parent_revision": 1,
+  "status": "ACCEPTED",
+  "stages": {
+    "canonical": "PASS",
+    "model_rules": "PASS",
+    "policy": "PASS",
+    "allocation": "PASS",
+    "resolved_model": "PASS",
+    "logic_template": "PASS"
+  },
+  "errors": [],
+  "model_sha256": "de885d4933d9b828e04e865f46e26022d9a78193ce745ef883e822dc4476810e",
+  "target_sha256": "2d02a0ee88bdab568b4b1f177395aaa67cc144e8b584416f81e24ecb34700693",
+  "logic_templates_sha256": "466162a90ae80a84bdff6b59fd15f4b8c30dd075b9fe0bae46ee41f9ed8ee96d"
+}

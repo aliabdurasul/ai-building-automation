@@ -1,0 +1,17 @@
+{
+  "test": "01_02_tcp_modbus",
+  "host": "127.0.0.1",
+  "port": 502,
+  "unit": 1,
+  "tcp_connect": true,
+  "pymodbus_connect": true,
+  "baseline": {
+    "HR0": 0,
+    "IR0": 0
+  },
+  "fc6_write_hr0_0": true,
+  "fc3_read_ok": true,
+  "fc4_read_ok": true,
+  "operation_status": "PASS",
+  "reason": "Modbus TCP 127.0.0.1:502 unit 1 FC3/FC4/FC6 OK"
+}

@@ -1,0 +1,730 @@
+{
+ "reference_tree": [
+  {
+   "is_device": false, 
+   "depth": 0, 
+   "name": "Project Settings"
+  }, 
+  {
+   "is_device": true, 
+   "connectors": [
+    {
+     "host_parameters": [], 
+     "connector_id": "0", 
+     "interface": "Common.PCI"
+    }, 
+    {
+     "host_parameters": [], 
+     "connector_id": "1", 
+     "interface": "SafetyInterface"
+    }
+   ], 
+   "device_parameters": [], 
+   "depth": 0, 
+   "name": "PLCWinNT", 
+   "device_id": {
+    "type": 4096, 
+    "version": "3.5.22.30", 
+    "id": "0000 0004"
+   }
+  }, 
+  {
+   "is_device": false, 
+   "depth": 1, 
+   "name": "Plc Logic"
+  }, 
+  {
+   "is_device": false, 
+   "depth": 2, 
+   "name": "Application"
+  }, 
+  {
+   "is_device": false, 
+   "depth": 3, 
+   "name": "PLC_PRG"
+  }, 
+  {
+   "is_device": false, 
+   "depth": 3, 
+   "name": "Taskkonfiguration"
+  }, 
+  {
+   "is_device": false, 
+   "depth": 4, 
+   "name": "MainTask"
+  }, 
+  {
+   "is_device": false, 
+   "depth": 5, 
+   "name": "PLC_PRG"
+  }, 
+  {
+   "is_device": false, 
+   "depth": 3, 
+   "name": "Library Manager"
+  }, 
+  {
+   "is_device": true, 
+   "connectors": [
+    {
+     "host_parameters": [], 
+     "connector_id": "1", 
+     "interface": "Common.PCI"
+    }, 
+    {
+     "host_parameters": [
+      {
+       "iec_type": "", 
+       "name": "IPAddress", 
+       "is_mappable_io": false, 
+       "value": "[192, 168, 0, 1]", 
+       "id": "0"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "SubnetMask", 
+       "is_mappable_io": false, 
+       "value": "[255, 255, 255, 0]", 
+       "id": "1"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "GatewayAddress", 
+       "is_mappable_io": false, 
+       "value": "[0, 0, 0, 0]", 
+       "id": "2"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "TransferRate", 
+       "is_mappable_io": false, 
+       "value": "0", 
+       "id": "3"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "IPConfigMode", 
+       "is_mappable_io": false, 
+       "value": "1", 
+       "id": "4"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "DeviceName", 
+       "is_mappable_io": false, 
+       "value": "'myDevice'", 
+       "id": "5"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "WebServer", 
+       "is_mappable_io": false, 
+       "value": "true", 
+       "id": "6"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "MACAddress", 
+       "is_mappable_io": false, 
+       "value": "[16#0, 16#0, 16#0, 16#0, 16#0, 16#0]", 
+       "id": "9"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "NetworkInterfaceName", 
+       "is_mappable_io": false, 
+       "value": "''", 
+       "id": "10"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "EtherNetProtocol", 
+       "is_mappable_io": false, 
+       "value": "0", 
+       "id": "11"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "NetworkInterfaceName", 
+       "is_mappable_io": false, 
+       "value": "\"\"", 
+       "id": "12"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "SaveCommunicationSettings", 
+       "is_mappable_io": false, 
+       "value": "false", 
+       "id": "13"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "IPAddress", 
+       "is_mappable_io": false, 
+       "value": "[192, 168, 0, 1]", 
+       "id": "100"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "SubnetMask", 
+       "is_mappable_io": false, 
+       "value": "[255, 255, 255, 0]", 
+       "id": "101"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "GatewayAddress", 
+       "is_mappable_io": false, 
+       "value": "[0, 0, 0, 0]", 
+       "id": "102"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "TransferRate", 
+       "is_mappable_io": false, 
+       "value": "0", 
+       "id": "103"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "IPConfigMode", 
+       "is_mappable_io": false, 
+       "value": "1", 
+       "id": "104"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "DeviceName", 
+       "is_mappable_io": false, 
+       "value": "'my Device'", 
+       "id": "105"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "WebServer", 
+       "is_mappable_io": false, 
+       "value": "true", 
+       "id": "106"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "NetworkStatus", 
+       "is_mappable_io": false, 
+       "value": "1", 
+       "id": "107"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "ModuleStatus", 
+       "is_mappable_io": false, 
+       "value": "1", 
+       "id": "108"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "MACAddress", 
+       "is_mappable_io": false, 
+       "value": "[16#0, 16#0, 16#0, 16#0, 16#0, 16#0]", 
+       "id": "109"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "NetworkInterfaceName", 
+       "is_mappable_io": false, 
+       "value": "'ether 0'", 
+       "id": "110"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "EtherNetProtocol", 
+       "is_mappable_io": false, 
+       "value": "0", 
+       "id": "111"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "NetworkInterfaceName", 
+       "is_mappable_io": false, 
+       "value": "\"\"", 
+       "id": "200"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "IPAddress", 
+       "is_mappable_io": false, 
+       "value": "[192, 168, 0, 2]", 
+       "id": "201"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "SubnetMask", 
+       "is_mappable_io": false, 
+       "value": "[255, 255, 255, 0]", 
+       "id": "202"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "GatewayAddress", 
+       "is_mappable_io": false, 
+       "value": "[0, 0, 0, 0]", 
+       "id": "203"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "EthDiag", 
+       "is_mappable_io": false, 
+       "value": "{, , , }", 
+       "id": "2006"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Diag Acknowledge", 
+       "is_mappable_io": false, 
+       "value": "FALSE", 
+       "id": "2007"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "WebserverVisible", 
+       "is_mappable_io": false, 
+       "value": "false", 
+       "id": "10000000"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "NetworkInterfaceVisible", 
+       "is_mappable_io": false, 
+       "value": "true", 
+       "id": "10000001"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "OnlineStatusScreenEnabled", 
+       "is_mappable_io": false, 
+       "value": "false", 
+       "id": "10000002"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "ReadOnlyNIC", 
+       "is_mappable_io": false, 
+       "value": "\"\"", 
+       "id": "10000003"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "UseAsyncTask", 
+       "is_mappable_io": false, 
+       "value": "true", 
+       "id": "10000004"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Dummy Parameter", 
+       "is_mappable_io": false, 
+       "value": "0", 
+       "id": "20000000"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "ShowLoggerPage", 
+       "is_mappable_io": false, 
+       "value": "true", 
+       "id": "805306369"
+      }
+     ], 
+     "connector_id": "2", 
+     "interface": "Common.Ethernet"
+    }
+   ], 
+   "device_parameters": [], 
+   "depth": 1, 
+   "name": "Ethernet", 
+   "device_id": {
+    "type": 110, 
+    "version": "4.2.0.0", 
+    "id": "0000 0002"
+   }
+  }, 
+  {
+   "is_device": true, 
+   "connectors": [
+    {
+     "host_parameters": [
+      {
+       "iec_type": "", 
+       "name": "Timeout", 
+       "is_mappable_io": false, 
+       "value": "0", 
+       "id": "0"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "InputAssemblySize", 
+       "is_mappable_io": false, 
+       "value": "10", 
+       "id": "3"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "OutputAssemblySize", 
+       "is_mappable_io": false, 
+       "value": "10", 
+       "id": "4"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Port", 
+       "is_mappable_io": false, 
+       "value": "502", 
+       "id": "6"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "BindPort", 
+       "is_mappable_io": false, 
+       "value": "FALSE", 
+       "id": "8"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "OptimizationOn", 
+       "is_mappable_io": false, 
+       "value": "TRUE", 
+       "id": "10"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "UpdateableHolding", 
+       "is_mappable_io": false, 
+       "value": "TRUE", 
+       "id": "11"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "DistinctBitAreas", 
+       "is_mappable_io": false, 
+       "value": "FALSE", 
+       "id": "12"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Coils Size", 
+       "is_mappable_io": false, 
+       "value": "16", 
+       "id": "13"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Discrete Inputs Size", 
+       "is_mappable_io": false, 
+       "value": "16", 
+       "id": "14"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "StartAdresses", 
+       "is_mappable_io": false, 
+       "value": "{0, 0, 0, 0}", 
+       "id": "20"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Data Model Options", 
+       "is_mappable_io": false, 
+       "value": "0", 
+       "id": "21"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "CloseTCPsocketAtTimeout", 
+       "is_mappable_io": false, 
+       "value": "TRUE", 
+       "id": "22"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "SerialGatewayEnabled", 
+       "is_mappable_io": false, 
+       "value": "FALSE", 
+       "id": "30"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "ComPort", 
+       "is_mappable_io": false, 
+       "value": "1", 
+       "id": "31"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Baudrate", 
+       "is_mappable_io": false, 
+       "value": "9600", 
+       "id": "32"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Status", 
+       "is_mappable_io": false, 
+       "value": "{1, , , , , {, , , , , , }}", 
+       "id": "40"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Timeout", 
+       "is_mappable_io": false, 
+       "value": "2000", 
+       "id": "100"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "InputAssemblySize", 
+       "is_mappable_io": false, 
+       "value": "10", 
+       "id": "103"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "OutputAssemblySize", 
+       "is_mappable_io": false, 
+       "value": "10", 
+       "id": "104"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Port", 
+       "is_mappable_io": false, 
+       "value": "502", 
+       "id": "106"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Unit-ID", 
+       "is_mappable_io": false, 
+       "value": "0", 
+       "id": "107"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "OnlineStatusScreenEnabled", 
+       "is_mappable_io": false, 
+       "value": "false", 
+       "id": "200"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Holding Registers", 
+       "is_mappable_io": true, 
+       "value": "{{FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE}, {FALS", 
+       "id": "1000"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "Input Registers", 
+       "is_mappable_io": true, 
+       "value": "{{FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE}, {FALS", 
+       "id": "2000"
+      }, 
+      {
+       "iec_type": "", 
+       "name": "ConfigVersion", 
+       "is_mappable_io": false, 
+       "value": "16#03051000", 
+       "id": "1879052288"
+      }
+     ], 
+     "connector_id": "1", 
+     "interface": "Common.Ethernet"
+    }
+   ], 
+   "device_parameters": [], 
+   "depth": 2, 
+   "name": "Modbus_TCP_Server", 
+   "device_id": {
+    "type": 115, 
+    "version": "4.6.0.0", 
+    "id": "0000 0002"
+   }
+  }, 
+  {
+   "is_device": false, 
+   "depth": 0, 
+   "name": "__VisualizationStyle"
+  }
+ ], 
+ "repo_matches": [
+  {
+   "description": "Ethernet Link.", 
+   "categories": [
+    110, 
+    109, 
+    85, 
+    240
+   ], 
+   "vendor": "CODESYS", 
+   "name": "Ethernet", 
+   "device_id": {
+    "type": 110, 
+    "version": "4.2.0.0", 
+    "id": "0000 0002"
+   }
+  }, 
+  {
+   "description": "A device that works as an EtherNet/IP Adapter.", 
+   "categories": [
+    120
+   ], 
+   "vendor": "CODESYS", 
+   "name": "EtherNet/IP Adapter", 
+   "device_id": {
+    "type": 120, 
+    "version": "4.9.0.0", 
+    "id": "0000 1016"
+   }
+  }, 
+  {
+   "description": "A device that works as an EtherNet/IP Module.", 
+   "categories": [
+    102
+   ], 
+   "vendor": "CODESYS", 
+   "name": "EtherNet/IP Module", 
+   "device_id": {
+    "type": 102, 
+    "version": "4.6.0.0", 
+    "id": "0000 1016"
+   }
+  }, 
+  {
+   "description": "EtherNet/IP Scanner", 
+   "categories": [
+    100
+   ], 
+   "vendor": "CODESYS", 
+   "name": "EtherNet/IP Scanner", 
+   "device_id": {
+    "type": 100, 
+    "version": "4.9.0.0", 
+    "id": "0000 100B"
+   }
+  }, 
+  {
+   "description": "EtherNet/IP Target for a generic Device", 
+   "categories": [
+    101
+   ], 
+   "vendor": "CODESYS", 
+   "name": "Generic EtherNet/IP device", 
+   "device_id": {
+    "type": 101, 
+    "version": "4.6.0.0", 
+    "id": "0000 1001"
+   }
+  }, 
+  {
+   "description": "CIFX EtherNet/IP Scanner", 
+   "categories": [
+    100
+   ], 
+   "vendor": "CODESYS", 
+   "name": "CIFX-EIP", 
+   "device_id": {
+    "type": 100, 
+    "version": "4.9.0.0", 
+    "id": "0000 100A"
+   }
+  }, 
+  {
+   "description": "A device that works as a Modbus Client on a serial COM Port of a Windows PC.", 
+   "categories": [
+    90
+   ], 
+   "vendor": "CODESYS", 
+   "name": "Modbus Client, COM Port", 
+   "device_id": {
+    "type": 90, 
+    "version": "4.6.0.0", 
+    "id": "0000 0002"
+   }
+  }, 
+  {
+   "description": "A device that works as a Modbus Serial standalone server.", 
+   "categories": [
+    94
+   ], 
+   "vendor": "CODESYS", 
+   "name": "Modbus Serial Device", 
+   "device_id": {
+    "type": 94, 
+    "version": "4.6.0.0", 
+    "id": "0000 0001"
+   }
+  }, 
+  {
+   "description": "A serial COM Port on a Windows PC.", 
+   "categories": [
+    92
+   ], 
+   "vendor": "CODESYS", 
+   "name": "Modbus COM", 
+   "device_id": {
+    "type": 92, 
+    "version": "4.6.0.0", 
+    "id": "0000 0001"
+   }
+  }, 
+  {
+   "description": "A generic device that works as a Modbus Server on a serial bus.", 
+   "categories": [
+    91
+   ], 
+   "vendor": "CODESYS", 
+   "name": "Modbus Server, COM Port", 
+   "device_id": {
+    "type": 91, 
+    "version": "4.6.0.0", 
+    "id": "0000 0001"
+   }
+  }, 
+  {
+   "description": "A device that works as a Modbus Client on Ethernet.", 
+   "categories": [
+    88
+   ], 
+   "vendor": "CODESYS", 
+   "name": "Modbus TCP Client", 
+   "device_id": {
+    "type": 88, 
+    "version": "4.6.0.0", 
+    "id": "0000 0003"
+   }
+  }, 
+  {
+   "description": "A generic Modbus device that is configured as Server for a Modbus TCP Client.", 
+   "categories": [
+    89
+   ], 
+   "vendor": "CODESYS", 
+   "name": "Modbus TCP Server", 
+   "device_id": {
+    "type": 89, 
+    "version": "4.6.0.0", 
+    "id": "0000 0005"
+   }
+  }, 
+  {
+   "description": "A device that works as a Modbus TCP Server.", 
+   "categories": [
+    115
+   ], 
+   "vendor": "CODESYS", 
+   "name": "ModbusTCP Server Device", 
+   "device_id": {
+    "type": 115, 
+    "version": "4.6.0.0", 
+    "id": "0000 0002"
+   }
+  }
+ ]
+}

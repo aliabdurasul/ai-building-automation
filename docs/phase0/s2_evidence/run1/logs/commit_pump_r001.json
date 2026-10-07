@@ -1,0 +1,37 @@
+{
+  "step": "regenerate_commit",
+  "label": "PUMP_V1",
+  "revision": 1,
+  "parent_revision": null,
+  "status": "ACCEPTED",
+  "errors": [],
+  "revision_dirs": [
+    "C:\\AI_BMS_PHASE0\\s2\\run1\\engineering\\pump\\revisions\\r001",
+    "C:\\AI_BMS_PHASE0\\s2\\run1\\generated\\pump\\revisions\\r001"
+  ],
+  "manifest": {
+    "schema": "ai_bms.revision_manifest.v1",
+    "revision": 1,
+    "files": {
+      "engineering/allocation.json": "b22d74e83ce78cbfef5f8c0b003606e2f667ba9e84d07dc686828188007162fb",
+      "engineering/codesys_plan.json": "f90c0d69d5eccb425a899860694331f281f08566d45ec93113eabaf3febc8136",
+      "engineering/logic_instances.json": "3cff5768db54f15c3ae11d219e74b4c8f577ca66e52f424cfcff746970045772",
+      "engineering/logic_templates.json": "466162a90ae80a84bdff6b59fd15f4b8c30dd075b9fe0bae46ee41f9ed8ee96d",
+      "engineering/modbus_mapping.json": "366b7f2d5c8bea9c86178c002af7243aea702b8a4b249d8d1a7f4e4e29f939dc",
+      "engineering/model.json": "116a5d1666d8e40e5d3818eaa7159b432fec2e6a50cd3a568308bc14d8400e1e",
+      "engineering/revision_diff.json": "5d2dd6efaa28c41ceb5cbdb151eb2af5ffde4134fcea743f627e0418d2bb0613",
+      "engineering/target.json": "2d02a0ee88bdab568b4b1f177395aaa67cc144e8b584416f81e24ecb34700693",
+      "engineering/validation.json": "c1f604889722980af86643d8fb785ad6c52bd8bc6b2e13e532c8771c14c3b945",
+      "generated/plc/PLC_PRG.st": "65ea25b444f74579106572b60487894a51a79b92334e111e52490173d880f71f",
+      "generated/plc/PLC_PRG_decl.st": "17014e58a3d499b713617d9655e8ee541d863af8b7f7b57aed0499b588fb2f0d",
+      "generated/plc/PLC_PRG_impl.st": "7f6b400dc18191d76b1633887fbcfb8da9c698467aa011df2e218f902fca2cad",
+      "generated/plc/PLC_VARIABLES.txt": "712f947c44b19415b15711270f83d872325f3f712aa32617844f7a822ace7e1a"
+    }
+  },
+  "diff_summary": {
+    "ADDED": 7,
+    "EQUIPMENT_ADDED": 1
+  },
+  "operation_status": "PASS",
+  "reason": "revision 1 accepted and stored"
+}

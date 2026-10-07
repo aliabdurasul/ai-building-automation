@@ -1,0 +1,91 @@
+{
+  "schema": "ai_bms.allocation_lock.v1",
+  "project_id": "PUMP-DEMO",
+  "revision": 3,
+  "parent_revision": 2,
+  "model_sha256": "0ad6b23c04df4c8eee22a0fadb49d6ef8d62de6887aaf15b5c1669b2927817ef",
+  "target_sha256": "2d02a0ee88bdab568b4b1f177395aaa67cc144e8b584416f81e24ecb34700693",
+  "active": [
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpSpeed",
+      "symbol": "PumpSpeed",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 2,
+      "length": 2,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpState",
+      "symbol": "PumpState",
+      "datatype": "INT16",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 4,
+      "length": 1,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/FlowRate",
+      "symbol": "FlowRate",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "length": 2,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StartCommand",
+      "symbol": "StartCommand",
+      "datatype": "BOOL",
+      "direction": "WRITE",
+      "area": "COIL",
+      "address": 144,
+      "length": 1,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StopCommand",
+      "symbol": "StopCommand",
+      "datatype": "BOOL",
+      "direction": "WRITE",
+      "area": "COIL",
+      "address": 145,
+      "length": 1,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpFault",
+      "symbol": "PumpFault",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "length": 1,
+      "action": "PRESERVED"
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpRunning",
+      "symbol": "PumpRunning",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 145,
+      "length": 1,
+      "action": "PRESERVED"
+    }
+  ],
+  "retired": [
+    {
+      "identity": "PUMP-DEMO/PUMP-01/Pressure",
+      "datatype": "REAL32",
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "length": 2,
+      "last_active_revision": 2,
+      "rule": "reserved for this identity; never assigned to another identity"
+    }
+  ]
+}

@@ -1,0 +1,1437 @@
+﻿{
+    "run":  "run1",
+    "stage":  "C:\\AI_BMS_PHASE0\\s6\\run1",
+    "steps":  [
+                  {
+                      "step":  "F00_preflight",
+                      "timestamp":  "2026-10-05T15:47:09.0979610+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "INFO",
+                                        "reason":  "environment facts"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "INFO",
+                      "reason":  "environment facts",
+                      "data":  {
+                                   "elevated":  false,
+                                   "softplc_service":  "Running",
+                                   "tcp_502":  true,
+                                   "tcp_11740":  true,
+                                   "tcp_1217":  true,
+                                   "input_sha256":  {
+                                                        "target_codesys_softplc.json":  "aac7532c3971e50866be0b6f67c82d639525bf4803e8f18373691cfc2af5aa77",
+                                                        "scenario.json":  "c03c198019f19f7bde071694986630f80cebc48877118689cd1f7eb571147767",
+                                                        "v1.json":  "fa4e79133075211e4cc6f9ebc74d623259304a24219bbe92e9a637209cbf0b8a",
+                                                        "v2.json":  "bd1168ed9d33e9037e14c0aa5ffd9862ea5c32cf25c7fe408ddbb10b238ae9cc",
+                                                        "v3.json":  "de30868c551a2e488adb439cefc0a98c4c01127876129a35c0331c128de06c58",
+                                                        "v4_type_change.json":  "4c1d5e3913b439206dd3f2b16856161d95d9f375d76d338d6012a829e0dd80d8",
+                                                        "v4_type_change_approved.json":  "c3ceb94941961880436690f6ce36d2353614917f4dc1d9a9b43517e2732e0c05",
+                                                        "v5_equipment.json":  "76f3fa5b0f79ffe1ae403d423e79aed2d03e2e3700162b9ec543b04289bfd655",
+                                                        "v6_direction_breaking.json":  "cdb9b305b2fa9a3a9f9d7d1a99aa509cfbf8c5ac7fbc714f6639b105785bcda5",
+                                                        "v6_direction_nonbreaking.json":  "9685bc4beef4ad559ef41e58ea16307d32ea3a83f5ceee3bc5f6501b15718006"
+                                                    },
+                                   "s3_reference":  "C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\docs\\phase0\\s3_evidence\\run2\\types\\logs\\typed_verify.json",
+                                   "s3_reference_real32_ordering":  "CDAB",
+                                   "mcp_used":  false,
+                                   "llm_used":  false,
+                                   "temp_patch_used":  false,
+                                   "gui_automation_used":  false,
+                                   "old_poc_used":  false,
+                                   "physical_plc_used":  false
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F00b_s3_engine_selftest",
+                      "timestamp":  "2026-10-05T15:47:09.1870157+03:00",
+                      "duration_seconds":  2.1,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\engine\\test_engine.py\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\s3_engine_selftest.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "26 engine tests passed (validator, allocator, codec)"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "26 engine tests passed (validator, allocator, codec)",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\s3_engine_selftest.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F00c_s6_revision_selftest",
+                      "timestamp":  "2026-10-05T15:47:11.3298745+03:00",
+                      "duration_seconds":  1.7,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\engine\\test_revision.py\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\s6_revision_selftest.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "23 revision engine tests passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "23 revision engine tests passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\s6_revision_selftest.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F01_commit_V1",
+                      "timestamp":  "2026-10-05T15:47:13.1004363+03:00",
+                      "duration_seconds":  1.7,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\generator\\regenerate.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" commit --model \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\revisions\\v1.json\" --target \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\target_codesys_softplc.json\" --label V1 --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\commit_r001.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "revision 1 accepted and stored"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "revision 1 accepted and stored",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\commit_r001.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F01b_stage_r001",
+                      "timestamp":  "2026-10-05T15:47:14.7988309+03:00",
+                      "duration_seconds":  2.1,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\generator\\regenerate.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" stage --revision 1 --out \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r001\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stage_r001.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "r001 staged (manifest verified)"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "r001 staged (manifest verified)",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stage_r001.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r001/F02_codesys_create_build",
+                      "timestamp":  "2026-10-05T15:47:17.0350494+03:00",
+                      "duration_seconds":  62.5,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\create_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r001\\logs\\create_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r001/F03_codesys_verify",
+                      "timestamp":  "2026-10-05T15:48:19.5676989+03:00",
+                      "duration_seconds":  49.9,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\verify_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r001\\logs\\verify_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r001/F04_deploy_preflight",
+                      "timestamp":  "2026-10-05T15:49:20.2593120+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all prerequisites present"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "PASS",
+                      "reason":  "all prerequisites present",
+                      "data":  {
+                                   "runtime_service_running":  true,
+                                   "runtime_port_11740_listening":  true,
+                                   "gateway_port_1217_listening":  true,
+                                   "credentials_available":  true,
+                                   "credentials_source":  "CODESYS_USER/CODESYS_PASSWORD",
+                                   "tcp_502_free_before_deploy":  false,
+                                   "tcp_502_owner_pid":  30552,
+                                   "runtime_service_pid":  30552,
+                                   "replace_runtime_app_consent":  true,
+                                   "elevated":  false,
+                                   "tcp_502_owned_by_runtime":  true,
+                                   "note":  "tcp/502 held by the runtime; replacing its application is consented (S1FIX_REPLACE_RUNTIME_APP=1)"
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r001/F05_deploy",
+                      "timestamp":  "2026-10-05T15:49:20.2650084+03:00",
+                      "duration_seconds":  53.2,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\deploy.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "downloaded, running, generated variables readable online"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "downloaded, running, generated variables readable online",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r001\\logs\\deployment_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r001/F05b_runtime_verify",
+                      "timestamp":  "2026-10-05T15:50:20.4150605+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "generated app in RUN, variables online, tcp/502 owned by runtime"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "PASS",
+                      "reason":  "generated app in RUN, variables online, tcp/502 owned by runtime",
+                      "data":  {
+                                   "application_state":  "run",
+                                   "generated_variables_online":  true,
+                                   "tcp_502_listening":  true,
+                                   "tcp_502_owner_pid":  30552,
+                                   "runtime_service_pid":  30552,
+                                   "tcp_502_owned_by_runtime":  true
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r001/F06_s1_regression",
+                      "timestamp":  "2026-10-05T15:50:20.4200622+03:00",
+                      "duration_seconds":  1.8,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\s1_regression.py\" --stage \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r001\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "HR0=1 -\u003e IR0=3 (FanCommand, FanRunning set, FanFault clear) and HR0=2 -\u003e IR0=0 observed; FanRunning DI144 followed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "HR0=1 -\u003e IR0=3 (FanCommand, FanRunning set, FanFault clear) and HR0=2 -\u003e IR0=0 observed; FanRunning DI144 followed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r001\\logs\\s1_regression.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r001/F06b_typed_verify",
+                      "timestamp":  "2026-10-05T15:50:22.6215880+03:00",
+                      "duration_seconds":  64.7,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\probe\\typed_verify.py\" --stage \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r001\" --reference \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\docs\\phase0\\s3_evidence\\run2\\types\\logs\\typed_verify.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all typed cases passed; 7 signals verified"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all typed cases passed; 7 signals verified",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r001\\logs\\typed_verify.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r001/F06c_plc_online_bridge",
+                      "timestamp":  "2026-10-05T15:50:22.2341168+03:00",
+                      "duration_seconds":  67.2,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\codesys\\plc_online_bridge.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "served 35 requests"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "served 35 requests",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r001\\logs\\bridge_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F07_commit_V2",
+                      "timestamp":  "2026-10-05T15:51:29.4323411+03:00",
+                      "duration_seconds":  1.5,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\generator\\regenerate.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" commit --model \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\revisions\\v2.json\" --target \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\target_codesys_softplc.json\" --label V2 --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\commit_r002.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "revision 2 accepted and stored"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "revision 2 accepted and stored",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\commit_r002.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F07b_stage_r002",
+                      "timestamp":  "2026-10-05T15:51:30.9588639+03:00",
+                      "duration_seconds":  1.8,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\generator\\regenerate.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" stage --revision 2 --out \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r002\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stage_r002.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "r002 staged (manifest verified)"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "r002 staged (manifest verified)",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stage_r002.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r002/F02_codesys_create_build",
+                      "timestamp":  "2026-10-05T15:51:32.7526658+03:00",
+                      "duration_seconds":  55.8,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\create_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r002\\logs\\create_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r002/F03_codesys_verify",
+                      "timestamp":  "2026-10-05T15:52:28.5097323+03:00",
+                      "duration_seconds":  44.5,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\verify_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r002\\logs\\verify_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r002/F04_deploy_preflight",
+                      "timestamp":  "2026-10-05T15:53:19.7026062+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all prerequisites present"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "PASS",
+                      "reason":  "all prerequisites present",
+                      "data":  {
+                                   "runtime_service_running":  true,
+                                   "runtime_port_11740_listening":  true,
+                                   "gateway_port_1217_listening":  true,
+                                   "credentials_available":  true,
+                                   "credentials_source":  "CODESYS_USER/CODESYS_PASSWORD",
+                                   "tcp_502_free_before_deploy":  false,
+                                   "tcp_502_owner_pid":  30552,
+                                   "runtime_service_pid":  30552,
+                                   "replace_runtime_app_consent":  true,
+                                   "elevated":  false,
+                                   "tcp_502_owned_by_runtime":  true,
+                                   "note":  "tcp/502 held by the runtime; replacing its application is consented (S1FIX_REPLACE_RUNTIME_APP=1)"
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r002/F05_deploy",
+                      "timestamp":  "2026-10-05T15:53:19.7075956+03:00",
+                      "duration_seconds":  53.2,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\deploy.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "downloaded, running, generated variables readable online"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "downloaded, running, generated variables readable online",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r002\\logs\\deployment_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r002/F05b_runtime_verify",
+                      "timestamp":  "2026-10-05T15:54:18.4045242+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "generated app in RUN, variables online, tcp/502 owned by runtime"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "PASS",
+                      "reason":  "generated app in RUN, variables online, tcp/502 owned by runtime",
+                      "data":  {
+                                   "application_state":  "run",
+                                   "generated_variables_online":  true,
+                                   "tcp_502_listening":  true,
+                                   "tcp_502_owner_pid":  30552,
+                                   "runtime_service_pid":  30552,
+                                   "tcp_502_owned_by_runtime":  true
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r002/F06_s1_regression",
+                      "timestamp":  "2026-10-05T15:54:18.4115261+03:00",
+                      "duration_seconds":  1.8,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\s1_regression.py\" --stage \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r002\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "HR0=1 -\u003e IR0=3 (FanCommand, FanRunning set, FanFault clear) and HR0=2 -\u003e IR0=0 observed; FanRunning DI144 followed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "HR0=1 -\u003e IR0=3 (FanCommand, FanRunning set, FanFault clear) and HR0=2 -\u003e IR0=0 observed; FanRunning DI144 followed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r002\\logs\\s1_regression.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r002/F06b_typed_verify",
+                      "timestamp":  "2026-10-05T15:54:20.6486143+03:00",
+                      "duration_seconds":  65.7,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\probe\\typed_verify.py\" --stage \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r002\" --reference \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\docs\\phase0\\s3_evidence\\run2\\types\\logs\\typed_verify.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all typed cases passed; 8 signals verified"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all typed cases passed; 8 signals verified",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r002\\logs\\typed_verify.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r002/F06c_plc_online_bridge",
+                      "timestamp":  "2026-10-05T15:54:20.2609851+03:00",
+                      "duration_seconds":  68.7,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\codesys\\plc_online_bridge.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "served 35 requests"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "served 35 requests",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r002\\logs\\bridge_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F09_diff_r001",
+                      "timestamp":  "2026-10-05T15:55:28.9461863+03:00",
+                      "duration_seconds":  1.4,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" diff --revision 1 --scenario \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\scenario.json\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\diff_r001.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "4 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "4 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\diff_r001.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F09_diff_r002",
+                      "timestamp":  "2026-10-05T15:55:30.4000574+03:00",
+                      "duration_seconds":  1.5,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" diff --revision 2 --scenario \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\scenario.json\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\diff_r002.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "4 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "4 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\diff_r002.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F10_stability_r001_r002",
+                      "timestamp":  "2026-10-05T15:55:31.9315956+03:00",
+                      "duration_seconds":  1.5,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" stability --from 1 --to 2 --deployed-a \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r001\" --deployed-b \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r002\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stability_r001_r002.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "5 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "5 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stability_r001_r002.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F11a_rollback_to_r001",
+                      "timestamp":  "2026-10-05T15:55:33.4465672+03:00",
+                      "duration_seconds":  1.4,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\generator\\regenerate.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" rollback --to 1 --out \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\rollback_r001\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\rollback_r001.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "r001 regenerated from stored inputs; all 11 artifacts semantically identical"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "r001 regenerated from stored inputs; all 11 artifacts semantically identical",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\rollback_r001.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "rollback_r001/F02_codesys_create_build",
+                      "timestamp":  "2026-10-05T15:55:34.8703113+03:00",
+                      "duration_seconds":  55.3,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\create_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\rollback_r001\\logs\\create_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "rollback_r001/F03_codesys_verify",
+                      "timestamp":  "2026-10-05T15:56:30.2037306+03:00",
+                      "duration_seconds":  45.4,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\verify_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\rollback_r001\\logs\\verify_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "rollback_r001/F04_deploy_preflight",
+                      "timestamp":  "2026-10-05T15:57:23.2328926+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all prerequisites present"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "PASS",
+                      "reason":  "all prerequisites present",
+                      "data":  {
+                                   "runtime_service_running":  true,
+                                   "runtime_port_11740_listening":  true,
+                                   "gateway_port_1217_listening":  true,
+                                   "credentials_available":  true,
+                                   "credentials_source":  "CODESYS_USER/CODESYS_PASSWORD",
+                                   "tcp_502_free_before_deploy":  false,
+                                   "tcp_502_owner_pid":  30552,
+                                   "runtime_service_pid":  30552,
+                                   "replace_runtime_app_consent":  true,
+                                   "elevated":  false,
+                                   "tcp_502_owned_by_runtime":  true,
+                                   "note":  "tcp/502 held by the runtime; replacing its application is consented (S1FIX_REPLACE_RUNTIME_APP=1)"
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "rollback_r001/F05_deploy",
+                      "timestamp":  "2026-10-05T15:57:23.2378898+03:00",
+                      "duration_seconds":  52.2,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\deploy.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "downloaded, running, generated variables readable online"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "downloaded, running, generated variables readable online",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\rollback_r001\\logs\\deployment_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "rollback_r001/F05b_runtime_verify",
+                      "timestamp":  "2026-10-05T15:58:22.4144924+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "generated app in RUN, variables online, tcp/502 owned by runtime"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "PASS",
+                      "reason":  "generated app in RUN, variables online, tcp/502 owned by runtime",
+                      "data":  {
+                                   "application_state":  "run",
+                                   "generated_variables_online":  true,
+                                   "tcp_502_listening":  true,
+                                   "tcp_502_owner_pid":  30552,
+                                   "runtime_service_pid":  30552,
+                                   "tcp_502_owned_by_runtime":  true
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "rollback_r001/F06_s1_regression",
+                      "timestamp":  "2026-10-05T15:58:22.4184915+03:00",
+                      "duration_seconds":  2,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\s1_regression.py\" --stage \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\rollback_r001\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "HR0=1 -\u003e IR0=3 (FanCommand, FanRunning set, FanFault clear) and HR0=2 -\u003e IR0=0 observed; FanRunning DI144 followed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "HR0=1 -\u003e IR0=3 (FanCommand, FanRunning set, FanFault clear) and HR0=2 -\u003e IR0=0 observed; FanRunning DI144 followed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\rollback_r001\\logs\\s1_regression.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "rollback_r001/F06b_typed_verify",
+                      "timestamp":  "2026-10-05T15:58:24.8374852+03:00",
+                      "duration_seconds":  64.3,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\probe\\typed_verify.py\" --stage \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\rollback_r001\" --reference \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\docs\\phase0\\s3_evidence\\run2\\types\\logs\\typed_verify.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all typed cases passed; 7 signals verified"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all typed cases passed; 7 signals verified",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\rollback_r001\\logs\\typed_verify.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "rollback_r001/F06c_plc_online_bridge",
+                      "timestamp":  "2026-10-05T15:58:24.4434562+03:00",
+                      "duration_seconds":  67,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\codesys\\plc_online_bridge.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "served 35 requests"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "served 35 requests",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\rollback_r001\\logs\\bridge_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F11j_rollback_compare",
+                      "timestamp":  "2026-10-05T15:59:31.4731893+03:00",
+                      "duration_seconds":  1.4,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" rollback-compare --revision 1 --a \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r001\" --b \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\rollback_r001\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\rollback_compare.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "7 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "7 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\rollback_compare.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F12_invalid_revisions",
+                      "timestamp":  "2026-10-05T15:59:32.9079154+03:00",
+                      "duration_seconds":  12.8,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" invalid --base \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\revisions\\v2.json\" --target \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\target_codesys_softplc.json\" --work \"C:\\AI_BMS_PHASE0\\s6\\run1\\work\\invalid\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\invalid_revisions.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "13 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "13 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\invalid_revisions.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F14_commit_V3",
+                      "timestamp":  "2026-10-05T15:59:45.7224205+03:00",
+                      "duration_seconds":  1.5,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\generator\\regenerate.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" commit --model \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\revisions\\v3.json\" --target \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\target_codesys_softplc.json\" --label V3 --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\commit_r003.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "revision 3 accepted and stored"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "revision 3 accepted and stored",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\commit_r003.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F14b_stage_r003",
+                      "timestamp":  "2026-10-05T15:59:47.2089170+03:00",
+                      "duration_seconds":  1.4,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\generator\\regenerate.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" stage --revision 3 --out \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r003\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stage_r003.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "r003 staged (manifest verified)"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "r003 staged (manifest verified)",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stage_r003.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r003/F02_codesys_create_build",
+                      "timestamp":  "2026-10-05T15:59:48.5753579+03:00",
+                      "duration_seconds":  53.4,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\create_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r003\\logs\\create_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r003/F03_codesys_verify",
+                      "timestamp":  "2026-10-05T16:00:42.0276300+03:00",
+                      "duration_seconds":  43.4,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\verify_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r003\\logs\\verify_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r003/F04_deploy_preflight",
+                      "timestamp":  "2026-10-05T16:01:32.2146271+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all prerequisites present"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "PASS",
+                      "reason":  "all prerequisites present",
+                      "data":  {
+                                   "runtime_service_running":  true,
+                                   "runtime_port_11740_listening":  true,
+                                   "gateway_port_1217_listening":  true,
+                                   "credentials_available":  true,
+                                   "credentials_source":  "CODESYS_USER/CODESYS_PASSWORD",
+                                   "tcp_502_free_before_deploy":  false,
+                                   "tcp_502_owner_pid":  30552,
+                                   "runtime_service_pid":  30552,
+                                   "replace_runtime_app_consent":  true,
+                                   "elevated":  false,
+                                   "tcp_502_owned_by_runtime":  true,
+                                   "note":  "tcp/502 held by the runtime; replacing its application is consented (S1FIX_REPLACE_RUNTIME_APP=1)"
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r003/F05_deploy",
+                      "timestamp":  "2026-10-05T16:01:32.2216371+03:00",
+                      "duration_seconds":  51.5,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\deploy.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "downloaded, running, generated variables readable online"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "downloaded, running, generated variables readable online",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r003\\logs\\deployment_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r003/F05b_runtime_verify",
+                      "timestamp":  "2026-10-05T16:02:29.8009025+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "generated app in RUN, variables online, tcp/502 owned by runtime"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "PASS",
+                      "reason":  "generated app in RUN, variables online, tcp/502 owned by runtime",
+                      "data":  {
+                                   "application_state":  "run",
+                                   "generated_variables_online":  true,
+                                   "tcp_502_listening":  true,
+                                   "tcp_502_owner_pid":  30552,
+                                   "runtime_service_pid":  30552,
+                                   "tcp_502_owned_by_runtime":  true
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r003/F06_s1_regression",
+                      "timestamp":  "2026-10-05T16:02:29.8697294+03:00",
+                      "duration_seconds":  2.1,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\s1_regression.py\" --stage \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r003\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "HR0=1 -\u003e IR0=3 (FanCommand, FanRunning set, FanFault clear) and HR0=2 -\u003e IR0=0 observed; FanRunning DI144 followed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "HR0=1 -\u003e IR0=3 (FanCommand, FanRunning set, FanFault clear) and HR0=2 -\u003e IR0=0 observed; FanRunning DI144 followed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r003\\logs\\s1_regression.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r003/F06b_typed_verify",
+                      "timestamp":  "2026-10-05T16:02:32.3708554+03:00",
+                      "duration_seconds":  63.8,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\probe\\typed_verify.py\" --stage \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r003\" --reference \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\docs\\phase0\\s3_evidence\\run2\\types\\logs\\typed_verify.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all typed cases passed; 7 signals verified"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all typed cases passed; 7 signals verified",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r003\\logs\\typed_verify.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r003/F06c_plc_online_bridge",
+                      "timestamp":  "2026-10-05T16:02:31.9780856+03:00",
+                      "duration_seconds":  66.3,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\codesys\\plc_online_bridge.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "served 35 requests"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "served 35 requests",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r003\\logs\\bridge_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F14h_diff_r003",
+                      "timestamp":  "2026-10-05T16:03:38.2953170+03:00",
+                      "duration_seconds":  1.4,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" diff --revision 3 --scenario \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\scenario.json\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\diff_r003.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "4 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "4 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\diff_r003.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F14i_stability_r002_r003",
+                      "timestamp":  "2026-10-05T16:03:39.7007311+03:00",
+                      "duration_seconds":  1.5,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" stability --from 2 --to 3 --deployed-a \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r002\" --deployed-b \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r003\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stability_r002_r003.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "5 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "5 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stability_r002_r003.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F15a_v4_type_change_blocked",
+                      "timestamp":  "2026-10-05T16:03:41.1748814+03:00",
+                      "duration_seconds":  2.4,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" expect-reject --model \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\revisions\\v4_type_change.json\" --target \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\target_codesys_softplc.json\" --label V4_type_change --code BREAKING_CHANGE_REQUIRES_APPROVAL --text TYPE_CHANGED --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\v4_type_change.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "3 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "3 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\v4_type_change.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F15b_v4_approved_capacity",
+                      "timestamp":  "2026-10-05T16:03:43.5864904+03:00",
+                      "duration_seconds":  2.4,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" expect-reject --model \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\revisions\\v4_type_change_approved.json\" --target \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\target_codesys_softplc.json\" --label V4_type_change_approved --code ALLOCATION --text \"free register\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\v4_type_change_approved.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "3 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "3 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\v4_type_change_approved.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F16_commit_V5",
+                      "timestamp":  "2026-10-05T16:03:46.0322161+03:00",
+                      "duration_seconds":  1.5,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\generator\\regenerate.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" commit --model \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\revisions\\v5_equipment.json\" --target \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\target_codesys_softplc.json\" --label V5 --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\commit_r004.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "revision 4 accepted and stored"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "revision 4 accepted and stored",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\commit_r004.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F16b_stage_r004",
+                      "timestamp":  "2026-10-05T16:03:47.5313424+03:00",
+                      "duration_seconds":  1.7,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\generator\\regenerate.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" stage --revision 4 --out \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r004\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stage_r004.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "r004 staged (manifest verified)"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "r004 staged (manifest verified)",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stage_r004.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r004/F02_codesys_create_build",
+                      "timestamp":  "2026-10-05T16:03:49.2793879+03:00",
+                      "duration_seconds":  53.9,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\create_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r004\\logs\\create_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r004/F03_codesys_verify",
+                      "timestamp":  "2026-10-05T16:04:43.1906778+03:00",
+                      "duration_seconds":  43.7,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\verify_project.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r004\\logs\\verify_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r004/F04_deploy_preflight",
+                      "timestamp":  "2026-10-05T16:05:33.5032838+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all prerequisites present"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "PASS",
+                      "reason":  "all prerequisites present",
+                      "data":  {
+                                   "runtime_service_running":  true,
+                                   "runtime_port_11740_listening":  true,
+                                   "gateway_port_1217_listening":  true,
+                                   "credentials_available":  true,
+                                   "credentials_source":  "CODESYS_USER/CODESYS_PASSWORD",
+                                   "tcp_502_free_before_deploy":  false,
+                                   "tcp_502_owner_pid":  30552,
+                                   "runtime_service_pid":  30552,
+                                   "replace_runtime_app_consent":  true,
+                                   "elevated":  false,
+                                   "tcp_502_owned_by_runtime":  true,
+                                   "note":  "tcp/502 held by the runtime; replacing its application is consented (S1FIX_REPLACE_RUNTIME_APP=1)"
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r004/F05_deploy",
+                      "timestamp":  "2026-10-05T16:05:33.5082888+03:00",
+                      "duration_seconds":  51.6,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s1fix\\codesys\\deploy.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "downloaded, running, generated variables readable online"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "downloaded, running, generated variables readable online",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r004\\logs\\deployment_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r004/F05b_runtime_verify",
+                      "timestamp":  "2026-10-05T16:06:30.6236991+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "generated app in RUN, variables online, tcp/502 owned by runtime"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "PASS",
+                      "reason":  "generated app in RUN, variables online, tcp/502 owned by runtime",
+                      "data":  {
+                                   "application_state":  "run",
+                                   "generated_variables_online":  true,
+                                   "tcp_502_listening":  true,
+                                   "tcp_502_owner_pid":  30552,
+                                   "runtime_service_pid":  30552,
+                                   "tcp_502_owned_by_runtime":  true
+                               },
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r004/F06_s1_regression",
+                      "timestamp":  "2026-10-05T16:06:30.6311181+03:00",
+                      "duration_seconds":  1.8,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\s1_regression.py\" --stage \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r004\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "HR0=1 -\u003e IR0=3 (FanCommand, FanRunning set, FanFault clear) and HR0=2 -\u003e IR0=0 observed; FanRunning DI144 followed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "HR0=1 -\u003e IR0=3 (FanCommand, FanRunning set, FanFault clear) and HR0=2 -\u003e IR0=0 observed; FanRunning DI144 followed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r004\\logs\\s1_regression.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r004/F06b_typed_verify",
+                      "timestamp":  "2026-10-05T16:06:32.7893241+03:00",
+                      "duration_seconds":  67.6,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\probe\\typed_verify.py\" --stage \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r004\" --reference \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\docs\\phase0\\s3_evidence\\run2\\types\\logs\\typed_verify.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "all typed cases passed; 9 signals verified"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "all typed cases passed; 9 signals verified",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r004\\logs\\typed_verify.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "r004/F06c_plc_online_bridge",
+                      "timestamp":  "2026-10-05T16:06:32.4102547+03:00",
+                      "duration_seconds":  70.5,
+                      "command":  "\"C:\\Program Files (x86)\\CODESYS 3.5.22.30\\CODESYS\\Common\\CODESYS.exe\" --culture=en --profile=\"CODESYS V3.5 SP22 Patch 3\" --noUI --runscript=\"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\codesys\\plc_online_bridge.py\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "served 35 requests"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "served 35 requests",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r004\\logs\\bridge_result.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F16h_diff_r004",
+                      "timestamp":  "2026-10-05T16:07:42.8676745+03:00",
+                      "duration_seconds":  1.4,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" diff --revision 4 --scenario \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\scenario.json\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\diff_r004.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "4 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "4 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\diff_r004.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F16i_stability_r003_r004",
+                      "timestamp":  "2026-10-05T16:07:44.3086782+03:00",
+                      "duration_seconds":  1.7,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" stability --from 3 --to 4 --deployed-a \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r003\" --deployed-b \"C:\\AI_BMS_PHASE0\\s6\\run1\\deploy\\r004\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stability_r003_r004.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "5 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "5 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\stability_r003_r004.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F17a_v6_direction_breaking",
+                      "timestamp":  "2026-10-05T16:07:45.9912593+03:00",
+                      "duration_seconds":  2.8,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" expect-reject --model \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\revisions\\v6_direction_breaking.json\" --target \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\target_codesys_softplc.json\" --label V6_direction_breaking --code BREAKING_CHANGE_REQUIRES_APPROVAL --text DIRECTION_CHANGED --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\v6_direction_breaking.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "3 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "3 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\v6_direction_breaking.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F17b_v6_direction_nonbreaking",
+                      "timestamp":  "2026-10-05T16:07:48.8185943+03:00",
+                      "duration_seconds":  2.8,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" dry-run-check --model \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\revisions\\v6_direction_nonbreaking.json\" --target \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\model\\target_codesys_softplc.json\" --label V6_direction_nonbreaking --identity AHU-DEMO/AHU-02/Setpoint --type DIRECTION_CHANGED --action PRESERVED --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\v6_direction_nonbreaking.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "5 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "5 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\v6_direction_nonbreaking.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F13_reproduce_all",
+                      "timestamp":  "2026-10-05T16:07:51.6592041+03:00",
+                      "duration_seconds":  8.6,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" repro --out \"C:\\AI_BMS_PHASE0\\s6\\run1\\repro\" --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\repro.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "4 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "4 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\repro.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F18_store_integrity",
+                      "timestamp":  "2026-10-05T16:08:00.3012575+03:00",
+                      "duration_seconds":  1.3,
+                      "command":  "\"C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s6\\probe\\revision_checks.py\" --eng-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\engineering\" --gen-root \"C:\\AI_BMS_PHASE0\\s6\\run1\\generated\" integrity --result \"C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\integrity.json\"",
+                      "process":  {
+                                      "exit_code":  0,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "PASS",
+                                        "reason":  "5 checks passed"
+                                    },
+                      "process_exit_code":  0,
+                      "operation_status":  "PASS",
+                      "reason":  "5 checks passed",
+                      "result_file":  "C:\\AI_BMS_PHASE0\\s6\\run1\\logs\\integrity.json",
+                      "manual_intervention":  false
+                  },
+                  {
+                      "step":  "F19_post_state",
+                      "timestamp":  "2026-10-05T16:08:03.5793372+03:00",
+                      "duration_seconds":  null,
+                      "command":  null,
+                      "process":  {
+                                      "exit_code":  null,
+                                      "timed_out":  false
+                                  },
+                      "operation":  {
+                                        "status":  "INFO",
+                                        "reason":  "post-run facts"
+                                    },
+                      "process_exit_code":  null,
+                      "operation_status":  "INFO",
+                      "reason":  "post-run facts",
+                      "data":  {
+                                   "softplc_service":  "Running",
+                                   "tcp_502":  true,
+                                   "deploy_chains":  {
+                                                         "r001":  true,
+                                                         "r002":  true,
+                                                         "rollback_r001":  true,
+                                                         "r003":  true,
+                                                         "r004":  true
+                                                     },
+                                   "codesys_left_running":  [
+
+                                                            ]
+                               },
+                      "manual_intervention":  false
+                  }
+              ]
+}

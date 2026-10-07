@@ -1,0 +1,30 @@
+{
+  "step": "revision_check_integrity",
+  "checks": {
+    "all_manifests_match": true,
+    "no_extra_files": true,
+    "index_manifest_hashes_match": true,
+    "index_lists_every_revision_dir": true,
+    "no_temp_dirs_left": true
+  },
+  "revisions": [
+    {
+      "revision": 1,
+      "manifest_matches": true,
+      "extra_files": [],
+      "index_manifest_sha_matches": true,
+      "files": 13
+    }
+  ],
+  "current": 1,
+  "events": [
+    {
+      "event": "commit",
+      "revision": 1,
+      "label": "BMS_V1"
+    }
+  ],
+  "rejected": [],
+  "operation_status": "PASS",
+  "reason": "5 checks passed"
+}

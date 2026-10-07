@@ -1,0 +1,25 @@
+{
+  "path_type": "debug EmulatorSession + IncludeHMI HTML5 (available operator path on this install)",
+  "production_ms_service": "NOT LAUNCHED / not found as Windows service",
+  "result": "PASS",
+  "hmibuild_rc": 0,
+  "hmiverify_rc": 0,
+  "htdocs_path": "C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc\\phase0_s81\\rt_copy_hmi3\\rt_work\\Debug_1\\htdocs",
+  "nginx_started": true,
+  "nginx_exe": "C:\\Program Files\\MPSSoft\\MasterSCADA 4D 1.2\\bin\\Config\\MasterPLC\\WIN64\\nginx\\nginx.exe",
+  "http_page_ok": true,
+  "hold_samples": 6,
+  "htdocs_found": true,
+  "fanstatus_values_seen": [
+    0,
+    3
+  ],
+  "saw_running_3": true,
+  "saw_stopped_0": true,
+  "reason": "S8.1 TEST HMI HTML5 served on 127.0.0.1:8143; runtime FanStatus sampled; START/STOP via Modbus reflected on MS tags during HMI session",
+  "nginx_test": "nginx: the configuration file C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc\\nginx_sandbox\\conf/nginx-hmi-poc.conf syntax is ok\nnginx: configuration file C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc\\nginx_sandbox\\conf/nginx-hmi-poc.conf test is successful\n",
+  "nginx_pid": 2784,
+  "http_8143_len": 3000,
+  "html_has_s81": true,
+  "limitation": "Validated operator path is vendor debug EmulatorSession with IncludeHMI HTML5 + nginx; production MasterSCADA Windows service was not available/launched"
+}

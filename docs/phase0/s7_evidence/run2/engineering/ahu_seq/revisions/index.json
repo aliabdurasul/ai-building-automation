@@ -1,0 +1,23 @@
+{
+  "schema": "ai_bms.revision_index.v1",
+  "project_id": "AHU-SEQ",
+  "revisions": [
+    {
+      "revision": 1,
+      "parent_revision": null,
+      "label": "AHU_SEQ_V1",
+      "model_sha256": "26a57ffb013c22b1b44e91cbf8f723659bb1a1d83e89885ba09f5f2db218889f",
+      "status": "ACCEPTED",
+      "manifest_sha256": "041d6be1d707739a612c9c615ef81328ec776201441bab78a644954a4d078c1b"
+    }
+  ],
+  "rejected": [],
+  "current": 1,
+  "events": [
+    {
+      "event": "commit",
+      "revision": 1,
+      "label": "AHU_SEQ_V1"
+    }
+  ]
+}

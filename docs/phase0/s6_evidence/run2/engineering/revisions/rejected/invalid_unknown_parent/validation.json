@@ -1,0 +1,18 @@
+{
+  "schema": "ai_bms.revision_validation.v1",
+  "project_id": "AHU-DEMO",
+  "revision": 3,
+  "parent_revision": 99,
+  "status": "REJECTED",
+  "stages": {
+    "store": "FAILED"
+  },
+  "errors": [
+    {
+      "code": "STORE",
+      "message": "parent_revision 99 is not an accepted revision"
+    }
+  ],
+  "model_sha256": "a112f0f7b602744dce67b340fe455d0cd94827fd091b18eee929f2314608c5c6",
+  "target_sha256": "aac7532c3971e50866be0b6f67c82d639525bf4803e8f18373691cfc2af5aa77"
+}

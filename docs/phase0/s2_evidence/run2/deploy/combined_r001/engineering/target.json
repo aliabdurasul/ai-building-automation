@@ -1,0 +1,32 @@
+{
+  "schema": "ai_bms.target_profile.v1",
+  "target_id": "codesys-softplc-win-x64-modbus-tcp-server",
+  "description": "Vendor target profile (not part of the canonical engineering model). Same platform facts as phase0/s6/model/target_codesys_softplc.json (measured in S3 on CODESYS Control Win V3 x64 3.5.22.30 / ModbusTCP Server Device 4.6.0.0). S2 adds only the CODESYS project naming pattern. REAL32 register order is NOT declared here: it is measured by verification and compared with the S3 measurement.",
+  "artifacts": {
+    "project_name": "AI_BMS_S2_{project}_r{revision:03d}"
+  },
+  "platform": {
+    "target": "CODESYS Control Win V3 x64 / ModbusTCP Server Device 4.6.0.0 (type 115, id 0000 0002)",
+    "register_capacity": { "HOLDING_REGISTER": 10, "INPUT_REGISTER": 10 },
+    "register_capacity_note": "Measured in S3: the ScriptEngine-created server exposes 10 holding + 10 input register channels; assembly-size parameters do not regenerate channels via ScriptEngine. HR10 and coil 160 answer Modbus exception 2.",
+    "bit_overlay": {
+      "distinct_bit_areas": false,
+      "plc_bit_offset": 8,
+      "rule": "coil/discrete-input address n -> register n div 16, PLC WORD bit ((n mod 16) + 8) mod 16",
+      "evidence": "S3: coil 0 -> HR0=256 (bit 8), coil 8 -> HR0=1; S3 run1/run2 TestCoil 144 -> HR9 raw 256"
+    },
+    "unsupported": [
+      { "feature": "DistinctBitAreas=TRUE (separate coil / discrete-input areas)", "reason": "ScriptEngine stores the parameter but does not generate the coil/discrete-input channels (measured in S3)" },
+      { "feature": "more than 10 registers per area", "reason": "assembly-size parameters do not regenerate register channels via ScriptEngine; device.update() resets them (measured in S3)" },
+      { "feature": "PLC-originated value of a READ_WRITE holding register visible to FC3", "reason": "UpdateableHolding output channels are not generated via ScriptEngine; FC3 returns the last client-written value (measured in S3)" }
+    ],
+    "real32_layout_rule": "generator copies the 2 consecutive in-memory 16-bit words of the PLC REAL to 2 consecutive registers (lower memory word -> lower register address); the resulting wire order is measured, not assumed",
+    "codesys": {
+      "plc_device_repo_name": "CODESYS Control Win V3 x64",
+      "adapter": { "name": "Ethernet", "repo_name": "Ethernet", "type": 110, "id": "0000 0002" },
+      "server": { "name": "Modbus_TCP_Server", "repo_name": "ModbusTCP Server Device", "type": 115, "id": "0000 0002" },
+      "area_parameter": { "HOLDING_REGISTER": "Holding Registers", "INPUT_REGISTER": "Input Registers" },
+      "server_expect": { "Port": "502", "DistinctBitAreas": "FALSE" }
+    }
+  }
+}

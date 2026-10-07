@@ -1,0 +1,20 @@
+{
+  "step": "s2_check_template-equivalence",
+  "checks": {
+    "impl_identical": true,
+    "decl_identical_except_title_comment": true,
+    "allocation_identical": true,
+    "codesys_plan_identical_except_project_name": true
+  },
+  "title_lines": [
+    "    (* Deterministic demo for AHU-01 *)",
+    "    (* Deterministic demo for AHU-DEMO: AHU-01 (AHU) *)"
+  ],
+  "project_files": [
+    "AI_BMS_S6_r001.project",
+    "AI_BMS_S7_AHU_DEMO_r001.project"
+  ],
+  "impl_sha256": "57f2ca41310442f95fd5bc05b2ab6556dbb3c00e2c48af48818a031f5305a640",
+  "operation_status": "PASS",
+  "reason": "4 checks passed"
+}

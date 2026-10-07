@@ -1,0 +1,18 @@
+test_failure_inputs_are_plc_only (__main__.Models.test_failure_inputs_are_plc_only) ... ok
+test_models_vendor_neutral_and_unaddressed (__main__.Models.test_models_vendor_neutral_and_unaddressed) ... ok
+test_s1_contract_pinned (__main__.Models.test_s1_contract_pinned) ... ok
+test_bad_parameters_rejected (__main__.Parameters.test_bad_parameters_rejected) ... ok
+test_default_parameters_rendered (__main__.Parameters.test_default_parameters_rendered) ... ok
+test_parameter_override (__main__.Parameters.test_parameter_override) ... ok
+test_templates_without_parameters_unchanged (__main__.Parameters.test_templates_without_parameters_unchanged) ... ok
+test_scenario_keys_resolve (__main__.Scenarios.test_scenario_keys_resolve) ... ok
+test_unique_step_names (__main__.Scenarios.test_unique_step_names) ... ok
+test_commands_are_edge_triggered (__main__.SequenceTemplate.test_commands_are_edge_triggered) ... ok
+test_every_state_has_a_branch_and_unknown_falls_back (__main__.SequenceTemplate.test_every_state_has_a_branch_and_unknown_falls_back) ... ok
+test_fault_forces_safe_state_and_status_contract (__main__.SequenceTemplate.test_fault_forces_safe_state_and_status_contract) ... ok
+test_timing_only_from_parameters (__main__.SequenceTemplate.test_timing_only_from_parameters) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.114s
+
+OK

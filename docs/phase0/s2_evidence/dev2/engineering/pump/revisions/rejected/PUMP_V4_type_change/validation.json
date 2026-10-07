@@ -1,0 +1,22 @@
+{
+  "schema": "ai_bms.revision_validation.v1",
+  "project_id": "PUMP-DEMO",
+  "revision": 4,
+  "parent_revision": 3,
+  "status": "REJECTED",
+  "stages": {
+    "canonical": "PASS",
+    "model_rules": "PASS",
+    "policy": "BLOCKED",
+    "logic_template": "PASS"
+  },
+  "errors": [
+    {
+      "code": "BREAKING_CHANGE_REQUIRES_APPROVAL",
+      "message": "PUMP-DEMO/PUMP-01/PumpSpeed: TYPE_CHANGED 'REAL32' -> 'INT16' is a breaking change; add approvals [{\"identity\": \"PUMP-DEMO/PUMP-01/PumpSpeed\", \"change\": \"TYPE_CHANGED\"}] to apply it (the old mapping is then retired and a new mapping allocated)"
+    }
+  ],
+  "model_sha256": "2218a0cd635abf6d49ededdfb54ef00162e7282926e493b233e264903b65fdc4",
+  "target_sha256": "2d02a0ee88bdab568b4b1f177395aaa67cc144e8b584416f81e24ecb34700693",
+  "logic_templates_sha256": "466162a90ae80a84bdff6b59fd15f4b8c30dd075b9fe0bae46ee41f9ed8ee96d"
+}

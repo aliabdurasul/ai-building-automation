@@ -1,0 +1,23 @@
+{
+  "schema": "ai_bms.revision_index.v1",
+  "project_id": "BMS-DEMO",
+  "revisions": [
+    {
+      "revision": 1,
+      "parent_revision": null,
+      "label": "BMS_V1",
+      "model_sha256": "c4530164e326208461c6695ae1e311189f9212a1626fe90d8b3a87b3e65302e7",
+      "status": "ACCEPTED",
+      "manifest_sha256": "84748897657e376af8ee82fb22be9e2942158fa291ecf8e8aa202aba47fcf022"
+    }
+  ],
+  "rejected": [],
+  "current": 1,
+  "events": [
+    {
+      "event": "commit",
+      "revision": 1,
+      "label": "BMS_V1"
+    }
+  ]
+}

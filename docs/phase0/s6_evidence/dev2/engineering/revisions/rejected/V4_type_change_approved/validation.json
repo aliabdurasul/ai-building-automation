@@ -1,0 +1,21 @@
+{
+  "schema": "ai_bms.revision_validation.v1",
+  "project_id": "AHU-DEMO",
+  "revision": 4,
+  "parent_revision": 3,
+  "status": "REJECTED",
+  "stages": {
+    "canonical": "PASS",
+    "model_rules": "PASS",
+    "policy": "PASS",
+    "allocation": "FAILED"
+  },
+  "errors": [
+    {
+      "code": "ALLOCATION",
+      "message": "SupplyTemp: no 1 free register(s) left in INPUT_REGISTER (capacity 10)"
+    }
+  ],
+  "model_sha256": "c3ceb94941961880436690f6ce36d2353614917f4dc1d9a9b43517e2732e0c05",
+  "target_sha256": "aac7532c3971e50866be0b6f67c82d639525bf4803e8f18373691cfc2af5aa77"
+}

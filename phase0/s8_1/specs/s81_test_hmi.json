@@ -1,0 +1,100 @@
+{
+  "screen": {
+    "name": "S81_TEST_HMI",
+    "type": "AHU",
+    "width": 800,
+    "height": 420,
+    "startWindow": true
+  },
+  "objects": [
+    {
+      "type": "Text",
+      "name": "Title",
+      "text": "S8.1 TEST HMI",
+      "x": 40,
+      "y": 24,
+      "w": 400,
+      "h": 36
+    },
+    {
+      "type": "Text",
+      "name": "LblFanCommand",
+      "text": "FanCommand:",
+      "x": 40,
+      "y": 90,
+      "w": 180,
+      "h": 28
+    },
+    {
+      "type": "NumericInput",
+      "name": "FanCommandValue",
+      "x": 240,
+      "y": 90,
+      "w": 120,
+      "h": 28,
+      "link": "write",
+      "value": 2,
+      "param": "FanCommandSP"
+    },
+    {
+      "type": "Text",
+      "name": "LblFanStatus",
+      "text": "FanStatus:",
+      "x": 40,
+      "y": 140,
+      "w": 180,
+      "h": 28
+    },
+    {
+      "type": "NumericValue",
+      "name": "FanStatusValue",
+      "tag": "FanStatus",
+      "pin": "Input",
+      "x": 240,
+      "y": 140,
+      "w": 120,
+      "h": 28
+    },
+    {
+      "type": "Text",
+      "name": "LblSupplyTemp",
+      "text": "SupplyTemp:",
+      "x": 40,
+      "y": 190,
+      "w": 180,
+      "h": 28
+    },
+    {
+      "type": "NumericValue",
+      "name": "SupplyTempValue",
+      "tag": "SupplyTemp",
+      "pin": "Input",
+      "x": 240,
+      "y": 190,
+      "w": 120,
+      "h": 28
+    },
+    {
+      "type": "Text",
+      "name": "Hint",
+      "text": "START=1 STOP=2 RUNNING=3 STOPPED=0 FAULT=4",
+      "x": 40,
+      "y": 250,
+      "w": 520,
+      "h": 28
+    }
+  ],
+  "typeMap": {
+    "Text": "TextOutput",
+    "NumericValue": "TextOutput",
+    "NumericInput": "NumericUpDown"
+  },
+  "parameters": [
+    {
+      "name": "FanCommandSP",
+      "initial": 2,
+      "tag": "FanCommand",
+      "pin": "Output"
+    }
+  ]
+}

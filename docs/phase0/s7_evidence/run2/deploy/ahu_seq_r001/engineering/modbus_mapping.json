@@ -1,0 +1,761 @@
+{
+  "schema": "ai_bms.modbus_mapping.v1",
+  "protocol": "Modbus TCP",
+  "host": "127.0.0.1",
+  "port": 502,
+  "unit_id": 1,
+  "model_id": "AHU-SEQ-r001",
+  "model_sha256": "26a57ffb013c22b1b44e91cbf8f723659bb1a1d83e89885ba09f5f2db218889f",
+  "profile": "rev",
+  "platform": {
+    "register_capacity": {
+      "HOLDING_REGISTER": 10,
+      "INPUT_REGISTER": 10
+    },
+    "bit_overlay": {
+      "distinct_bit_areas": false,
+      "plc_bit_offset": 8,
+      "rule": "coil/discrete-input address n -> register n div 16, PLC WORD bit ((n mod 16) + 8) mod 16",
+      "evidence": "S3: coil 0 -> HR0=256 (bit 8), coil 8 -> HR0=1; S3 run1/run2 TestCoil 144 -> HR9 raw 256"
+    },
+    "real32_layout_rule": "generator copies the 2 consecutive in-memory 16-bit words of the PLC REAL to 2 consecutive registers (lower memory word -> lower register address); the resulting wire order is measured, not assumed"
+  },
+  "real32": {
+    "registers_per_value": 2,
+    "measured_ordering": {
+      "name": "CDAB",
+      "registers_per_value": 2,
+      "word_order": "low word first (lower address = least significant 16 bits)",
+      "byte_order": "big-endian within each register (Modbus standard)",
+      "register_order": "register[n]=low word, big-endian bytes in each register"
+    },
+    "verified": true
+  },
+  "signals": [
+    {
+      "tag": "Command",
+      "plc_var": "Mb_Command",
+      "datatype": "WORD",
+      "plc_type": "WORD",
+      "direction": "WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 0,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "unsigned (bit field)",
+      "scale": 1.0,
+      "function_read": "FC3",
+      "function_write": "FC6/FC16",
+      "registers": [
+        0
+      ],
+      "bits": {
+        "0": "StartCommand",
+        "1": "StopCommand"
+      },
+      "plc_path": "Application.PLC_PRG.Mb_Command",
+      "codesys_channels": [
+        {
+          "parameter": "Holding Registers",
+          "word_index": 0,
+          "variable": "Application.PLC_PRG.Mb_Command"
+        }
+      ],
+      "encoding": "16-bit register",
+      "byte_order": "big-endian within the register (Modbus standard), measured: decoded == PLC value",
+      "word_order": "n/a (1 register)",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 1,
+        "method": "F06 S1 regression (HR command word -> IR status word)",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/Command",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW"
+    },
+    {
+      "tag": "Setpoint",
+      "plc_var": "Setpoint",
+      "datatype": "REAL32",
+      "plc_type": "REAL",
+      "direction": "READ_WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 1,
+      "length": 2,
+      "allocation": "pinned",
+      "signedness": "IEEE 754 binary32",
+      "scale": 1.0,
+      "function_read": "FC3",
+      "function_write": "FC6/FC16",
+      "registers": [
+        1,
+        2
+      ],
+      "plc_path": "Application.PLC_PRG.Setpoint",
+      "role": "setpoint",
+      "plc_initial": 22.0,
+      "verification_values": [
+        21.5,
+        18.25,
+        123.456,
+        22.0
+      ],
+      "codesys_channels": [
+        {
+          "parameter": "Holding Registers",
+          "word_index": 1,
+          "variable": "Application.PLC_PRG.Mb_Setpoint_W0"
+        },
+        {
+          "parameter": "Holding Registers",
+          "word_index": 2,
+          "variable": "Application.PLC_PRG.Mb_Setpoint_W1"
+        }
+      ],
+      "encoding": "IEEE 754 binary32 in 2 consecutive 16-bit registers",
+      "byte_order": "big-endian within each register (Modbus standard)",
+      "word_order": "low word first (lower address = least significant 16 bits)",
+      "register_order": "register[n]=low word, big-endian bytes in each register",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 4,
+        "paths": [
+          "WRITE"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/Setpoint",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW",
+      "measured_ordering": "CDAB"
+    },
+    {
+      "tag": "Status",
+      "plc_var": "Mb_Status",
+      "datatype": "WORD",
+      "plc_type": "WORD",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "unsigned (bit field)",
+      "scale": 1.0,
+      "function_read": "FC4",
+      "function_write": null,
+      "registers": [
+        0
+      ],
+      "bits": {
+        "0": "FanCommand",
+        "1": "FanRunning",
+        "2": "FanFault"
+      },
+      "plc_path": "Application.PLC_PRG.Mb_Status",
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 0,
+          "variable": "Application.PLC_PRG.Mb_Status"
+        }
+      ],
+      "encoding": "16-bit register",
+      "byte_order": "big-endian within the register (Modbus standard), measured: decoded == PLC value",
+      "word_order": "n/a (1 register)",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 1,
+        "method": "F06 S1 regression (HR command word -> IR status word)",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/Status",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW"
+    },
+    {
+      "tag": "AhuState",
+      "plc_var": "AhuState",
+      "datatype": "INT16",
+      "plc_type": "INT",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 1,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "signed (two's complement)",
+      "scale": 1.0,
+      "function_read": "FC4",
+      "function_write": null,
+      "registers": [
+        1
+      ],
+      "plc_path": "Application.PLC_PRG.AhuState",
+      "role": "status",
+      "plc_initial": 0,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 1,
+          "variable": "Application.PLC_PRG.Mb_AhuState"
+        }
+      ],
+      "encoding": "16-bit register",
+      "byte_order": "big-endian within the register (Modbus standard), measured: decoded == PLC value",
+      "word_order": "n/a (1 register)",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/AhuState",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW"
+    },
+    {
+      "tag": "HeatingValve",
+      "plc_var": "HeatingValve",
+      "datatype": "REAL32",
+      "plc_type": "REAL",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 2,
+      "length": 2,
+      "allocation": "pinned",
+      "signedness": "IEEE 754 binary32",
+      "scale": 1.0,
+      "function_read": "FC4",
+      "function_write": null,
+      "registers": [
+        2,
+        3
+      ],
+      "plc_path": "Application.PLC_PRG.HeatingValve",
+      "role": "output",
+      "plc_initial": 0.0,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 2,
+          "variable": "Application.PLC_PRG.Mb_HeatingValve_W0"
+        },
+        {
+          "parameter": "Input Registers",
+          "word_index": 3,
+          "variable": "Application.PLC_PRG.Mb_HeatingValve_W1"
+        }
+      ],
+      "encoding": "IEEE 754 binary32 in 2 consecutive 16-bit registers",
+      "byte_order": "big-endian within each register (Modbus standard)",
+      "word_order": "low word first (lower address = least significant 16 bits)",
+      "register_order": "register[n]=low word, big-endian bytes in each register",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/HeatingValve",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW",
+      "measured_ordering": "CDAB"
+    },
+    {
+      "tag": "SequenceStarts",
+      "plc_var": "SequenceStarts",
+      "datatype": "UINT16",
+      "plc_type": "UINT",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 4,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "unsigned",
+      "scale": 1.0,
+      "function_read": "FC4",
+      "function_write": null,
+      "registers": [
+        4
+      ],
+      "plc_path": "Application.PLC_PRG.SequenceStarts",
+      "role": "diagnostic",
+      "plc_initial": 0,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 4,
+          "variable": "Application.PLC_PRG.Mb_SequenceStarts"
+        }
+      ],
+      "encoding": "16-bit register",
+      "byte_order": "big-endian within the register (Modbus standard), measured: decoded == PLC value",
+      "word_order": "n/a (1 register)",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/SequenceStarts",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW"
+    },
+    {
+      "tag": "SequenceStops",
+      "plc_var": "SequenceStops",
+      "datatype": "UINT16",
+      "plc_type": "UINT",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "unsigned",
+      "scale": 1.0,
+      "function_read": "FC4",
+      "function_write": null,
+      "registers": [
+        5
+      ],
+      "plc_path": "Application.PLC_PRG.SequenceStops",
+      "role": "diagnostic",
+      "plc_initial": 0,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 5,
+          "variable": "Application.PLC_PRG.Mb_SequenceStops"
+        }
+      ],
+      "encoding": "16-bit register",
+      "byte_order": "big-endian within the register (Modbus standard), measured: decoded == PLC value",
+      "word_order": "n/a (1 register)",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/SequenceStops",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW"
+    },
+    {
+      "tag": "StateTrace",
+      "plc_var": "StateTrace",
+      "datatype": "WORD",
+      "plc_type": "WORD",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 6,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "unsigned (bit field)",
+      "scale": 1.0,
+      "function_read": "FC4",
+      "function_write": null,
+      "registers": [
+        6
+      ],
+      "plc_path": "Application.PLC_PRG.StateTrace",
+      "role": "diagnostic",
+      "plc_initial": 0,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 6,
+          "variable": "Application.PLC_PRG.Mb_StateTrace"
+        }
+      ],
+      "encoding": "16-bit register",
+      "byte_order": "big-endian within the register (Modbus standard), measured: decoded == PLC value",
+      "word_order": "n/a (1 register)",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/StateTrace",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW"
+    },
+    {
+      "tag": "SupplyTemp",
+      "plc_var": "SupplyTemp",
+      "datatype": "REAL32",
+      "plc_type": "REAL",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 7,
+      "length": 2,
+      "allocation": "pinned",
+      "signedness": "IEEE 754 binary32",
+      "scale": 1.0,
+      "function_read": "FC4",
+      "function_write": null,
+      "registers": [
+        7,
+        8
+      ],
+      "plc_path": "Application.PLC_PRG.SupplyTemp",
+      "role": "process",
+      "plc_initial": 21.0,
+      "verification_values": [
+        21.5,
+        18.25,
+        123.456,
+        21.0
+      ],
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 7,
+          "variable": "Application.PLC_PRG.Mb_SupplyTemp_W0"
+        },
+        {
+          "parameter": "Input Registers",
+          "word_index": 8,
+          "variable": "Application.PLC_PRG.Mb_SupplyTemp_W1"
+        }
+      ],
+      "encoding": "IEEE 754 binary32 in 2 consecutive 16-bit registers",
+      "byte_order": "big-endian within each register (Modbus standard)",
+      "word_order": "low word first (lower address = least significant 16 bits)",
+      "register_order": "register[n]=low word, big-endian bytes in each register",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/SupplyTemp",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW",
+      "measured_ordering": "CDAB"
+    },
+    {
+      "tag": "AhuAlarm",
+      "plc_var": "AhuAlarm",
+      "datatype": "BOOL",
+      "plc_type": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "n/a",
+      "scale": 1.0,
+      "function_read": "FC2",
+      "function_write": null,
+      "overlay": {
+        "register_area": "INPUT_REGISTER",
+        "register": 9,
+        "plc_bit": 8
+      },
+      "plc_path": "Application.PLC_PRG.AhuAlarm",
+      "role": "alarm",
+      "plc_initial": false,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 9,
+          "bit_index": 8,
+          "variable": "Application.PLC_PRG.Mb_AhuAlarm"
+        }
+      ],
+      "encoding": "single bit; overlays INPUT_REGISTER 9 PLC bit 8",
+      "byte_order": "n/a",
+      "word_order": "n/a",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/AhuAlarm",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW"
+    },
+    {
+      "tag": "DamperCommand",
+      "plc_var": "DamperCommand",
+      "datatype": "BOOL",
+      "plc_type": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 145,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "n/a",
+      "scale": 1.0,
+      "function_read": "FC2",
+      "function_write": null,
+      "overlay": {
+        "register_area": "INPUT_REGISTER",
+        "register": 9,
+        "plc_bit": 9
+      },
+      "plc_path": "Application.PLC_PRG.DamperCommand",
+      "role": "output",
+      "plc_initial": false,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 9,
+          "bit_index": 9,
+          "variable": "Application.PLC_PRG.Mb_DamperCommand"
+        }
+      ],
+      "encoding": "single bit; overlays INPUT_REGISTER 9 PLC bit 9",
+      "byte_order": "n/a",
+      "word_order": "n/a",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/DamperCommand",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW"
+    },
+    {
+      "tag": "DamperFault",
+      "plc_var": "DamperFault",
+      "datatype": "BOOL",
+      "plc_type": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 146,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "n/a",
+      "scale": 1.0,
+      "function_read": "FC2",
+      "function_write": null,
+      "overlay": {
+        "register_area": "INPUT_REGISTER",
+        "register": 9,
+        "plc_bit": 10
+      },
+      "plc_path": "Application.PLC_PRG.DamperFault",
+      "role": "alarm",
+      "plc_initial": false,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 9,
+          "bit_index": 10,
+          "variable": "Application.PLC_PRG.Mb_DamperFault"
+        }
+      ],
+      "encoding": "single bit; overlays INPUT_REGISTER 9 PLC bit 10",
+      "byte_order": "n/a",
+      "word_order": "n/a",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/DamperFault",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW"
+    },
+    {
+      "tag": "DamperOpen",
+      "plc_var": "DamperOpen",
+      "datatype": "BOOL",
+      "plc_type": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 147,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "n/a",
+      "scale": 1.0,
+      "function_read": "FC2",
+      "function_write": null,
+      "overlay": {
+        "register_area": "INPUT_REGISTER",
+        "register": 9,
+        "plc_bit": 11
+      },
+      "plc_path": "Application.PLC_PRG.DamperOpen",
+      "role": "status",
+      "plc_initial": false,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 9,
+          "bit_index": 11,
+          "variable": "Application.PLC_PRG.Mb_DamperOpen"
+        }
+      ],
+      "encoding": "single bit; overlays INPUT_REGISTER 9 PLC bit 11",
+      "byte_order": "n/a",
+      "word_order": "n/a",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/DamperOpen",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW"
+    },
+    {
+      "tag": "FanRunning",
+      "plc_var": "FanRunning",
+      "datatype": "BOOL",
+      "plc_type": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 148,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "n/a",
+      "scale": 1.0,
+      "function_read": "FC2",
+      "function_write": null,
+      "overlay": {
+        "register_area": "INPUT_REGISTER",
+        "register": 9,
+        "plc_bit": 12
+      },
+      "plc_path": "Application.PLC_PRG.FanRunning",
+      "role": "status",
+      "plc_initial": false,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 9,
+          "bit_index": 12,
+          "variable": "Application.PLC_PRG.Mb_FanRunning"
+        }
+      ],
+      "encoding": "single bit; overlays INPUT_REGISTER 9 PLC bit 12",
+      "byte_order": "n/a",
+      "word_order": "n/a",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\run2\\deploy\\ahu_seq_r001"
+      },
+      "identity": "AHU-SEQ/AHU-01/FanRunning",
+      "equipment": "AHU-01",
+      "mapping_action": "NEW"
+    }
+  ],
+  "unmapped": [
+    {
+      "var": "FanFailure",
+      "type": "BOOL",
+      "equipment": "AHU-01",
+      "reason": "PLC variable without a Modbus signal in this revision"
+    },
+    {
+      "var": "DamperFailure",
+      "type": "BOOL",
+      "equipment": "AHU-01",
+      "reason": "PLC variable without a Modbus signal in this revision"
+    },
+    {
+      "var": "StartPrev",
+      "type": "BOOL",
+      "equipment": "AHU-01",
+      "reason": "PLC variable without a Modbus signal in this revision"
+    },
+    {
+      "var": "StopPrev",
+      "type": "BOOL",
+      "equipment": "AHU-01",
+      "reason": "PLC variable without a Modbus signal in this revision"
+    },
+    {
+      "var": "NowMs",
+      "type": "UDINT",
+      "equipment": "AHU-01",
+      "reason": "PLC variable without a Modbus signal in this revision"
+    },
+    {
+      "var": "StateEntryMs",
+      "type": "UDINT",
+      "equipment": "AHU-01",
+      "reason": "PLC variable without a Modbus signal in this revision"
+    }
+  ],
+  "unsupported": [
+    {
+      "feature": "DistinctBitAreas=TRUE (separate coil / discrete-input areas)",
+      "reason": "ScriptEngine stores the parameter but does not generate the coil/discrete-input channels (measured in S3)"
+    },
+    {
+      "feature": "more than 10 registers per area",
+      "reason": "assembly-size parameters do not regenerate register channels via ScriptEngine; device.update() resets them (measured in S3)"
+    },
+    {
+      "feature": "PLC-originated value of a READ_WRITE holding register visible to FC3",
+      "reason": "UpdateableHolding output channels are not generated via ScriptEngine; FC3 returns the last client-written value (measured in S3)"
+    }
+  ],
+  "verified_rule": "verified=true only after real runtime + external pymodbus read/write with PLC-side online read-back",
+  "base_schema": "s3.modbus_mapping.v1",
+  "project_id": "AHU-SEQ",
+  "revision": 1,
+  "parent_revision": null,
+  "target_sha256": "97b63d2b588d7f5c2db4c06603be1e2ae2270f140df1020dc1001e82289ceeed",
+  "retired": []
+}

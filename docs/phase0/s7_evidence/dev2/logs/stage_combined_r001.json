@@ -1,0 +1,21 @@
+{
+  "step": "stage",
+  "revision": 1,
+  "written": [
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\engineering\\allocation.json",
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\engineering\\codesys_plan.json",
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\engineering\\logic_instances.json",
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\engineering\\logic_templates.json",
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\engineering\\modbus_mapping.json",
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\engineering\\model.json",
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\engineering\\revision_diff.json",
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\engineering\\target.json",
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\engineering\\validation.json",
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\generated\\PLC_PRG.st",
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\generated\\PLC_PRG_decl.st",
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\generated\\PLC_PRG_impl.st",
+    "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\combined_r001\\generated\\PLC_VARIABLES.txt"
+  ],
+  "operation_status": "PASS",
+  "reason": "r001 staged (manifest verified)"
+}

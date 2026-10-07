@@ -1,0 +1,126 @@
+{
+  "step": "generate",
+  "profile": "types",
+  "model": "C:\\Users\\user\\Documents\\ai automation\\ai-building-automation\\phase0\\s3\\model\\s3_model.json",
+  "model_sha256": "923e0b89f396efc0f928a306d319e8924b64720de98f7823b24164068a6448ec",
+  "artifacts": [
+    "C:\\AI_BMS_PHASE0\\s3\\run1\\types\\generated\\PLC_PRG_decl.st",
+    "C:\\AI_BMS_PHASE0\\s3\\run1\\types\\generated\\PLC_PRG_impl.st",
+    "C:\\AI_BMS_PHASE0\\s3\\run1\\types\\generated\\PLC_PRG.st",
+    "C:\\AI_BMS_PHASE0\\s3\\run1\\types\\engineering\\allocation.json",
+    "C:\\AI_BMS_PHASE0\\s3\\run1\\types\\engineering\\modbus_mapping.json",
+    "C:\\AI_BMS_PHASE0\\s3\\run1\\types\\engineering\\codesys_plan.json"
+  ],
+  "allocation": [
+    {
+      "tag": "Command",
+      "datatype": "WORD",
+      "direction": "WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 0,
+      "length": 1,
+      "allocation": "pinned"
+    },
+    {
+      "tag": "TestInt16Write",
+      "datatype": "INT16",
+      "direction": "WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 1,
+      "length": 1,
+      "allocation": "auto"
+    },
+    {
+      "tag": "TestReal32Write",
+      "datatype": "REAL32",
+      "direction": "WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 2,
+      "length": 2,
+      "allocation": "auto"
+    },
+    {
+      "tag": "TestUInt16Write",
+      "datatype": "UINT16",
+      "direction": "WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 4,
+      "length": 1,
+      "allocation": "auto"
+    },
+    {
+      "tag": "TestWordWrite",
+      "datatype": "WORD",
+      "direction": "WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 5,
+      "length": 1,
+      "allocation": "auto"
+    },
+    {
+      "tag": "Status",
+      "datatype": "WORD",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "length": 1,
+      "allocation": "pinned"
+    },
+    {
+      "tag": "TestInt16Read",
+      "datatype": "INT16",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 1,
+      "length": 1,
+      "allocation": "auto"
+    },
+    {
+      "tag": "TestReal32Read",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 2,
+      "length": 2,
+      "allocation": "auto"
+    },
+    {
+      "tag": "TestUInt16Read",
+      "datatype": "UINT16",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 4,
+      "length": 1,
+      "allocation": "auto"
+    },
+    {
+      "tag": "TestWordRead",
+      "datatype": "WORD",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "length": 1,
+      "allocation": "auto"
+    },
+    {
+      "tag": "TestCoil",
+      "datatype": "BOOL",
+      "direction": "WRITE",
+      "area": "COIL",
+      "address": 144,
+      "length": 1,
+      "allocation": "auto"
+    },
+    {
+      "tag": "TestDiscreteInput",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "length": 1,
+      "allocation": "auto"
+    }
+  ],
+  "operation_status": "PASS",
+  "reason": "validated, allocated, ST + mapping + codesys plan generated"
+}

@@ -1,0 +1,151 @@
+{
+  "schema": "ai_bms.allocation_lock.v1",
+  "project_id": "AHU-SEQ",
+  "revision": 1,
+  "parent_revision": null,
+  "model_sha256": "26a57ffb013c22b1b44e91cbf8f723659bb1a1d83e89885ba09f5f2db218889f",
+  "target_sha256": "97b63d2b588d7f5c2db4c06603be1e2ae2270f140df1020dc1001e82289ceeed",
+  "active": [
+    {
+      "identity": "AHU-SEQ/AHU-01/Command",
+      "symbol": "Command",
+      "datatype": "WORD",
+      "direction": "WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 0,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/Setpoint",
+      "symbol": "Setpoint",
+      "datatype": "REAL32",
+      "direction": "READ_WRITE",
+      "area": "HOLDING_REGISTER",
+      "address": 1,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/Status",
+      "symbol": "Status",
+      "datatype": "WORD",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/AhuState",
+      "symbol": "AhuState",
+      "datatype": "INT16",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 1,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/HeatingValve",
+      "symbol": "HeatingValve",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 2,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/SequenceStarts",
+      "symbol": "SequenceStarts",
+      "datatype": "UINT16",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 4,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/SequenceStops",
+      "symbol": "SequenceStops",
+      "datatype": "UINT16",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/StateTrace",
+      "symbol": "StateTrace",
+      "datatype": "WORD",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 6,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/SupplyTemp",
+      "symbol": "SupplyTemp",
+      "datatype": "REAL32",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 7,
+      "length": 2,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/AhuAlarm",
+      "symbol": "AhuAlarm",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/DamperCommand",
+      "symbol": "DamperCommand",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 145,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/DamperFault",
+      "symbol": "DamperFault",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 146,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/DamperOpen",
+      "symbol": "DamperOpen",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 147,
+      "length": 1,
+      "action": "NEW"
+    },
+    {
+      "identity": "AHU-SEQ/AHU-01/FanRunning",
+      "symbol": "FanRunning",
+      "datatype": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 148,
+      "length": 1,
+      "action": "NEW"
+    }
+  ],
+  "retired": []
+}

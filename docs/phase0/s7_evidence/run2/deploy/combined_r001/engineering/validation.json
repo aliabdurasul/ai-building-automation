@@ -1,0 +1,19 @@
+{
+  "schema": "ai_bms.revision_validation.v1",
+  "project_id": "BMS-DEMO",
+  "revision": 1,
+  "parent_revision": null,
+  "status": "ACCEPTED",
+  "stages": {
+    "canonical": "PASS",
+    "model_rules": "PASS",
+    "policy": "PASS",
+    "allocation": "PASS",
+    "resolved_model": "PASS",
+    "logic_template": "PASS"
+  },
+  "errors": [],
+  "model_sha256": "c4530164e326208461c6695ae1e311189f9212a1626fe90d8b3a87b3e65302e7",
+  "target_sha256": "97b63d2b588d7f5c2db4c06603be1e2ae2270f140df1020dc1001e82289ceeed",
+  "logic_templates_sha256": "84de0064db3ce064862731a7ccec2415bb5934d6490ebdd20e41aefbb07139c1"
+}

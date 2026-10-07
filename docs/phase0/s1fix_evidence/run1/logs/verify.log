@@ -1,0 +1,20 @@
+Project Settings
+Device [4096 0000 0004 3.5.22.30]
+  Plc Logic
+    Application
+      Library Manager
+      Task Configuration
+        MainTask
+          PLC_PRG
+      PLC_PRG
+  Ethernet [110 0000 0002 4.2.0.0]
+    Modbus_TCP_Server [115 0000 0002 4.6.0.0]
+__VisualizationStyle
+CHECK device Ethernet under Device: True
+CHECK device Modbus_TCP_Server under Ethernet: True
+CHECK server Port expected=502 actual=502
+CHECK map Holding Registers[0] (1000_0_0_0) -> Application.PLC_PRG.Mb_Command: True
+CHECK map Input Registers[0] (2000_0_0_0) -> Application.PLC_PRG.Mb_Status: True
+CHECK PLC_PRG == generator: True; missing vars: []
+CHECK rebuild errors=0 warnings=0
+OPERATION_STATUS=PASS

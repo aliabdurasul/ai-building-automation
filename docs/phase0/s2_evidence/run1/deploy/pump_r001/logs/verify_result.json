@@ -1,0 +1,211 @@
+{
+  "plc_prg_impl": "(* MODBUS IN: C144 StartCommand BOOL *)\nStartCommand := Mb_StartCommand;\n\n(* MODBUS IN: C145 StopCommand BOOL *)\nStopCommand := Mb_StopCommand;\n\n(* PUMP-01 : PUMP_BASIC_V1 state machine - 0 STOPPED, 1 STARTING, 2 RUNNING, 3 STOPPING, 9 FAULT *)\nIF PumpFault = TRUE THEN\n    PumpState := 9;\nEND_IF;\nCASE PumpState OF\n0: (* STOPPED *)\n    PumpRunning := FALSE;\n    IF StartCommand = TRUE AND StopCommand = FALSE THEN\n        PumpState := 1;\n    END_IF;\n1: (* STARTING: simulated run feedback *)\n    PumpRunning := TRUE;\n    IF PumpRunning = TRUE THEN\n        PumpState := 2;\n    END_IF;\n2: (* RUNNING *)\n    IF StopCommand = TRUE THEN\n        PumpState := 3;\n    END_IF;\n3: (* STOPPING *)\n    PumpRunning := FALSE;\n    IF PumpRunning = FALSE THEN\n        PumpState := 0;\n    END_IF;\n9: (* FAULT *)\n    PumpRunning := FALSE;\n    IF PumpFault = FALSE THEN\n        PumpState := 0;\n    END_IF;\nELSE\n    PumpState := 0;\nEND_CASE;\n\n(* MODBUS OUT: Pressure REAL32 (REAL memory -> register words) -> IR0..IR1 *)\np_Pressure := ADR(Pressure);\nMb_Pressure_W0 := p_Pressure^[0];\nMb_Pressure_W1 := p_Pressure^[1];\n\n(* MODBUS OUT: PumpSpeed REAL32 (REAL memory -> register words) -> IR2..IR3 *)\np_PumpSpeed := ADR(PumpSpeed);\nMb_PumpSpeed_W0 := p_PumpSpeed^[0];\nMb_PumpSpeed_W1 := p_PumpSpeed^[1];\n\n(* MODBUS OUT: PumpState INT16 -> IR4 *)\nMb_PumpState := INT_TO_WORD(PumpState);\n\n(* MODBUS OUT: PumpFault BOOL -> DI144 *)\nMb_PumpFault := PumpFault;\n\n(* MODBUS OUT: PumpRunning BOOL -> DI145 *)\nMb_PumpRunning := PumpRunning;", 
+  "reason": "all checks passed", 
+  "server_parameters": {
+    "Port": {
+      "expected": "502", 
+      "ok": true, 
+      "actual": "502"
+    }, 
+    "DistinctBitAreas": {
+      "expected": "FALSE", 
+      "ok": true, 
+      "actual": "FALSE"
+    }
+  }, 
+  "checks": {
+    "plc_prg_matches_generator": true, 
+    "server_parameters": true, 
+    "channel_counts": true, 
+    "device_tree": true, 
+    "io_mappings": true, 
+    "rebuild_0_errors": true, 
+    "rebuild_0_warnings": true, 
+    "required_variables": true
+  }, 
+  "io_mappings": [
+    {
+      "bit_index": null, 
+      "iec_address_is_automatic": "True", 
+      "channel_identifier": "2000_0_0_0", 
+      "expected": "Application.PLC_PRG.Mb_Pressure_W0", 
+      "word_index": 0, 
+      "actual": "Application.PLC_PRG.Mb_Pressure_W0", 
+      "parameter": "Input Registers", 
+      "ok": true
+    }, 
+    {
+      "bit_index": null, 
+      "iec_address_is_automatic": "True", 
+      "channel_identifier": "2000_1_0_0", 
+      "expected": "Application.PLC_PRG.Mb_Pressure_W1", 
+      "word_index": 1, 
+      "actual": "Application.PLC_PRG.Mb_Pressure_W1", 
+      "parameter": "Input Registers", 
+      "ok": true
+    }, 
+    {
+      "bit_index": null, 
+      "iec_address_is_automatic": "True", 
+      "channel_identifier": "2000_2_0_0", 
+      "expected": "Application.PLC_PRG.Mb_PumpSpeed_W0", 
+      "word_index": 2, 
+      "actual": "Application.PLC_PRG.Mb_PumpSpeed_W0", 
+      "parameter": "Input Registers", 
+      "ok": true
+    }, 
+    {
+      "bit_index": null, 
+      "iec_address_is_automatic": "True", 
+      "channel_identifier": "2000_3_0_0", 
+      "expected": "Application.PLC_PRG.Mb_PumpSpeed_W1", 
+      "word_index": 3, 
+      "actual": "Application.PLC_PRG.Mb_PumpSpeed_W1", 
+      "parameter": "Input Registers", 
+      "ok": true
+    }, 
+    {
+      "bit_index": null, 
+      "iec_address_is_automatic": "True", 
+      "channel_identifier": "2000_4_0_0", 
+      "expected": "Application.PLC_PRG.Mb_PumpState", 
+      "word_index": 4, 
+      "actual": "Application.PLC_PRG.Mb_PumpState", 
+      "parameter": "Input Registers", 
+      "ok": true
+    }, 
+    {
+      "bit_index": 8, 
+      "iec_address_is_automatic": "True", 
+      "channel_identifier": "1000_9_0_0_8", 
+      "expected": "Application.PLC_PRG.Mb_StartCommand", 
+      "word_index": 9, 
+      "actual": "Application.PLC_PRG.Mb_StartCommand", 
+      "parameter": "Holding Registers", 
+      "ok": true
+    }, 
+    {
+      "bit_index": 9, 
+      "iec_address_is_automatic": "True", 
+      "channel_identifier": "1000_9_0_0_9", 
+      "expected": "Application.PLC_PRG.Mb_StopCommand", 
+      "word_index": 9, 
+      "actual": "Application.PLC_PRG.Mb_StopCommand", 
+      "parameter": "Holding Registers", 
+      "ok": true
+    }, 
+    {
+      "bit_index": 8, 
+      "iec_address_is_automatic": "True", 
+      "channel_identifier": "2000_9_0_0_8", 
+      "expected": "Application.PLC_PRG.Mb_PumpFault", 
+      "word_index": 9, 
+      "actual": "Application.PLC_PRG.Mb_PumpFault", 
+      "parameter": "Input Registers", 
+      "ok": true
+    }, 
+    {
+      "bit_index": 9, 
+      "iec_address_is_automatic": "True", 
+      "channel_identifier": "2000_9_0_0_9", 
+      "expected": "Application.PLC_PRG.Mb_PumpRunning", 
+      "word_index": 9, 
+      "actual": "Application.PLC_PRG.Mb_PumpRunning", 
+      "parameter": "Input Registers", 
+      "ok": true
+    }
+  ], 
+  "step": "codesys_verify", 
+  "operation_status": "PASS", 
+  "device_tree": [
+    {
+      "is_device": false, 
+      "depth": 0, 
+      "name": "Project Settings"
+    }, 
+    {
+      "is_device": true, 
+      "depth": 0, 
+      "type": 4096, 
+      "name": "Device", 
+      "version": "3.5.22.30", 
+      "id": "0000 0004"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 1, 
+      "name": "Plc Logic"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 2, 
+      "name": "Application"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 3, 
+      "name": "Library Manager"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 3, 
+      "name": "Task Configuration"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 4, 
+      "name": "MainTask"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 5, 
+      "name": "PLC_PRG"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 3, 
+      "name": "PLC_PRG"
+    }, 
+    {
+      "is_device": true, 
+      "depth": 1, 
+      "type": 110, 
+      "name": "Ethernet", 
+      "version": "4.2.0.0", 
+      "id": "0000 0002"
+    }, 
+    {
+      "is_device": true, 
+      "depth": 2, 
+      "type": 115, 
+      "name": "Modbus_TCP_Server", 
+      "version": "4.6.0.0", 
+      "id": "0000 0002"
+    }, 
+    {
+      "is_device": false, 
+      "depth": 0, 
+      "name": "__VisualizationStyle"
+    }
+  ], 
+  "missing_variables": [], 
+  "plc_prg_decl": "PROGRAM PLC_PRG\nVAR\n    (* Deterministic demo for PUMP-DEMO: PUMP-01 (PUMP) *)\n    StartCommand : BOOL := FALSE;\n    StopCommand : BOOL := FALSE;\n    PumpRunning : BOOL := FALSE;\n    PumpFault : BOOL := FALSE;\n    PumpState : INT := 0;\n    PumpSpeed : REAL := 0.0;\n    Pressure : REAL := 0.0;\n    (* Modbus TCP image (16-bit words, mapped to Modbus_TCP_Server I/O) *)\n    Mb_Pressure_W0 : WORD; (* IR0 Pressure REAL32 memory word 0 *)\n    Mb_Pressure_W1 : WORD; (* IR1 Pressure REAL32 memory word 1 *)\n    p_Pressure : POINTER TO ARRAY[0..1] OF WORD;\n    Mb_PumpSpeed_W0 : WORD; (* IR2 PumpSpeed REAL32 memory word 0 *)\n    Mb_PumpSpeed_W1 : WORD; (* IR3 PumpSpeed REAL32 memory word 1 *)\n    p_PumpSpeed : POINTER TO ARRAY[0..1] OF WORD;\n    Mb_PumpState : WORD; (* IR4 PumpState INT16 READ *)\n    Mb_StartCommand : BOOL; (* C144 StartCommand = HR9 PLC bit 8 *)\n    Mb_StopCommand : BOOL; (* C145 StopCommand = HR9 PLC bit 9 *)\n    Mb_PumpFault : BOOL; (* DI144 PumpFault = IR9 PLC bit 8 *)\n    Mb_PumpRunning : BOOL; (* DI145 PumpRunning = IR9 PLC bit 9 *)\nEND_VAR", 
+  "channel_counts": {
+    "Holding Registers": {
+      "expected": 10, 
+      "ok": true, 
+      "actual": 10
+    }, 
+    "Input Registers": {
+      "expected": 10, 
+      "ok": true, 
+      "actual": 10
+    }
+  }, 
+  "rebuild": {
+    "warnings": 0, 
+    "errors": 0
+  }, 
+  "exit_code_intended": 0, 
+  "project": "C:\\AI_BMS_PHASE0\\s2\\run1\\deploy\\pump_r001\\generated\\AI_BMS_S2_PUMP_DEMO_r001.project"
+}

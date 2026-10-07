@@ -1,0 +1,14 @@
+Text: ADDED Ethernet under Device (110 0000 0002 4.2.0.0)
+Text: ADDED Modbus_TCP_Server under Ethernet (115 0000 0002 4.6.0.0)
+Text: MAP Input Registers[0] -> Application.PLC_PRG.Mb_Pressure_W0 ok=True
+Text: MAP Input Registers[1] -> Application.PLC_PRG.Mb_Pressure_W1 ok=True
+Text: MAP Input Registers[2] -> Application.PLC_PRG.Mb_PumpSpeed_W0 ok=True
+Text: MAP Input Registers[3] -> Application.PLC_PRG.Mb_PumpSpeed_W1 ok=True
+Text: MAP Input Registers[4] -> Application.PLC_PRG.Mb_PumpState ok=True
+Text: MAP Input Registers[5] -> Application.PLC_PRG.Mb_FlowRate_W0 ok=True
+Text: MAP Input Registers[6] -> Application.PLC_PRG.Mb_FlowRate_W1 ok=True
+Text: MAP Holding Registers[9].8 -> Application.PLC_PRG.Mb_StartCommand ok=True
+Text: MAP Holding Registers[9].9 -> Application.PLC_PRG.Mb_StopCommand ok=True
+Text: MAP Input Registers[9].8 -> Application.PLC_PRG.Mb_PumpFault ok=True
+Text: MAP Input Registers[9].9 -> Application.PLC_PRG.Mb_PumpRunning ok=True
+errors=0 warnings=0

@@ -1,0 +1,5 @@
+Text: ADDED Ethernet under Device (110 0000 0002 4.2.0.0)
+Text: ADDED Modbus_TCP_Server under Ethernet (115 0000 0002 4.6.0.0)
+Text: MAP Holding Registers[0] -> Application.PLC_PRG.Mb_Command ok=True
+Text: MAP Input Registers[0] -> Application.PLC_PRG.Mb_Status ok=True
+errors=0 warnings=0

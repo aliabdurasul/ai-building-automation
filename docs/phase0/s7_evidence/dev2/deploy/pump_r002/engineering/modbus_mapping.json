@@ -1,0 +1,464 @@
+{
+  "schema": "ai_bms.modbus_mapping.v1",
+  "protocol": "Modbus TCP",
+  "host": "127.0.0.1",
+  "port": 502,
+  "unit_id": 1,
+  "model_id": "PUMP-DEMO-r002",
+  "model_sha256": "de885d4933d9b828e04e865f46e26022d9a78193ce745ef883e822dc4476810e",
+  "profile": "rev",
+  "platform": {
+    "register_capacity": {
+      "HOLDING_REGISTER": 10,
+      "INPUT_REGISTER": 10
+    },
+    "bit_overlay": {
+      "distinct_bit_areas": false,
+      "plc_bit_offset": 8,
+      "rule": "coil/discrete-input address n -> register n div 16, PLC WORD bit ((n mod 16) + 8) mod 16",
+      "evidence": "S3: coil 0 -> HR0=256 (bit 8), coil 8 -> HR0=1; S3 run1/run2 TestCoil 144 -> HR9 raw 256"
+    },
+    "real32_layout_rule": "generator copies the 2 consecutive in-memory 16-bit words of the PLC REAL to 2 consecutive registers (lower memory word -> lower register address); the resulting wire order is measured, not assumed"
+  },
+  "real32": {
+    "registers_per_value": 2,
+    "measured_ordering": {
+      "name": "CDAB",
+      "registers_per_value": 2,
+      "word_order": "low word first (lower address = least significant 16 bits)",
+      "byte_order": "big-endian within each register (Modbus standard)",
+      "register_order": "register[n]=low word, big-endian bytes in each register"
+    },
+    "verified": true
+  },
+  "signals": [
+    {
+      "tag": "Pressure",
+      "plc_var": "Pressure",
+      "datatype": "REAL32",
+      "plc_type": "REAL",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 0,
+      "length": 2,
+      "allocation": "pinned",
+      "signedness": "IEEE 754 binary32",
+      "scale": 1.0,
+      "function_read": "FC4",
+      "function_write": null,
+      "registers": [
+        0,
+        1
+      ],
+      "plc_path": "Application.PLC_PRG.Pressure",
+      "role": "process",
+      "plc_initial": 0.0,
+      "verification_values": [
+        3.75,
+        22.0,
+        18.25,
+        123.456
+      ],
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 0,
+          "variable": "Application.PLC_PRG.Mb_Pressure_W0"
+        },
+        {
+          "parameter": "Input Registers",
+          "word_index": 1,
+          "variable": "Application.PLC_PRG.Mb_Pressure_W1"
+        }
+      ],
+      "encoding": "IEEE 754 binary32 in 2 consecutive 16-bit registers",
+      "byte_order": "big-endian within each register (Modbus standard)",
+      "word_order": "low word first (lower address = least significant 16 bits)",
+      "register_order": "register[n]=low word, big-endian bytes in each register",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\pump_r002"
+      },
+      "identity": "PUMP-DEMO/PUMP-01/Pressure",
+      "equipment": "PUMP-01",
+      "mapping_action": "PRESERVED",
+      "measured_ordering": "CDAB"
+    },
+    {
+      "tag": "PumpSpeed",
+      "plc_var": "PumpSpeed",
+      "datatype": "REAL32",
+      "plc_type": "REAL",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 2,
+      "length": 2,
+      "allocation": "pinned",
+      "signedness": "IEEE 754 binary32",
+      "scale": 1.0,
+      "function_read": "FC4",
+      "function_write": null,
+      "registers": [
+        2,
+        3
+      ],
+      "plc_path": "Application.PLC_PRG.PumpSpeed",
+      "role": "process",
+      "plc_initial": 0.0,
+      "verification_values": [
+        50.0,
+        21.5,
+        18.25,
+        123.456
+      ],
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 2,
+          "variable": "Application.PLC_PRG.Mb_PumpSpeed_W0"
+        },
+        {
+          "parameter": "Input Registers",
+          "word_index": 3,
+          "variable": "Application.PLC_PRG.Mb_PumpSpeed_W1"
+        }
+      ],
+      "encoding": "IEEE 754 binary32 in 2 consecutive 16-bit registers",
+      "byte_order": "big-endian within each register (Modbus standard)",
+      "word_order": "low word first (lower address = least significant 16 bits)",
+      "register_order": "register[n]=low word, big-endian bytes in each register",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\pump_r002"
+      },
+      "identity": "PUMP-DEMO/PUMP-01/PumpSpeed",
+      "equipment": "PUMP-01",
+      "mapping_action": "PRESERVED",
+      "measured_ordering": "CDAB"
+    },
+    {
+      "tag": "PumpState",
+      "plc_var": "PumpState",
+      "datatype": "INT16",
+      "plc_type": "INT",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 4,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "signed (two's complement)",
+      "scale": 1.0,
+      "function_read": "FC4",
+      "function_write": null,
+      "registers": [
+        4
+      ],
+      "plc_path": "Application.PLC_PRG.PumpState",
+      "role": "status",
+      "plc_initial": 0,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 4,
+          "variable": "Application.PLC_PRG.Mb_PumpState"
+        }
+      ],
+      "encoding": "16-bit register",
+      "byte_order": "big-endian within the register (Modbus standard), measured: decoded == PLC value",
+      "word_order": "n/a (1 register)",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\pump_r002"
+      },
+      "identity": "PUMP-DEMO/PUMP-01/PumpState",
+      "equipment": "PUMP-01",
+      "mapping_action": "PRESERVED"
+    },
+    {
+      "tag": "FlowRate",
+      "plc_var": "FlowRate",
+      "datatype": "REAL32",
+      "plc_type": "REAL",
+      "direction": "READ",
+      "area": "INPUT_REGISTER",
+      "address": 5,
+      "length": 2,
+      "allocation": "pinned",
+      "signedness": "IEEE 754 binary32",
+      "scale": 1.0,
+      "function_read": "FC4",
+      "function_write": null,
+      "registers": [
+        5,
+        6
+      ],
+      "plc_path": "Application.PLC_PRG.FlowRate",
+      "role": "process",
+      "plc_initial": 0.0,
+      "verification_values": [
+        12.5,
+        22.0,
+        18.25,
+        123.456
+      ],
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 5,
+          "variable": "Application.PLC_PRG.Mb_FlowRate_W0"
+        },
+        {
+          "parameter": "Input Registers",
+          "word_index": 6,
+          "variable": "Application.PLC_PRG.Mb_FlowRate_W1"
+        }
+      ],
+      "encoding": "IEEE 754 binary32 in 2 consecutive 16-bit registers",
+      "byte_order": "big-endian within each register (Modbus standard)",
+      "word_order": "low word first (lower address = least significant 16 bits)",
+      "register_order": "register[n]=low word, big-endian bytes in each register",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\pump_r002"
+      },
+      "identity": "PUMP-DEMO/PUMP-01/FlowRate",
+      "equipment": "PUMP-01",
+      "mapping_action": "NEW",
+      "measured_ordering": "CDAB"
+    },
+    {
+      "tag": "StartCommand",
+      "plc_var": "StartCommand",
+      "datatype": "BOOL",
+      "plc_type": "BOOL",
+      "direction": "WRITE",
+      "area": "COIL",
+      "address": 144,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "n/a",
+      "scale": 1.0,
+      "function_read": "FC1",
+      "function_write": "FC5/FC15",
+      "overlay": {
+        "register_area": "HOLDING_REGISTER",
+        "register": 9,
+        "plc_bit": 8
+      },
+      "plc_path": "Application.PLC_PRG.StartCommand",
+      "role": "command",
+      "plc_initial": false,
+      "codesys_channels": [
+        {
+          "parameter": "Holding Registers",
+          "word_index": 9,
+          "bit_index": 8,
+          "variable": "Application.PLC_PRG.Mb_StartCommand"
+        }
+      ],
+      "encoding": "single bit; overlays HOLDING_REGISTER 9 PLC bit 8",
+      "byte_order": "n/a",
+      "word_order": "n/a",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 4,
+        "paths": [
+          "WRITE"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\pump_r002"
+      },
+      "identity": "PUMP-DEMO/PUMP-01/StartCommand",
+      "equipment": "PUMP-01",
+      "mapping_action": "PRESERVED"
+    },
+    {
+      "tag": "StopCommand",
+      "plc_var": "StopCommand",
+      "datatype": "BOOL",
+      "plc_type": "BOOL",
+      "direction": "WRITE",
+      "area": "COIL",
+      "address": 145,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "n/a",
+      "scale": 1.0,
+      "function_read": "FC1",
+      "function_write": "FC5/FC15",
+      "overlay": {
+        "register_area": "HOLDING_REGISTER",
+        "register": 9,
+        "plc_bit": 9
+      },
+      "plc_path": "Application.PLC_PRG.StopCommand",
+      "role": "command",
+      "plc_initial": false,
+      "codesys_channels": [
+        {
+          "parameter": "Holding Registers",
+          "word_index": 9,
+          "bit_index": 9,
+          "variable": "Application.PLC_PRG.Mb_StopCommand"
+        }
+      ],
+      "encoding": "single bit; overlays HOLDING_REGISTER 9 PLC bit 9",
+      "byte_order": "n/a",
+      "word_order": "n/a",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 4,
+        "paths": [
+          "WRITE"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\pump_r002"
+      },
+      "identity": "PUMP-DEMO/PUMP-01/StopCommand",
+      "equipment": "PUMP-01",
+      "mapping_action": "PRESERVED"
+    },
+    {
+      "tag": "PumpFault",
+      "plc_var": "PumpFault",
+      "datatype": "BOOL",
+      "plc_type": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 144,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "n/a",
+      "scale": 1.0,
+      "function_read": "FC2",
+      "function_write": null,
+      "overlay": {
+        "register_area": "INPUT_REGISTER",
+        "register": 9,
+        "plc_bit": 8
+      },
+      "plc_path": "Application.PLC_PRG.PumpFault",
+      "role": "status",
+      "plc_initial": false,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 9,
+          "bit_index": 8,
+          "variable": "Application.PLC_PRG.Mb_PumpFault"
+        }
+      ],
+      "encoding": "single bit; overlays INPUT_REGISTER 9 PLC bit 8",
+      "byte_order": "n/a",
+      "word_order": "n/a",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\pump_r002"
+      },
+      "identity": "PUMP-DEMO/PUMP-01/PumpFault",
+      "equipment": "PUMP-01",
+      "mapping_action": "PRESERVED"
+    },
+    {
+      "tag": "PumpRunning",
+      "plc_var": "PumpRunning",
+      "datatype": "BOOL",
+      "plc_type": "BOOL",
+      "direction": "READ",
+      "area": "DISCRETE_INPUT",
+      "address": 145,
+      "length": 1,
+      "allocation": "pinned",
+      "signedness": "n/a",
+      "scale": 1.0,
+      "function_read": "FC2",
+      "function_write": null,
+      "overlay": {
+        "register_area": "INPUT_REGISTER",
+        "register": 9,
+        "plc_bit": 9
+      },
+      "plc_path": "Application.PLC_PRG.PumpRunning",
+      "role": "status",
+      "plc_initial": false,
+      "codesys_channels": [
+        {
+          "parameter": "Input Registers",
+          "word_index": 9,
+          "bit_index": 9,
+          "variable": "Application.PLC_PRG.Mb_PumpRunning"
+        }
+      ],
+      "encoding": "single bit; overlays INPUT_REGISTER 9 PLC bit 9",
+      "byte_order": "n/a",
+      "word_order": "n/a",
+      "verified": true,
+      "verification": {
+        "pass": true,
+        "cases": 9,
+        "paths": [
+          "READ"
+        ],
+        "method": "pymodbus + PLC online read-back",
+        "stage": "C:\\AI_BMS_PHASE0\\s7\\dev2\\deploy\\pump_r002"
+      },
+      "identity": "PUMP-DEMO/PUMP-01/PumpRunning",
+      "equipment": "PUMP-01",
+      "mapping_action": "PRESERVED"
+    }
+  ],
+  "unmapped": [],
+  "unsupported": [
+    {
+      "feature": "DistinctBitAreas=TRUE (separate coil / discrete-input areas)",
+      "reason": "ScriptEngine stores the parameter but does not generate the coil/discrete-input channels (measured in S3)"
+    },
+    {
+      "feature": "more than 10 registers per area",
+      "reason": "assembly-size parameters do not regenerate register channels via ScriptEngine; device.update() resets them (measured in S3)"
+    },
+    {
+      "feature": "PLC-originated value of a READ_WRITE holding register visible to FC3",
+      "reason": "UpdateableHolding output channels are not generated via ScriptEngine; FC3 returns the last client-written value (measured in S3)"
+    }
+  ],
+  "verified_rule": "verified=true only after real runtime + external pymodbus read/write with PLC-side online read-back",
+  "base_schema": "s3.modbus_mapping.v1",
+  "project_id": "PUMP-DEMO",
+  "revision": 2,
+  "parent_revision": 1,
+  "target_sha256": "97b63d2b588d7f5c2db4c06603be1e2ae2270f140df1020dc1001e82289ceeed",
+  "retired": []
+}

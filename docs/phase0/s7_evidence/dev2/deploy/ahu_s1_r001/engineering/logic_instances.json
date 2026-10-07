@@ -1,0 +1,24 @@
+{
+  "schema": "ai_bms.logic_instances.v1",
+  "project_id": "AHU-S1",
+  "revision": 1,
+  "instances": [
+    {
+      "equipment": "AHU-01",
+      "type": "AHU",
+      "template": "AHU_S1FIX_V1",
+      "sha256": "6547b81211be44a268836df88865dadeee118098e2d92d04d663eec461c0822b",
+      "bind": {
+        "FanCommand": "FanCommand",
+        "FanFault": "FanFault",
+        "FanRunning": "FanRunning",
+        "HeatingValve": "HeatingValve",
+        "Setpoint": "Setpoint",
+        "StartCommand": "StartCommand",
+        "StopCommand": "StopCommand",
+        "SupplyTemp": "SupplyTemp"
+      },
+      "behavior_test": null
+    }
+  ]
+}

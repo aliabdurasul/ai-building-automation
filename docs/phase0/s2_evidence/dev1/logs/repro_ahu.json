@@ -1,0 +1,17 @@
+{
+  "step": "revision_check_repro",
+  "checks": {
+    "r001": true
+  },
+  "revisions": [
+    {
+      "revision": 1,
+      "a_matches_store": true,
+      "b_matches_store": true,
+      "a_equals_b": true,
+      "files": 13
+    }
+  ],
+  "operation_status": "PASS",
+  "reason": "1 checks passed"
+}

@@ -1,0 +1,5 @@
+gateway=Gateway-1 target=127.0.0.1 simulation=False
+logged_in=True
+application_state=run
+online_values={'PLC_PRG.StartCommand': 'FALSE', 'PLC_PRG.Mb_Command': 'WORD#0', 'PLC_PRG.Mb_Status': 'WORD#0', 'PLC_PRG.FanRunning': 'FALSE'}
+OPERATION_STATUS=PASS

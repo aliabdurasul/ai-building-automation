@@ -1,0 +1,19 @@
+{
+  "tcp_502": true,
+  "error": null,
+  "HR0": 0,
+  "IR0": 0,
+  "IR_raw": [
+    0,
+    0,
+    16968,
+    0,
+    17096,
+    0,
+    16808,
+    0
+  ],
+  "SupplyTemp_CDAB": 21.0,
+  "FanSpeed_CDAB": 50.0,
+  "result": "PASS"
+}

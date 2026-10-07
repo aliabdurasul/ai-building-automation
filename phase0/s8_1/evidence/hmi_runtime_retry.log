@@ -1,0 +1,21 @@
+mode=hmiruntime time=2026-10-06T18:10:07.5535314+03:00
+IUIService registered: InSAT.Framework.TestBase.UIServiceForTests
+TimedTrace not found
+TypesManager.ConfigName=MasterPLC ConfigPath=C:\Program Files\MPSSoft\MasterSCADA 4D 1.2\bin\..\Configs\MasterPLC
+  static MasterSCADA.Controllers.Services.ConfigurationService.ControllerConfiguration.IncludeHMI = True
+  static MasterSCADA.Controllers.Services.ConfigurationService.ControllerConfiguration.EnableStartHMIClient = False
+  static MasterSCADA.Controllers.Adapters.DebugControllerInstance.EnableLocalFixedDefaultPort = False
+  static Controllers.ControllerTypes.WindowsControllerInstance.DefaultShowTerminalWindowMode = None
+EVT {"t":"2026-10-06T18:10:22.776+03:00","step":"codesys_before_runtime","HR0":2,"IR0":0}
+EVT {"t":"2026-10-06T18:10:22.807+03:00","step":"runtime_processes_before","pids":""}
+OpenProject OK: AHU_S81 root=MasterSCADA.HMI.RootItem
+EVT {"t":"2026-10-06T18:11:03.249+03:00","step":"start_driver_call","exe":"C:\\Program Files\\MPSSoft\\MasterSCADA 4D 1.2\\bin\\Config\\MasterPLC\\WIN64\\IWIN32.EXE","workdir":"C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc\\phase0_s81\\rt_copy_hmi2\\rt_work\\Debug_1","udp_port":31201,"start_args":" /ea:7","IncludeHMI":true}
+  (could not read configuration errors: Object reference not set to an instance of an object.)
+EVT {"t":"2026-10-06T18:11:29.739+03:00","step":"wait_config_loaded","loaded":true}
+EVT {"t":"2026-10-06T18:11:29.748+03:00","step":"own_runtime_process","name":"IWIN32","pid":30184}
+EVT {"t":"2026-10-06T18:11:29.798+03:00","step":"htdocs_found","index":"C:\\AI_BMS_POC\\master_scada_research\\hmi_api_poc\\phase0_s81\\rt_copy_hmi2\\rt_work\\Debug_1\\htdocs\\index.html","files":141}
+EVT {"t":"2026-10-06T18:11:58.485+03:00","step":"own_runtime_ports","pid":30184,"ports":"TCP 0.0.0.0:30757;TCP 0.0.0.0:31557;UDP 0.0.0.0:31201;UDP 0.0.0.0:31701;"}
+EVT {"t":"2026-10-06T18:11:58.488+03:00","step":"hold_end","stop_flag":true,"seconds":0}
+EVT {"t":"2026-10-06T18:11:58.610+03:00","step":"stop_controller","ok":true}
+EVT {"t":"2026-10-06T18:12:01.699+03:00","step":"codesys_after_runtime","HR0":2,"IR0":0}
+EVT {"t":"2026-10-06T18:12:07.550+03:00","step":"project_disposed_without_save","ok":true}

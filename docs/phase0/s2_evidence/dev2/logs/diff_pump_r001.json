@@ -1,0 +1,122 @@
+{
+  "step": "revision_check_diff",
+  "checks": {
+    "revision_metadata": true,
+    "independent_recomputation_matches": true,
+    "scenario_expectations": true,
+    "no_breaking_changes": true
+  },
+  "mismatches": [],
+  "summary": {
+    "ADDED": 7,
+    "EQUIPMENT_ADDED": 1
+  },
+  "changes": [
+    {
+      "identity": "PUMP-DEMO/PUMP-01",
+      "type": "EQUIPMENT_ADDED",
+      "breaking": false,
+      "mapping": null
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/Pressure",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 0,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpFault",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 144,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpRunning",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "DISCRETE_INPUT",
+          "address": 145,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpSpeed",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 2,
+          "length": 2
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/PumpState",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "INPUT_REGISTER",
+          "address": 4,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StartCommand",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "COIL",
+          "address": 144,
+          "length": 1
+        }
+      }
+    },
+    {
+      "identity": "PUMP-DEMO/PUMP-01/StopCommand",
+      "type": "ADDED",
+      "breaking": false,
+      "mapping": {
+        "action": "NEW",
+        "from": null,
+        "to": {
+          "area": "COIL",
+          "address": 145,
+          "length": 1
+        }
+      }
+    }
+  ],
+  "operation_status": "PASS",
+  "reason": "4 checks passed"
+}
